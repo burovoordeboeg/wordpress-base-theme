@@ -1,0 +1,25 @@
+// Grid + reset + defaults
+@import 'base/reset.scss';
+@import 'base/grid.scss';
+@import 'base/colors.scss';
+@import 'base/fonts.scss';
+
+// General components
+@import 'components/buttons.scss';
+@import 'components/forms.scss';
+@import 'components/modals.scss';
+@import 'components/content.scss';
+
+// Fixed layout components
+@import 'layout/header.scss';
+@import 'layout/navigation.scss';
+@import 'layout/footer.scss';
+
+// Content parts
+//@import 'parts/post-item.scss';
+// [...] < and other parts, create your own files and add to this file
+
+
+body.no-scroll {
+    overflow: hidden;
+}
