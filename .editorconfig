@@ -1,0 +1,26 @@
+# This file is for unifying the coding style for different editors and IDEs
+# editorconfig.org
+
+root = true
+
+[*.js]
+charset = utf-8
+indent_style = tab
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.twig]
+indent_style = tab
+indent_size = 4
+
+[*.php]
+indent_style = tab
+indent_size = 4
+
+[*.sass]
+charset = utf-8
+indent_style = tab
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true

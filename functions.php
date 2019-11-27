@@ -27,8 +27,8 @@
 	$theme->assets->register('style', 'global', get_stylesheet_directory_uri() . '/dist/css/styles.css', array(), false);
 
 	// Create project post type
-	$theme->cpt->posttype->register('project', 'Projecten', 'Project', 'projecten', array('title', 'editor', 'menu_order'), 24, 'dashicons-admin-home');
-	$theme->cpt->taxonomy->register( 'Status', 'project', 'Projectstatus', 'status', 'projectstatus' );
+	// $theme->cpt->posttype->register('project', 'Projecten', 'Project', 'projecten', array('title', 'editor', 'menu_order'), 24, 'dashicons-admin-home');
+	// $theme->cpt->taxonomy->register( 'Status', 'project', 'Projectstatus', 'status', 'projectstatus' );
 
 	// Enqueue all assets (keep at end of file)
 	$theme->assets->load();

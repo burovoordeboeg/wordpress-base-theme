@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "msjsdiag.debugger-for-chrome",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "neilbrayfield.php-docblocker",
+        "felixfbecker.php-intellisense",
+        "glen-84.sass-lint",
+        "mblode.twig-language-2"
+    ]
+}

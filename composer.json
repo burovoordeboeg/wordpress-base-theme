@@ -3,6 +3,6 @@
     "description": "",
     "require": {
         "twig/twig": "^2.0",
-        "visualmasters/wordpress-theme-class": "^0.0.6"
+        "visualmasters/wordpress-theme-class": "dev-master"
     }
 }

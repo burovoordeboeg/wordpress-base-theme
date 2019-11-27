@@ -1,7 +1,7 @@
 {
-    "name": "PROJECTNAAM",
-    "version": "1.3.0",
-    "description": "Een WordPress thema voor PROJECTNAAM",
+    "name": "project-name",
+    "version": "0.0.1",
+    "description": "project description",
     "main": "gulpfile.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,10 +21,13 @@
     },
     "homepage": "GITHUBURL#readme",
     "devDependencies": {
+        "@babel/core": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
         "autoprefixer": "^9.6.0",
         "browser-sync": "^2.26.3",
         "del": "^3.0.0",
         "fs": "0.0.1-security",
+        "gulp-babel": "^8.0.0",
         "gulp-cache": "^1.1.1",
         "gulp-clean-css": "^4.0.0",
         "gulp-concat": "^2.6.1",
@@ -41,8 +44,8 @@
         "run-sequence": "^2.2.1"
     },
     "dependencies": {
-        "ftp-deploy": "^2.3.3",
-        "slack-notify": "^0.1.7",
-        "gulp": "^4.0.2"
+        "gulp": "^4.0.2",
+        "gulp-sass-lint": "^1.4.0",
+        "gulp-sourcemaps": "^2.6.5"
     }
 }
