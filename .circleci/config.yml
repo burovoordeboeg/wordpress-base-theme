@@ -38,12 +38,12 @@ references:
           - node-v4-
   
   npm_save_cache: &npm_save_cache
-  run:
-    name: Save Node Modules Cache
-    save_cache:
-      key: node-v4-{{ checksum "package.json" }}
-      paths:
-        - node_modules
+    run:
+      name: Save Node Modules Cache
+      save_cache:
+        key: node-v4-{{ checksum "package.json" }}
+        paths:
+          - node_modules
 
   npm_install: &npm_install
     run:
