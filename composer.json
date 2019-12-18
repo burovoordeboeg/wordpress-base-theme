@@ -1,8 +1,7 @@
 {
-    "name": "visualmasters/wordpress-base-theme",
+    "name": "burovoordeboeg/wp-base-theme",
     "description": "",
     "require": {
-        "twig/twig": "^2.0",
-        "visualmasters/wordpress-theme-class": "dev-master"
+        "burovoordeboeg/wp-theme-class": "dev-master"
     }
 }
