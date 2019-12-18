@@ -3,21 +3,20 @@
 # Author: Justin Streuper
 # Version: 1.0.1
 # ====================================
-#  CirclCi Config which is used for linting, testing and deploying the application
-#  1. In CircleCi you'll need to follow the project and start building it (when not active)
+# CirclCi Config which is used for linting, testing and deploying the application
+# 1. In CircleCi you'll need to follow the project and start building it (when not active)
 #
-#  2. Next you'll need to add the SSH key for the server which the application will run on, you'll
-#     find this under the SSH Permission tab
+# 2. Next you'll need to add the SSH key for the server which the application will run on
 #
-#  3. Then you need to add the following variables:
-#    - STAGING_PATH = The full path for the staging env, starting after /domains/
-#    - PRODUCTION_PATH = The full path for the production env, starting after /domains/
-#    - USER = The username on the server
-#    - SERVER_IP = The IP address for the server (or user if allocated)
+# 3. Then you need to add the following variables:
+# - STAGING_PATH = The full path for the staging env, starting after /domains/
+# - PRODUCTION_PATH = The full path for the production env, starting after /domains/
+# - USER = The username on the server
+# - SERVER_IP = The IP address for the server (or user if allocated)
 #
-#  4. Always lint before push!
+# 4. Always lint before push!
 # ====================================
-
+#
 references:
   defaults: &defaults
     working_directory: ~/theme
@@ -54,12 +53,12 @@ references:
     run:
       name: Gulp build staging
       command: npx gulp build
-  
+
   gulp_build_production: &gulp_build_production
     run:
       name: Gulp build production
       command: npx gulp buildProd
-  
+
   composer_restore_cache: &composer_restore_cache
     run:
       name: Restore composer cache
@@ -69,7 +68,7 @@ references:
           - v1-dependencies-{{ checksum "composer.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-  
+
   composer_save_cache: &composer_save_cache
     run:
       name: Save composer cache
@@ -82,21 +81,21 @@ references:
     run:
       name: Compile vendors from composer packages
       command: composer install -n --ignore-platform-reqs --optimize-autoloader
-  
+
   append_sshkey: &append_sshkey
     add_ssh_keys:
       fingerprints:
         - "$SSH_FINGERPRINT"
-  
+
   add_serverkeys: &add_serverkeys
     run:
       name: Add server keys
       command: ssh-keyscan $SERVER_IP >> ~/.ssh/known_hosts
-  
+
   deploy_staging: &deploy_staging
     run:
       name: Rsync deploy to staging
-      command:  rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . root@$SERVER_IP:/home/$USER/domains/$STAGING_PATH
+      command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . root@$SERVER_IP:/home/$USER/domains/$STAGING_PATH
 
   deploy_production: &deploy_production
     run:
@@ -110,7 +109,9 @@ jobs:
     steps:
       - checkout
       - << : *npm_permissions
+      - << : *npm_restore_cache
       - << : *npm_install
+      - << : *npm_save_cache
       - run: npx gulp jsLint
 
   sasslint:
@@ -118,7 +119,9 @@ jobs:
     steps:
       - checkout
       - << : *npm_permissions
+      - << : *npm_restore_cache
       - << : *npm_install
+      - << : *npm_save_cache
       - run: npx gulp sassLint
 
   staging:
@@ -176,7 +179,7 @@ workflows:
               only:
                 # v1.0.0-1 / v1.0.0-pre1 / v1.0.0
                 - /^v\d+\.\d+\.\d+(\-.+)?$/
-      
+
       - approve_deploy:
           type: approval
           requires:
@@ -188,7 +191,7 @@ workflows:
               only:
                 # v1.0.0
                 - /^v\d+\.\d+\.\d+$/
-      
+
       - production: 
           requires: 
             - staging
