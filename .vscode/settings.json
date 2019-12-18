@@ -4,10 +4,31 @@
         100,
         160
     ],
+    "editor.insertSpaces": false,
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+    },
+    "[twig]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+    },
     "[javascript]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+    },
+    "[scss]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
         "editor.formatOnSave": true,
     },
     "[php]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
         "editor.formatOnSave": true,
     }
 }

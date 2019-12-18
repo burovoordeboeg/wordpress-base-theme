@@ -1,0 +1,17 @@
+{#
+    ====================================================================
+    Name:           archive-woocommerce.twig
+    Type:           WooCommerce archive
+    Since:          0.0.1
+    Description:    The wooCommerce archive shows filters and products
+    Available vars: page, site
+    ====================================================================
+#}
+
+{% block content %}	
+    
+<nav class="pagination">
+    {{ site.getPagination()|raw }}
+</nav>
+
+{% endblock %}

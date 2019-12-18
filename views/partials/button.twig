@@ -1,0 +1,33 @@
+{# 
+    ====================================================================
+    Name:           button.twig
+    Type:           Partial
+    Since:          0.0.1
+    Description:    This partial is used to generate the heading and needs a type, title and size
+    Available vars: page, layout, site, link, type, color, color_text
+    ====================================================================
+#}
+
+{% block button %}
+
+	{# Set button classes as variables to prevent advanced logic inside template itself #}
+	{% set btn_type = ( (type is defined) and (type != 'button') ) ? 'btn btn--' ~ type : 'btn' %}
+
+	{# Set the button color #}
+	{% if (color is not empty) and ( type != 'inline' ) %}
+		{% set btn_color = 'btn--' ~ color %}
+	{% endif %}
+
+	{# Set the inline-button color #}
+	{% if (color_text is not empty) and ( type == 'inline' ) %}
+		{% set btn_color = 'btn--inline--' ~ color_text %}
+	{% endif %}
+
+	{# Set the buttont target (_blank or null) #}
+	{% set btn_target = ( link.target is not empty ) ? 'target="' ~ link.target ~ '"' : null %}
+
+	<a href="{{ link.url }}" class="{{ btn_type }} {{ ( btn_color is not empty ) ? btn_color : '' }}" {{ btn_target }}>
+		{{ link.title }}
+	</a>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{# 
+    ====================================================================
+    Name:           heading.twig
+    Type:           Partial
+    Since:          0.0.1
+    Description:    This partial is used to generate the heading and needs a type, title and size
+    Available vars: page, layout, site, type, size, text
+    ====================================================================
+#}
+
+{% block heading %}
+
+	<{{(type)?type:'h1'}} class="title heading--{{ size }}">
+		{{ text }}
+	</{{(type)?type:'h1'}}>
+
+{% endblock %}

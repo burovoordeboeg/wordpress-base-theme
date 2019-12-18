@@ -13,30 +13,20 @@
 	// --
 	// Command:
 	// docker logs -f --since=$date $containerid >/dev/null
-	error_reporting(E_ALL);
-	ini_set('display_errors', 'on');
 
+	// Error reporting
+	// error_reporting(E_ALL);
+	// ini_set('display_errors', 'on');
 
-	// Create theme instance and call the theme class to initialize globally.
-	include_once get_stylesheet_directory() . '/vendor/autoload.php';
-	$theme = \VisualMasters\Theme::getInstance();
+	// Remove Gutenberg support globally
+	add_filter('use_block_editor_for_post', '__return_false', 10);
 
-	// Enqueue scripts and styles
-	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), false);
-	$theme->assets->register('script', 'scripts', get_stylesheet_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
-	$theme->assets->register('style', 'global', get_stylesheet_directory_uri() . '/dist/css/styles.css', array(), false);
-
-	// Create project post type
-	// $theme->cpt->posttype->register('project', 'Projecten', 'Project', 'projecten', array('title', 'editor', 'menu_order'), 24, 'dashicons-admin-home');
-	// $theme->cpt->taxonomy->register( 'Status', 'project', 'Projectstatus', 'status', 'projectstatus' );
-
-	// Enqueue all assets (keep at end of file)
-	$theme->assets->load();
-
-
-	// Theme functions
-	include_once 'functions/data.php';
-
-
+	// Initialize theme
+	include_once 'functions/init.php';
 	
-?>
+	// Add theme specific methods
+	include_once 'functions/cpt.php';
+	include_once 'functions/general.php';
+	include_once 'functions/navigation.php';
+	include_once 'functions/options.php';
+

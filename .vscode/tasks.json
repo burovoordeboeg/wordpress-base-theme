@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "docker-compose",
-            "command": "docker-compose up -d",
+            "command": "docker stop $(docker ps -qa) && docker-compose up -d",
             "args": [],
             "type": "shell"
         },
