@@ -1,28 +1,9 @@
-# ====================================
-# Config: Buro voor de Boeg
-# Author: Justin Streuper
-# Version: 1.0.1
-# ====================================
-# CirclCi Config which is used for linting, testing and deploying the application
-# 1. In CircleCi you'll need to follow the project and start building it (when not active)
-#
-# 2. Next you'll need to add the SSH key for the server which the application will run on
-#
-# 3. Then you need to add the following variables:
-# - STAGING_PATH = The full path for the staging env, starting after /domains/
-# - PRODUCTION_PATH = The full path for the production env, starting after /domains/
-# - USER = The username on the server
-# - SERVER_IP = The IP address for the server (or user if allocated)
-#
-# 4. Always lint before push!
-# ====================================
-#
 references:
   defaults: &defaults
     working_directory: ~/theme
     docker:
       - image: circleci/php:7.3-stretch-node-browsers
-    
+
   npm_permissions: &npm_permissions
     run:
       name: Set user permissions
@@ -35,7 +16,7 @@ references:
         keys:
           - node-v4-{{ checksum "package.json" }}
           - node-v4-
-  
+
   npm_save_cache: &npm_save_cache
     run:
       name: Save Node Modules Cache
@@ -48,7 +29,7 @@ references:
     run:
       name: Install NPM packages
       command: npm install --silent
-  
+
   gulp_build_staging: &gulp_build_staging
     run:
       name: Gulp build staging
@@ -64,9 +45,7 @@ references:
       name: Restore composer cache
       restore_cache:
         keys:
-          # "composer.json" can be used if "composer.json" is not committed to the repository.
           - v1-dependencies-{{ checksum "composer.lock" }}
-          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
   composer_save_cache: &composer_save_cache
@@ -102,7 +81,7 @@ references:
       name: Rsync deploy to production
       command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . root@$SERVER_IP:/home/$USER/domains/$PRODUCTION_PATH
 
-version: 2.1
+version: 2.0
 jobs:
   jslint:
     <<: *defaults
