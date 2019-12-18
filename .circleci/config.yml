@@ -12,18 +12,18 @@ references:
   npm_restore_cache: &npm_restore_cache
     run:
       name: Restore Node Modules Cache
-      restore_cache:
-        keys:
-          - node-v4-{{ checksum "package.json" }}
-          - node-v4-
+    restore_cache:
+      keys:
+        - node-v4-{{ checksum "package.json" }}
+        - node-v4-
 
   npm_save_cache: &npm_save_cache
     run:
       name: Save Node Modules Cache
-      save_cache:
-        key: node-v4-{{ checksum "package.json" }}
-        paths:
-          - node_modules
+    save_cache:
+      key: node-v4-{{ checksum "package.json" }}
+      paths:
+        - node_modules
 
   npm_install: &npm_install
     run:
