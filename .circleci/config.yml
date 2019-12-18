@@ -10,16 +10,12 @@ references:
       command: sudo chown -R $(whoami):$(whoami) ~/theme
 
   npm_restore_cache: &npm_restore_cache
-    run:
-      name: Restore Node Modules Cache
     restore_cache:
       keys:
         - node-v4-{{ checksum "package.json" }}
         - node-v4-
 
   npm_save_cache: &npm_save_cache
-    run:
-      name: Save Node Modules Cache
     save_cache:
       key: node-v4-{{ checksum "package.json" }}
       paths:
@@ -41,20 +37,16 @@ references:
       command: npx gulp buildProd
 
   composer_restore_cache: &composer_restore_cache
-    run:
-      name: Restore composer cache
-      restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "composer.lock" }}
-          - v1-dependencies-
+    restore_cache:
+      keys:
+        - v1-dependencies-{{ checksum "composer.lock" }}
+        - v1-dependencies-
 
   composer_save_cache: &composer_save_cache
-    run:
-      name: Save composer cache
-      save_cache:
-        key: composer-v1-{{ checksum "composer.lock" }}
-        paths:
-          - vendor
+    save_cache:
+      key: composer-v1-{{ checksum "composer.lock" }}
+      paths:
+        - vendor
 
   composer_install: &composer_install
     run:
