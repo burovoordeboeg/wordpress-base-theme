@@ -1,5 +1,4 @@
 $fontsize: 18px;
-$fontsize-title: 22px;
 $font: sans-serif;
 
 html {
@@ -16,37 +15,4 @@ textarea {
 
 body {
   line-height: 160%;
-}
-
-h2 {
-  text-transform: uppercase;
-}
-
-.heading {
-  &--small {
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-
-  &--medium {
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  &--large {
-    color: $light-blue;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-  }
-
-  &--huge {
-    font-size: 2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-}
-
-.content {
-  font-size: 1rem;
 }
