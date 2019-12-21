@@ -6,7 +6,7 @@
 
     // Create theme instance and call the theme class to initialize globally.
 	include_once get_template_directory() . '/vendor/autoload.php';
-	use VisualMasters\Theme as Theme;
+	use BvdB\Theme as Theme;
 
 	// Use theme
 	$theme = Theme::getInstance();
