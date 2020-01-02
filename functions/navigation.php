@@ -13,7 +13,7 @@
     function getMenu( $location, $prefix ) {
         // Create theme instance and call the theme class to initialize globally.
         include_once get_template_directory() . '/vendor/autoload.php';
-        $theme = VisualMasters\Theme::getInstance();
+        $theme = BvdB\Theme::getInstance();
         $theme->objects->navigation->get($location, $prefix, 2);
     }
 
