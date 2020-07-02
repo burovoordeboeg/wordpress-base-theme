@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/burovoordeboeg/wp-theme-class.git",
-                "reference": "b5a5b55f1352e7972641c3f422c664f5f4070ddf"
+                "reference": "9228f71102cd52173ebd18e611685cf1b5e3d5dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/b5a5b55f1352e7972641c3f422c664f5f4070ddf",
-                "reference": "b5a5b55f1352e7972641c3f422c664f5f4070ddf",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/9228f71102cd52173ebd18e611685cf1b5e3d5dd",
+                "reference": "9228f71102cd52173ebd18e611685cf1b5e3d5dd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0",
+                "php": ">=7.1.0",
                 "twig/twig": "^2.0"
             },
             "type": "library",
@@ -48,7 +48,7 @@
                 "theme setup",
                 "wordpress"
             ],
-            "time": "2019-12-18T13:32:50+00:00"
+            "time": "2020-01-03T15:38:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -169,16 +169,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.12.2",
+            "version": "v2.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "d761fd1f1c6b867ae09a7d8119a6d95d06dc44ed"
+                "reference": "97b6311585cae66a26833b14b33785f5797f7d39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d761fd1f1c6b867ae09a7d8119a6d95d06dc44ed",
-                "reference": "d761fd1f1c6b867ae09a7d8119a6d95d06dc44ed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/97b6311585cae66a26833b14b33785f5797f7d39",
+                "reference": "97b6311585cae66a26833b14b33785f5797f7d39",
                 "shasum": ""
             },
             "require": {
@@ -188,8 +188,7 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/debug": "^3.4|^4.2",
-                "symfony/phpunit-bridge": "^4.4@dev|^5.0"
+                "symfony/phpunit-bridge": "^4.4|^5.0"
             },
             "type": "library",
             "extra": {
@@ -218,7 +217,6 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://twig.symfony.com/contributors",
                     "role": "Contributors"
                 },
                 {
@@ -232,7 +230,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-11-11T16:52:09+00:00"
+            "time": "2019-12-28T07:12:03+00:00"
         }
     ],
     "packages-dev": [],

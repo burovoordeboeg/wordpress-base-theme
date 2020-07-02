@@ -15,8 +15,8 @@
 	// docker logs -f --since=$date $containerid >/dev/null
 
 	// Error reporting
-	// error_reporting(E_ALL);
-	// ini_set('display_errors', 'on');
+	error_reporting(E_ALL);
+	ini_set('display_errors', 'on');
 
 	// Remove Gutenberg support globally
 	add_filter('use_block_editor_for_post', '__return_false', 10);

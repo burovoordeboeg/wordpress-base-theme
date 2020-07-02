@@ -17,7 +17,6 @@ const cleanCSS = require('gulp-clean-css');
 const cache = require('gulp-cache');
 const concat = require('gulp-concat');
 const del = require('del');
-const eslint = require('gulp-eslint');
 const fs = require('fs');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
@@ -25,7 +24,6 @@ const loadTextFile = require('load-text-file');
 const pkg = require('./package');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
-const sassLinter = require('gulp-sass-lint');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 
@@ -38,7 +36,7 @@ const directories = {
 };
 
 const vendors = [
-
+	directories.node + '/datatables/media/js/jquery.dataTables.min.js'
 ];
 
 
@@ -69,13 +67,6 @@ function browserSync(done) {
 // ======================================================================
 // SASS
 
-function sassLint() {
-	return gulp.src(directories.src + '/**/*.scss')
-		.pipe(sassLinter({ configFile: '.sasslintrc' }))
-		.pipe(sassLinter.format())
-		.pipe(sassLinter.failOnError())
-}
-
 // Function to compile the base sass for development
 function sassThemeDevelopment() {
 	const plugins = [
@@ -89,7 +80,8 @@ function sassThemeDevelopment() {
 				directories.src + '/base',
 				directories.src + '/components',
 				directories.src + '/layout',
-				directories.src + '/rows'
+				directories.src + '/rows',
+				directories.src + '/templates'
 			]
 		}))
 		.pipe(postcss(plugins))
@@ -122,19 +114,6 @@ function sassThemeProduction() {
 
 // ======================================================================
 // Scripts
-
-function jsLint() {
-	return gulp.src([
-		'**/*.js',
-		'!node_modules/**',
-		'!dist/**',
-		'!**/plugins/**',
-		'!vendor/**'
-	])
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError());
-}
 
 // Compile the theme javascript files and vendors for development
 function jsThemeDevelopment(done) {
@@ -234,10 +213,12 @@ function cleanupDist() {
 
 // Error function to throw the console error
 function throwError(functionName, filename, errorMesssage) {
-	console.error('----------------------------------------'); // eslint-disable-line no-console
-	console.error('There was an error compiling ' + functionName + ' in ' + filename); // eslint-disable-line no-console
-	console.error(errorMesssage); // eslint-disable-line no-console
-	console.error('----------------------------------------'); // eslint-disable-line no-console
+	/* eslint-disable */
+	console.error('----------------------------------------');
+	console.error('There was an error compiling ' + functionName + ' in ' + filename);
+	console.error(errorMesssage);
+	console.error('----------------------------------------');
+	/* eslint-enable */
 }
 
 // Build function for the style.css and update.json for setting
@@ -295,17 +276,12 @@ exports.default = gulp.series([
 	cleanupDist,
 	clearCache,
 	sassThemeDevelopment,
-	jsLint,
 	jsThemeDevelopment,
 	moveFonts,
 	minifyImages,
 	browserSync,
 	watchFiles
 ]);
-
-// Export linters
-exports.sassLint = gulp.task(sassLint);
-exports.jsLint = gulp.task(jsLint);
 
 // Export theme compilation
 exports.sassTheme = gulp.task(sassThemeDevelopment);
@@ -326,7 +302,6 @@ exports.build = gulp.series([
 	cleanupDist,
 	clearCache,
 	sassThemeDevelopment,
-	jsLint,
 	jsThemeDevelopment,
 	moveFonts,
 	minifyImages,
@@ -338,7 +313,6 @@ exports.buildProd = gulp.series([
 	cleanupDist,
 	clearCache,
 	sassThemeProduction,
-	jsLint,
 	jsThemeProduction,
 	moveFonts,
 	minifyImages,
