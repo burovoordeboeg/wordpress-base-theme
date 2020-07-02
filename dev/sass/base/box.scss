@@ -1,0 +1,24 @@
+.container { 
+  margin: 0 auto;
+  position: relative;
+  width: $width-desktop;
+
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  
+  @media #{$desktopwide} { 
+    width: $width-desktopwide; 
+  }
+
+  @media #{$tablet} {
+    width: $width-tablet; 
+  }
+  
+  @media #{$mobile} { 
+    padding: 0 20px;
+    width: $width-mobile;
+  }
+}
