@@ -1,19 +1,25 @@
 // Grid + reset + defaults
+@import 'base/config';
+@import 'base/media';
 @import 'base/reset';
-@import 'base/grid';
-@import 'base/colors';
 @import 'base/fonts';
+@import 'base/box';
 
 // General components
 @import 'components/buttons';
+@import 'components/content';
 @import 'components/forms';
 @import 'components/modals';
-@import 'components/content';
 
 // Fixed layout components
+@import 'layout/block';
+@import 'layout/footer';
 @import 'layout/header';
 @import 'layout/navigation';
-@import 'layout/footer';
+
+// Template specific
+@import 'templates/archive';
+@import 'templates/page';
 
 body.no-scroll {
   overflow: hidden;
