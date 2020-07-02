@@ -1,7 +1,19 @@
 {
     "name": "burovoordeboeg/wp-base-theme",
-    "description": "",
+    "description": "Empty WordPress base theme with Gutenberg support built in",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "jstreuper",
+            "email": "justin@burovoordeboeg.nl"
+        }
+    ],
     "require": {
         "burovoordeboeg/wp-theme-class": "dev-master"
-    }
+    },
+    "repositories": [
+        {"type": "composer", "url": "https://repo.packagist.com/burovoordeboeg/"},
+        {"packagist.org": false}
+    ]
 }

@@ -4,10 +4,10 @@
  * Builds the theme
  *
  * @author     Justin Streuper
- * @copyright  2019 VisualMasters
+ * @copyright  2020 Buro voor de Boeg
  * @license    GPL License
- * @version    1.2.0
- * @link       https://www.visualmasters.nl
+ * @version    2.0.0
+ * @link       https://www.burovoordeboeg.nl
  * @since      File available since Release 0.1.0
  */
 
@@ -21,6 +21,7 @@ const fs = require('fs');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const loadTextFile = require('load-text-file');
+const path = require('path');
 const pkg = require('./package');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
@@ -32,13 +33,24 @@ const uglify = require('gulp-uglify');
 const directories = {
 	'node': './node_modules',
 	'src': './dev',
-	'dest': './dist'
+	'dest': './dist',
+	'blocks': './views/blocks/'
 };
 
 const vendors = [
-	directories.node + '/datatables/media/js/jquery.dataTables.min.js'
+
 ];
 
+
+// ======================================================================
+// Directory mapping
+
+function getDirectories(dir) {
+	return fs.readdirSync(dir)
+		.filter(function (file) {
+			return fs.statSync(path.join(dir, file)).isDirectory();
+		});
+}
 
 // ======================================================================
 // BrowserSync
@@ -80,7 +92,6 @@ function sassThemeDevelopment() {
 				directories.src + '/base',
 				directories.src + '/components',
 				directories.src + '/layout',
-				directories.src + '/rows',
 				directories.src + '/templates'
 			]
 		}))
@@ -103,13 +114,79 @@ function sassThemeProduction() {
 				directories.src + '/base',
 				directories.src + '/components',
 				directories.src + '/layout',
-				directories.src + '/rows'
+				directories.src + '/templates'
 			]
 		}))
 		.pipe(postcss(plugins))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest(directories.dest + '/css'))
 		.pipe(browsersync.stream());
+}
+
+// Function to compile block styles
+function sassBlocksDevelopment(done) {
+	var plugins = [
+		autoprefixer()
+	];
+
+	// Get the blocks inside the block directory in a loop
+	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
+		if (blocktype.length) {
+			var blockpath = directories.blocks + '/' + blocktype;
+
+			// Delete the dist folder if available
+			if (fs.existsSync(blockpath + '/dist/css')) {
+				del(blockpath + '/dist/css/*');
+			}
+
+			// Check if dev folder exists
+			if (fs.existsSync(blockpath + '/dev/sass')) {
+				gulp.src(blockpath + '/dev/sass/**.scss')
+					.pipe(sourcemaps.init())
+					.pipe(sass())
+					.pipe(postcss(plugins))
+					.pipe(cleanCSS())
+					.pipe(sourcemaps.write('./'))
+					.pipe(gulp.dest(blockpath + '/dist/css'))
+					.pipe(browsersync.stream());
+			}
+		}
+	})
+
+	blockDirs;
+	done();
+}
+
+// Function to compile block styles
+function sassBlocksProduction(done) {
+	var plugins = [
+		autoprefixer()
+	];
+
+	// Get the blocks inside the block directory in a loop
+	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
+		if (blocktype.length) {
+			var blockpath = directories.blocks + '/' + blocktype;
+
+			// Delete the dist folder if available
+			if (fs.existsSync(blockpath + '/dist/css')) {
+				del(blockpath + '/dist/css/*');
+			}
+
+			// Check if dev folder exists
+			if (fs.existsSync(blockpath + '/dev/sass')) {
+				gulp.src(blockpath + '/dev/sass/**.scss')
+					.pipe(sass())
+					.pipe(postcss(plugins))
+					.pipe(cleanCSS())
+					.pipe(gulp.dest(blockpath + '/dist/css'))
+					.pipe(browsersync.stream());
+			}
+		}
+	})
+
+	blockDirs;
+	done();
 }
 
 // ======================================================================
@@ -186,6 +263,64 @@ function jsThemeProduction(done) {
 			.pipe(gulp.dest(directories.dest + '/js'));
 	}
 
+	done();
+}
+
+// Compile the block JS
+function jsBlocksDevelopment(done) {
+	// Get the blocks inside the block directory in a loop
+	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
+		if (blocktype.length) {
+			var blockpath = directories.blocks + '/' + blocktype;
+
+			// Delete the dist folder if available
+			if (fs.existsSync(blockpath + '/dist/js')) {
+				del(blockpath + '/dist/js/*');
+			}
+
+			// Check if dev folder exists
+			if (fs.existsSync(blockpath + '/dev/js')) {
+				gulp.src(blockpath + '/dev/js/**.js')
+					.pipe(sourcemaps.init())
+					.pipe(concat('scripts.js'))
+					.pipe(uglify().on('error', function (uglify) {
+						throwError('jsTheme', '', uglify.cause);
+					}))
+					.pipe(sourcemaps.write('./'))
+					.pipe(gulp.dest(blockpath + '/dist/js'));
+			}
+		}
+	});
+
+	blockDirs;
+	done();
+}
+
+// Compile the block JS for production
+function jsBlocksProduction(done) {
+	// Get the blocks inside the block directory in a loop
+	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
+		if (blocktype.length) {
+			var blockpath = directories.blocks + '/' + blocktype;
+
+			// Delete the dist folder if available
+			if (fs.existsSync(blockpath + '/dist/js')) {
+				del(blockpath + '/dist/js/*');
+			}
+
+			// Check if dev folder exists
+			if (fs.existsSync(blockpath + '/dev/js')) {
+				gulp.src(blockpath + '/dev/js/**.js')
+					.pipe(concat('scripts.js'))
+					.pipe(uglify().on('error', function (uglify) {
+						throwError('jsTheme', '', uglify.cause);
+					}))
+					.pipe(gulp.dest(blockpath + '/dist/js'));
+			}
+		}
+	});
+
+	blockDirs;
 	done();
 }
 
@@ -287,6 +422,10 @@ exports.default = gulp.series([
 exports.sassTheme = gulp.task(sassThemeDevelopment);
 exports.jsTheme = gulp.task(jsThemeDevelopment);
 
+// Export blocks compilation
+exports.sassBlocks = gulp.task(sassBlocksDevelopment);
+exports.jsBlocks = gulp.task(jsBlocksDevelopment);
+
 // Export assets compilation
 exports.minifyImages = gulp.task(minifyImages);
 exports.moveFonts = gulp.task(moveFonts);
@@ -302,7 +441,9 @@ exports.build = gulp.series([
 	cleanupDist,
 	clearCache,
 	sassThemeDevelopment,
+	sassBlocksDevelopment,
 	jsThemeDevelopment,
+	jsBlocksDevelopment,
 	moveFonts,
 	minifyImages,
 	buildTheme
@@ -313,7 +454,9 @@ exports.buildProd = gulp.series([
 	cleanupDist,
 	clearCache,
 	sassThemeProduction,
+	sassBlocksProduction,
 	jsThemeProduction,
+	jsBlocksProduction,
 	moveFonts,
 	minifyImages,
 	buildTheme
