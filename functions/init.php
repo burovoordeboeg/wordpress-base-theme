@@ -24,6 +24,7 @@
 	$theme->support->add('align-wide');
 	$theme->support->add('align-full');
 
+
 	// Register image size
 	$theme->support->imageSize('bigthumb', 500, 500, true);
 
@@ -69,7 +70,7 @@
 		'icon' => 'admin-comments',
 		'keywords' => array( 'image', 'text' ),
 		'post_types' => array( 'post', 'page' ),
-		'mode' => 'auto',
+		'mode' => 'preview',
 		'align' => array( 'wide', 'full', 'center' ),
 		'multiple' => false,
 	), array(
@@ -86,7 +87,7 @@
 	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), false);
 	$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), true);
 	$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
-	// $theme->assets->register('style', 'fonts', '', array(), false);
+	$theme->assets->register('style', 'fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap', array(), false );
 	$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
 
 	// Enqueue all assets (keep at end of file)

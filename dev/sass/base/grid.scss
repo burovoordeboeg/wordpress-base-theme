@@ -17,39 +17,29 @@ $highdpi: 'screen and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pi
   box-sizing: border-box;
 }
 
+.aligncenter {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.alignwide {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.alignfull {
+  width: 100%;
+}
+
 .container { 
   margin: 0 auto;
   position: relative;
-  width: 980px;
+  width: 100%;
 
   &::after {
     clear: both;
     content: '';
     display: table;
-  }
-  
-  @media #{$desktopwide} { width: 1004px; }
-  @media #{$tablet} { width: 728px; }
-  @media #{$mobile} { 
-    padding: 0 20px;
-    width: 100%;
-  }
-
-  &--centered {
-    text-align: center;
-  }
-
-  &--slim {
-    width: 100% !important;
-  }
-
-  .boxed {
-    margin: 0 auto;
-    width: 77%;
-
-    @media #{$mobile} {
-      width: 100%;
-    }
   }
 }
 
@@ -57,86 +47,6 @@ $highdpi: 'screen and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pi
 
 .hide {
   display: none;
-}
-
-
-
-// Set the columns
-.column__2-3 { width: 65.55554%; }
-
-.column__3-4 { width: 74.1%; }
-.column__2-4 { width: 48.3334%; }
-
-.column__1-5 { width: 16.666667%; }
-.column__2-5 { width: 38.222227%; }
-.column__3-5 { width: 56.666667%; }
-
-.column__1-6 { width: 13.33333334%; }
-.column__2-6 { width: 30%; }
-
-.column__1-4 {
-  width: 22.5%; 
-
-  &:nth-child(4n+1) {
-    clear: both;
-    margin-left: 0;
-  }
-}
-
-.column__1-3 {
-  width: 31.1111067%; 
-
-  &:nth-child(3n+1) {
-    clear: both;
-    margin-left: 0;
-  }
-}
-
-.column__1-2 { 
-  margin-left: 0;
-  width: 48.33334%;
-
-  &:nth-child(2n+1) {
-    clear: both;
-    margin-left: 0;
-  }
-
-  @media #{$mobile} {
-    margin-left: 0;
-    width: 100%;
-  }
-}
-
-.column__40 {
-  width: 40%;
-}
-
-.column__60 {
-  margin-left: 0 !important;
-  width: 60%;
-}
-
-[class*='column__'] { 
-  float: left;
-  margin-left: 3.33334%;
-  min-height: 1px;
-
-  &:first-child,
-  &.first-item {
-    margin-left: 0 !important;
-  }
-
-  @media #{$mobile} {  
-    margin: 0;
-    width: 100%;
-  }
-}
-
-
-@media #{$mobile} {
-  [class*='span'] {
-    margin-left: 0 !important;
-  }
 }
 
 .hide-desktop-wide {
@@ -191,3 +101,4 @@ img > .aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .alignright { float: right; }
 .alignleft { float: left; }
 .aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
