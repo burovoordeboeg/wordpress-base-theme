@@ -1,0 +1,20 @@
+@import '../../../../../dev/sass/base/config';
+
+.block--content-image {
+  display: flex;
+
+  .content {
+    flex: 1;
+  }
+
+  .image {
+    flex: 1;
+
+    img {
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+
