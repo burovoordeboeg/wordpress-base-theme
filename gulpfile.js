@@ -6,7 +6,7 @@
  * @author     Justin Streuper
  * @copyright  2020 Buro voor de Boeg
  * @license    GPL License
- * @version    2.0.0
+ * @version    2.1.0
  * @link       https://www.burovoordeboeg.nl
  * @since      File available since Release 0.1.0
  */
@@ -17,6 +17,7 @@ const cleanCSS = require('gulp-clean-css');
 const cache = require('gulp-cache');
 const concat = require('gulp-concat');
 const del = require('del');
+const eslint = require('gulp-eslint');
 const fs = require('fs');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
@@ -25,9 +26,12 @@ const path = require('path');
 const pkg = require('./package');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
+const sassLinter = require('gulp-sass-lint');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 
+// Set build parameter
+let buildParam = 'development';
 
 // Set the locations
 const directories = {
@@ -53,6 +57,23 @@ function getDirectories(dir) {
 }
 
 // ======================================================================
+// Get and set the sourcemap state
+
+function getSourcemapState() {
+	return buildParam;
+}
+
+function setSourcemapStateToDevelopment(done) {
+	buildParam = 'development';
+	done();
+}
+
+function setSourcemapStateToProduction(done) {
+	buildParam = 'production';
+	done();
+}
+
+// ======================================================================
 // BrowserSync
 
 function browserSync(done) {
@@ -61,7 +82,8 @@ function browserSync(done) {
 			'./**.php',
 			'./**/**.php',
 			'./**/**.twig',
-			'./dist/js/**.js'
+			'./dist/js/**.js',
+			'./views/blocks/**/dist/js/**.js'
 		],
 		watchEvents: ['change', 'add', 'unlink', 'addDir', 'unlinkDir'],
 		proxy: 'http://localhost:8000',
@@ -79,56 +101,70 @@ function browserSync(done) {
 // ======================================================================
 // SASS
 
+function sassLint() {
+	return gulp.src([
+		directories.src + '/**/*.scss',
+		directories.blocks + '/**/dev/sass/*.scss'
+	])
+		.pipe(sassLinter({ configFile: '.sasslintrc' }))
+		.pipe(sassLinter.format())
+		.pipe(sassLinter.failOnError())
+}
+
+function compileSass(fileSrc, fileDest, fileIncludes = []) {
+	const plugins = [
+		autoprefixer()
+	];
+
+	// Development
+	if (getSourcemapState() === 'development') {
+		return gulp.src(fileSrc)
+			.pipe(sourcemaps.init())
+			.pipe(sass({ includePaths: fileIncludes }))
+			.pipe(postcss(plugins))
+			.pipe(cleanCSS())
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest(fileDest))
+			.pipe(browsersync.stream());
+	}
+
+	// Production
+	else {
+		return gulp.src(fileSrc)
+			.pipe(sass({ includePaths: fileIncludes }))
+			.pipe(postcss(plugins))
+			.pipe(cleanCSS())
+			.pipe(gulp.dest(fileDest))
+			.pipe(browsersync.stream());
+	}
+}
+
 // Function to compile the base sass for development
-function sassThemeDevelopment() {
-	const plugins = [
-		autoprefixer()
-	];
+function compileThemeSass(done) {
+	// Compile the theme sass
+	compileSass(
+		directories.src + '/sass/styles.scss',
+		directories.dest + '/css',
+		[
+			directories.src + '/base',
+			directories.src + '/components',
+			directories.src + '/layout',
+			directories.src + '/templates'
+		]
+	);
 
-	return gulp.src(directories.src + '/sass/styles.scss')
-		.pipe(sourcemaps.init())
-		.pipe(sass({
-			includePaths: [
-				directories.src + '/base',
-				directories.src + '/components',
-				directories.src + '/layout',
-				directories.src + '/templates'
-			]
-		}))
-		.pipe(postcss(plugins))
-		.pipe(cleanCSS())
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(directories.dest + '/css'))
-		.pipe(browsersync.stream());
-}
+	// Compile the editor sass
+	compileSass(
+		directories.src + '/sass/editor-styles.scss',
+		directories.dest + '/css',
+		[]
+	);
 
-// Function to compile the base sass for production
-function sassThemeProduction() {
-	const plugins = [
-		autoprefixer()
-	];
-
-	return gulp.src(directories.src + '/sass/styles.scss')
-		.pipe(sass({
-			includePaths: [
-				directories.src + '/base',
-				directories.src + '/components',
-				directories.src + '/layout',
-				directories.src + '/templates'
-			]
-		}))
-		.pipe(postcss(plugins))
-		.pipe(cleanCSS())
-		.pipe(gulp.dest(directories.dest + '/css'))
-		.pipe(browsersync.stream());
+	done();
 }
 
 // Function to compile block styles
-function sassBlocksDevelopment(done) {
-	var plugins = [
-		autoprefixer()
-	];
-
+function compileBlockSass(done) {
 	// Get the blocks inside the block directory in a loop
 	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
 		if (blocktype.length) {
@@ -141,14 +177,11 @@ function sassBlocksDevelopment(done) {
 
 			// Check if dev folder exists
 			if (fs.existsSync(blockpath + '/dev/sass')) {
-				gulp.src(blockpath + '/dev/sass/**.scss')
-					.pipe(sourcemaps.init())
-					.pipe(sass())
-					.pipe(postcss(plugins))
-					.pipe(cleanCSS())
-					.pipe(sourcemaps.write('./'))
-					.pipe(gulp.dest(blockpath + '/dist/css'))
-					.pipe(browsersync.stream());
+				compileSass(
+					blockpath + '/dev/sass/**.scss',
+					blockpath + '/dist/css',
+					[]
+				);
 			}
 		}
 	})
@@ -157,117 +190,79 @@ function sassBlocksDevelopment(done) {
 	done();
 }
 
-// Function to compile block styles
-function sassBlocksProduction(done) {
-	var plugins = [
-		autoprefixer()
-	];
-
-	// Get the blocks inside the block directory in a loop
-	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
-		if (blocktype.length) {
-			var blockpath = directories.blocks + '/' + blocktype;
-
-			// Delete the dist folder if available
-			if (fs.existsSync(blockpath + '/dist/css')) {
-				del(blockpath + '/dist/css/*');
-			}
-
-			// Check if dev folder exists
-			if (fs.existsSync(blockpath + '/dev/sass')) {
-				gulp.src(blockpath + '/dev/sass/**.scss')
-					.pipe(sass())
-					.pipe(postcss(plugins))
-					.pipe(cleanCSS())
-					.pipe(gulp.dest(blockpath + '/dist/css'))
-					.pipe(browsersync.stream());
-			}
-		}
-	})
-
-	blockDirs;
-	done();
-}
 
 // ======================================================================
 // Scripts
 
-// Compile the theme javascript files and vendors for development
-function jsThemeDevelopment(done) {
-	// Compile theme JS
-	gulp.src([
-		directories.src + '/js/**/*.js',
-		'!' + directories.src + '/js/plugins/*.js'
+function jsLint() {
+	return gulp.src([
+		'**/*.js',
+		'!node_modules/**',
+		'!dist/**',
+		'!**/plugins/**',
+		'!vendor/**'
 	])
-		.pipe(sourcemaps.init())
-		.pipe(concat('scripts.js'))
-		.pipe(uglify().on('error', function (uglify) {
-			throwError('jsTheme', '', uglify.cause);
-		}))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(directories.dest + '/js'));
-
-	// Compile the plugins
-	gulp.src(directories.src + '/js/plugins/*.js')
-		.pipe(sourcemaps.init())
-		.pipe(concat('plugins.js'))
-		.pipe(uglify().on('error', function (uglify) {
-			throwError('jsTheme', '', uglify.cause);
-		}))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(directories.dest + '/js'));
-
-	// Compile the vendors
-	if (vendors.length > 0) {
-		gulp.src(vendors)
-			.pipe(sourcemaps.init())
-			.pipe(concat('vendor.js'))
-			.pipe(uglify().on('error', function (uglify) {
-				throwError('jsTheme', '', uglify.cause);
-			}))
-			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest(directories.dest + '/js'));
-	}
-
-	done();
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError());
 }
 
-// Compile the theme javascript files and vendors for production
-function jsThemeProduction(done) {
+function compileJs(fileSrc, fileDest, fileName) {
+	// Development
+	if (getSourcemapState() === 'development') {
+		gulp.src(fileSrc)
+			.pipe(sourcemaps.init())
+			.pipe(concat(fileName + '.js'))
+			.pipe(uglify().on('error', function (uglify) {
+				throwError('Theme JavaScript error: ', '', uglify.cause);
+			}))
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest(fileDest));
+	}
+
+	// Production
+	else {
+		gulp.src(fileSrc)
+			.pipe(concat(fileName + '.js'))
+			.pipe(uglify().on('error', function (uglify) {
+				throwError('Theme JavaScript error: ', '', uglify.cause);
+			}))
+			.pipe(gulp.dest(fileDest));
+	}
+}
+
+// Compile the theme javascript files and vendors
+function compileThemeJs(done) {
 	// Compile theme JS
-	gulp.src([
-		directories.src + '/js/**/*.js',
-		'!' + directories.src + '/js/plugins/*.js'
-	])
-		.pipe(concat('scripts.js'))
-		.pipe(uglify().on('error', function (uglify) {
-			throwError('jsTheme', '', uglify.cause);
-		}))
-		.pipe(gulp.dest(directories.dest + '/js'));
+	compileJs(
+		[
+			directories.src + '/js/**/*.js',
+			'!' + directories.src + '/js/plugins/*.js'
+		],
+		directories.dest + '/js',
+		'scripts'
+	);
 
 	// Compile the plugins
-	gulp.src(directories.src + '/js/plugins/*.js')
-		.pipe(concat('plugins.js'))
-		.pipe(uglify().on('error', function (uglify) {
-			throwError('jsTheme', '', uglify.cause);
-		}))
-		.pipe(gulp.dest(directories.dest + '/js'));
+	compileJs(
+		directories.src + '/js/plugins/*.js',
+		directories.dest + '/js',
+		'plugins'
+	);
 
 	// Compile the vendors
 	if (vendors.length > 0) {
-		gulp.src(vendors)
-			.pipe(concat('vendor.js'))
-			.pipe(uglify().on('error', function (uglify) {
-				throwError('jsTheme', '', uglify.cause);
-			}))
-			.pipe(gulp.dest(directories.dest + '/js'));
+		compileJs(
+			vendors,
+			directories.dest + '/js',
+			'vendor'
+		);
 	}
-
 	done();
 }
 
 // Compile the block JS
-function jsBlocksDevelopment(done) {
+function compileBlockJs(done) {
 	// Get the blocks inside the block directory in a loop
 	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
 		if (blocktype.length) {
@@ -280,42 +275,11 @@ function jsBlocksDevelopment(done) {
 
 			// Check if dev folder exists
 			if (fs.existsSync(blockpath + '/dev/js')) {
-				gulp.src(blockpath + '/dev/js/**.js')
-					.pipe(sourcemaps.init())
-					.pipe(concat('scripts.js'))
-					.pipe(uglify().on('error', function (uglify) {
-						throwError('jsTheme', '', uglify.cause);
-					}))
-					.pipe(sourcemaps.write('./'))
-					.pipe(gulp.dest(blockpath + '/dist/js'));
-			}
-		}
-	});
-
-	blockDirs;
-	done();
-}
-
-// Compile the block JS for production
-function jsBlocksProduction(done) {
-	// Get the blocks inside the block directory in a loop
-	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
-		if (blocktype.length) {
-			var blockpath = directories.blocks + '/' + blocktype;
-
-			// Delete the dist folder if available
-			if (fs.existsSync(blockpath + '/dist/js')) {
-				del(blockpath + '/dist/js/*');
-			}
-
-			// Check if dev folder exists
-			if (fs.existsSync(blockpath + '/dev/js')) {
-				gulp.src(blockpath + '/dev/js/**.js')
-					.pipe(concat('scripts.js'))
-					.pipe(uglify().on('error', function (uglify) {
-						throwError('jsTheme', '', uglify.cause);
-					}))
-					.pipe(gulp.dest(blockpath + '/dist/js'));
+				compileJs(
+					blockpath + '/dev/js/**.js',
+					blockpath + '/dist/js',
+					'scripts'
+				);
 			}
 		}
 	});
@@ -334,6 +298,35 @@ function minifyImages(done) {
 			interlaced: true
 		})))
 		.pipe(gulp.dest(directories.dest + '/img'));
+	done();
+}
+
+function minifyBlockImages(done) {
+	// Get the blocks inside the block directory in a loop
+	var blockDirs = getDirectories(directories.blocks).map(function (blocktype) {
+		if (blocktype.length) {
+			var blockpath = directories.blocks + '/' + blocktype;
+
+			// Delete the dist folder if available
+			if (fs.existsSync(blockpath + '/dist/img')) {
+				del(blockpath + '/dist/img/*');
+			}
+
+			// Check if dev folder exists
+			if (fs.existsSync(blockpath + '/dev/img')) {
+				gulp.src(blockpath + '/dev/img/**/*.+(png|jpg|jpeg|gif|svg)')
+					.pipe(cache(imagemin({
+						interlaced: true
+					})))
+					.pipe(gulp.dest(blockpath + '/dist/img'));
+			}
+		}
+	});
+
+	blockDirs;
+	done();
+
+
 	done();
 }
 
@@ -396,40 +389,35 @@ function clearCache(done) {
 
 // ======================================================================
 // Watcher
+
 function watchFiles(done) {
-	gulp.watch('dev/sass/**/*.scss', sassThemeDevelopment);
-	gulp.watch('dev/js/**/*.js', jsThemeDevelopment);
+	gulp.watch('dev/sass/**/*.scss', compileThemeSass);
+	gulp.watch('dev/js/**/*.js', compileThemeJs);
+	gulp.watch('views/blocks/**/dev/sass/*.scss', compileBlockSass);
+	gulp.watch('views/blocks/**/dev/js/*.js', compileBlockJs);
 	gulp.watch('dev/img/*', minifyImages);
 	done();
 }
 
 
-/* -------
-  Export the Gulp tasks
-------- */
-exports.default = gulp.series([
-	cleanupDist,
-	clearCache,
-	sassThemeDevelopment,
-	sassBlocksDevelopment,
-	jsThemeDevelopment,
-	jsBlocksDevelopment,
-	moveFonts,
-	minifyImages,
-	browserSync,
-	watchFiles
-]);
+// ======================================================================
+// Export the Gulp tasks
+
+// Export linters
+exports.sassLint = gulp.task(sassLint);
+exports.jsLint = gulp.task(jsLint);
 
 // Export theme compilation
-exports.sassTheme = gulp.task(sassThemeDevelopment);
-exports.jsTheme = gulp.task(jsThemeDevelopment);
+exports.compileThemeSass = gulp.task(compileThemeSass);
+exports.compileThemeJs = gulp.task(compileThemeJs);
 
 // Export blocks compilation
-exports.sassBlocks = gulp.task(sassBlocksDevelopment);
-exports.jsBlocks = gulp.task(jsBlocksDevelopment);
+exports.compileBlockSass = gulp.task(compileBlockSass);
+exports.compileBlockJs = gulp.task(compileBlockJs);
 
 // Export assets compilation
 exports.minifyImages = gulp.task(minifyImages);
+exports.minifyBlock = gulp.task(minifyBlockImages);
 exports.moveFonts = gulp.task(moveFonts);
 
 // Setup the watcher
@@ -438,28 +426,50 @@ exports.watchFiles = gulp.task(watchFiles);
 // Export buildtheme
 exports.buildTheme = gulp.task(buildTheme);
 
-// Use the buildTheme option for version setting in the style.css (first run npm version command)
-exports.build = gulp.series([
+// Export the default gulp action
+exports.default = gulp.series([
+	setSourcemapStateToDevelopment,
 	cleanupDist,
 	clearCache,
-	sassThemeDevelopment,
-	sassBlocksDevelopment,
-	jsThemeDevelopment,
-	jsBlocksDevelopment,
+	sassLint,
+	compileThemeSass,
+	compileBlockSass,
+	jsLint,
+	compileThemeJs,
+	compileBlockJs,
 	moveFonts,
 	minifyImages,
+	minifyBlockImages,
+	browserSync,
+	watchFiles
+]);
+
+// Use the buildTheme option for version setting in the style.css (first run npm version command)
+exports.build = gulp.series([
+	setSourcemapStateToDevelopment,
+	cleanupDist,
+	clearCache,
+	compileThemeSass,
+	compileBlockSass,
+	compileThemeJs,
+	compileBlockJs,
+	moveFonts,
+	minifyImages,
+	minifyBlockImages,
 	buildTheme
 ]);
 
 // Use the buildTheme option for version setting in the style.css (first run npm version command)
-exports.buildProd = gulp.series([
+exports.buildProduction = gulp.series([
+	setSourcemapStateToProduction,
 	cleanupDist,
 	clearCache,
-	sassThemeProduction,
-	sassBlocksProduction,
-	jsThemeProduction,
-	jsBlocksProduction,
+	compileThemeSass,
+	compileBlockSass,
+	compileThemeJs,
+	compileBlockJs,
 	moveFonts,
 	minifyImages,
+	minifyBlockImages,
 	buildTheme
 ]);

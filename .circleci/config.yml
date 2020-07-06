@@ -97,7 +97,7 @@ jobs:
       - << : *add_serverkeys
       - run:
           name: Rsync deploy to staging
-          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . root@$SERVER_IP:/home/$USER/domains/$STAGING_PATH
+          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/domains/$STAGING_PATH
 
   production:
     <<: *defaults
@@ -109,7 +109,7 @@ jobs:
       - << : *npm_save_cache
       - run:
           name: Gulp build production
-          command: npx gulp buildProd
+          command: npx gulp buildProduction
       - << : *composer_restore_cache
       - << : *composer_install
       - << : *composer_save_cache
@@ -117,7 +117,7 @@ jobs:
       - << : *add_serverkeys
       - run:
           name: Rsync deploy to production
-          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . root@$SERVER_IP:/home/$USER/domains/$PRODUCTION_PATH
+          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/domains/$PRODUCTION_PATH
 
 workflows: 
   version: 2

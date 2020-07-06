@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "burovoordeboeg/wp-theme-class": "dev-master"
+        "burovoordeboeg/wp-theme-class": "dev-master",
+        "burovoordeboeg/wp-gutenberg-class": "dev-master"
     },
     "repositories": [
         {"type": "composer", "url": "https://repo.packagist.com/burovoordeboeg/"},
