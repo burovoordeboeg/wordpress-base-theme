@@ -97,7 +97,7 @@ jobs:
       - << : *add_serverkeys
       - run:
           name: Rsync deploy to staging
-          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/domains/$STAGING_PATH
+          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/domains/$STAGING_PATH
 
   production:
     <<: *defaults
@@ -117,7 +117,7 @@ jobs:
       - << : *add_serverkeys
       - run:
           name: Rsync deploy to production
-          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/domains/$PRODUCTION_PATH
+          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/domains/$PRODUCTION_PATH
 
 workflows: 
   version: 2
