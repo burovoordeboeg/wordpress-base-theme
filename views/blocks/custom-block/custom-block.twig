@@ -12,7 +12,10 @@
 
 <div id="{{ id }}" class="block block--header{{ classes }}" style="background:{{ (bg_color)? bg_color : 'transparent' }}">
 
-	<img src="{{ image.sizes.large }}" alt="{{ image.alt }}" title="{{ image.title }}"/>
-	<h1 class="{{ kleur }}">{{ title }}</h1>
+	<div class="image">
+        <img src="{{ image.sizes.large }}" alt="{{ image.alt }}" title="{{ image.title }}"/>
+    </div>
+
+	<h1 class="heading">{{ title }}</h1>
 
 </div>

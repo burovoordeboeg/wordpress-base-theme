@@ -400,6 +400,7 @@ function watchFiles(done) {
 	gulp.watch('dev/sass/**/*.scss', sassThemeDevelopment);
 	gulp.watch('dev/js/**/*.js', jsThemeDevelopment);
 	gulp.watch('dev/img/*', minifyImages);
+	gulp.watch('views/blocks/**/dev/sass/**.scss', sassBlocksDevelopment);
 	done();
 }
 

@@ -1,9 +1,28 @@
 {
-    "key": "group_5efd988b58325",
-    "title": "Block: header-image",
+    "key": "group_5efdf78ef27c9",
+    "title": "Block: content-image",
     "fields": [
         {
-            "key": "field_5efd98954b7ad",
+            "key": "field_5efdf7b7ec4f7",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5efdf7c1ec4f8",
             "label": "Afbeelding",
             "name": "image",
             "type": "image",
@@ -27,11 +46,11 @@
             "mime_types": ""
         },
         {
-            "key": "field_5efd989e4b7ae",
-            "label": "Titel",
-            "name": "title",
-            "type": "text",
-            "instructions": "",
+            "key": "field_5efdf820ec4f9",
+            "label": "Afbeelding positie",
+            "name": "image_position",
+            "type": "radio",
+            "instructions": "Positie van de afbeelding ten op zichten van de tekst",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -39,14 +58,19 @@
                 "class": "",
                 "id": ""
             },
+            "choices": {
+                "left": "Links",
+                "right": "Rechts"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
-            "key": "field_5efda6bbba70b",
+            "key": "field_5efdf89eec4fa",
             "label": "Achtergrond kleur",
             "name": "bg_color",
             "type": "color_picker",
@@ -66,7 +90,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/custom-block"
+                "value": "acf\/content-image"
             }
         ]
     ],
@@ -78,5 +102,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1593702312
+    "modified": 1593702576
 }

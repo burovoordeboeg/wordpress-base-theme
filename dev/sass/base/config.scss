@@ -1,12 +1,25 @@
 // Colors
 
+$blue: #59bacc;
+$grey: #ccc;
+$dark-grey: #333;
+
 // Font settings
 $fontsize: 18px;
+$line-height: 24px;
 $font: sans-serif;
+
+$heading-large: 80px;
+$heading-medium: 60px;
+$heading-small: 40px;
 
 // Block sizing
 $width-desktop: 980px;
 $width-desktopwide: 1004px;
 $width-tablet: 728px;
 $width-mobile: 100%;
+
+$block-full: 100%;
+$block-wide: 1200px;
+$block-center: 800px;
 

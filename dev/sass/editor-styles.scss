@@ -1,2 +1,34 @@
 // Grid + reset + defaults
 @import 'base/config';
+
+body {
+  font-family: $font;
+}
+
+.wp-block {
+
+  p {
+    font-size: $fontsize;
+    line-height: $line-height;
+  }
+}
+
+.wp-block[data-align='center'] {
+  margin: 0 auto;
+  max-width: $block-center;
+}
+
+.wp-block[data-align='wide'] {
+  margin: 0 auto;
+  max-width: $block-wide;
+}
+
+.wp-block[data-align='full'] {
+  max-width: none;
+  width: 100%;
+}
+
+.editor-post-title__block .editor-post-title__input {
+  font-family: '$font';
+  font-size: $heading-large;
+}

@@ -1,16 +1,42 @@
+@import '../../../../../dev/sass/base/config';
+
 .block--header {
   background: #f00;
   position: relative;
 
-  .img {
+  .image {
+    display: flex;
+    height: 500px;
     position: relative;
+    width: 100%;
+    z-index: 2;
+
+    &::before {
+      background: $blue;
+      bottom: -30px;
+      content: '';
+      display: block;
+      height: 80px;
+      left: -20px;
+      position: absolute;
+      width: 70%;
+      z-index: -1;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
   }
+
 
   h1 {
     bottom: 50px;
-    color: red;
+    color: white;
+    font-size: $heading-medium;
     left: 50px;
     position: absolute;
+    z-index: 3;
   }
 }
 
