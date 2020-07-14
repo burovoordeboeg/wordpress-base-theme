@@ -40,6 +40,7 @@
         "run-sequence": "^2.2.1"
     },
     "dependencies": {
+        "eslint": "^7.4.0",
         "gulp": "^4.0.2",
         "gulp-sass-lint": "^1.4.0",
         "gulp-sourcemaps": "^2.6.5",

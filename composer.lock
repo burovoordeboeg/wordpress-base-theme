@@ -4,20 +4,73 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70357104a653a05d1a80b192e66ff013",
+    "content-hash": "455df682eddd0f1c796989eb8cc198d0",
     "packages": [
+        {
+            "name": "burovoordeboeg/wp-gutenberg-class",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:burovoordeboeg/wp-gutenberg-class.git",
+                "reference": "de24968565bdd3fa1a359b6d70d117bc4de814eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/de24968565bdd3fa1a359b6d70d117bc4de814eb",
+                "reference": "de24968565bdd3fa1a359b6d70d117bc4de814eb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BvdB\\": "src/"
+                }
+            },
+            "notification-url": "https://repo.packagist.com/burovoordeboeg/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Streuper",
+                    "email": "justin@burovoordeboeg.nl",
+                    "homepage": "https://www.burovoordeboeg.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Gutenberg class supplies the ability to register Gutenberg Blocks in a simple way by adding registration methods and structuring ACF block registration.",
+            "homepage": "https://www.burovoordeboeg.nl",
+            "keywords": [
+                "gutenberg theme setup",
+                "wordpress"
+            ],
+            "support": {
+                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.0.1",
+                "issues": "https://github.com/burovoordeboeg/wp-gutenberg-class/issues"
+            },
+            "time": "2020-07-06T12:33:05+00:00"
+        },
         {
             "name": "burovoordeboeg/wp-theme-class",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/burovoordeboeg/wp-theme-class.git",
-                "reference": "f67e564aaece66931e816a92a68897353aa56d34"
+                "reference": "335353f268f05df7eecd9c440c308cb5c24db23d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/f67e564aaece66931e816a92a68897353aa56d34",
-                "reference": "f67e564aaece66931e816a92a68897353aa56d34",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/335353f268f05df7eecd9c440c308cb5c24db23d",
+                "reference": "335353f268f05df7eecd9c440c308cb5c24db23d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -55,10 +108,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/0.3.0",
+                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/master",
                 "issues": "https://github.com/burovoordeboeg/wp-theme-class/issues"
             },
-            "time": "2020-03-04T07:52:37+00:00"
+            "time": "2020-07-06T10:49:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -199,16 +252,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.12.5",
+            "version": "v2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "18772e0190734944277ee97a02a9a6c6555fcd94"
+                "reference": "46a612ba1bbf6ee1c58acabacd868212ff8a2911"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/18772e0190734944277ee97a02a9a6c6555fcd94",
-                "reference": "18772e0190734944277ee97a02a9a6c6555fcd94",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/46a612ba1bbf6ee1c58acabacd868212ff8a2911",
+                "reference": "46a612ba1bbf6ee1c58acabacd868212ff8a2911",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -218,18 +271,18 @@
                 ]
             },
             "require": {
-                "php": "^7.0",
+                "php": ">=7.1.3",
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3"
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/phpunit-bridge": "^4.4|^5.0"
+                "symfony/phpunit-bridge": "^4.4.9|^5.0.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.12-dev"
+                    "dev-master": "2.13-dev"
                 }
             },
             "autoload": {
@@ -266,14 +319,15 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2020-02-11T15:31:23+00:00"
+            "time": "2020-07-05T13:08:05+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "burovoordeboeg/wp-theme-class": 20
+        "burovoordeboeg/wp-theme-class": 20,
+        "burovoordeboeg/wp-gutenberg-class": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
