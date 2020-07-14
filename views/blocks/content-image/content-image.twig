@@ -10,7 +10,7 @@
 
 {# <pre>{{dump() }}</pre> #}
 
-<div id="{{ id }}" class="block block--content-image{{ classes }}" style="background:{{ (bg_color)? bg_color : 'transparent' }}">
+<div id="{{ id }}" class="block block--content-image{{ classes }}" data-align="{{ image_position }}" style="background:{{ (bg_color)? bg_color : 'transparent' }}">
 	<div class="content">{{ content|raw }}</div>
 	<div class="image">
 		<img src="{{ image.sizes.large }}" title="{{ image.title }}"/>

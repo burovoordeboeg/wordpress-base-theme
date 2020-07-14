@@ -2,15 +2,23 @@
 
 .block--content-image {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 
   .content {
     flex: 1;
   }
 
+  &[data-align='left'] {
+    flex-direction: row-reverse;
+  }
+
   .image {
     flex: 1;
+    overflow: hidden;
 
     img {
+      display: block;
       height: auto;
       object-fit: cover;
     }

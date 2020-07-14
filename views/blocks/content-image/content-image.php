@@ -8,9 +8,9 @@
 	 * See the readme: 
 	 */
 	$gutenberg->registerBlock( array(
-		'name' => 'example-block',
-		'title' => 'Example block',
-		'description' => 'This is an example block',
+		'name' => 'content-image',
+		'title' => 'Content image',
+		'description' => 'This is a content image block',
 		'category' => 'formatting',
 		'icon' => 'admin-comments',
 		'keywords' => array( 'image', 'text' ),

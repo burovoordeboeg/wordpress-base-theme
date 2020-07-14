@@ -23,31 +23,7 @@
 	// Add theme support for Gutenberg
 	$theme->support->add('align-wide');
 	$theme->support->add('align-full');
-<<<<<<< HEAD
-
-
-	// Register image size
-	$theme->support->imageSize('bigthumb', 500, 500, true);
-
-	// Register widgets and navigation
-	$theme->objects->widget->register('Filters', 'filters');
-	$theme->objects->navigation->register('mainmenu', 'Hoofdnavigatie');
-	$theme->objects->navigation->register('footer', 'Footer');
-	$theme->objects->navigation->register('subfooter', 'Subfooter');
-
-	// Set ACF to save and load local JSON files
-	$theme->acf->settings->save_local_json();
-	$theme->acf->settings->load_local_json();
-
-	// Register option pages
-	$theme->acf->optionspage->register( 'Site opties', 'Site opties', 'general-site-opties', '', 2, 'dashicons-editor-table' );
-	
-	
-	// Register theme colors for use in Gutenberg
-	$gutenberg->registerColors(array(
-=======
 	$theme->support->add('editor-color-palette', array(
->>>>>>> master
 		array(
 			'name' => 'Blauw',
 			'slug' => 'blue',

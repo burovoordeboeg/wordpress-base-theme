@@ -396,7 +396,6 @@ function watchFiles(done) {
 	gulp.watch('views/blocks/**/dev/sass/*.scss', compileBlockSass);
 	gulp.watch('views/blocks/**/dev/js/*.js', compileBlockJs);
 	gulp.watch('dev/img/*', minifyImages);
-	gulp.watch('views/blocks/**/dev/sass/**.scss', sassBlocksDevelopment);
 	done();
 }
 
