@@ -64,6 +64,7 @@
 
 	// Enqueue styles
 	$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
+	$theme->assets->register('style', 'fonts', 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap', array(), false);
 
 	// Enqueue all assets (keep at end of file)
 	$theme->assets->load(); 
@@ -72,7 +73,7 @@
 	// Enqueue editor styles for Gutenberg
    	$gutenberg->enqueueEditorStyles(array(
 	   'editor-styles' => get_template_directory_uri() . '/dist/css/editor-styles.css',
-	   // 'editor-fonts' => ''
+	   'editor-fonts' => 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap'
 	));
 
 	// Load the Gutenberg ACF-files

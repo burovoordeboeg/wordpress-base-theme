@@ -4,10 +4,19 @@ $blue: #59bacc;
 $grey: #ccc;
 $dark-grey: #333;
 
+.has-gray-background-color {
+  background: $grey;
+}
+
+.has-blue-background-color {
+  background: $blue;
+}
+
 // Font settings
 $fontsize: 18px;
-$line-height: 24px;
-$font: sans-serif;
+$line-height: 160%;
+$font: 'Montserrat', sans-serif;
+$margin: 1rem 0;
 
 $heading-large: 80px;
 $heading-medium: 60px;

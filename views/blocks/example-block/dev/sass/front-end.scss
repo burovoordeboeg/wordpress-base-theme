@@ -1,0 +1,26 @@
+@import '../../../../../dev/sass/base/config';
+
+.block--header {
+  position: relative;
+
+  .heading {
+    bottom: 100px;
+    color: #fff;
+    font-family: $font;
+    font-size: 100px;
+    left: 100px;
+    line-height: 100px;
+    margin: 0;
+    position: absolute;
+    z-index: 200;
+  }
+
+  .image {
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+}

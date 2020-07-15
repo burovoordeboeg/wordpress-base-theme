@@ -1,16 +1,24 @@
 // Grid + reset + defaults
 @import 'base/config';
+@import 'base/fonts';
+@import 'components/buttons';
 
 body {
   font-family: $font;
+}
+
+.editor-post-title__block .editor-post-title__input {
+  font-size: $heading-large;
 }
 
 .wp-block {
   max-width: 100%;
 
   p {
-    font-size: $fontsize;
-    line-height: $line-height;
+    font-family: $font;
+    font-size: $fontsize !important;
+    line-height: $line-height !important;
+    margin: $margin !important;
   }
 }
 
@@ -29,7 +37,4 @@ body {
   width: 100%;
 }
 
-.editor-post-title__block .editor-post-title__input {
-  font-family: '$font';
-  font-size: $heading-large;
-}
+

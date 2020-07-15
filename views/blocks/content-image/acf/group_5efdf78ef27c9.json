@@ -46,6 +46,21 @@
             "mime_types": ""
         },
         {
+            "key": "field_5f0eb6f4e942c",
+            "label": "Button",
+            "name": "button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_5efdf820ec4f9",
             "label": "Afbeelding positie",
             "name": "image_position",
@@ -102,5 +117,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594731982
+    "modified": 1594799878
 }

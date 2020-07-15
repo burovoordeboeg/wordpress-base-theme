@@ -60,7 +60,7 @@ a {
 
 h1 {
   font-size: 2rem;
-  margin: .67rem 0;
+  margin: 0;
 }
 
 h2 {
@@ -196,13 +196,13 @@ svg {
   }
 }
 
-figure {
-  margin: 0 !important;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  margin-inline-end: 0;
-  margin-inline-start: 0;
-}
+// figure {
+//   margin: 0 !important;
+//   margin-block-end: 0;
+//   margin-block-start: 0;
+//   margin-inline-end: 0;
+//   margin-inline-start: 0;
+// }
 
 form {
   margin: 0;
