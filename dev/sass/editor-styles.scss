@@ -29,12 +29,13 @@ body {
 
 .wp-block[data-align='wide'] {
   margin: 0 auto;
+  margin-bottom: $block-margin;
   max-width: $block-wide;
 }
 
 .wp-block[data-align='full'] {
+  margin-bottom: $block-margin;
   max-width: none;
-  width: 100%;
 }
 
 
