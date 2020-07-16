@@ -8,11 +8,25 @@ body {
 }
 
 .editor-post-title__block .editor-post-title__input {
+
   font-size: $heading-large;
 }
 
 .wp-block {
   max-width: 100%;
+
+  h1 {
+    font-family: $font;
+    font-size: $heading-large !important;
+    line-height: $line-height-heading !important;
+  }
+
+  h2 {
+    font-family: $font;
+    font-size: $heading-medium !important;
+    line-height: $line-height-heading !important;
+    padding: 0;
+  }
 
   p {
     font-family: $font;

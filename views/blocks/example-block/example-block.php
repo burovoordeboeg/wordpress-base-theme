@@ -26,8 +26,11 @@
 		'admin' => array(
 			'style' => 'back-end.css',
 		)
-	) );
-
-
+	), array(
+		'title' => 'dit is de titel',
+		'bg_color' => '#FF0',
+		'image' => 'https://place-hold.it/300x500'
+		)
+	 );
 
 ?>

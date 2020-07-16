@@ -1,6 +1,6 @@
 {
     "key": "group_5efd988b58325",
-    "title": "Block: header-image",
+    "title": "Block: example-block",
     "fields": [
         {
             "key": "field_5efd98954b7ad",
@@ -78,5 +78,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594039121
+    "modified": 1594896967
 }

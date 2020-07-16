@@ -3,6 +3,22 @@
     "title": "Block: content-image",
     "fields": [
         {
+            "key": "field_5f1065652fbd9",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_5efdf7b7ec4f7",
             "label": "Content",
             "name": "content",
@@ -20,6 +36,78 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_5f0eb6f4e942c",
+            "label": "Button",
+            "name": "button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_5f1065952fbdb",
+            "label": "Uitlijning van de content",
+            "name": "align_items",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "flex-start": "Bovenaan",
+                "center": "Midden",
+                "flex-end": "Beneden"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5efdf89eec4fa",
+            "label": "Achtergrond kleur",
+            "name": "bg_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5f10657d2fbda",
+            "label": "Afbeelding",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_5efdf7c1ec4f8",
@@ -46,21 +134,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_5f0eb6f4e942c",
-            "label": "Button",
-            "name": "button",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
             "key": "field_5efdf820ec4f9",
             "label": "Afbeelding positie",
             "name": "image_position",
@@ -83,21 +156,6 @@
             "layout": "horizontal",
             "return_format": "value",
             "save_other_choice": 0
-        },
-        {
-            "key": "field_5efdf89eec4fa",
-            "label": "Achtergrond kleur",
-            "name": "bg_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": ""
         }
     ],
     "location": [
@@ -117,5 +175,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594799878
+    "modified": 1594910292
 }

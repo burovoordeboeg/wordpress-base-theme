@@ -1,0 +1,37 @@
+{# 
+    ====================================================================
+    Name:           header-image.twig
+    Type:           Block 
+    Since:          0.0.1
+    Description:    A header image block
+    Available vars: id (of block), classes (of block), {fields by key}, site
+    ====================================================================
+#}
+
+{# <pre>{{dump() }}</pre> #}
+
+<div id="{{ id }}" class="block block--header-image{{ classes }}" data-align="{{ image_position }}">
+
+	<picture class="image">
+		<span class="overlay" style="background-color:{{ color_filter }}"></span>
+		<source srcset="{{ image.sizes.medium_large }}" data-srcset="{{ image.sizes.medium_large }}" media="(max-width: 767px)">
+		<source srcset="{{ image.sizes.medium_large }}" data-srcset="{{ image.sizes.medium_large }}" media="(min-width: 768px) and (max-width: 959px)">
+		<source srcset="{{ image.sizes.large }}" data-srcset="{{ image.sizes.large }}" media="(min-width: 960px) and (max-width: 1500px)">
+		<source srcset="{{ image.sizes.url }}" data-srcset="{{ image.sizes.url }}" media="(min-width: 1500px)">
+		<img class="header-image" src="{{ image.url }}" data-src="{{ image.url }}" title="{{ image.title }}" alt="{{ (image.alt)? image.alt : image.title }}"/>
+	</picture>
+
+	<div class="content">
+		<h1 class="title">
+			{{ (other_title)? custom_title|raw : site.get_the_title() }}
+		</h1>
+		{% if subtitle %}
+			<h2 class="subtitle">{{ subtitle| raw }}</h2>
+		{% endif %}
+
+		{% if intro_text %}
+			<p class="intro-text">{{ intro_text|raw }}</p>
+		{% endif %}
+	</div>
+
+</div>

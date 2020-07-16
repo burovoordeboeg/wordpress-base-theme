@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/wp-gutenberg-class.git",
-                "reference": "c38da0ace01a360768fc454e7b5468757870c4db"
+                "reference": "3427070ba7bac5678420eef9084a51232c8b9817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/c38da0ace01a360768fc454e7b5468757870c4db",
-                "reference": "c38da0ace01a360768fc454e7b5468757870c4db",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/3427070ba7bac5678420eef9084a51232c8b9817",
+                "reference": "3427070ba7bac5678420eef9084a51232c8b9817",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -54,10 +54,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.0.3",
+                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.0.5",
                 "issues": "https://github.com/burovoordeboeg/wp-gutenberg-class/issues"
             },
-            "time": "2020-07-14T13:32:46+00:00"
+            "time": "2020-07-16T09:15:33+00:00"
         },
         {
             "name": "burovoordeboeg/wp-theme-class",
@@ -115,16 +115,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.17.1",
+            "version": "v1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d"
+                "reference": "1c302646f6efc070cd46856e600e5e0684d6b454"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
-                "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/1c302646f6efc070cd46856e600e5e0684d6b454",
+                "reference": "1c302646f6efc070cd46856e600e5e0684d6b454",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -142,7 +142,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-master": "1.18-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -179,20 +179,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-06-06T08:46:27+00:00"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.17.1",
+            "version": "v1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7110338d81ce1cbc3e273136e4574663627037a7"
+                "reference": "a6977d63bf9a0ad4c65cd352709e230876f9904a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7110338d81ce1cbc3e273136e4574663627037a7",
-                "reference": "7110338d81ce1cbc3e273136e4574663627037a7",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/a6977d63bf9a0ad4c65cd352709e230876f9904a",
+                "reference": "a6977d63bf9a0ad4c65cd352709e230876f9904a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -210,7 +210,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-master": "1.18-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -248,7 +248,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-06-06T08:46:27+00:00"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "twig/twig",

@@ -11,10 +11,17 @@
 {# <pre>{{dump() }}</pre> #}
 
 <div id="{{ id }}" class="block block--content-image{{ classes }}" data-align="{{ image_position }}" style="background:{{ (bg_color)? bg_color : 'transparent' }}">
-	<div class="content">
-		{{ content|raw }}
-		<a href="{{ button.url }}" class="btn">{{ button.title }}</a>
-	</div>
+	<div class="content-box" style="align-items: {{ align_items }}">
+        <div class="content">
+
+            {{ content|raw }}
+
+            {% if button.url %}
+                <a href="{{ button.url }}" class="btn">{{ button.title }}</a>
+            {% endif %}
+
+        </div>
+    </div>
 	<div class="image">
 		<img src="{{ image.sizes.large }}" title="{{ image.title }}"/>
 	</div>
