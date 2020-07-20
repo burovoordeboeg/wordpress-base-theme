@@ -8,7 +8,6 @@ body {
 }
 
 .editor-post-title__block .editor-post-title__input {
-
   font-size: $heading-large;
 }
 
@@ -24,6 +23,13 @@ body {
   h2 {
     font-family: $font;
     font-size: $heading-medium !important;
+    line-height: $line-height-heading !important;
+    padding: 0;
+  }
+
+  h3 {
+    font-family: $font;
+    font-size: $heading-small !important;
     line-height: $line-height-heading !important;
     padding: 0;
   }
@@ -50,6 +56,16 @@ body {
 .wp-block[data-align='full'] {
   margin-bottom: $block-margin;
   max-width: none;
+}
+
+.content {
+  &.dark {
+    color: $text-dark;
+  }
+
+  &.light {
+    color: $text-light;
+  }
 }
 
 

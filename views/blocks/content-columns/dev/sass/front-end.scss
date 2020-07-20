@@ -1,0 +1,33 @@
+@import '../../../../../dev/sass/base/config';
+
+.block--content-columns {
+  .columns {
+    column-gap: 40px;
+    display: grid;
+    justify-content: space-between;
+
+    &.columns--2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &.columns--3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &.columns--4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    &.columns--5 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    &.bg-color {
+      .column {
+        padding: 30px;
+      }
+    }
+  }
+}
+
+

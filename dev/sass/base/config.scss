@@ -4,6 +4,10 @@ $blue: #59bacc;
 $grey: #ccc;
 $dark-grey: #333;
 
+$button: #59bacc;
+$text-light: #fff;
+$text-dark: #333;
+
 .has-gray-background-color {
   background: $grey;
 }
@@ -20,8 +24,8 @@ $font: 'Montserrat', sans-serif;
 $margin: 1rem 0;
 
 $heading-large: 80px;
-$heading-medium: 60px;
-$heading-small: 40px;
+$heading-medium: 40px;
+$heading-small: 26px;
 
 // Block sizing
 $width-desktop: 980px;

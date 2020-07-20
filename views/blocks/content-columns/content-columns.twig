@@ -1,0 +1,27 @@
+{# 
+    ====================================================================
+    Name:           content-columns.twig
+    Type:           Block 
+    Since:          0.0.1
+    Description:    A content columns block
+    Available vars: id (of block), classes (of block), {fields by key}, site
+    ====================================================================
+#}
+
+{# <pre>{{dump() }}</pre> #}
+
+<div id="{{ id }}" class="block block--content-columns{{ classes }}">
+	<div class="columns columns--{{ columns|length }} {{ (bg_color)? 'bg-color' : '' }}">
+
+		{% for column in columns %}
+			<div class="column" style="background:{{ ((bg_color)? bg_color : 'transparent') }}">
+
+				{{ column.content|raw }}
+				{% if column.button %}
+					<a href="{{ column.button.url }}" class="btn" target="{{ ((column.button.target)? column.button.target : '_self') }}">{{ column.button.title }}</a>
+				{% endif %}
+
+			</div>
+		{% endfor %}
+	</div>
+</div>

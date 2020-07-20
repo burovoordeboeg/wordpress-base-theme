@@ -10,19 +10,24 @@
 
 {# <pre>{{dump() }}</pre> #}
 
-<div id="{{ id }}" class="block block--content-image{{ classes }}" data-align="{{ image_position }}" style="background:{{ (bg_color)? bg_color : 'transparent' }}">
+<div id="{{ id }}" class="block block--content-image{{ classes }}" data-align="{{ image_position }}" style="background:{{ ((bg_color)? bg_color : 'transparent') }}">
 	<div class="content-box" style="align-items: {{ align_items }}">
         <div class="content">
 
             {{ content|raw }}
 
             {% if button.url %}
-                <a href="{{ button.url }}" class="btn">{{ button.title }}</a>
+                <a href="{{ button.url }}" class="btn" target="{{ ((button.target)? button.target : '_self') }}">{{ button.title }}</a>
             {% endif %}
 
         </div>
     </div>
-	<div class="image">
-		<img src="{{ image.sizes.large }}" title="{{ image.title }}"/>
-	</div>
+
+    <picture class="image">
+        <source srcset="{{ image.sizes.medium_large }}" data-srcset="{{ image.sizes.medium_large }}" media="(max-width: 767px)">
+        <source srcset="{{ image.sizes.medium_large }}" data-srcset="{{ image.sizes.medium_large }}" media="(min-width: 768px) and (max-width: 959px)">
+        <source srcset="{{ image.sizes.large }}" data-srcset="{{ image.sizes.large }}" media="(min-width: 960px) and (max-width: 1500px)">
+        <source srcset="{{ image.sizes.url }}" data-srcset="{{ image.sizes.url }}" media="(min-width: 1500px)">
+        <img src="{{ image.url }}" data-src="{{ image.url }}" title="{{ image.title }}" alt="{{ (image.alt)? image.alt : image.title }}"/>
+    </picture>
 </div>

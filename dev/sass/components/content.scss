@@ -1,0 +1,9 @@
+.content {
+  &.dark {
+    color: $text-dark;
+  }
+
+  &.light {
+    color: $text-light;
+  }
+}

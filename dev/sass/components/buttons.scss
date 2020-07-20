@@ -1,5 +1,5 @@
 .btn {
-  background: $blue;
+  background: $button;
   color: #fff;
   display: inline-block;
   font-family: $font;
@@ -7,4 +7,10 @@
   margin-top: 30px;
   padding: 15px 20px;
   text-decoration: none;
+  text-transform: uppercase;
+  transition: all 120ms ease-in-out;
+
+  &:hover {
+    background: lighten($button, 7%);
+  }
 }
