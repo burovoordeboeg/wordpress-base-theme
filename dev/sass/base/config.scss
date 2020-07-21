@@ -5,6 +5,7 @@ $grey: #ccc;
 $dark-grey: #333;
 
 $button: #59bacc;
+$button-text: #fff;
 $text-light: #fff;
 $text-dark: #333;
 
@@ -16,16 +17,24 @@ $text-dark: #333;
   background: $blue;
 }
 
-// Font settings
-$fontsize: 18px;
-$line-height: 160%;
-$line-height-heading: 100%;
-$font: 'Montserrat', sans-serif;
-$margin: 1rem 0;
+// Body font settings
+$body-fontsize: 18px;
+$body-font: 'Montserrat', sans-serif;
+$body-margin: 1rem 0;
+$body-line-height: 160%;
 
-$heading-large: 80px;
-$heading-medium: 40px;
-$heading-small: 26px;
+// Headings settings
+
+$heading-line-height: 100%;
+
+$heading-large-fontsize: 80px;
+$heading-large-margin: .67rem 0;
+
+$heading-medium-fontsize: 40px;
+$heading-medium-margin: .83rem 0;
+
+$heading-small-fontsize: 26px;
+$heading-small-margin: 1rem 0;
 
 // Block sizing
 $width-desktop: 980px;
@@ -39,4 +48,5 @@ $block-center: 800px;
 
 // Block margin
 $block-margin: 50px;
+
 

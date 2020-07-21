@@ -10,16 +10,16 @@
 
 {# <pre>{{dump() }}</pre> #}
 
-<div id="{{ id }}" class="block block--content-fullwidth{{ classes }}" style="background:{{ ((bg_color)? bg_color : 'transparent') }}">
+<div id="{{ id }}" class="block block--content-fullwidth{{ classes }}" style="background:{{ ((bg_color)? bg_color : 'transparent') }}" data-align="{{ layout }}">
 
-    <div class="content {{ text_color }}">
+	<div class="content {{ text_color }}">
 
-        {{ content|raw }}
+		{{ content|raw }}
 
-        {% if button.url %}
-            <a href="{{ button.url }}" class="btn" target="{{ ((button.target)? button.target : '_self') }}">{{ button.title }}</a>
-        {% endif %}
+		{% if button.url %}
+			<a href="{{ button.url }}" class="btn" target="{{ ((button.target)? button.target : '_self') }}">{{ button.title }}</a>
+		{% endif %}
 
-    </div>
+	</div>
 
 </div>

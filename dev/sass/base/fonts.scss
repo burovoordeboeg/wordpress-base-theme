@@ -1,5 +1,5 @@
 html {
-  font-size: $fontsize;
+  font-size: $body-fontsize;
 }
 
 html,
@@ -7,7 +7,7 @@ button,
 input,
 select,
 textarea {
-  font-family: $font;
+  font-family: $body-font;
 }
 
 body {
@@ -15,13 +15,13 @@ body {
 }
 
 h1 {
-  font-size: $heading-large;
+  font-size: $heading-large-fontsize;
 }
 
 h2 {
-  font-size: $heading-medium;
+  font-size: $heading-medium-fontsize;
 }
 
 h3 {
-  font-size: $heading-small;
+  font-size: $heading-small-fontsize;
 }

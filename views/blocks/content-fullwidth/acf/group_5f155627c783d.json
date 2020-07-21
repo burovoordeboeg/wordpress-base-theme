@@ -37,6 +37,22 @@
             "return_format": "array"
         },
         {
+            "key": "field_5f16e34e6df20",
+            "label": "Instellingen",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_5f1556f32bf60",
             "label": "Tekst kleur",
             "name": "text_color",
@@ -74,6 +90,32 @@
                 "id": ""
             },
             "default_value": ""
+        },
+        {
+            "key": "field_5f16e31688a9b",
+            "label": "Uitlijning van de content",
+            "name": "layout",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Links",
+                "middle": "Midden",
+                "right": "Rechts"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -93,5 +135,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1595249773
+    "modified": 1595335524
 }

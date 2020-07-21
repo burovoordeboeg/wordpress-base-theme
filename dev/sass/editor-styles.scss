@@ -2,43 +2,52 @@
 @import 'base/config';
 @import 'base/fonts';
 @import 'components/buttons';
+@import 'layout/block';
 
 body {
-  font-family: $font;
+  font-family: $body-font;
 }
 
 .editor-post-title__block .editor-post-title__input {
-  font-size: $heading-large;
+  font-size: $heading-large-fontsize;
 }
 
 .wp-block {
   max-width: 100%;
 
   h1 {
-    font-family: $font;
-    font-size: $heading-large !important;
-    line-height: $line-height-heading !important;
+    font-family: $body-font;
+    font-size: $heading-large-fontsize !important;
+    line-height: $heading-line-height !important;
+    margin: $heading-large-margin !important;
   }
 
   h2 {
-    font-family: $font;
-    font-size: $heading-medium !important;
-    line-height: $line-height-heading !important;
+    font-family: $body-font;
+    font-size: $heading-medium-fontsize !important;
+    line-height: $heading-line-height !important;
+    margin: $heading-medium-margin !important;
     padding: 0;
   }
 
   h3 {
-    font-family: $font;
-    font-size: $heading-small !important;
-    line-height: $line-height-heading !important;
+    font-family: $body-font;
+    font-size: $heading-small-fontsize !important;
+    line-height: $heading-line-height !important;
+    margin: $heading-small-margin !important;
     padding: 0;
   }
 
   p {
-    font-family: $font;
-    font-size: $fontsize !important;
-    line-height: $line-height !important;
-    margin: $margin !important;
+    font-family: $body-font;
+    font-size: $body-fontsize !important;
+    line-height: $body-line-height !important;
+    margin: $body-margin !important;
+  }
+
+  a:hover,
+  a:active {
+    color: $button-text;
   }
 }
 
@@ -67,5 +76,3 @@ body {
     color: $text-light;
   }
 }
-
-
