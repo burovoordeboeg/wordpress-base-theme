@@ -12,6 +12,24 @@ body {
   font-size: $heading-large-fontsize;
 }
 
+.block-editor-block-list__block .block-list-appender {
+  display: block;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.block-editor-block-list__layout .block-editor-block-list__block[data-align=left],
+.block-editor-block-list__layout .block-editor-block-list__block[data-align=right],
+.block-editor-block-list__layout .block-editor-block-list__block[data-align=center] {
+  height: auto;
+}
+
+.block-editor-block-list__layout .block-editor-block-list__block[data-align=left]>.is-block-content {
+  float: none;
+  height: auto;
+  margin: 0;
+}
+
 .wp-block {
   max-width: 100%;
 
@@ -48,6 +66,12 @@ body {
   a:hover,
   a:active {
     color: $button-text;
+  }
+
+  &[data-type='core/button'] {
+    display: inline-block;
+    margin-top: 0;
+    width: auto !important;
   }
 }
 

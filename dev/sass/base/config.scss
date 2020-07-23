@@ -1,7 +1,7 @@
 // Colors
 $white: #fff;
 $blue: #59bacc;
-$grey: #ccc;
+$gray: #ccc;
 $dark-grey: #333;
 
 $button: #59bacc;
@@ -9,12 +9,22 @@ $button-text: #fff;
 $text-light: #fff;
 $text-dark: #333;
 
-.has-gray-background-color {
-  background: $grey;
-}
+$colors: (
+  'white': #fff,
+  'blue': #59bacc,
+  'gray': #ccc,
+  'dark-grey': #333,
+);
 
-.has-blue-background-color {
-  background: $blue;
+@each $name, $color in $colors {
+
+  .has-#{$name}-color {
+    color: $color;
+  }
+
+  .has-#{$name}-background-color {
+    background-color: $color;
+  }
 }
 
 // Body font settings

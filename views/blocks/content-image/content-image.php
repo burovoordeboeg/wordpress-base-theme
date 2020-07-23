@@ -18,16 +18,34 @@
 		'mode' => 'preview',
 		'align' => array( 'wide', 'full', 'center' ),
 		'multiple' => true,
+		'styles' => array(
+			[
+				'name' => 'light',
+				'label' => __('Light', 'abc'),
+				'isDefault' => true,
+			],
+			[
+				'name' => 'medium',
+				'label' => __('Medium', 'abc'),
+			],
+			[
+				'name' => 'dark',
+				'label' => __('Dark', 'abc'),
+			]
+		)
 	), array(
 		'frontend' => array(
 			'style' => 'front-end.css',
 			'script' => 'scripts.js'
 		),
 		'admin' => array(
-			'style' => 'back-end.css',
+			'style' => 'back-end.css'
 		)
 	) );
 
-
+	function allowedBlocksContentImage() {
+		$allowed_blocks = array( 'core/button', 'core/image', 'core/paragraph', 'core/heading' );
+		echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />';
+	}
 
 ?>

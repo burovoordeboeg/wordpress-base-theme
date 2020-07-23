@@ -2,21 +2,33 @@
   margin-bottom: 50px !important;
   width: 100%;
 
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
   &[data-align='left'] {
-    .content {
-      text-align: left;
+    text-align: left;
+
+    .wp-block-button {
+      margin-right: 20px;
     }
   }
 
   &[data-align='middle'] {
-    .content {
-      text-align: center;
+    text-align: center;
+
+    .wp-block-button {
+      margin: 0 10px;
     }
   }
 
   &[data-align='right'] {
-    .content {
-      text-align: right;
+    text-align: right;
+
+    .wp-block-button {
+      margin-left: 20px;
     }
   }
 }

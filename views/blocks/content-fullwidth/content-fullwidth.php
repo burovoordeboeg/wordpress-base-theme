@@ -18,6 +18,11 @@
 		'mode' => 'preview',
 		'align' => array( 'wide', 'full', 'center' ),
 		'multiple' => true,
+		'supports' => array(
+			'align' => true,
+			'mode' => false,
+			'__experimental_jsx' => true
+		)
 	), array(
 		'frontend' => array(
 			'style' => 'front-end.css',
@@ -27,5 +32,10 @@
 			'style' => 'back-end.css',
 		)
 	) );
+
+	function allowedBlocksFullWidth() {
+		$allowed_blocks = array( 'acf/content-columns', 'acf/image-grid', 'core/button' );
+		echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />';
+	}
 
 ?>

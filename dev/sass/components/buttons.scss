@@ -15,3 +15,18 @@
   }
 }
 
+.wp-block-button {
+  display: inline-block;
+  font-family: $body-font;
+
+  &__link {
+    border-radius: 0;
+    white-space: pre-wrap;
+  }
+
+  &.alignleft {
+    margin-right: 20px;
+  }
+}
+
+

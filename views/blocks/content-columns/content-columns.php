@@ -28,6 +28,9 @@
 		)
 	) );
 
-
+	function allowedBlocksContentColumns() {
+		$allowed_blocks = array( 'core/button' );
+		echo '<InnerBlocks allowedBlocks="' . esc_attr( wp_json_encode( $allowed_blocks ) ) . '" />';
+	}
 
 ?>

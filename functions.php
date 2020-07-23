@@ -26,6 +26,7 @@
 	include_once 'functions/general.php';
 	include_once 'functions/navigation.php';
 	include_once 'functions/options.php';
+	// include_once 'functions/allowedBlocks.php';
 
 	
 

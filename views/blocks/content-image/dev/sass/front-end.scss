@@ -5,6 +5,26 @@
   flex-wrap: wrap;
   width: 100%;
 
+  &.is-style-light {
+    background: $grey;
+  }
+
+  &.is-style-medium {
+    background: #888;
+
+    .content {
+      color: $white;
+    }
+  }
+
+  &.is-style-dark {
+    background: $dark-grey;
+
+    .content {
+      color: $white;
+    }
+  }
+
   .content-box {
     display: flex;
     flex: 1;

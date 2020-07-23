@@ -17,6 +17,8 @@
 			<div class="column" style="background:{{ ((bg_color)? bg_color : 'transparent') }}">
 
 				{{ column.content|raw }}
+
+                {# {{ site.allowedBlocksContentColumns() }} #}
 				{% if column.button %}
 					<a href="{{ column.button.url }}" class="btn" target="{{ ((column.button.target)? column.button.target : '_self') }}">{{ column.button.title }}</a>
 				{% endif %}
