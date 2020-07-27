@@ -18,7 +18,7 @@
 
 				{{ column.content|raw }}
 
-                {# {{ site.allowedBlocksContentColumns() }} #}
+				{# {{ site.allowedBlocksContentColumns() }} #}
 				{% if column.button %}
 					<a href="{{ column.button.url }}" class="btn" target="{{ ((column.button.target)? column.button.target : '_self') }}">{{ column.button.title }}</a>
 				{% endif %}

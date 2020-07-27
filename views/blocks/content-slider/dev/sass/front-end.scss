@@ -1,0 +1,31 @@
+@import '../../../../../dev/sass/base/config';
+
+.block--content-slider {
+  .slider {
+
+  }
+
+  .slide {
+    &__image {
+      height: 400px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        height: 400px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    &__title {
+      padding: 10px 20px;
+    }
+
+    &__content {
+      padding: 0 20px;
+    }
+  }
+}
+
+

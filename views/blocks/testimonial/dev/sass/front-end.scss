@@ -1,0 +1,59 @@
+@import '../../../../../dev/sass/base/config';
+
+.block--testimonial {
+  margin-top: 100px !important;
+
+  .testimonial {
+    position: relative;
+    text-align: center;
+
+    &::before {
+      background: url('../img/quotation-marks.svg') 0 0 no-repeat;
+      background-size: cover;
+      content: '';
+      display: block;
+      height: 200px;
+      left: -50px;
+      opacity: .1;
+      position: absolute;
+      top: -50px;
+      width: 200px;
+    }
+
+    &__image {
+      float: left;
+      margin-right: 20px;
+
+      img {
+        border-radius: 50%;
+        height: 100px;
+        overflow: hidden;
+        width: 100px;
+      }
+    }
+
+    &__meta {
+      align-items: center;
+      display: inline-flex;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    &__name {
+      display: block;
+      float: left;
+      font-family: $body-font;
+      font-weight: 700;
+      width: 100%;
+    }
+
+    &__function {
+      display: block;
+      float: left;
+      font-family: $body-font;
+      width: 100%;
+    }
+  }
+}
+
+

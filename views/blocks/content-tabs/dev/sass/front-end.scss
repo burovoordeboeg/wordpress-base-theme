@@ -1,0 +1,36 @@
+// sass-lint:disable nesting-depth
+@import '../../../../../dev/sass/base/config';
+
+.block--content-tabs {
+  .tab-content {
+    &__tabs {
+      .tab {
+        background: $light-grey;
+        color: $text-dark;
+        display: inline-block;
+        font-family: $body-font;
+        margin-right: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+
+        &.is--active {
+          background: $gray;
+          color: $blue;
+        }
+      }
+    }
+
+    &__content {
+      background: $gray;
+      display: none;
+      padding: 20px;
+      position: relative;
+
+      &.is--active {
+        display: block;
+      }
+    }
+  }
+}
+
+

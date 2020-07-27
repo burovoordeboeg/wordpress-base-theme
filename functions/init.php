@@ -59,12 +59,12 @@
 
 	// Enqueue scripts
 	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), false);
-	$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), true);
-	$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
+	$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), false);
+	$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), false);
 
 	// Enqueue styles
 	$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
-	$theme->assets->register('style', 'fonts', 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap', array(), false);
+	$theme->assets->register('style', 'fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap', array(), false);
 
 	// Enqueue all assets (keep at end of file)
 	$theme->assets->load(); 

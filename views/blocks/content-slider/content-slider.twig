@@ -1,0 +1,32 @@
+{# 
+    ====================================================================
+    Name:           content-slider.twig
+    Type:           Block 
+    Since:          0.0.1
+    Description:    A content slider block
+    Available vars: id (of block), classes (of block), {fields by key}, site
+    ====================================================================
+#}
+
+{# <pre>{{dump() }}</pre> #}
+
+<div id="{{ id }}" class="block block--content-slider{{ classes }}">
+
+<div class="slides js-slider">
+	{% for item in items %}
+        <div class="slide">
+            <picture class="slide__image">
+                <source srcset="{{ item.item.image.sizes.medium_large[0] }}" data-srcset="{{ item.item.image.sizes.medium_large[0] }}" media="(max-width: 767px)">
+                <source srcset="{{ item.item.image.sizes.medium_large[0] }}" data-srcset="{{ item.item.image.sizes.medium_large[0] }}" media="(min-width: 768px) and (max-width: 959px)">
+                <source srcset="{{ item.item.image.sizes.large[0] }}" data-srcset="{{ item.item.image.sizes.large[0] }}" media="(min-width: 960px) and (max-width: 1500px)">
+                <source srcset="{{ item.item.image.sizes.large[0] }}" data-srcset="{{ item.item.image.sizes.large[0] }}" media="(min-width: 1500px)">
+                <img class="image__image-slide" src="{{ item.item.image.sizes.large[0] }}" data-src="{{ item.item.image.sizes.large[0] }}" title="{{ item.item.image.title }}" alt="{{ (item.item.image.alt)? item.item.image.alt : item.item.image.title }}"/>
+            </picture>
+
+            <h2 class="slide__title">{{ item.item.title|raw }}</h2>
+            <div class="slide__content">{{ item.item.content|raw }}</div>
+        </div>
+	{% endfor %}
+
+    </div>
+</div>

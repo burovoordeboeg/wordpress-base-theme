@@ -11,6 +11,21 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-	<pre>{{dump(page.fields)}}</pre>
+
+	{# <pre>{{dump() }}</pre> #}
+
+	<div class="container">
+
+		<picture class="image">
+			<source srcset="{{ page.image.sizes.medium_large[0] }}" data-srcset="{{ page.image.sizes.medium_large[0] }}" media="(max-width: 767px)">
+			<source srcset="{{ page.image.sizes.medium_large[0] }}" data-srcset="{{ page.image.sizes.medium_large[0] }}" media="(min-width: 768px) and (max-width: 959px)">
+			<source srcset="{{ page.image.sizes.large[0] }}" data-srcset="{{ page.image.sizes.large[0] }}" media="(min-width: 960px) and (max-width: 1500px)">
+			<source srcset="{{ page.image.sizes.large[0] }}" data-srcset="{{ page.image.sizes.large[0] }}" media="(min-width: 1500px)">
+			<img class="news-image" src="{{ page.image.sizes.large[0] }}" data-src="{{ page.image.sizes.large[0] }}" title="{{ page.image.title }}" alt="{{ (page.image.alt)? page.image.alt : page.image.title }}"/>
+		</picture>
+		{{ page.title }}
+		{{ page.content|raw }}
+
+	</div>
 
 {% endblock %}

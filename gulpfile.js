@@ -200,7 +200,8 @@ function jsLint() {
 		'!node_modules/**',
 		'!dist/**',
 		'!**/plugins/**',
-		'!vendor/**'
+		'!vendor/**',
+		'!views/blocks/**/dist/js/*.js'
 	])
 		.pipe(eslint())
 		.pipe(eslint.format())

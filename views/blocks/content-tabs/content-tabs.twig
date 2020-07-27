@@ -1,0 +1,35 @@
+{# 
+    ====================================================================
+    Name:           content-tabs.twig
+    Type:           Block 
+    Since:          0.0.1
+    Description:    A block with tabbed content
+    Available vars: id (of block), classes (of block), {fields by key}, site
+    ====================================================================
+#}
+
+{# <pre>{{dump() }}</pre> #}
+
+<div id="{{ id }}" class="block block--content-tabs{{ classes }}">
+
+	<div class="tab-content">
+
+		<div class="tab-content__tabs">
+			{% for item in tabs %}
+				<a href="#" data-id="{{ site.sanitize_title(item.title) }}" class="js-toggle-tabs tab {{ (loop.first)? 'is--active' : '' }}">{{ item.title }}</a>
+			{% endfor %}
+		</div>
+
+		<div class="tab-content__container">
+
+			{% for item in tabs %}
+
+				<div class="tab-content__content {{ (loop.first)? 'is--active' : '' }}" data-id="{{ site.sanitize_title(item.title) }}">
+					{{ item.content|raw }}
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+
+</div>
