@@ -24,7 +24,7 @@
             </picture>
 
             <h2 class="slide__title">{{ item.item.title|raw }}</h2>
-            <div class="slide__content">{{ item.item.content|raw }}</div>
+            <div class="slide__content js-truncate">{{ item.item.content|raw }}</div>
         </div>
 	{% endfor %}
 

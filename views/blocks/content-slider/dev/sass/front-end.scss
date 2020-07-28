@@ -1,18 +1,45 @@
 @import '../../../../../dev/sass/base/config';
 
 .block--content-slider {
-  .slider {
 
+  .slides {
+    padding-top: 50px;
+
+    .slick-slide {
+      margin: 0 20px;
+    }
+
+    .slick-arrow {
+      background: $gray;
+      border: 0;
+      font-family: $body-font;
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+
+      &:hover {
+        background: lighten($gray, 7%);
+      }
+    }
+
+    .slick-next {
+      left: 150px;
+    }
+
+    .slick-prev {
+      left: 20px;
+    }
   }
 
   .slide {
+
     &__image {
       height: 400px;
       overflow: hidden;
 
       img {
         display: block;
-        height: 400px;
+        height: 300px;
         object-fit: cover;
         width: 100%;
       }
@@ -23,7 +50,18 @@
     }
 
     &__content {
+      box-orient: vertical;
+      font-size: $body-fontsize;
+      height: $body-fontsize*$body-line-height*$lines-to-show; 
+      line-clamp: $lines-to-show;
+      line-height: $body-line-height;
+      overflow: hidden;
       padding: 0 20px;
+      text-overflow: ellipsis;
+
+      p {
+        margin: 0;
+      }
     }
   }
 }

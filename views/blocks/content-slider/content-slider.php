@@ -25,8 +25,7 @@
 			'script' => 'scripts.js'
 		),
 		'admin' => array(
-			'style' => 'back-end.css',
-			'script' => 'scripts.js'
+			'style' => 'back-end.css'
 		)
 	) );
 
