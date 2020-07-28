@@ -13,15 +13,15 @@
 	 * https://developer.wordpress.org/reference/functions/register_post_type/
 	 */
 	$theme->cpt->posttype->register(
-        'faq',						// post-type
-        'FAQ',						// name
-        'FAQ',          			// singular
-        'faq',          			// slug
+        'client',						// post-type
+        'Klanten',						// name
+        'Klant',          			// singular
+        'klanten',          			// slug
         array(                      // Supports
             'title'
         ), 
         24,                         // Menu position
-        'dashicons-editor-help', 	// Icon
+        'dashicons-businesswoman', 	// Icon
         'post', 					// Capability type (default is post)
         false, 						// Override the default rewrite
         array(						// Override the arguments not mentioned above

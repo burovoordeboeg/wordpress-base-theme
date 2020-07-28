@@ -27,6 +27,5 @@
 	include_once 'functions/navigation.php';
 	include_once 'functions/options.php';
 	include_once 'functions/adminScripts.php';
-
-	
+	include_once 'functions/logos.php';
 

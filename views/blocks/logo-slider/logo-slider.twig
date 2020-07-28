@@ -1,0 +1,29 @@
+{# 
+    ====================================================================
+    Name:           logo-slider.twig
+    Type:           Block 
+    Since:          0.0.1
+    Description:    A logo slider block
+    Available vars: id (of block), classes (of block), {fields by key}, site
+    ====================================================================
+#}
+
+{# <pre>{{dump(site.getLogos()) }}</pre> #}
+
+<div id="{{ id }}" class="block block--logo-slider{{ classes }}">
+
+	<div class="slides js-logo-slider">
+
+		{% for item in site.getLogos() %}
+			<div class="slide">
+  
+                <a href="{{ item.link }}">
+                    <img src="{{ item.image.sizes.medium_large }}" />
+                </a>
+
+            </div>
+
+		{% endfor %}
+
+	</div>
+</div>
