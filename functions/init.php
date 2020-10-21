@@ -51,32 +51,37 @@
 	$theme->objects->navigation->register('subfooter', 'Subfooter');
 
 	// Set ACF to save and load local JSON files
-	$theme->acf->settings->saveJSON();
+	$theme->acf->settings->saveJSON( get_stylesheet_directory() . '/functions/acf/' );
 	$theme->acf->settings->loadJSON();
 
 	// Register option pages
 	$theme->acf->optionspage->register( 'Site opties', 'Site opties', 'general-site-opties', '', 2, 'dashicons-editor-table' );
 
-	// Enqueue scripts
-	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), false);
-	$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), true);
-	$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
+	// Load assets
+	add_action('after_setup_theme', function() use ($theme, $gutenberg) {
 
-	// Enqueue styles
-	$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
+		// Enqueue scripts
+		$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), false);
+		$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), true);
+		$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
 
-	// Enqueue all assets (keep at end of file)
-	$theme->assets->load(); 
-	
-	
-	// Enqueue editor styles for Gutenberg
-   	$gutenberg->enqueueEditorStyles(array(
-	   'editor-styles' => get_template_directory_uri() . '/dist/css/editor-styles.css',
-	   // 'editor-fonts' => ''
-	));
+		// Enqueue styles
+		$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
 
-	// Load the Gutenberg ACF-files
-	$gutenberg->loadBlockJSON();
-	
-	// Load all Gutenberg blocks
-	$gutenberg->includeBlocks();
+		// Enqueue all assets (keep at end of file)
+		$theme->assets->load(); 
+		
+		
+		// Enqueue editor styles for Gutenberg
+		$gutenberg->enqueueEditorStyles(array(
+			'editor-styles' => get_template_directory_uri() . '/dist/css/editor-styles.css',
+			// 'editor-fonts' => ''
+		));
+
+		// Load the Gutenberg ACF-files
+		$gutenberg->loadBlockJSON();
+		
+		// Load all Gutenberg blocks
+		$gutenberg->includeBlocks();
+
+	}, 1);
