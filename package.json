@@ -22,7 +22,7 @@
     "homepage": "GITHUBURL#readme",
     "devDependencies": {
         "autoprefixer": "^9.7.6",
-        "browser-sync": "^2.26.7",
+        "browser-sync": "^2.26.13",
         "del": "^3.0.0",
         "fs": "0.0.1-security",
         "gulp-cache": "^1.1.1",
