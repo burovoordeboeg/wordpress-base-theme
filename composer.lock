@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/wp-gutenberg-class.git",
-                "reference": "de24968565bdd3fa1a359b6d70d117bc4de814eb"
+                "reference": "096b1bfc2cf97ba3142aafcb9dae9c3a729c28ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/de24968565bdd3fa1a359b6d70d117bc4de814eb",
-                "reference": "de24968565bdd3fa1a359b6d70d117bc4de814eb",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/096b1bfc2cf97ba3142aafcb9dae9c3a729c28ca",
+                "reference": "096b1bfc2cf97ba3142aafcb9dae9c3a729c28ca",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/r%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -54,10 +54,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.0.1",
+                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.1.5",
                 "issues": "https://github.com/burovoordeboeg/wp-gutenberg-class/issues"
             },
-            "time": "2020-07-06T12:33:05+00:00"
+            "time": "2020-10-19T09:11:32+00:00"
         },
         {
             "name": "burovoordeboeg/wp-theme-class",
@@ -65,16 +65,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/burovoordeboeg/wp-theme-class.git",
-                "reference": "335353f268f05df7eecd9c440c308cb5c24db23d"
+                "reference": "e7dba5208d74348826e03018c44b8d8951bb7df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/335353f268f05df7eecd9c440c308cb5c24db23d",
-                "reference": "335353f268f05df7eecd9c440c308cb5c24db23d",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/e7dba5208d74348826e03018c44b8d8951bb7df2",
+                "reference": "e7dba5208d74348826e03018c44b8d8951bb7df2",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/r%reference%.%type%",
                         "preferred": true
                     }
                 ]
@@ -108,33 +108,33 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/master",
+                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/0.4.7",
                 "issues": "https://github.com/burovoordeboeg/wp-theme-class/issues"
             },
-            "time": "2020-07-06T10:49:40+00:00"
+            "time": "2020-10-17T18:12:33+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.17.1",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d"
+                "reference": "f4ba089a5b6366e453971d3aad5fe8e897b37f41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
-                "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f4ba089a5b6366e453971d3aad5fe8e897b37f41",
+                "reference": "f4ba089a5b6366e453971d3aad5fe8e897b37f41",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/r%reference%.%type%",
                         "preferred": true
                     }
                 ]
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
             },
             "suggest": {
                 "ext-ctype": "For best performance"
@@ -142,7 +142,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-main": "1.20-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -179,30 +179,47 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-06-06T08:46:27+00:00"
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.20.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T14:02:19+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.17.1",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7110338d81ce1cbc3e273136e4574663627037a7"
+                "reference": "39d483bdf39be819deabf04ec872eb0b2410b531"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7110338d81ce1cbc3e273136e4574663627037a7",
-                "reference": "7110338d81ce1cbc3e273136e4574663627037a7",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/39d483bdf39be819deabf04ec872eb0b2410b531",
+                "reference": "39d483bdf39be819deabf04ec872eb0b2410b531",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/r%reference%.%type%",
                         "preferred": true
                     }
                 ]
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -210,7 +227,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-main": "1.20-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -248,30 +265,47 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-06-06T08:46:27+00:00"
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.20.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-23T14:02:19+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v2.13.0",
+            "version": "v2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "46a612ba1bbf6ee1c58acabacd868212ff8a2911"
+                "reference": "5eb9ac5dfdd20c3f59495c22841adc5da980d312"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/46a612ba1bbf6ee1c58acabacd868212ff8a2911",
-                "reference": "46a612ba1bbf6ee1c58acabacd868212ff8a2911",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/5eb9ac5dfdd20c3f59495c22841adc5da980d312",
+                "reference": "5eb9ac5dfdd20c3f59495c22841adc5da980d312",
                 "shasum": "",
                 "mirrors": [
                     {
-                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/%reference%.%type%",
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/r%reference%.%type%",
                         "preferred": true
                     }
                 ]
             },
             "require": {
-                "php": ">=7.1.3",
+                "php": ">=7.2.5",
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3"
             },
@@ -282,7 +316,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.13-dev"
+                    "dev-master": "2.14-dev"
                 }
             },
             "autoload": {
@@ -319,7 +353,21 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2020-07-05T13:08:05+00:00"
+            "support": {
+                "issues": "https://github.com/twigphp/Twig/issues",
+                "source": "https://github.com/twigphp/Twig/tree/v2.14.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-10-27T19:25:29+00:00"
         }
     ],
     "packages-dev": [],
@@ -332,5 +380,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
