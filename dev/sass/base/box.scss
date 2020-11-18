@@ -1,12 +1,13 @@
 .container {
   margin: 0 auto;
+  max-width: $container;
   padding: $container-padding;
   position: relative;
-  max-width: $container;
 
   .block.aligncenter & {
     max-width: $block-center;
   }
+
   .block.alignwide & {
     max-width: $block-wide;
   }

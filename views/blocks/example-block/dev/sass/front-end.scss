@@ -1,25 +1,30 @@
 @import '../../../../../dev/sass/base/config';
 @import '../../../../../dev/sass/base/functions';
 
+.btn {
+  display: none;
+}
+
 .block-custom {
   background-color: rosybrown;
-  .container {
-    background-color: aquamarine;
 
-    @include media-min(desktop-sm) {
+  .container {
+    @include media-min($desktop-sm) {
       background-color: green;
     }
 
-    @include media-max(desktop-sm) {
-      background-color: pink;
-    }
-
-    @include media-min-max(mobile, desktop-sm) {
-      background-color: darkcyan;
+    @include media-max(500px) {
+      p {
+        visibility: hidden;
+      }
     }
 
     @include media-touch {
       background-color: red;
+    }
+
+    @include media-min-max(200px, 300px) {
+      background-color: purple;
     }
   }
 

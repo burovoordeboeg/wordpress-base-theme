@@ -1,18 +1,16 @@
-$breakpoints: (
-  mobile: 640px,
-  tablet: 768px,
-  desktop-sm: 1024px,
-  desktop-md: 1280px,
-  desktop-lg: 1440px,
-);
+$mobile: 640px;
+$tablet: 768px;
+$desktop-sm: 1024px;
+$desktop-md: 1280px;
+$desktop-lg: 1440px;
 
 // container settings
 $container: 1440px;
 $container-padding: 0 1.5rem;
 
 // Block sizing
-$block-center: map-get($breakpoints, tablet);
-$block-wide: map-get($breakpoints, desktop-sm);
+$block-center: $tablet;
+$block-wide: $desktop-sm;
 
 // Font settings
 $fontsize: 16px;

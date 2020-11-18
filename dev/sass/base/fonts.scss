@@ -51,13 +51,18 @@ h6 {
 }
 
 // Paragraph styles
+// Needs some discussion
 p {
   margin: 1.5rem 0;
   line-height: 1.4;
 
   .content & {
-    &:first-of-type {
-      margin-top: 0;
+    // &:first-of-type {
+    //   margin-top: 0;
+    // }
+
+    &:last-of-type {
+      margin-bottom: 0;
     }
   }
 }
