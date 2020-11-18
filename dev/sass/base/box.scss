@@ -1,24 +1,40 @@
-.container { 
+.container {
   margin: 0 auto;
+  padding: $container-padding;
   position: relative;
-  width: $width-desktop;
+  max-width: $container;
 
-  &::after {
-    clear: both;
-    content: '';
-    display: table;
+  .block.aligncenter & {
+    max-width: $block-center;
   }
-  
-  @media #{$desktopwide} { 
-    width: $width-desktopwide; 
+  .block.alignwide & {
+    max-width: $block-wide;
+  }
+}
+
+// Inside a gutenberg wp-block
+.wp-block {
+  &[data-align='center'],
+  &[data-align='wide'],
+  &[data-align='full'] {
+    max-width: 100%;
   }
 
-  @media #{$tablet} {
-    width: $width-tablet; 
+  &[data-align='center'] {
+    .container {
+      max-width: $block-center;
+    }
   }
-  
-  @media #{$mobile} { 
-    padding: 0 20px;
-    width: $width-mobile;
+
+  &[data-align='wide'] {
+    .container {
+      max-width: $block-wide;
+    }
+  }
+
+  &[data-align='full'] {
+    .container {
+      max-width: $container;
+    }
   }
 }

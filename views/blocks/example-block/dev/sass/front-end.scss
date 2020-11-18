@@ -1,0 +1,29 @@
+@import '../../../../../dev/sass/base/config';
+@import '../../../../../dev/sass/base/functions';
+
+.block-custom {
+  background-color: rosybrown;
+  .container {
+    background-color: aquamarine;
+
+    @include media-min(desktop-sm) {
+      background-color: green;
+    }
+
+    @include media-max(desktop-sm) {
+      background-color: pink;
+    }
+
+    @include media-min-max(mobile, desktop-sm) {
+      background-color: darkcyan;
+    }
+
+    @include media-touch {
+      background-color: red;
+    }
+  }
+
+  h2 {
+    background-color: palevioletred;
+  }
+}

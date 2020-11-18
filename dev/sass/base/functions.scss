@@ -1,0 +1,23 @@
+@mixin media-min($breakpoint) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin media-max($breakpoint) {
+  @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin media-min-max($breakpoint-min, $breakpoint-max) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint-min)}) and (max-width: #{map-get($breakpoints, $breakpoint-max)}) {
+    @content;
+  }
+}
+
+@mixin media-touch() {
+  @media (hover: none) {
+    @content;
+  }
+}

@@ -17,7 +17,8 @@
 		'post_types' => array( 'post', 'page' ),
 		'mode' => 'auto',
 		'align' => array( 'center', 'wide', 'full' ),
-		'multiple' => false,
+		'default_align' => 'center',
+		'multiple' => true,
 	), array(
 		'frontend' => array(
 			'style' => 'front-end.css',
