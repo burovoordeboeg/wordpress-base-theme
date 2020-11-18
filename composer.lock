@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/wp-gutenberg-class.git",
-                "reference": "096b1bfc2cf97ba3142aafcb9dae9c3a729c28ca"
+                "reference": "519099252e788469f7781e07ff5601e58bd21290"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/096b1bfc2cf97ba3142aafcb9dae9c3a729c28ca",
-                "reference": "096b1bfc2cf97ba3142aafcb9dae9c3a729c28ca",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/519099252e788469f7781e07ff5601e58bd21290",
+                "reference": "519099252e788469f7781e07ff5601e58bd21290",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -54,10 +54,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.1.5",
+                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.1.6",
                 "issues": "https://github.com/burovoordeboeg/wp-gutenberg-class/issues"
             },
-            "time": "2020-10-19T09:11:32+00:00"
+            "time": "2020-11-18T12:36:39+00:00"
         },
         {
             "name": "burovoordeboeg/wp-theme-class",
