@@ -16,7 +16,7 @@
 		'keywords' => array( 'image', 'text' ),
 		'post_types' => array( 'post', 'page' ),
 		'mode' => 'auto',
-		'align' => array( 'wide', 'full', 'center' ),
+		'align' => array( 'center', 'wide', 'full' ),
 		'multiple' => false,
 	), array(
 		'frontend' => array(
@@ -27,7 +27,5 @@
 			'style' => 'back-end.css',
 		)
 	) );
-
-
 
 ?>
