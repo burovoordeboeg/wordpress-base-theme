@@ -11,6 +11,5 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-	<pre>{{dump(page.fields)}}</pre>
-
+	{{page.content|raw}}
 {% endblock %}

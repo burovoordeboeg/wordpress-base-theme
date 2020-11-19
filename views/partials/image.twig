@@ -8,5 +8,5 @@
 #}
 
 <figure class="image {{ ( ratio is not empty ) ? 'image--ratio' : '' }} {{ratio}} ">
-	<img src="{{image.sizes.medium_large}}" srcset="{{image.sizes.medium}} 300w, {{image.sizes.medium_large}} 768w, {{image.sizes.medium_large}} 1024w, {{image.url}} 1200w" sizes="(min-width: 1920px) 1920px, (min-width: 1024px) 1024px, (min-width: 768px) 768px, 100vw" alt="{{image.alt|default(image.title)}} ">
+	<img src="{{image.sizes.medium_large[0]|default(image.sizes.medium_large)}}" srcset="{{image.sizes.medium[0]|default(image.sizes.medium)}} 300w, {{image.sizes.medium_large[0]|default(image.sizes.medium_large)}} 768w, {{image.sizes.medium_large[0]|default(image.sizes.medium_large)}} 1024w, {{image.sizes.medium_large[0]|default(image.url)}} 1200w" sizes="(min-width: 1920px) 1920px, (min-width: 1024px) 1024px, (min-width: 768px) 768px, 100vw" alt="{{image.alt|default(image.title)}} ">
 </figure>
