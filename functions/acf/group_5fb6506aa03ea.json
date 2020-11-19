@@ -1,10 +1,10 @@
 {
-    "key": "group_5efd988b58325",
-    "title": "Header image block",
+    "key": "group_5fb6506aa03ea",
+    "title": "Content",
     "fields": [
         {
-            "key": "field_5efd989e4b7ae",
-            "label": "Titel",
+            "key": "field_5fb6517443c26",
+            "label": "Title",
             "name": "title",
             "type": "clone",
             "instructions": "",
@@ -18,13 +18,32 @@
             "clone": [
                 "group_5fb645d97d275"
             ],
-            "display": "group",
+            "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 1
         },
         {
-            "key": "field_5fb64889e407d",
+            "key": "field_5fb6506e6900b",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5fb650996900c",
             "label": "Button",
             "name": "button",
             "type": "clone",
@@ -48,9 +67,9 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/example-block"
+                "value": "post"
             }
         ]
     ],
@@ -60,7 +79,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
-    "modified": 1605785587
+    "modified": 1605783981
 }

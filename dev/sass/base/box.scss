@@ -19,6 +19,11 @@
   &[data-align='wide'],
   &[data-align='full'] {
     max-width: 100%;
+
+    .acf-block-fields {
+      margin: 0 auto;
+      max-width: $container;
+    }
   }
 
   &[data-align='center'] {

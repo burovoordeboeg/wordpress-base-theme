@@ -11,23 +11,23 @@
 {% block button %}
 
 	{# Set button classes as variables to prevent advanced logic inside template itself #}
-	{% set btn_type = ( (type is defined) and (type != 'button') ) ? 'btn btn--' ~ type : 'btn' %}
+	{% set btn_type = ( (button.type is defined) and (button.type != 'default') ) ? 'btn btn--' ~ button.type : 'btn' %}
 
 	{# Set the button color #}
-	{% if (color is not empty) and ( type != 'inline' ) %}
-		{% set btn_color = 'btn--' ~ color %}
+	{% if (button.color is not empty) and ( button.type != 'inline' ) %}
+		{% set btn_color = 'btn--' ~ button.color %}
 	{% endif %}
 
 	{# Set the inline-button color #}
-	{% if (color_text is not empty) and ( type == 'inline' ) %}
-		{% set btn_color = 'btn--inline--' ~ color_text %}
+	{% if (button.color_text is not empty) and ( button.type == 'inline' ) %}
+		{% set btn_color = 'btn--inline--' ~ button.color_text %}
 	{% endif %}
 
 	{# Set the buttont target (_blank or null) #}
-	{% set btn_target = ( link.target is not empty ) ? 'target="' ~ link.target ~ '"' : null %}
+	{% set btn_target = ( button.link.target is not empty ) ? 'target="' ~ button.link.target ~ '"' : null %}
 
-	<a href="{{ link.url }}" class="{{ btn_type }} {{ ( btn_color is not empty ) ? btn_color : '' }}" {{ btn_target }}>
-		{{ link.title }}
+	<a href="{{ button.link.url }}" class="{{ btn_type }} {{ ( btn_color is not empty ) ? btn_color : '' }}" {{ btn_target }}>
+		{{ button.link.title|default('button text') }}
 	</a>
 
 {% endblock %}

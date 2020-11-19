@@ -15,7 +15,7 @@
 		'icon' => 'admin-comments',
 		'keywords' => array( 'image', 'text' ),
 		'post_types' => array( 'post', 'page' ),
-		'mode' => 'auto',
+		'mode' => 'preview',
 		'align' => array( 'center', 'wide', 'full' ),
 		'default_align' => 'center',
 		'multiple' => true,
