@@ -42,11 +42,11 @@
                 "id": ""
             },
             "choices": {
-                "color_one": "Kleur 1",
-                "color_two": "Kleur 2",
-                "color_three": "Kleur 3",
-                "color_four": "Kleur 2",
-                "color_five": "Kleur 3"
+                "one": "Kleur 1",
+                "two": "Kleur 2",
+                "three": "Kleur 3",
+                "four": "Kleur 4",
+                "five": "Kleur 5"
             },
             "default_value": false,
             "allow_null": 0,
@@ -89,5 +89,5 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1605784145
+    "modified": 1605789515
 }

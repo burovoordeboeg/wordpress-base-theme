@@ -26,3 +26,10 @@ $font-size-h5: $fontsize; // $fontsize
 $font-size-h6: ceil(($fontsize * 0.75)); // 12px
 
 // Colors
+$white: rgb(255, 255, 255);
+$gray: rgb(192, 186, 186);
+
+// Button colors
+$btn-color-one: rgb(66, 66, 223);
+$btn-color-two: rgb(187, 57, 57);
+$btn-color-three: rgb(98, 241, 230);

@@ -15,7 +15,7 @@
 
 	{# Set the button color #}
 	{% if (button.color is not empty) and ( button.type != 'inline' ) %}
-		{% set btn_color = 'btn--' ~ button.color %}
+		{% set btn_color = 'btn--color-' ~ button.color %}
 	{% endif %}
 
 	{# Set the inline-button color #}
