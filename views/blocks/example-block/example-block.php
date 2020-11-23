@@ -15,9 +15,10 @@
 		'icon' => 'admin-comments',
 		'keywords' => array( 'image', 'text' ),
 		'post_types' => array( 'post', 'page' ),
-		'mode' => 'auto',
-		'align' => array( 'wide', 'full', 'center' ),
-		'multiple' => false,
+		'mode' => 'preview',
+		'align' => array( 'center', 'wide', 'full' ),
+		'default_align' => 'center',
+		'multiple' => true,
 	), array(
 		'frontend' => array(
 			'style' => 'front-end.css',
@@ -27,7 +28,5 @@
 			'style' => 'back-end.css',
 		)
 	) );
-
-
 
 ?>

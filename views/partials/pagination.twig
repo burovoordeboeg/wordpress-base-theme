@@ -1,17 +1,17 @@
 {#
     ====================================================================
-    Name:           archive-woocommerce.twig
-    Type:           WooCommerce archive
+    Name:           pagination.twig
+    Type:           pagination
     Since:          0.0.1
-    Description:    The wooCommerce archive shows filters and products
+    Description:    A pagination to us on different pages
     Available vars: page, site
     ====================================================================
 #}
 
-{% block content %}	
-    
-<nav class="pagination">
-    {{ site.getPagination()|raw }}
-</nav>
+{% block content %}
+
+	<nav class="pagination">
+		{{ site.getPagination()|raw }}
+	</nav>
 
 {% endblock %}

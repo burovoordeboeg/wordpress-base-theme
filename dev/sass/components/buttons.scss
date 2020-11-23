@@ -1,0 +1,62 @@
+.btn {
+  background-color: #eee;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-family: sans-serif;
+  padding: 1rem 2rem;
+  text-decoration: none;
+
+  // Color styles
+  &--color-one {
+    background-color: $btn-color-one;
+  }
+
+  &--color-two {
+    background-color: $btn-color-two;
+  }
+
+  &--color-three {
+    background-color: $btn-color-three;
+  }
+
+  // Outlined button
+  &--outline {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+
+    &.btn {
+      &--color-one {
+        color: $btn-color-one;
+      }
+
+      &--color-two {
+        color: $btn-color-two;
+      }
+
+      &--color-three {
+        color: $btn-color-three;
+      }
+    }
+  }
+
+  // Link button
+  &--link {
+    background-color: transparent;
+
+    &.btn {
+      &--color-one {
+        color: $btn-color-one;
+      }
+
+      &--color-two {
+        color: $btn-color-two;
+      }
+
+      &--color-three {
+        color: $btn-color-three;
+      }
+    }
+  }
+}

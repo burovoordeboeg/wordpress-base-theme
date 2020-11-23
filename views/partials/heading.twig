@@ -10,8 +10,12 @@
 
 {% block heading %}
 
-	<{{(type)?type:'h1'}} class="title heading--{{ size }}">
+	{% set type = title.type|default('h2') %}
+	{% set text = title.text|default('') %}
+	{% set size = title.size|default('') %}
+
+	<{{type}} class="heading heading--{{ size }}">
 		{{ text }}
-	</{{(type)?type:'h1'}}>
+	</{{type}}>
 
 {% endblock %}

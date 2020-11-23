@@ -63,7 +63,7 @@ rules:
     - 1
     - size: 2
   leading-zero:
-    - 1
+    - 0
     - include: false
   mixin-name-format:
     - 1
