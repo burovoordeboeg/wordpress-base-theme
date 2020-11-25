@@ -8,6 +8,16 @@
     ====================================================================
 #}
 
-<div class="custom-block">
-	<h2>Header image block</h2>
+<div class="block block-custom {{classes}}">
+	<div class="container">
+
+		{% include "partials/heading.twig" %}
+
+		{% include "partials/button.twig" %}
+
+		{% include "partials/image.twig" with {
+			ratio: 'is-1by1',
+		} %}
+
+	</div>
 </div>

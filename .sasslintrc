@@ -64,6 +64,7 @@ rules:
     - size: 2
   leading-zero:
     - 0
+    - include: false
   mixin-name-format:
     - 1
     - allow-leading-underscore: true

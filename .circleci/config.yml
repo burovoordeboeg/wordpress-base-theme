@@ -1,14 +1,34 @@
+version: 2.1
+
 references:
-  defaults: &defaults
+  default: &default
     working_directory: ~/theme
     docker:
-      - image: circleci/php:7.3-stretch-node-browsers
+      - image: cimg/php:7.3-node
 
-  npm_permissions: &npm_permissions
+  # Setup SSH Tunneling
+  open_ssh_tunnel: &open_ssh_tunnel
+    run: 
+      name: Open SSH Tunnel through Bastion-host
+      background: true
+      command: |
+        ssh-keyscan $BASTION_IP >> ~/.ssh/known_hosts
+        ssh -4 -L $BASTION_PORT:$SERVER_IP:$SERVER_PORT -Nf $BASTION_USER@$BASTION_IP
+
+  sleep_for_ssh: &sleep_for_ssh
     run:
-      name: Set user permissions
-      command: sudo chown -R $(whoami):$(whoami) ~/theme
+      name: Wait for tunnel to setup
+      command: sleep 8
 
+  # Rsync install
+  rsync_install: &rsync_install
+    run:
+      name: Install rsync
+      command: |
+        sudo apt-get update -y
+        sudo apt-get -y install rsync
+  
+  # NPM
   npm_restore_cache: &npm_restore_cache
     restore_cache:
       keys:
@@ -24,8 +44,11 @@ references:
   npm_install: &npm_install
     run:
       name: Install NPM packages
-      command: npm install --silent
-
+      command: |
+        npm install --silent
+        npm rebuild node-sass
+  
+  # Composer
   composer_restore_cache: &composer_restore_cache
     restore_cache:
       keys:
@@ -37,126 +60,147 @@ references:
       key: composer-v1-{{ checksum "composer.lock" }}
       paths:
         - vendor
+  
+  composer_packagist: &composer_packagist
+    run:
+      name: Setup packagist authentication
+      command: composer config --global --auth http-basic.repo.packagist.com jstreuper $PACKAGIST_TOKEN
 
   composer_install: &composer_install
     run:
       name: Compile vendors from composer packages
       command: composer install -n --ignore-platform-reqs --optimize-autoloader
-
-  append_sshkey: &append_sshkey
-    add_ssh_keys:
-      fingerprints:
-        - "$SSH_FINGERPRINT"
-
-  add_serverkeys: &add_serverkeys
+  
+  # Linters
+  jslint: &jslint
     run:
-      name: Add server keys
-      command: ssh-keyscan $SERVER_IP >> ~/.ssh/known_hosts
+      name: Lint JavaScript files
+      command: npx gulp jsLint
+  
+  sasslint: &sasslint
+    run:
+      name: Lint SASS files
+      command: npx gulp sassLint
+  
+  # Gulp builds
+  gulp_build_staging: &gulp_build_staging
+    run:
+      name: Build staging assets
+      command: npx gulp build
 
-version: 2.0
+  gulp_build_production: &gulp_build_production
+    run:
+      name: Build production assets
+      command: npx gulp buildProduction
+
+commands:
+  rsync_deploy:
+    description: Rsync deploy to input path
+    parameters:
+      jobname:
+        type: string
+        default: "production"
+      path: 
+        type: string
+        default: ""
+    steps:
+      - run:
+          name: Rsync deploy to <<parameters.jobname>>
+          command: |
+            if [ -z <<parameters.path>> ]
+            then
+                echo "No path specified to deploy to"
+                exit 1
+            fi
+            rsync -avz -e "ssh -p $BASTION_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@$LOCALHOST:/home/$USER/domains/<<parameters.path>>
+
 jobs:
   jslint:
-    <<: *defaults
+    <<: *default
     steps:
       - checkout
-      - << : *npm_permissions
       - << : *npm_restore_cache
       - << : *npm_install
       - << : *npm_save_cache
-      - run: 
-          name: Lint JS files
-          command: npx gulp jsLint
+      - << : *jslint
 
   sasslint:
-    <<: *defaults
+    <<: *default
     steps:
       - checkout
-      - << : *npm_permissions
       - << : *npm_restore_cache
       - << : *npm_install
       - << : *npm_save_cache
-      - run: 
-          name: Lint SASS files
-          command: npx gulp sassLint
+      - << : *sasslint
 
   staging:
-    <<: *defaults
+    <<: *default
     steps:
       - checkout
-      - << : *npm_permissions
-      - << : *npm_restore_cache
-      - << : *npm_install
-      - << : *npm_save_cache
-      - run:
-          name: Gulp build staging
-          command: npx gulp build
-      - << : *composer_restore_cache
-      - << : *composer_install
-      - << : *composer_save_cache
-      - << : *append_sshkey
-      - << : *add_serverkeys
-      - run:
-          name: Rsync deploy to staging
-          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/domains/$STAGING_PATH
+      - <<: *rsync_install
+      - <<: *npm_restore_cache
+      - <<: *npm_install
+      - <<: *npm_save_cache
+      - <<: *gulp_build_staging
+      - <<: *composer_restore_cache
+      - <<: *composer_packagist
+      - <<: *composer_install
+      - <<: *composer_save_cache
+      - <<: *open_ssh_tunnel 
+      - <<: *sleep_for_ssh 
+      - rsync_deploy:
+          jobname: "staging"
+          path: $STAGING_PATH
 
   production:
-    <<: *defaults
+    <<: *default
     steps:
       - checkout
-      - << : *npm_permissions
-      - << : *npm_restore_cache
-      - << : *npm_install
-      - << : *npm_save_cache
-      - run:
-          name: Gulp build production
-          command: npx gulp buildProduction
-      - << : *composer_restore_cache
-      - << : *composer_install
-      - << : *composer_save_cache
-      - << : *append_sshkey
-      - << : *add_serverkeys
-      - run:
-          name: Rsync deploy to production
-          command: rsync -avzp --chown=$USER:$USER --delete --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/$PRODUCTION_PATH
-
-workflows: 
-  version: 2
-  deploy:
+      - <<: *rsync_install
+      - <<: *npm_restore_cache
+      - <<: *npm_install
+      - <<: *npm_save_cache
+      - <<: *gulp_build_production
+      - <<: *composer_restore_cache
+      - <<: *composer_packagist
+      - <<: *composer_install
+      - <<: *composer_save_cache
+      - <<: *open_ssh_tunnel 
+      - <<: *sleep_for_ssh 
+      - rsync_deploy:
+          jobname: "production"
+          path: $PRODUCTION_PATH
+      
+workflows:
+  lint:
     jobs:
       - jslint:
-          filters: &filter_all
-            tags:
-              only: /.*?/
-
-      - sasslint:
-          filters: *filter_all
-
-      - staging:
-          requires:
-            - jslint
-            - sasslint
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only:
-                # v1.0.0-1 / v1.0.0-pre1 / v1.0.0
-                - /^v\d+\.\d+\.\d+(\-.+)?$/
-
-      - approve_deploy:
-          type: approval
-          requires:
-            - staging
-          filters: &filter_production
+              ignore:
+                - staging
+                - production
+      - sasslint:
+          filters:
             branches:
-              ignore: /.*/
-            tags:
-              only:
-                # v1.0.0
-                - /^v\d+\.\d+\.\d+$/
+              ignore:
+                - staging
+                - production
 
-      - production: 
-          requires: 
-            - staging
-            - approve_deploy
-          filters: *filter_production
+  deploy:
+    jobs:
+      - staging: 
+          context:
+            - buro-voor-de-boeg
+          filters:
+            branches:
+              only:
+                - staging
+
+      - production:
+          context:
+            - buro-voor-de-boeg
+          filters:
+            branches:
+              only:
+                - production
