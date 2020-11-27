@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "455df682eddd0f1c796989eb8cc198d0",
+    "content-hash": "728a1c1590dba0ccf7aa8c46cc8a5b2f",
     "packages": [
         {
             "name": "burovoordeboeg/wp-gutenberg-class",
-            "version": "dev-master",
+            "version": "0.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/wp-gutenberg-class.git",
@@ -61,16 +61,16 @@
         },
         {
             "name": "burovoordeboeg/wp-theme-class",
-            "version": "dev-master",
+            "version": "0.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/burovoordeboeg/wp-theme-class.git",
-                "reference": "e7dba5208d74348826e03018c44b8d8951bb7df2"
+                "reference": "dc1cf93eaadffa9d192666d369cbcbb2f2fc3620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/e7dba5208d74348826e03018c44b8d8951bb7df2",
-                "reference": "e7dba5208d74348826e03018c44b8d8951bb7df2",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/dc1cf93eaadffa9d192666d369cbcbb2f2fc3620",
+                "reference": "dc1cf93eaadffa9d192666d369cbcbb2f2fc3620",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -108,10 +108,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/0.4.7",
+                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/0.4.14",
                 "issues": "https://github.com/burovoordeboeg/wp-theme-class/issues"
             },
-            "time": "2020-10-17T18:12:33+00:00"
+            "time": "2020-11-27T12:17:08+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -373,13 +373,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "burovoordeboeg/wp-theme-class": 20,
-        "burovoordeboeg/wp-gutenberg-class": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

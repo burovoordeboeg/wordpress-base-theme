@@ -4,7 +4,7 @@
     if ( ! defined( 'ABSPATH' ) ) exit;
 
     // Get the theme instance from global objects
-    global $theme;
+    $theme = BvdB\Theme::getInstance();
 
 	/**
 	 * Register a post type within
