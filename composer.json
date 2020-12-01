@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "burovoordeboeg/wp-theme-class": "^0.4.9",
-        "burovoordeboeg/wp-gutenberg-class": "^0.1.7",
+        "burovoordeboeg/wp-theme-class": "^0.5.1",
+        "burovoordeboeg/wp-gutenberg-class": "^0.2.0",
         "composer/installers": "^1.0",
         "satispress/gravityforms": "*",
         "satispress/advanced-custom-fields-pro": "*"

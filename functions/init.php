@@ -87,7 +87,17 @@
 
 		// Load the Gutenberg ACF-files
 		$gutenberg->loadBlockJSON();
-		
+
+		// Set the allowed blocks
+		$gutenberg->setAllowedBlock('acf/example-block');
+
+		// Or use an array:
+		// $gutenberg->setAllowedBlocks(
+		// 	array(
+		// 		'acf/example-block'
+		// 	)
+		// );
+	
 		// Load all Gutenberg blocks
 		$gutenberg->includeBlocks();
 

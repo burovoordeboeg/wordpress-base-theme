@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "728a1c1590dba0ccf7aa8c46cc8a5b2f",
+    "content-hash": "57c8cf365888d97ba22b28871f7ce8ab",
     "packages": [
         {
             "name": "burovoordeboeg/wp-gutenberg-class",
-            "version": "0.1.7",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/wp-gutenberg-class.git",
-                "reference": "17b65ac424ee9d1a6039e2838982f2fc93039477"
+                "reference": "8c90e9825eb89b352f437f1c4db94e7297eac8e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/17b65ac424ee9d1a6039e2838982f2fc93039477",
-                "reference": "17b65ac424ee9d1a6039e2838982f2fc93039477",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-gutenberg-class/zipball/8c90e9825eb89b352f437f1c4db94e7297eac8e2",
+                "reference": "8c90e9825eb89b352f437f1c4db94e7297eac8e2",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -54,23 +54,23 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.1.7",
+                "source": "https://github.com/burovoordeboeg/wp-gutenberg-class/tree/0.2.0",
                 "issues": "https://github.com/burovoordeboeg/wp-gutenberg-class/issues"
             },
-            "time": "2020-11-18T15:31:12+00:00"
+            "time": "2020-12-01T11:14:49+00:00"
         },
         {
             "name": "burovoordeboeg/wp-theme-class",
-            "version": "0.4.14",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/burovoordeboeg/wp-theme-class.git",
-                "reference": "dc1cf93eaadffa9d192666d369cbcbb2f2fc3620"
+                "url": "git@github.com:burovoordeboeg/wp-theme-class.git",
+                "reference": "c66f1b4d6176db0705c5466bc5f305287d278e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/dc1cf93eaadffa9d192666d369cbcbb2f2fc3620",
-                "reference": "dc1cf93eaadffa9d192666d369cbcbb2f2fc3620",
+                "url": "https://api.github.com/repos/burovoordeboeg/wp-theme-class/zipball/c66f1b4d6176db0705c5466bc5f305287d278e85",
+                "reference": "c66f1b4d6176db0705c5466bc5f305287d278e85",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -108,10 +108,191 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/0.4.14",
+                "source": "https://github.com/burovoordeboeg/wp-theme-class/tree/0.5.1",
                 "issues": "https://github.com/burovoordeboeg/wp-theme-class/issues"
             },
-            "time": "2020-11-27T12:17:08+00:00"
+            "time": "2020-12-01T11:15:29+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://repo.packagist.com/burovoordeboeg/dists/%package%/%version%/r%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || 2.0.*@dev",
+                "composer/semver": "1.0.* || 2.0.*@dev",
+                "phpunit/phpunit": "^4.8.36",
+                "sebastian/comparator": "^1.2.4",
+                "symfony/process": "^2.3"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://repo.packagist.com/burovoordeboeg/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-07T06:57:05+00:00"
+        },
+        {
+            "name": "satispress/advanced-custom-fields-pro",
+            "version": "5.9.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.burovoordeboeg.nl/satispress/advanced-custom-fields-pro/5.9.3",
+                "shasum": "51850e390ce4efa881cdff54787ad65fcb091667"
+            },
+            "require": {
+                "composer/installers": "^1.0"
+            },
+            "type": "wordpress-plugin",
+            "authors": {
+                "name": "Elliot Condon",
+                "homepage": "https://www.advancedcustomfields.com"
+            },
+            "description": "Customize WordPress with powerful, professional and intuitive fields.",
+            "homepage": "https://www.advancedcustomfields.com"
+        },
+        {
+            "name": "satispress/gravityforms",
+            "version": "2.4.21",
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.burovoordeboeg.nl/satispress/gravityforms/2.4.21",
+                "shasum": "4b1cefb9c43d1393214f32dd4df3776bc246d5e4"
+            },
+            "require": {
+                "composer/installers": "^1.0"
+            },
+            "type": "wordpress-plugin",
+            "authors": {
+                "name": "Gravity Forms",
+                "homepage": "https://gravityforms.com"
+            },
+            "description": "Easily create web forms and manage form entries within the WordPress admin.",
+            "homepage": "https://gravityforms.com"
         },
         {
             "name": "symfony/polyfill-ctype",

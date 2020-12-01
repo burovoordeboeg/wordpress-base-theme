@@ -27,4 +27,3 @@
 	include_once 'functions/cpt.php';
 	include_once 'functions/navigation.php';
 	include_once 'functions/options.php';
-
