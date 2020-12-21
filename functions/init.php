@@ -89,12 +89,15 @@
 		$gutenberg->loadBlockJSON();
 
 		// Set the allowed blocks
-		$gutenberg->setAllowedBlock('acf/example-block');
+		$gutenberg->setAllowedBlock('gravityforms/form');
 
 		// Or use an array:
 		// $gutenberg->setAllowedBlocks(
 		// 	array(
-		// 		'acf/example-block'
+    //     'acf/example-block',
+
+    //     // Gravity forms
+		// 		'gravityforms/form'
 		// 	)
 		// );
 	

@@ -1,0 +1,22 @@
+// sass-lint:disable class-name-format
+.gform_fields {
+
+  .gfield {
+    margin-bottom: 1rem;
+  }
+
+  &.top_label {
+    display: block;
+    width: 100%;
+  }
+
+  &.left_label {
+    label {
+      display: inline-block;
+    }
+
+    .ginput_container {
+      display: inline-block;
+    }
+  }
+}
