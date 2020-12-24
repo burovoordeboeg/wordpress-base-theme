@@ -15,15 +15,16 @@
 	// docker logs -f --since=$date $containerid >/dev/null
 
 	// Error reporting
-	error_reporting(E_ALL);
-	ini_set('display_errors', 'on');
+	if( is_user_logged_in() ) {
+		error_reporting(E_ALL);
+		ini_set('display_errors', 'on');
+	}
 
 	// Initialize theme
 	include_once 'functions/init.php';
 	
 	// Add theme specific methods
 	include_once 'functions/cpt.php';
-	include_once 'functions/general.php';
 	include_once 'functions/navigation.php';
-	include_once 'functions/options.php';
-
+  include_once 'functions/options.php';
+  include_once 'functions/gravity-forms.php';

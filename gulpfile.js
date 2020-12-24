@@ -120,7 +120,7 @@ function compileSass(fileSrc, fileDest, fileIncludes = []) {
 	if (getSourcemapState() === 'development') {
 		return gulp.src(fileSrc)
 			.pipe(sourcemaps.init())
-			.pipe(sass({ includePaths: fileIncludes }))
+			.pipe(sass({ includePaths: fileIncludes }).on('error', sass.logError))
 			.pipe(postcss(plugins))
 			.pipe(cleanCSS())
 			.pipe(sourcemaps.write('./'))
@@ -131,7 +131,7 @@ function compileSass(fileSrc, fileDest, fileIncludes = []) {
 	// Production
 	else {
 		return gulp.src(fileSrc)
-			.pipe(sass({ includePaths: fileIncludes }))
+			.pipe(sass({ includePaths: fileIncludes }).on('error', sass.logError))
 			.pipe(postcss(plugins))
 			.pipe(cleanCSS())
 			.pipe(gulp.dest(fileDest))

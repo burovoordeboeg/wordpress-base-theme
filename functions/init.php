@@ -61,15 +61,22 @@
 	add_action('after_setup_theme', function() use ($theme, $gutenberg) {
 
 		// Enqueue scripts
-		$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-2.2.4.min.js', array(), false);
+		$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), false);
 		$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), true);
 		$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
 
 		// Enqueue styles
 		$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
 
+		// Localize scripts
+		$theme->assets->localize('scripts', 'theme', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' )
+		));
+		
 		// Enqueue all assets (keep at end of file)
 		$theme->assets->load(); 
+
+
 		
 		
 		// Enqueue editor styles for Gutenberg
@@ -80,7 +87,20 @@
 
 		// Load the Gutenberg ACF-files
 		$gutenberg->loadBlockJSON();
-		
+
+		// Set the allowed blocks
+		$gutenberg->setAllowedBlock('gravityforms/form');
+
+		// Or use an array:
+		// $gutenberg->setAllowedBlocks(
+		// 	array(
+    //     'acf/example-block',
+
+    //     // Gravity forms
+		// 		'gravityforms/form'
+		// 	)
+		// );
+	
 		// Load all Gutenberg blocks
 		$gutenberg->includeBlocks();
 
