@@ -69,7 +69,7 @@ references:
   composer_install: &composer_install
     run:
       name: Compile vendors from composer packages
-      command: composer install -n --ignore-platform-reqs --optimize-autoloader
+      command: composer install -n --ignore-platform-reqs --optimize-autoloader --no-dev
   
   # Linters
   jslint: &jslint
