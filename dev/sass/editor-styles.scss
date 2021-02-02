@@ -2,3 +2,13 @@
 .editor-styles-wrapper {
   @import 'styles';
 }
+
+.wp-block[data-type*='gravityforms'],
+.wp-block .acf-block-preview {
+
+  // Make everything not clickable in the backend
+	a {
+		pointer-events: none !important;
+		cursor: default !important;
+	}
+}
