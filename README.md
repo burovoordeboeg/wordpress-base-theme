@@ -96,6 +96,6 @@ Builds triggeren automatisch, zo triggert:
 
 - Bij elke commit en PR de jsLint en sassLint
 
-- Bij elke release op de staging branch een staging-deploy
+- Bij elke PR op de staging branch een staging-deploy
 
-- Bij elke release op de master branch een master-deploy
+- Bij elke PR op de master branch een master-deploy
