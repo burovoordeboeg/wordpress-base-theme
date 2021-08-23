@@ -1,3 +1,8 @@
+// Tailwind include
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 // Grid + reset + defaults
 @import 'base/config';
 @import 'base/functions';

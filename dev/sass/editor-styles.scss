@@ -1,14 +1,14 @@
 // Grid + reset + defaults
 .editor-styles-wrapper {
-  @import 'styles';
+  @import 'styles.scss'; // sass-lint:disable-line clean-import-paths
 }
 
 .wp-block[data-type*='gravityforms'],
 .wp-block .acf-block-preview {
 
   // Make everything not clickable in the backend
-	a {
-		pointer-events: none !important;
-		cursor: default !important;
-	}
+  a {
+    cursor: default !important;
+    pointer-events: none !important;
+  }
 }

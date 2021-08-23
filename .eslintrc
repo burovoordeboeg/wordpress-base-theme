@@ -10,9 +10,9 @@
 				"properties": "never"
 			}
 		],
-        "comma-dangle": 2,
+        "comma-dangle": 1,
         "curly": 2,
-        "no-console": 2,
+        "no-console": 1,
 		"no-alert": 2,
         "quotes": [2, "single", "avoid-escape"],
         "no-empty": 2,
