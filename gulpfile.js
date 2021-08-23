@@ -4,9 +4,9 @@
  * Builds the theme
  *
  * @author     Justin Streuper
- * @copyright  2020 Buro voor de Boeg
+ * @copyright  2021 Buro voor de Boeg
  * @license    GPL License
- * @version    2.1.0
+ * @version    3.0.0
  * @link       https://www.burovoordeboeg.nl
  * @since      File available since Release 0.1.0
  */
@@ -25,6 +25,7 @@ const loadTextFile = require('load-text-file');
 const path = require('path');
 const pkg = require('./package');
 const postcss = require('gulp-postcss');
+const tailwindcss = require('tailwindcss');
 const sass = require('gulp-sass');
 const sassLinter = require('gulp-sass-lint');
 const sourcemaps = require('gulp-sourcemaps');
@@ -41,9 +42,7 @@ const directories = {
 	'blocks': './views/blocks/'
 };
 
-const vendors = [
-
-];
+const vendors = [];
 
 
 // ======================================================================
@@ -102,25 +101,32 @@ function browserSync(done) {
 // SASS
 
 function sassLint() {
-	return gulp.src([
-		directories.src + '/**/*.scss',
-		directories.blocks + '/**/dev/sass/*.scss'
-	])
-		.pipe(sassLinter({ configFile: '.sasslintrc' }))
+	return gulp
+		.src([
+			directories.src + '/**/*.scss',
+			directories.blocks + '/**/dev/sass/*.scss'
+		])
+		.pipe(sassLinter({
+			configFile: '.sasslintrc'
+		}))
 		.pipe(sassLinter.format())
 		.pipe(sassLinter.failOnError())
 }
 
 function compileSass(fileSrc, fileDest, fileIncludes = []) {
 	const plugins = [
+		tailwindcss(),
 		autoprefixer()
 	];
 
 	// Development
 	if (getSourcemapState() === 'development') {
-		return gulp.src(fileSrc)
+		return gulp
+			.src(fileSrc)
 			.pipe(sourcemaps.init())
-			.pipe(sass({ includePaths: fileIncludes }).on('error', sass.logError))
+			.pipe(sass({
+				includePaths: fileIncludes
+			}))
 			.pipe(postcss(plugins))
 			.pipe(cleanCSS())
 			.pipe(sourcemaps.write('./'))
@@ -130,8 +136,11 @@ function compileSass(fileSrc, fileDest, fileIncludes = []) {
 
 	// Production
 	else {
-		return gulp.src(fileSrc)
-			.pipe(sass({ includePaths: fileIncludes }).on('error', sass.logError))
+		return gulp
+			.src(fileSrc)
+			.pipe(sass({
+				includePaths: fileIncludes
+			}))
 			.pipe(postcss(plugins))
 			.pipe(cleanCSS())
 			.pipe(gulp.dest(fileDest))
@@ -196,12 +205,12 @@ function compileBlockSass(done) {
 
 function jsLint() {
 	return gulp.src([
-		'**/*.js',
-		'!node_modules/**',
-		'!dist/**',
-		'!**/plugins/**',
-		'!vendor/**'
-	])
+			'**/*.js',
+			'!node_modules/**',
+			'!dist/**',
+			'!**/plugins/**',
+			'!vendor/**'
+		])
 		.pipe(eslint())
 		.pipe(eslint.format())
 		.pipe(eslint.failAfterError());
@@ -391,7 +400,11 @@ function clearCache(done) {
 // Watcher
 
 function watchFiles(done) {
+	process.env.NODE_ENV = 'development';
+	gulp.watch('tailwind.config.js', compileThemeSass);
+	gulp.watch('views/**/*.twig', compileThemeSass);
 	gulp.watch('dev/sass/**/*.scss', compileThemeSass);
+	gulp.watch('dev/sass/styles.scss', compileThemeSass);
 	gulp.watch('dev/js/**/*.js', compileThemeJs);
 	gulp.watch('views/blocks/**/dev/sass/*.scss', compileBlockSass);
 	gulp.watch('views/blocks/**/dev/js/*.js', compileBlockJs);

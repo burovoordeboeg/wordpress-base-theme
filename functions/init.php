@@ -23,23 +23,13 @@
 	// Add theme support for Gutenberg
 	$theme->support->add('align-wide');
 	$theme->support->add('align-full');
-	$theme->support->add('editor-color-palette', array(
-		array(
-			'name' => 'Blauw',
-			'slug' => 'blue',
-			'color' => '#59bacc',
-		),
-		array(
-			'name' => 'Grijs',
-			'slug' => 'gray',
-			'color' => '#ccc',
-			),
-		array(
-			'name' => 'Donkergrijs',
-			'slug' => 'darkgray',
-			'color' => '#333',
-		),
-	));
+	// $theme->support->add('editor-color-palette', array(
+	// 	array(
+	// 		'name' => 'Blauw',
+	// 		'slug' => 'blue',
+	// 		'color' => '#59bacc',
+	// 	),
+	// ));
 
 	// Register image size
 	$theme->support->imageSize('bigthumb', 500, 500, true);
@@ -92,14 +82,14 @@
 		$gutenberg->setAllowedBlock('gravityforms/form');
 
 		// Or use an array:
-		// $gutenberg->setAllowedBlocks(
-		// 	array(
-    //     'acf/example-block',
-
-    //     // Gravity forms
-		// 		'gravityforms/form'
-		// 	)
-		// );
+		$gutenberg->setAllowedBlocks(
+			array(
+    	    'acf/example-block',
+		
+    	    	// Gravity forms
+				'gravityforms/form'
+			)
+		);
 	
 		// Load all Gutenberg blocks
 		$gutenberg->includeBlocks();

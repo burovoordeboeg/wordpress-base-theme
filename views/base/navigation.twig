@@ -1,4 +1,7 @@
-{% block navigation %}	
+{% block navigation %}
 
+	<nav data-section-id="site-navigation" class="">
+		{{ site.getMenu('mainmenu', 'mainmenu') }}
+	</nav>
 
 {% endblock %}

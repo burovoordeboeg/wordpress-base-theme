@@ -6,6 +6,14 @@
 AANVULLEN MET INFORMATIE OVER HET THEMA
 
 
+# Tailwind config
+Er wordt gebruik gemaakt van een Tailwind. Om componenten en secties te herkennen maken we gebruik van data attributen. Deze zijn als volgt:
+- Voor secties (zoals headers en navigatie): `data-section-id="NAAM"`
+- Voor componenten (zoals buttons, titels, headings, etc.): `data-component-id="NAAM"`
+- Voor Gutenberg blokken: `data-block-id="{{ blockname }}"`
+
+Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft de HTML in de Twig-files leesbaar.
+
   
 # Github
 ## Repository setup

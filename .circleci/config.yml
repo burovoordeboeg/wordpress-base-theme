@@ -2,23 +2,10 @@ version: 2.1
 
 references:
   default: &default
+    circleci_ip_ranges: true
     working_directory: ~/theme
     docker:
       - image: cimg/php:7.3-node
-
-  # Setup SSH Tunneling
-  open_ssh_tunnel: &open_ssh_tunnel
-    run: 
-      name: Open SSH Tunnel through Bastion-host
-      background: true
-      command: |
-        ssh-keyscan $BASTION_IP >> ~/.ssh/known_hosts
-        ssh -4 -L $BASTION_PORT:$SERVER_IP:$SERVER_PORT -Nf $BASTION_USER@$BASTION_IP
-
-  sleep_for_ssh: &sleep_for_ssh
-    run:
-      name: Wait for tunnel to setup
-      command: sleep 8
 
   # Rsync install
   rsync_install: &rsync_install
@@ -94,6 +81,20 @@ references:
       command: npx gulp buildProduction
 
 commands:
+  # SSH Server keys
+  add_serverkey:
+    description: Add SSH keys for server
+    parameters:
+      server_ip: 
+        type: string
+        default: ""
+    steps: 
+      - run:
+          name: Add server keys
+          command: |
+            ssh-keyscan <<parameters.server_ip>> >> ~/.ssh/known_hosts
+  
+  # rsync deploy
   rsync_deploy:
     description: Rsync deploy to input path
     parameters:
@@ -101,6 +102,9 @@ commands:
         type: string
         default: "production"
       path: 
+        type: string
+        default: ""
+      server_ip: 
         type: string
         default: ""
     steps:
@@ -112,7 +116,7 @@ commands:
                 echo "No path specified to deploy to"
                 exit 1
             fi
-            rsync -avz -e "ssh -p $BASTION_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@$LOCALHOST:/home/$USER/domains/<<parameters.path>>
+            rsync -avz -e "ssh -p $SERVER_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@<<parameters.server_ip>>:/home/$USER/domains/<<parameters.path>>
 
 jobs:
   jslint:
@@ -146,11 +150,12 @@ jobs:
       - <<: *composer_packagist
       - <<: *composer_install
       - <<: *composer_save_cache
-      - <<: *open_ssh_tunnel 
-      - <<: *sleep_for_ssh 
+      - add_serverkey:
+          server_ip: $SERVER_IP
       - rsync_deploy:
           jobname: "staging"
           path: $STAGING_PATH
+          server_ip: $SERVER_IP
 
   production:
     <<: *default
@@ -165,11 +170,12 @@ jobs:
       - <<: *composer_packagist
       - <<: *composer_install
       - <<: *composer_save_cache
-      - <<: *open_ssh_tunnel 
-      - <<: *sleep_for_ssh 
+      - add_serverkey:
+          server_ip: $SERVER_IP
       - rsync_deploy:
           jobname: "production"
           path: $PRODUCTION_PATH
+          server_ip: $SERVER_IP
       
 workflows:
   lint:

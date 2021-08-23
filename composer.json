@@ -11,7 +11,9 @@
     ],
     "require": {
         "burovoordeboeg/wp-theme-class": "^0.5.1",
-        "burovoordeboeg/wp-gutenberg-class": "^0.2.0",
+        "burovoordeboeg/wp-gutenberg-class": "^0.2.0"
+    },
+    "require-dev": {
         "composer/installers": "^1.0",
         "satispress/gravityforms": "*",
         "satispress/advanced-custom-fields-pro": "*"
