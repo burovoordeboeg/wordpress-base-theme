@@ -1,7 +1,8 @@
 <?php
 
-	// Get the Gutenberg class globally
-	global $gutenberg;
+	// Get the Gutenberg
+	use BvdB\Gutenberg as Gutenberg;
+	$gutenberg = Gutenberg::getInstance();
 
 	/**
 	 * Register block
