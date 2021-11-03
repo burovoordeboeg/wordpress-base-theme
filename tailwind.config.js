@@ -1,10 +1,10 @@
 module.exports = {
 	mode: 'jit',
-	purge: ['views/**/*.twig'],
-	darkMode: false, // or 'media' or 'class'
-	options: {
+	purge: {
+		content: ['views/**/*.twig'],
 		safelist: ['is--active']
 	},
+	darkMode: false, // or 'media' or 'class'
 	theme: {
 		container: {
 			center: true,
@@ -20,32 +20,31 @@ module.exports = {
 			lg: '1024px',
 			// => @media (min-width: 1024px) { ... }
 
-			xl: '1280px'
+			xl: '1280px',
 			// => @media (min-width: 1280px) { ... }
 		},
 		extend: {
 			fontFamily: {
-				// display: '"Open Sans, Helvetica, Arial, sans-serif',
-				// sans: 'myriad-pro, Helvetica, Arial, sans-serif'
-			},
-			fontSize: {
-				// '5xl': '2.5rem'
+				display: 'Helvetica, Arial, sans-serif',
+				sans: 'myriad-pro, Helvetica, Arial, sans-serif'
 			},
 			colors: {
-				// primary: {
-				//     DEFAULT: '#0071B9',
-				//     50: '#E6F1F8',
-				//     100: '#86D0FF',
-				//     200: '#53BCFF',
-				//     300: '#20A8FF',
-				//     400: '#0090EC',
-				//     500: '#0071B9',
-				//     600: '#005286',
-				//     700: '#003353',
-				//     800: '#001420',
-				//     900: '#000000'
-				// }
+				primary: {
+					100: '#ffe0cc',
+					200: '#ffc299',
+					300: '#ffa366',
+					400: '#ff8533',
+					500: '#ff6600',
+					600: '#cc5200',
+					700: '#993d00',
+					800: '#662900',
+					900: '#331400'
+				},
 			},
+			// This will effect styles within a prose class.
+			// Mainly usefull to set defaults that will be rendered from wysiwyg blocks
+			// https://github.com/tailwindlabs/tailwindcss-typography
+			// DEFAULT STYLES https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
 			typography: (theme) => ({
 				// DEFAULT: {
 				//     css: {

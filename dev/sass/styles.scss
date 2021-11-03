@@ -1,29 +1,3 @@
-// Tailwind include
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-// Grid + reset + defaults
-@import 'base/config';
-@import 'base/functions';
-@import 'base/reset';
-@import 'base/fonts';
-@import 'base/box';
-
-// General components
-@import 'components/buttons';
-@import 'components/image';
-@import 'components/forms';
-@import 'components/modals';
-
-// Fixed layout components
-@import 'layout/block';
-@import 'layout/footer';
-@import 'layout/header';
-@import 'layout/navigation';
-
-// Template specific
-
-body.no-scroll {
-  overflow: hidden;
-}
