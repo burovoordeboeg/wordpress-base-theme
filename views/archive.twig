@@ -12,16 +12,4 @@
 
 {% block content %}
 	<pre>{{dump(page.posts[0])}}</pre>
-
-	{% for post in page.posts %}
-		{% include "parts/post.twig" with {
-			image: post.image,
-			ratio: 'is-2by1',
-			title: {
-				text: post.title,
-				type: 'h3',
-				size: 'small'
-			}
-		} %}
-	{% endfor %}
 {% endblock %}
