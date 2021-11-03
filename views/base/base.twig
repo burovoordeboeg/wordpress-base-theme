@@ -1,9 +1,28 @@
-{{ include('base/header.twig') }}
+<!DOCTYPE html>
+<html {{ site.language_attributes() }}>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{{ site.wp_head() }}
+	</head>
+	<body {{ site.body_class() }}>
 
-<main class="wrapper">
-    {% block content %}
-    {# Content gets rendered here #}
-    {% endblock %}
-</main>
+		{% block navigation %}
+			{% include 'base/navigation.twig' %}
+		{% endblock %}
 
-{{ include('base/footer.twig') }}
+		{% block main %}
+			<main class="wrapper">
+				{% block content %}
+					{# Content gets rendered here #}
+				{% endblock %}
+			</main>
+		{% endblock %}
+
+		{% block footer %}
+			{{ site.wp_footer() }}
+		{% endblock %}
+
+	</body>
+</html>
