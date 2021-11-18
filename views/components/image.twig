@@ -1,12 +1,8 @@
-{# 
-    ====================================================================
-    Name:           image.twig
-    Type:           Partial
-    Since:          0.0.1
-    Description:    This partial is used to generate a figure
-    ====================================================================
-#}
+<!-- https://developer.wordpress.org/reference/functions/wp_get_attachment_image_url/ -->
+{% set attachment_id = id|default('') %}
+{% set size = size|default('full') %}
+{% set icon = false %}
+{% set class = class|default('img') %}
+{% set alt = alt ? alt : title %}
 
-<figure class="image {{ ( ratio is not empty ) ? 'image--ratio' : '' }} {{ratio}} ">
-	<img src="{{image.sizes.medium_large[0]|default(image.sizes.medium_large)}}" srcset="{{image.sizes.medium[0]|default(image.sizes.medium)}} 300w, {{image.sizes.medium_large[0]|default(image.sizes.medium_large)}} 768w, {{image.sizes.medium_large[0]|default(image.sizes.medium_large)}} 1024w, {{image.sizes.medium_large[0]|default(image.url)}} 1200w" sizes="(min-width: 1920px) 1920px, (min-width: 1024px) 1024px, (min-width: 768px) 768px, 100vw" alt="{{image.alt|default(image.title)}} ">
-</figure>
+{{site.wp_get_attachment_image(attachment_id, size, icon, {class: class, alt: alt})|raw}}
