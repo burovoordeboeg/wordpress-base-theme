@@ -1,0 +1,8 @@
+.button {
+  @apply px-8 py-4 bg-gray-100 rounded-sm duration-300;
+
+  &:focus,
+  &:hover {
+    @apply bg-gray-800 text-white;
+  }
+}
