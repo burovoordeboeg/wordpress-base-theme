@@ -286,16 +286,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.14.7",
+            "version": "v2.14.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "8e202327ee1ed863629de9b18a5ec70ac614d88f"
+                "reference": "06b450a2326aa879faa2061ff72fe1588b3ab043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8e202327ee1ed863629de9b18a5ec70ac614d88f",
-                "reference": "8e202327ee1ed863629de9b18a5ec70ac614d88f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/06b450a2326aa879faa2061ff72fe1588b3ab043",
+                "reference": "06b450a2326aa879faa2061ff72fe1588b3ab043",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -355,7 +355,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v2.14.7"
+                "source": "https://github.com/twigphp/Twig/tree/v2.14.8"
             },
             "funding": [
                 {
@@ -367,7 +367,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-17T08:39:54+00:00"
+            "time": "2021-11-25T13:38:06+00:00"
         }
     ],
     "packages-dev": [
@@ -530,11 +530,11 @@
         },
         {
             "name": "satispress/advanced-custom-fields-pro",
-            "version": "5.11",
+            "version": "5.11.4",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.burovoordeboeg.nl/satispress/advanced-custom-fields-pro/5.11",
-                "shasum": "48476007b6bdba4aa2d09f631fabdd39a27f0bb1"
+                "url": "https://packages.burovoordeboeg.nl/satispress/advanced-custom-fields-pro/5.11.4",
+                "shasum": "05de7030fcfe43c01520dddca8fbc29aecaf3a3b"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -574,5 +574,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }
