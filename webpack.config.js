@@ -3,17 +3,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
-
-
 module.exports = {
-	entry: './src/javascript/index.js',
+	mode: 'development',
+	entry: './src/javascript/index',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '',
-		filename: 'js/scripts.js',
+		filename: 'js/script.js',
 		assetModuleFilename: 'images/[hash][ext][query]'
 	},
-	mode: 'development',
 	module: {
 		rules: [
 			{
@@ -37,12 +35,6 @@ module.exports = {
 					},
 					{
 						loader: "postcss-loader"
-					},
-					{
-						loader: "sass-loader",
-						options: {
-							implementation: require("sass")
-						}
 					}
 				]
 			},
@@ -68,7 +60,6 @@ module.exports = {
 			filename: "css/styles.css"
 		}),
 		new BrowserSyncPlugin({
-
 			host: 'localhost',
 			port: 3000,
 			proxy: 'http://localhost:8000',

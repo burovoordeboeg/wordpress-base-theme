@@ -11,13 +11,18 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-	<div class="container bg-green-100">
+	<div class="container bg-red-100">
 		{{page.content|raw}}
+
+		hallo
+
+		<div class=" grid">
+			<div>hallo</div>
+			<div>dasdsdg</div>
+		</div>
 	</div>
 
 	{% include "components/button.twig" %}
 	<br><br>
-	{% include "components/image.twig" with {
-		id: page.image.id
-	} %}
+
 {% endblock %}
