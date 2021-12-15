@@ -12,4 +12,10 @@
 
 {% block content %}
 	{{page.content|raw}}
+	<br><br>
+	{% include "components/button.twig" %}
+	<br><br>
+	{% include "components/image.twig" with {
+		id: page.image.id
+	} %}
 {% endblock %}
