@@ -107,3 +107,9 @@ Builds triggeren automatisch, zo triggert:
 - Bij elke PR op de staging branch een staging-deploy
 
 - Bij elke PR op de master branch een master-deploy
+
+
+## New setup notes & links
+https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5
+https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one
+https://webpack.js.org/guides/asset-modules/

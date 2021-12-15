@@ -22,12 +22,9 @@
 		'multiple' => true,
 	), array(
 		'frontend' => array(
-			'style' => 'front-end.css',
 			'script' => 'scripts.js'
 		),
 		'admin' => array(
-			'style' => 'back-end.css',
+			'script' => 'scripts.js'
 		)
 	) );
-
-?>

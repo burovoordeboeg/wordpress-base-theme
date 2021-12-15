@@ -11,8 +11,10 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-	{{page.content|raw}}
-	<br><br>
+	<div class="container bg-green-100">
+		{{page.content|raw}}
+	</div>
+
 	{% include "components/button.twig" %}
 	<br><br>
 	{% include "components/image.twig" with {
