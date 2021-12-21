@@ -66,7 +66,8 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$theme->assets->load();
 
 	// Enqueue editor styles for Gutenberg
-	$gutenberg->enqueueEditorStyles();
+	// See Gutenberg.php and set content to 'add_editor_style('dist/css/styles.css');'
+	$gutenberg->addEditorStyles('dist/css/styles.css');
 
 	// Load the Gutenberg ACF-files
 	$gutenberg->loadBlockJSON();
@@ -85,6 +86,7 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	);
 
 	// Load all Gutenberg blocks
+
 	$gutenberg->includeBlocks();
 }, 1);
 
