@@ -11,41 +11,8 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-	<div class="container bg-red-500">
+	<div class="container">
 		{{page.content|raw}}
-
-		<h1 class="text-3xl font-bold" x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
-
-		<div class=" grid bg-red-500">
-			<div>hallos</div>
-			<div>dasdsdg</div>
-		</div>
+		<h3 class="text-3xl font-bold" x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h3>
 	</div>
-
-	<!-- Slider main container -->
-	<div
-		class="swiper">
-		<!-- Additional required wrapper -->
-		<div
-			class="swiper-wrapper">
-			<!-- Slides -->
-			<div class="swiper-slide">Slide 1</div>
-			<div class="swiper-slide">Slide 2</div>
-			<div class="swiper-slide">Slide 3</div>
-			...
-		</div>
-		<!-- If we need pagination -->
-		<div class="swiper-pagination"></div>
-
-		<!-- If we need navigation buttons -->
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
-
-		<!-- If we need scrollbar -->
-		<div class="swiper-scrollbar"></div>
-	</div>
-
-	{% include "components/button.twig" %}
-	<br><br>
-
 {% endblock %}

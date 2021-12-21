@@ -21,8 +21,9 @@
 		{% endblock %}
 
 		{% block footer %}
-			{{ site.wp_footer() }}
+			{% include 'base/footer.twig' %}
 		{% endblock %}
 
+		{{ site.wp_footer() }}
 	</body>
 </html>

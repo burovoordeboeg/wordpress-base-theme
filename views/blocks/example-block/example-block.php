@@ -18,7 +18,6 @@
 		'post_types' => array( 'post', 'page' ),
 		'mode' => 'preview',
 		'align' => array( 'center', 'wide', 'full' ),
-		'default_align' => 'center',
 		'multiple' => true,
 	), array( // TO-DO: Remove this from our gutenberg.php class. We include css and js in one main file.
 		'frontend' => array(
