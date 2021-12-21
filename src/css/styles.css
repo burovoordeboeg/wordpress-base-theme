@@ -4,6 +4,15 @@
 
 body {
 	background-color:red;
-	background-image: url('../images/cats.jpeg');
+	background-image: url('../images/blocks/block-one/cats.jpeg');
 	@apply bg-no-repeat;
-  }
+}
+
+
+p {
+	@apply text-red-500;
+}
+
+blockquote {
+	@apply bg-red-700;
+}

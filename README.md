@@ -113,3 +113,7 @@ Builds triggeren automatisch, zo triggert:
 https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5
 https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one
 https://webpack.js.org/guides/asset-modules/
+
+## New setup with webpack
+De nieuwe setup maakt gebruik van webpack ipv gulp. We gebruiken tailwind (v3) en schrijven css ipv scss. Door het gebruik van postcss en postcss nesting kunnen we de css schrijven zoals we dat ook met scss deden.
+

@@ -1,0 +1,7 @@
+body {
+	background-color:blue;
+}
+
+p.wp-block {
+	@apply bg-green-600 mb-8;
+} 

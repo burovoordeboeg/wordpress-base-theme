@@ -5,12 +5,14 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
 	mode: 'development',
-	entry: './src/javascript/index',
+	entry: {
+		'./js/scripts': './src/javascript/index.js',
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: '',
-		filename: 'js/script.js',
-		assetModuleFilename: 'images/[hash][ext][query]'
+		filename: '[name].js',
+		assetModuleFilename: 'images/[hash][ext][query]',
+		clean: true,
 	},
 	module: {
 		rules: [
@@ -42,17 +44,6 @@ module.exports = {
 				test: /\.jpeg/,
 				type: 'asset/resource'
 			},
-			{
-				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-				use: [
-					{
-						loader: "file-loader",
-						options: {
-							outputPath: 'fonts/'
-						}
-					}
-				]
-			},
 		]
 	},
 	plugins: [
@@ -82,7 +73,7 @@ module.exports = {
 					},
 				},
 			},
-		}),
+		})
 	],
 	watch: true
 };

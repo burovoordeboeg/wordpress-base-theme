@@ -52,7 +52,6 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 
 	// Enqueue scripts
 	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), false);
-	$theme->assets->register('script', 'plugins', get_template_directory_uri() . '/dist/js/plugins.js', array('jquery'), true);
 	$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
 
 	// Enqueue styles
@@ -65,9 +64,6 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 
 	// Enqueue all assets (keep at end of file)
 	$theme->assets->load();
-
-
-
 
 	// Enqueue editor styles for Gutenberg
 	$gutenberg->enqueueEditorStyles(array(
@@ -94,3 +90,12 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	// Load all Gutenberg blocks
 	$gutenberg->includeBlocks();
 }, 1);
+
+add_action('after_setup_theme', 'add_gutenberg_css');
+
+function add_gutenberg_css()
+{
+	// add_theme_support('editor-styles'); // if you don't add this line, your stylesheet won't be added
+	add_editor_style('dist/css/styles.css'); // tries to include style-editor.css directly from your theme folder
+
+}

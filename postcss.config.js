@@ -2,7 +2,9 @@ const tailwindcss = require('tailwindcss');
 
 const postcssConfig = {
 	plugins: [
-		tailwindcss,
+		require('postcss-import'),
+		require('tailwindcss/nesting'),
+		require('tailwindcss'),
 		require('autoprefixer'),
 	],
 };
