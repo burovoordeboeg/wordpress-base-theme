@@ -20,11 +20,11 @@
 		'align' => array( 'center', 'wide', 'full' ),
 		'default_align' => 'center',
 		'multiple' => true,
-	), array(
+	), array( // TO-DO: Remove this from our gutenberg.php class. We include css and js in one main file.
 		'frontend' => array(
-			'script' => 'scripts.js'
+			// 'script' => 'scripts.js'
 		),
 		'admin' => array(
-			'script' => 'scripts.js'
+			// 'script' => 'scripts.js'
 		)
 	) );

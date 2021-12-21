@@ -1,3 +1,3 @@
 (function () {
-	console.log('hallo');
+	console.log('Hello, this is our example block');
 })(jQuery);
