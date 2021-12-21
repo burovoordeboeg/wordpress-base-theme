@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.7.1",
-    "postcss-import": "^14.0.2"
+    "postcss-import": "^14.0.2",
+    "swiper": "^7.3.3"
   }
 }
