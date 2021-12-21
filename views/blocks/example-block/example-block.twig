@@ -1,14 +1,4 @@
-{# 
-    ====================================================================
-    Name:           custom-block.twig
-    Type:           Block 
-    Since:          0.0.1
-    Description:    A custom block
-    Available vars: id (of block), classes (of block), {fields by key}, site
-    ====================================================================
-#}
-
-<div data-block-id="{{ blockname }}" class="block block-custom {{ classes }}">
+<div data-block-id="{{ blockname }}" class="block {{ classes }}">
 	<div class="container">
 		{{test|raw}}
 	</div>
