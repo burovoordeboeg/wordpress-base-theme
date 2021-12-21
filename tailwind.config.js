@@ -4,10 +4,18 @@ module.exports = {
 	],
 	theme: {
 		container: {
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '2rem',
+			},
 			center: true,
 		},
 		extend: {},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/line-clamp'),
+		// require('@tailwindcss/aspect-ratio'),
+	],
 }

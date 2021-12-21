@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.block {
+		@apply mx-auto;
+		
+		&.aligncenter {
+			@apply max-w-screen-lg;
+		}
+		&.alignwide {
+			@apply max-w-screen-xl;
+		}
+		&.alignfull {
+			@apply max-w-none;
+		}
+	}
+}

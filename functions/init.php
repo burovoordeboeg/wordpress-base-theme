@@ -71,9 +71,10 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$theme->assets->load();
 
 	// Enqueue editor styles for Gutenberg
-	// See Gutenberg.php and set content to 'add_editor_style('dist/css/styles.css');'
-	$gutenberg->addEditorStyles('dist/css/styles.css');
-
+	// See Gutenberg.php and set content to 'add_editor_style();'
+	$cssFileURIEditor = '/dist/css/' . basename($cssFilePath[0]);
+	$gutenberg->addEditorStyles($cssFileURIEditor);
+	
 	// Load the Gutenberg ACF-files
 	$gutenberg->loadBlockJSON();
 
@@ -83,7 +84,8 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	// Or use an array:
 	$gutenberg->setAllowedBlocks(
 		array(
-			'acf/example-block',
+			// 'acf/example-block',
+			'acf/copy',
 
 			// Gravity forms
 			'gravityforms/form'

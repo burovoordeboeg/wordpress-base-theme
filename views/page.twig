@@ -11,8 +11,6 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-	<div class="container">
-		{{page.content|raw}}
-		<h3 class="text-3xl font-bold" x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h3>
-	</div>
+	{{page.content|raw}}
+	<h3 class="text-3xl font-bold" x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h3>
 {% endblock %}

@@ -1,0 +1,19 @@
+<div data-block-id="{{ blockname }}" class="block {{ classes }}">
+	{% if title %}
+		<h2 class="font-bold text-4xl">{{title}}</h2>
+	{% endif %}
+
+	{% if subtitle %}
+		<h3 class="font-bold text-2xl">{{subtitle}}</h3>
+	{% endif %}
+
+	{% if copy %}
+		<div class="prose max-w-none my-4">
+			{{copy|raw}}
+		</div>
+	{% else %}
+		<div class="prose max-w-none p-8 bg-red-100">
+			<p>There is no copy set yet. Please add some in the Worpress editor</p>
+		</div>
+	{% endif %}
+</div>
