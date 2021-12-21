@@ -10,7 +10,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].js',
+		filename: '[name].[hash].js',
 		assetModuleFilename: 'images/[hash][ext][query]',
 		clean: true,
 	},
@@ -48,7 +48,7 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "css/styles.css"
+			filename: "css/styles.[hash].css"
 		}),
 		new BrowserSyncPlugin({
 			host: 'localhost',
@@ -73,7 +73,7 @@ module.exports = {
 					},
 				},
 			},
-		})
+		}),
 	],
 	watch: true
 };

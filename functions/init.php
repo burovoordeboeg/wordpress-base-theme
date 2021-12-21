@@ -52,10 +52,15 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 
 	// Enqueue scripts
 	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), false);
-	$theme->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/js/scripts.js', array('jquery'), true);
+
+	$jsFilePath = glob( get_template_directory() . '/dist/js/scripts.*.js' );
+	$jsFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsFilePath[0]);
+	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery'), true);
 
 	// Enqueue styles
-	$theme->assets->register('style', 'global', get_template_directory_uri() . '/dist/css/styles.css', array(), false);
+	$cssFilePath = glob( get_template_directory() . '/dist/css/styles.*' );
+	$cssFileURI = get_template_directory_uri() . '/dist/css/' . basename($cssFilePath[0]);
+	$theme->assets->register('style', 'global', $cssFileURI, array(), false);
 
 	// Localize scripts
 	$theme->assets->localize('scripts', 'theme', array(
