@@ -6,6 +6,10 @@ body {
 	background-color:red;
 	background-image: url('../images/blocks/block-one/cats.jpeg');
 	@apply bg-no-repeat;
+
+	.container {
+		background:theme('colors.blue.100');
+	}
 }
 
 

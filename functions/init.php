@@ -66,10 +66,7 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$theme->assets->load();
 
 	// Enqueue editor styles for Gutenberg
-	$gutenberg->enqueueEditorStyles(array(
-		'editor-styles' => get_template_directory_uri() . '/dist/css/editor-styles.css',
-		// 'editor-fonts' => ''
-	));
+	$gutenberg->enqueueEditorStyles();
 
 	// Load the Gutenberg ACF-files
 	$gutenberg->loadBlockJSON();
@@ -91,11 +88,4 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$gutenberg->includeBlocks();
 }, 1);
 
-add_action('after_setup_theme', 'add_gutenberg_css');
 
-function add_gutenberg_css()
-{
-	// add_theme_support('editor-styles'); // if you don't add this line, your stylesheet won't be added
-	add_editor_style('dist/css/styles.css'); // tries to include style-editor.css directly from your theme folder
-
-}

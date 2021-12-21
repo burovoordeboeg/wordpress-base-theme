@@ -3,5 +3,5 @@ body {
 }
 
 p.wp-block {
-	@apply bg-green-600 mb-8;
+	@apply bg-green-600 mb-16;
 } 
