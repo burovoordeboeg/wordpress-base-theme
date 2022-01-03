@@ -85,7 +85,11 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$gutenberg->setAllowedBlocks(
 		array(
 			// 'acf/example-block',
-			'acf/copy',
+			'acf/block-divider',
+			'acf/block-image',
+			'acf/block-image-text',
+			'acf/block-spacer',
+			'acf/block-text',
 
 			// Gravity forms
 			'gravityforms/form'

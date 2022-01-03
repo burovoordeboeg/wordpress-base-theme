@@ -1,0 +1,33 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: blockname,
+    size: size,
+	label: label,
+  },
+  classes: {
+    root: 'container ',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data ?? null %}
+	<div data-block-id="{{ props.data.name }}" class="block{{classes}}">
+
+		{{ include('components/divider/divider.twig', {
+			data: {
+				variant: props.data.size ?? 'sm',
+				label: props.data.label ?? null
+			},
+			classes: {
+				custom: props.classes.root ~ ' ' ~ props.classes.custom
+			}
+  		}, withContext = false) }}
+	</div>
+{% endif %}

@@ -1,0 +1,32 @@
+{% set compDefaults = {
+  data: {
+    name: blockname,
+	id: image.id,
+	size: 'full',
+	alt: image.alt,
+	variant: aspect_ratio,
+  },
+  classes: {
+    root: classes,
+    custom: '',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+<div data-block-id="{{ props.data.name }}" class="block{{ props.classes.root }} ">
+	{{include('components/image/image.twig', {
+		data: {
+			id: props.data.id,
+			variant: props.data.variant,
+		},
+		classes: {
+			custom: 'mt-8'
+		}
+	}, withContext = true)}}
+</div>

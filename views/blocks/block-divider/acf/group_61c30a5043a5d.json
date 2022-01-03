@@ -1,11 +1,11 @@
 {
-    "key": "group_61c1ca25a9100",
-    "title": "Block: Copy",
+    "key": "group_61c30a5043a5d",
+    "title": "Block: Divider",
     "fields": [
         {
-            "key": "field_61c1ca54c15ab",
-            "label": "Title",
-            "name": "title",
+            "key": "field_61c30ded9daee",
+            "label": "Label",
+            "name": "label",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -22,10 +22,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_61c1ca6cc15ac",
-            "label": "Subtitle",
-            "name": "subtitle",
-            "type": "text",
+            "key": "field_61c30df69daef",
+            "label": "Size",
+            "name": "size",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,30 +34,20 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_61c1ca71c15ad",
-            "label": "Copy",
-            "name": "copy",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
+            "choices": {
+                "sm": "Small",
+                "md": "Medium",
+                "lg": "Large",
+                "xl": "Extra Large",
+                "2xl": "Extra Extra Large"
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -65,7 +55,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/copy"
+                "value": "acf\/block-divider"
             }
         ]
     ],
@@ -78,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1640090342
+    "modified": 1640179565
 }

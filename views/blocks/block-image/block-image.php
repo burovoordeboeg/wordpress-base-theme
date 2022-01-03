@@ -9,12 +9,12 @@
 	 * See the readme: 
 	 */
 	$gutenberg->registerBlock( array(
-		'name' => 'copy',
-		'title' => 'Copy',
-		'description' => 'This is a block for some basis copy content',
+		'name' => 'block-image',
+		'title' => 'Image',
+		'description' => 'This is an example block',
 		'category' => 'formatting',
 		'icon' => 'admin-comments',
-		'keywords' => array( 'content', 'text' ),
+		'keywords' => array( 'image', 'text' ),
 		'post_types' => array( 'post', 'page' ),
 		'mode' => 'preview',
 		'align' => array( 'center', 'wide', 'full' ),
