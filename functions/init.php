@@ -32,7 +32,11 @@ $theme->support->add('align-full');
 // ));
 
 // Register image size
-$theme->support->imageSize('bigthumb', 500, 500, true);
+// If you want to use these sizes to be used in Wordpress default wp_get_attachment_image sizes
+// you can't add 'true'. 
+// See https://wordpress.stackexchange.com/questions/241905/how-can-i-set-image-sizes-and-still-have-responsive-images-using-the-srcset-attr
+$theme->support->imageSize('bigthumb', 500, 500);
+
 
 // Register widgets and navigation
 $theme->objects->widget->register('Filters', 'filters');
@@ -84,6 +88,7 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 		array(
 			// 'acf/example-block',
 			'acf/block-divider',
+			'acf/block-headline',
 			'acf/block-image',
 			'acf/block-image-text',
 			'acf/block-spacer',

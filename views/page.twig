@@ -11,7 +11,16 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
+	{% include "components/text/headline.twig" with {
+		data: {
+			text: page.title,
+			variant: 'mega',
+			tag: 'h1'
+		}
+	}%}
+
 	{{page.content|raw}}
+
 
 	<h3 class="text-3xl font-bold" x-data="{ message: 'I ❤️ Buro voor de Boeg' }" x-text="message"></h3>
 
