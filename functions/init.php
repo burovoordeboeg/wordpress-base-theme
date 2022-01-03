@@ -51,8 +51,6 @@ $theme->acf->optionspage->register('Site opties', 'Site opties', 'general-site-o
 add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 
 	// Enqueue scripts
-	$theme->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), false);
-
 	$jsFilePath = glob( get_template_directory() . '/dist/js/scripts.*.js' );
 	$jsFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsFilePath[0]);
 	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery'), true);
