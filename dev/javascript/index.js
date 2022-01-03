@@ -4,7 +4,7 @@ console.log('Hi')
 import './blocks';
 
 // Import alphine js
-// Alphine js is new, lightweight, JavaScript framework thats really 
+// Alphine js is new, lightweight, JavaScript framework thats really
 // usefull for simple state management
 import './alphine';
 

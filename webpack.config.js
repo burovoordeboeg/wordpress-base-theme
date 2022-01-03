@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
@@ -74,6 +75,9 @@ module.exports = {
 				},
 			},
 		}),
+		new ESLintPlugin({
+			fix: true
+		})
 	],
 	watch: true
 };
