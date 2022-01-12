@@ -1,0 +1,11 @@
+.wp-block-cover {
+	@apply mb-8;
+
+	@screen md {
+		@apply mb-12;
+	}
+
+	@screen lg {
+		@apply mb-16;
+	}
+}

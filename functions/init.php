@@ -58,7 +58,7 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$jsFilePath = glob( get_template_directory() . '/dist/js/scripts.*.js' );
 	$jsFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsFilePath[0]);
 	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery'), true);
-
+	
 	// Enqueue styles
 	$cssFilePath = glob( get_template_directory() . '/dist/css/styles.*' );
 	$cssFileURI = get_template_directory_uri() . '/dist/css/' . basename($cssFilePath[0]);
@@ -87,15 +87,32 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	$gutenberg->setAllowedBlocks(
 		array(
 			// 'acf/example-block',
-			'acf/block-divider',
-			'acf/block-headline',
-			'acf/block-image',
-			'acf/block-image-text',
-			'acf/block-spacer',
-			'acf/block-text',
 
 			// Gravity forms
-			'gravityforms/form'
+			'gravityforms/form',
+
+			// Core Blocks
+			'core/buttons',
+			'core/button',
+			'core/cover',
+			'core/code',
+			'core/embed',
+			'core/file',
+			'core/group',
+			'core/heading',
+			'core/image',
+			'core/latest-posts',
+			'core/list',
+			'core/media-text',
+			'core/paragraph',
+			'core/pullquote',
+			'core/query',
+			'core/query-title',
+			'core/quote',
+			'core/separator',
+			'core/spacer',
+			'core/video'
+
 		)
 	);
 
@@ -103,5 +120,8 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 
 	$gutenberg->includeBlocks();
 }, 1);
+
+
+	
 
 

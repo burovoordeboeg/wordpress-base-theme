@@ -1,0 +1,14 @@
+/* Vars */
+
+/* core/buttons */
+
+/* core/button */
+.wp-block-button {
+	&.is-style-cta {
+		.wp-block-button {
+			&__link {
+				@apply bg-rotterdam-cta-oranje;
+			}
+		}
+	}
+}

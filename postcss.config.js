@@ -5,8 +5,8 @@ const postcssConfig = {
 		require('postcss-import'),
 		require('tailwindcss/nesting'),
 		require('tailwindcss'),
-		require('autoprefixer'),
-	],
+		require('autoprefixer')
+	]
 };
 
 if (process.env.NODE_ENV === 'production') {
