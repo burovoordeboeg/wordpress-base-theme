@@ -4,10 +4,33 @@
 
 /* core/button */
 .wp-block-button {
-	&.is-style-cta {
-		.wp-block-button {
-			&__link {
-				@apply bg-rotterdam-cta-oranje;
+
+	&__link {
+		@apply duration-200;
+
+		&:hover {
+			@apply border-current bg-transparent text-rotterdam-groen ;
+		}
+
+		.is-style-fill & {
+			&:hover {
+				@apply border-current bg-transparent text-rotterdam-groen ;
+			}
+		}
+
+		.is-style-outline & {
+			@apply border-rotterdam-groen text-rotterdam-groen !important;
+			
+			&:hover {
+				@apply border-rotterdam-groen bg-rotterdam-groen text-white !important;
+			}
+		}
+
+		.is-style-cta & {
+			@apply bg-rotterdam-cta-oranje;
+			
+			&:hover {
+				@apply border-current bg-transparent text-rotterdam-cta-oranje;
 			}
 		}
 	}

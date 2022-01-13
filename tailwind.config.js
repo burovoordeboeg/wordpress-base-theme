@@ -23,7 +23,8 @@ module.exports = {
 			colors: {
 				primary: 'var(--wp--preset--color--black)',
 				'dark-blue': 'var(--wp--preset--color--dark-blue)',
-				'rotterdam-cta-oranje': 'var(--wp--preset--color--rotterdam-cta-oranje)'
+				'rotterdam-cta-oranje': 'var(--wp--preset--color--rotterdam-cta-oranje)',
+				'rotterdam-groen': 'var(--wp--preset--color--rotterdam-groen)'
 			},
 			spacing: {
 				'small': 'var(--wp--custom--spacing--small)',

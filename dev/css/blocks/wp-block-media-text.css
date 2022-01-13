@@ -1,4 +1,5 @@
 .wp-block-media-text {
+	@apply my-8;
 	.wp-block-media-text {
 		&__content {
 			@apply px-16 py-16;

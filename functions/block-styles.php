@@ -7,11 +7,7 @@ register_block_style(
 	'core/button',
 		array(
 			'name'  => 'cta',
-			'label' => __( 'Call to Action', 'bvdb' ),
-			'is_default'   => true,
-			'inline_style' => '.is-style-primary {  
-		   		border-radius: 6px;
-			}',
+			'label' => __( 'CTA', 'bvdb' ),
 		)
 );
 

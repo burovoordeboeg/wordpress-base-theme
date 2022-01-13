@@ -57,7 +57,7 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	// Enqueue scripts
 	$jsFilePath = glob( get_template_directory() . '/dist/js/scripts.*.js' );
 	$jsFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsFilePath[0]);
-	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery'), true);
+	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery', 'wp-blocks'), true);
 	
 	// Enqueue styles
 	$cssFilePath = glob( get_template_directory() . '/dist/css/styles.*' );

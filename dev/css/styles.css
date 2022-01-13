@@ -59,6 +59,10 @@
 
 	p {
 		@apply mt-0;
+
+        &:last-child {
+            @apply mb-0;
+        }
 	}
 
 	
