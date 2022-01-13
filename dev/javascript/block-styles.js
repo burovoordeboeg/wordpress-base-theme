@@ -8,6 +8,12 @@ wp.domReady(() => {
 	}
 	);
 	wp.blocks.registerBlockStyle(
+		'core/button', {
+		name: 'link',
+		label: 'Link'
+	}
+	);
+	wp.blocks.registerBlockStyle(
 		'core/paragraph', {
 		name: 'lead',
 		label: 'Lead'

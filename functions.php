@@ -28,3 +28,4 @@
 	include_once 'functions/navigation.php';
   	include_once 'functions/options.php';
   	include_once 'functions/gravity-forms.php';
+	include_once 'functions/extend-blocks.php';

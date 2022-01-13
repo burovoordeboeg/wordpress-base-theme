@@ -32,6 +32,9 @@ module.exports = {
 				'medium': 'var(--wp--custom--spacing--medium)',
 				'large': 'var(--wp--custom--spacing--large)',
 				'xlarge': 'var(--wp--custom--spacing--xlarge)'
+			},
+			fontFamily: {
+				'fa': ['"Font Awesome 5 Free"']
 			}
 		}
 	},

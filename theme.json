@@ -274,7 +274,8 @@
 				},
 				"spacing": {
 					"margin": {
-						"bottom": "1.2rem"
+						"bottom": "1.2rem",
+						"top": "3rem"
 					}
 				}
 			},
@@ -285,7 +286,8 @@
 				},
 				"spacing": {
 					"margin": {
-						"bottom": "1.2rem"
+						"bottom": "1.2rem",
+						"top": "2rem"
 					}
 				}
 			},
