@@ -24,6 +24,6 @@
 			// 'script' => 'scripts.js'
 		),
 		'admin' => array(
-			// 'script' => 'scripts.js'
+			'script' => 'scripts.js'
 		)
 	) );

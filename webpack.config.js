@@ -7,7 +7,8 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry: {
-		'./js/scripts': './dev/javascript/index.js'
+		'./js/scripts': './dev/javascript/index.js',
+		'./js/block-styles': './dev/javascript/block-styles.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

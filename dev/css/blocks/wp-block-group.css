@@ -1,0 +1,5 @@
+.wp-block-group {
+	&.has-background {
+		@apply p-8;
+	}
+}

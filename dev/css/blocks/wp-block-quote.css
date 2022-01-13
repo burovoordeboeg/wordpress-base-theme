@@ -1,0 +1,15 @@
+.wp-block-quote {
+	@apply py-8 my-12 border-solid border-y-4 border-x-0 border-rotterdam-groen;
+	
+	p {
+		@apply text-2xl italic leading-relaxed;
+		
+		&:last-of-type {
+			@apply mb-10;
+		}
+	}
+
+	cite {
+		@apply text-gray-500;
+	}
+}

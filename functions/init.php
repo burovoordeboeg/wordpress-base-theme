@@ -57,7 +57,7 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 	// Enqueue scripts
 	$jsFilePath = glob( get_template_directory() . '/dist/js/scripts.*.js' );
 	$jsFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsFilePath[0]);
-	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery', 'wp-blocks'), true);
+	$theme->assets->register('script', 'scripts', $jsFileURI , array('jquery'), true);
 	
 	// Enqueue styles
 	$cssFilePath = glob( get_template_directory() . '/dist/css/styles.*' );
@@ -92,10 +92,12 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 			'gravityforms/form',
 
 			// Core Blocks
-			'core/buttons',
 			'core/button',
-			'core/cover',
+			'core/buttons',
 			'core/code',
+			'core/cover',
+			'core/columns',
+			'core/column',
 			'core/embed',
 			'core/file',
 			'core/group',
@@ -120,8 +122,4 @@ add_action('after_setup_theme', function () use ($theme, $gutenberg) {
 
 	$gutenberg->includeBlocks();
 }, 1);
-
-
-	
-
 

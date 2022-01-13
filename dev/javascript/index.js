@@ -1,4 +1,5 @@
-console.log('Hi')
+import { unregisterBlockType } from '@wordpress/blocks';
+import domReady from '@wordpress/dom-ready';
 
 // Import blocks scripts
 import './blocks';
@@ -25,8 +26,12 @@ import '../css/editor-styles.css';
 // 	});
 // });
 
-console.log(wp);
 
-wp.domReady(() => {
-	wp.blocks.unregisterBlockStyle('core/quote', 'large');
+domReady(function () {
+	console.log('poep');
 });
+
+domReady(function () {
+	unregisterBlockType('core/buttons');
+});
+

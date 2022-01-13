@@ -7,6 +7,7 @@ module.exports = {
 		'aligncenter',
 		'alignwide',
 		'alignfull',
+		'is-style-lead',
 		{
 			pattern: /wp-block/
 		}
@@ -40,6 +41,6 @@ module.exports = {
 		require('@tailwindcss/line-clamp')
 	],
 	corePlugins: {
-		preflight: false,
+		preflight: false
 	}
 }

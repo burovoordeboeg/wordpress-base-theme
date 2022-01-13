@@ -1,0 +1,16 @@
+.wp-block-embed {
+
+	&.wp-embed-aspect-16-9 {
+		@apply aspect-video;
+	}
+
+	&__wrapper {
+		@apply relative w-full h-full;
+	}
+
+	&.is-type-video {
+		iframe {
+			@apply absolute inset-0 w-full h-full max-w-full;
+		}
+	}
+}

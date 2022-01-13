@@ -63,7 +63,13 @@
         &:last-child {
             @apply mb-0;
         }
+
+        &.is-style-lead {
+            @apply font-bold text-xl leading-relaxed;
+        }
 	}
+
+    
 
 	
 }
