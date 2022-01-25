@@ -1,6 +1,6 @@
 {
     "name": "burovoordeboeg/wp-base-theme",
-    "description": "Empty WordPress base theme with Gutenberg support built in",
+    "description": "Buro voor de Boeg default startertheme as boilerplate for projects",
     "type": "project",
     "license": "GPL",
     "authors": [
@@ -9,18 +9,24 @@
             "email": "justin@burovoordeboeg.nl"
         }
     ],
-    "require": {
-        "burovoordeboeg/wp-theme-class": "^0.5.1",
-        "burovoordeboeg/wp-gutenberg-class": "^0.2.0"
+    "config": {
+        "platform": {
+            "php": "7.3"
+        }
     },
-    "require-dev": {
-        "composer/installers": "^1.0",
-        "satispress/gravityforms": "*",
-        "satispress/advanced-custom-fields-pro": "*"
+    "require": {
+        "burovoordeboeg/utilities": "^0.0.2",
+        "burovoordeboeg/templates": "^0.0.5",
+        "burovoordeboeg/gutenberg-blocks": "^0.0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BvdB\\WordPressObjects\\": "models/"
+        }
     },
     "repositories": [
         {
-            "type": "composer", 
+            "type": "composer",
             "url": "https://repo.packagist.com/burovoordeboeg/"
         },
         {
@@ -33,8 +39,8 @@
     ],
     "extra": {
         "installer-paths": {
-          "../../plugins/{$name}/": [
-              "type:wordpress-plugin"
+            "../../plugins/{$name}/": [
+                "type:wordpress-plugin"
             ]
         }
     }

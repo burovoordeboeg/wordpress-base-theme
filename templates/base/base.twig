@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html {{ site.language_attributes() }}>
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{{ site.wp_head() }}
+		{{ wp_head() }}
 	</head>
-	<body {{ site.body_class() }}>
+	<body {{ body_class() }}>
 
 		{% block navigation %}
 			{% include 'base/navigation.twig' %}
@@ -23,7 +23,9 @@
 		{% block footer %}
 			{% include 'base/footer.twig' %}
 		{% endblock %}
+
 		{% include 'components/icon/icons.twig' %}
-		{{ site.wp_footer() }}
+
+		{{ wp_footer() }}
 	</body>
 </html>

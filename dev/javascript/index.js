@@ -1,12 +1,8 @@
-import { unregisterBlockType } from '@wordpress/blocks';
-import domReady from '@wordpress/dom-ready';
-
-// Import blocks scripts
-import './blocks';
+// Import all blocks scripts
+// import './blocks';
 
 // Import alphine js
-// Alphine js is new, lightweight, JavaScript framework thats really
-// usefull for simple state management
+// A lightweight, JavaScript framework, usefull for simple state management
 import './alphine';
 
 // Import swiper js
@@ -16,22 +12,4 @@ import './swiper';
 // Import styles
 import '../css/styles.css';
 import '../css/editor-styles.css';
-
-// wp.domReady(() => {
-// 	// find blocks styles
-// 	wp.blocks.getBlockTypes().forEach((block) => {
-// 		if (_.isArray(block['styles'])) {
-// 			console.log(block.name, _.pluck(block['styles'], 'name'));
-// 		}
-// 	});
-// });
-
-
-domReady(function () {
-	console.log('poep');
-});
-
-domReady(function () {
-	unregisterBlockType('core/buttons');
-});
 
