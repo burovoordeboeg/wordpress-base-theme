@@ -117,5 +117,6 @@
     });
     // =================================================================================
 
-
+	// Removes core block support
+	remove_theme_support('core-block-patterns');
 	

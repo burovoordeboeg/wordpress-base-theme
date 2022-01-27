@@ -1,6 +1,6 @@
 module.exports = {
 	content: [
-		'./views/**/*.twig'
+		'./templates/**/*.twig'
 	],
 	safelist: [
 		// 'bg-red-500',
