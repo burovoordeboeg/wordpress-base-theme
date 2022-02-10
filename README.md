@@ -1,9 +1,9 @@
-
 # WordPress Base theme
 
-
 # Tailwind config
+
 Er wordt gebruik gemaakt van een Tailwind. Om componenten en secties te herkennen maken we gebruik van data attributen. Deze zijn als volgt:
+
 - Voor secties (zoals headers en navigatie): `data-section-id="NAAM"`
 - Voor componenten (zoals buttons, titels, headings, etc.): `data-component-id="NAAM"`
 - Voor Gutenberg blokken: `data-block-id="{{ blockname }}"`
@@ -12,10 +12,9 @@ Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft d
 
 ## New setup notes & links
 
-* [https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5](https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5)
-* [https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one](https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one)
-* [https://webpack.js.org/guides/asset-modules/](https://webpack.js.org/guides/asset-modules/)
-
+- [https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5](https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5)
+- [https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one](https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one)
+- [https://webpack.js.org/guides/asset-modules/](https://webpack.js.org/guides/asset-modules/)
 
 **Production-branch**
 Voor de production branch geldt hetzelfde als staging. Deze loopt gelijk met de versie van het thema op de production server. Je kan een deployment naar production alleen starten vanaf de staging branch. Zo voorkomen we te snelle releases.
@@ -27,11 +26,11 @@ In Github beveiligen we branches zodat we deze in de juiste volgorde kunnen uitv
 - [Branch beveiliging: Staging](https://assets.burovoordeboeg.nl/github/branch-staging.png)
 - [Branch beveiliging: Production](https://assets.burovoordeboeg.nl/github/branch-production.png)
 
-De branch-beveiliging zorgt ervoor dat je moet mergen middels pull-requests, en in de juiste volgorde. Je released altijd eerst naar staging, en daarna vanaf staging naar production. 
+De branch-beveiliging zorgt ervoor dat je moet mergen middels pull-requests, en in de juiste volgorde. Je released altijd eerst naar staging, en daarna vanaf staging naar production.
 
-Stel je wil gaan werken aan een feature branch. 
+Stel je wil gaan werken aan een feature branch.
 
-___
+---
 
 # CI/CD workflow in CircleCi
 
@@ -49,10 +48,9 @@ We volgen voor deze geautomatiseerde CI/CD pipeline een git-branching model, uit
 
 - Zodra de staging omgeving akkoord is, maak je een merge naar de production branch, en ook daar maak je een versienummer aan
 
-  
-
 ## CircleCI Setup
-CircleCi is middels een context voorzien van de belangrijkste gegevens, zoals de informatie van de server, Packagist token en juiste poortnummers. Echter moet op projectniveau een aantal zaken worden ingesteld. 
+
+CircleCi is middels een context voorzien van de belangrijkste gegevens, zoals de informatie van de server, Packagist token en juiste poortnummers. Echter moet op projectniveau een aantal zaken worden ingesteld.
 
 Om je CircleCi omgeving op te zetten voer je de volgende stappen uit:
 
@@ -74,7 +72,7 @@ Om je CircleCi omgeving op te zetten voer je de volgende stappen uit:
 
 9. Na het aanmaken van de user op de server ga je naar de optie "SSH Keys", onderaan staat "Paste Authorized Key", plaats daar de inhoud van de Dashlane kaart "Public Server Key voor DirectAdmin"
 
-11. Ga terug naar CircleCi
+10. Ga terug naar CircleCi
 
 11. Ga naar de tab "Environment variables"
 
@@ -87,8 +85,6 @@ Om je CircleCi omgeving op te zetten voer je de volgende stappen uit:
 - `PRODUCTION_PATH` > Dit is het pad van het production-domein, vanaf de domeinnaam, bijvoorbeeld: test.nl/public_html/content/themes/test/
 
 13. Je kunt nu een build triggeren met een merge vanaf develop naar staging
-
-
 
 ## Builds triggeren
 
