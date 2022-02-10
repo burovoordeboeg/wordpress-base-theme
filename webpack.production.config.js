@@ -1,6 +1,5 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
@@ -51,11 +50,6 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: 'css/styles.[hash].css'
 		}),
-		new BrowserSyncPlugin({
-			host: 'localhost',
-			port: 3000,
-			proxy: 'http://localhost:8000'
-		}),
 		new ImageMinimizerPlugin({
 			minimizer: {
 				implementation: ImageMinimizerPlugin.squooshMinify,
@@ -78,6 +72,5 @@ module.exports = {
 		new ESLintPlugin({
 			fix: true
 		})
-	],
-	watch: true
+	]
 };
