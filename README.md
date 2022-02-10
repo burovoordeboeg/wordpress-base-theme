@@ -1,4 +1,4 @@
-# WordPress Base theme
+# WordPress Base theme 2
 
 # Tailwind config
 
