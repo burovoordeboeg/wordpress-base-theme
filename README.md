@@ -1,10 +1,6 @@
 
 # WordPress Base theme
 
---
-
-AANVULLEN MET INFORMATIE OVER HET THEMA
-
 
 # Tailwind config
 Er wordt gebruik gemaakt van een Tailwind. Om componenten en secties te herkennen maken we gebruik van data attributen. Deze zijn als volgt:
@@ -14,16 +10,12 @@ Er wordt gebruik gemaakt van een Tailwind. Om componenten en secties te herkenne
 
 Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft de HTML in de Twig-files leesbaar.
 
-  
-# Github
-## Repository setup
-We maken in basis drie branches aan: develop, staging en production. De master branch die gebruiken we niet. De develop branch stel je in als default-branch. 
+## New setup notes & links
 
-**Develop- en feature branches**
-De develop branch is de plek waar je nieuw ontwikkelde code op verzameld, zogenaamd: "actief development". In basis werk je je eigen develop branch, bijvoorbeeld `develop/<naam>`.  Stel dat je een stabiele release hebt van een WordPress thema, en je wil daar een extra op ontwikkelen, dan doe je dat in een feature branch, deze branch je ook vanaf de develop branch, en noem je vervolgens naar de naam van de feature, bijvoorbeeld `feature/project-pdf-export`. Op die manier is je naam duidelijk en beschrijvend. 
+* [https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5](https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5)
+* [https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one](https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one)
+* [https://webpack.js.org/guides/asset-modules/](https://webpack.js.org/guides/asset-modules/)
 
-**Staging-branch**
-De staging branch is de branch die gelijk loopt met de staging server. De staging server kan daarmee voorlopen op de productie server en dus ook op de production branch. Je kan releasen naar de staging branch vanuit de develop branch middels het aanmaken van een pull-request in Github. 
 
 **Production-branch**
 Voor de production branch geldt hetzelfde als staging. Deze loopt gelijk met de versie van het thema op de production server. Je kan een deployment naar production alleen starten vanaf de staging branch. Zo voorkomen we te snelle releases.
@@ -107,13 +99,3 @@ Builds triggeren automatisch, zo triggert:
 - Bij elke PR op de staging branch een staging-deploy
 
 - Bij elke PR op de master branch een master-deploy
-
-
-## New setup notes & links
-https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5
-https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one
-https://webpack.js.org/guides/asset-modules/
-
-## New setup with webpack
-De nieuwe setup maakt gebruik van webpack ipv gulp. We gebruiken tailwind (v3) en schrijven css ipv scss. Door het gebruik van postcss en postcss nesting kunnen we de css schrijven zoals we dat ook met scss deden.
-
