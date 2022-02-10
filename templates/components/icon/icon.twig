@@ -1,0 +1,36 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'icon',
+    icon: null,
+    variant: 'sm',
+    size: 'sm',
+  },
+  classes: {
+    root: 'inline-flex fill-current',
+    color: 'text-current',
+    custom: '',
+  },
+  variants: {
+    sm: 'w-4 h-4',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8',
+    xl: 'w-12 h-12',
+    '2xl': 'w-16 h-16',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
+
+{% if props.data.icon %}
+	<svg class="{{props.data.name}} {{props.classes.root}} {{ props.classes.color }} {{props.variants[props.data.variant]}} {{props.classes.custom}}" aria-hidden="true" focusable="false" role="img">
+		<use xlink:href="#{{ props.data.icon }}"/>
+	</svg>
+{% endif %}

@@ -1,7 +1,0 @@
-{% set href = href|default('#') %}
-{% set class = class|default('') %}
-{% set label = label|default('Label') %}
-
-<a href="{{ href }}" {% if target %} target="{{target}}" {% endif %} class="button {{ class }}">
-	{{ label }}
-</a>

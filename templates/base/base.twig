@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{{ wp_head() }}
+	</head>
+	<body {{ body_class() }}>
+
+		{% block header %}
+			{% include 'base/header.twig' %}
+		{% endblock %}
+
+		{% block main %}
+			<main class="wrapper">
+				{% block content %}
+					<p>Content gets rendered here</p>
+				{% endblock %}
+			</main>
+		{% endblock %}
+
+		{% block footer %}
+			{% include 'base/footer.twig' %}
+		{% endblock %}
+
+		{% include 'components/icon/icons.twig' %}
+
+		{{ wp_footer() }}
+	</body>
+</html>

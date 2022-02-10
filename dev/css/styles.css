@@ -1,0 +1,87 @@
+@import "./tailwind/base.css";
+@import "./custom/base.css";
+
+@import "./tailwind/components.css";
+@import "./custom/components.css";
+
+@import "./tailwind/utilities.css";
+@import "./custom/utilities.css";
+
+@layer base {
+    @font-face {
+        font-family: 'Bolder';
+        src: url('../fonts/Bolder-Bold.woff2') format('woff2'),
+            url('../fonts/Bolder-Bold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Bolder Heading';
+        src: url('../fonts/Bolder-Heading.woff2') format('woff2'),
+            url('../fonts/Bolder-Heading.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Bolder';
+        src: url('../fonts/Bolder-Light.woff2') format('woff2'),
+            url('../fonts/Bolder-Light.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Bolder';
+        src: url('../fonts/Bolder-Regular.woff2') format('woff2'),
+            url('../fonts/Bolder-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Bolder';
+        src: url('../fonts/Bolder-RegularItalic.woff2') format('woff2'),
+            url('../fonts/Bolder-RegularItalic.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+        font-display: swap;
+    }
+
+	strong {
+		font-weight:600;
+	}
+
+	p {
+		@apply mt-0;
+
+        &:last-child {
+            @apply mb-0;
+        }
+
+        &.is-style-lead {
+            @apply font-bold text-xl leading-relaxed;
+        }
+	}
+
+    
+
+	
+}
+
+
+/* Alignments */
+@layer utilities {
+	.alignwide {
+		@apply max-w-screen-2xl mx-auto;
+		
+	}
+	.alignfull {
+		@apply max-w-none mx-auto;
+	}
+}

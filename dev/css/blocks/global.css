@@ -1,0 +1,7 @@
+.wrapper {
+
+	> *:not(.alignwide):not(.alignfull):not(.wp-block-separator):not(.woocommerce) {
+		@apply max-w-screen-md mx-auto;
+	}
+	
+}

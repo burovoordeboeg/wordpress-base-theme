@@ -1,0 +1,26 @@
+{% set compDefaults = {
+  data: {
+    name: 'c-image',
+	id: image.id,
+	size: null,
+	alt: image.alt,
+	variant: aspect_ratio,
+  },
+  classes: {
+    root: 'w-full object-cover',
+    custom: null,
+  },
+  variants: {
+	auto: 'aspect-auto',
+    square: 'aspect-square',
+    video: 'aspect-video',
+  }
+} %}
+
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{{site.wp_get_attachment_image(props.data.id, props.data.size, '', {'class' : props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom  })|raw}}

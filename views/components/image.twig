@@ -1,8 +1,0 @@
-<!-- https://developer.wordpress.org/reference/functions/wp_get_attachment_image_url/ -->
-{% set attachment_id = id|default('') %}
-{% set size = size|default('full') %}
-{% set icon = false %}
-{% set class = class|default('img') %}
-{% set alt = alt ? alt : title %}
-
-{{site.wp_get_attachment_image(attachment_id, size, icon, {class: class, alt: alt})|raw}}

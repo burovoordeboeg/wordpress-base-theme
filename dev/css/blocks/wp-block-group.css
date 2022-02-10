@@ -1,0 +1,12 @@
+.wp-block-group {
+	&.has-background {
+		@apply p-8;
+	}
+}
+
+.wp-block-group {
+	
+	&.has-background {
+		@apply relative overflow-hidden px-8 py-6 rounded-sm;
+	}
+}

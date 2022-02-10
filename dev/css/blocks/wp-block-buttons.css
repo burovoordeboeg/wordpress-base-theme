@@ -1,0 +1,56 @@
+/* Vars */
+
+/* core/buttons */
+.wp-block-buttons {
+	@apply my-8;
+}
+
+/* core/button */
+.wp-block-button {
+	
+	&__link {
+		@apply duration-200;
+
+		&:hover {
+			@apply border-current bg-transparent text-rotterdam-groen ;
+		}
+
+		.is-style-fill & {
+			&:hover {
+				@apply border-current bg-transparent text-rotterdam-groen ;
+			}
+		}
+
+		.is-style-outline & {
+			@apply border-rotterdam-groen text-rotterdam-groen !important;
+			
+			&:hover {
+				@apply border-rotterdam-groen bg-rotterdam-groen text-white !important;
+			}
+		}
+
+		.is-style-cta & {
+			@apply bg-rotterdam-cta-oranje;
+			
+			&:hover {
+				@apply border-current bg-transparent text-rotterdam-cta-oranje;
+			}
+		}
+
+		.is-style-link & {
+			@apply bg-transparent text-rotterdam-groen p-0;
+			
+			&:hover {
+				@apply underline border-transparent;
+			}
+		}
+	}
+
+	&.is-style-link {
+		@apply inline-flex items-center;
+		&:before {
+			content:'';
+			@apply w-[6px] h-[6px] mr-2 block bg-transparent rotate-45 border-0 border-t border-r border-gray-400 border-solid;
+		}
+	}
+}

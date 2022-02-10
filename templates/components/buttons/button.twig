@@ -1,0 +1,61 @@
+{# Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'btn',
+    variant: 'primary',
+    variantSize: 'md',
+    icon: null,
+    iconSize: 'md',
+    text: null,
+    url: null,
+    reverse: false,
+    target: null,
+  },
+  classes: {
+    root: 'items-center border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    custom: '',
+    display: 'inline-flex',
+    rounded: 'rounded-md'
+  },
+  variants: {
+    primary: 'text-white bg-green-700 hover:bg-green-800 group-hover:bg-green-800',
+    secondary: 'text-blue-900 bg-blue-300 hover:bg-blue-400 group-hover:bg-blue-400',
+    outlined: 'text-slate-900 border-slate-200 bg-white hover:bg-slate-50 group-hover:bg-slate-50',
+    sm: 'px-2.5 py-1.5 gap-2 text-xs',
+    md: 'px-4 py-2 gap-3 text-base',
+    lg: 'px-6 py-3 gap-4 text-base',
+  }
+} %}
+
+{# Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.text or props.data.icon %}
+	{% set tag = props.data.url ? 'a' : 'button' %}
+	{% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
+
+	<{{tag}}
+		{{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }} class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants[props.data.variant] }} {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
+
+		{# If icon exists #}
+		{% if props.data.icon %}
+			{#  Render icon  #}
+			{{ include('components/icon/icon.twig', {
+				data: {
+					icon: props.data.icon ?? null,
+					variant: props.data.iconSize,
+				},
+				classes: {
+					custom: (props.data.reverse ? 'order-2')
+				}
+			}, withContext = false) }}
+		{% endif %}
+
+		{{ props.data.text ?? null }}
+
+	</{{tag}}>
+{% endif %}

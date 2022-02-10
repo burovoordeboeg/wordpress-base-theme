@@ -1,22 +1,26 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-    },
-    "rules":{
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"rules": {
 		"camelcase": [
 			1,
 			{
 				"properties": "never"
 			}
 		],
-        "comma-dangle": 1,
-        "curly": 2,
-        "no-console": 1,
+		"comma-dangle": 1,
+		"curly": 2,
+		"no-console": 1,
 		"no-alert": 2,
-        "quotes": [2, "single", "avoid-escape"],
-        "no-empty": 2,
-        "default-case": 1,
+		"quotes": [
+			2,
+			"single",
+			"avoid-escape"
+		],
+		"no-empty": 2,
+		"default-case": 1,
 		"linebreak-style": [
 			"error",
 			"unix"
@@ -32,5 +36,5 @@
 		"no-trailing-spaces": "error",
 		"no-multi-str": "error",
 		"no-multiple-empty-lines": 2
-    }
+	}
 }
