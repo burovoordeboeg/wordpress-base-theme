@@ -1,3 +1,17 @@
+# Circleci config based on gitflow
+# 
+# Needs setting of variables:
+# - USER              string  Name of user on server
+# - DOMAIN_TEST       string  Domain to deploy to
+# - DOMAIN_ACCEPTANCE string  Domain to deploy to
+# - DOMAIN_PRODUCTION string  Domain to deploy to
+# - SERVER_PATH       string  Path to testing environment
+#
+# Also make sure you know where you want to deploy to:
+# If you want to deploy to S01, you do not need to edit the standard SERVER_IP
+# to SERVER_IP_S01 or SERVER_IP_S02 to deploy to these specific servers
+# Also see the contexts menu within cirlceci
+
 version: 2.1
 
 references:
@@ -5,7 +19,7 @@ references:
     circleci_ip_ranges: true
     working_directory: ~/theme
     docker:
-      - image: cimg/php:7.3-node
+      - image: cimg/php:7.4-node
 
   # Rsync install
   rsync_install: &rsync_install
@@ -20,7 +34,6 @@ references:
     restore_cache:
       keys:
         - node-v4-{{ checksum "package.json" }}
-        - node-v4-
 
   npm_save_cache: &npm_save_cache
     save_cache:
@@ -33,7 +46,6 @@ references:
       name: Install NPM packages
       command: |
         npm install --silent
-        npm rebuild node-sass
   
   # Composer
   composer_restore_cache: &composer_restore_cache
@@ -58,28 +70,13 @@ references:
       name: Compile vendors from composer packages
       command: composer install -n --ignore-platform-reqs --optimize-autoloader --no-dev
   
-  # Linters
-  jslint: &jslint
+  # Webpack builds
+  webpack_build_assets: &webpack_build_assets
     run:
-      name: Lint JavaScript files
-      command: npx gulp jsLint
-  
-  sasslint: &sasslint
-    run:
-      name: Lint SASS files
-      command: npx gulp sassLint
-  
-  # Gulp builds
-  gulp_build_staging: &gulp_build_staging
-    run:
-      name: Build staging assets
-      command: npx gulp build
+      name: Build assets
+      command: npm run build
 
-  gulp_build_production: &gulp_build_production
-    run:
-      name: Build production assets
-      command: npx gulp buildProduction
-
+# Setup commands
 commands:
   # SSH Server keys
   add_serverkey:
@@ -93,14 +90,17 @@ commands:
           name: Add server keys
           command: |
             ssh-keyscan <<parameters.server_ip>> >> ~/.ssh/known_hosts
-  
-  # rsync deploy
+
+  # rsync deploy command
   rsync_deploy:
     description: Rsync deploy to input path
     parameters:
       jobname:
         type: string
-        default: "production"
+        default: "none"
+      domain: 
+        type: string
+        default: ""
       path: 
         type: string
         default: ""
@@ -116,28 +116,10 @@ commands:
                 echo "No path specified to deploy to"
                 exit 1
             fi
-            rsync -avz -e "ssh -p $SERVER_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@<<parameters.server_ip>>:/home/$USER/domains/<<parameters.path>>
+            rsync -avz -e "ssh -p $SERVER_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@<<parameters.server_ip>>:/home/$USER/domains/<<parameters.domain>>/<<parameters.path>>
 
 jobs:
-  jslint:
-    <<: *default
-    steps:
-      - checkout
-      - << : *npm_restore_cache
-      - << : *npm_install
-      - << : *npm_save_cache
-      - << : *jslint
-
-  sasslint:
-    <<: *default
-    steps:
-      - checkout
-      - << : *npm_restore_cache
-      - << : *npm_install
-      - << : *npm_save_cache
-      - << : *sasslint
-
-  staging:
+  "Test":
     <<: *default
     steps:
       - checkout
@@ -145,19 +127,20 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *gulp_build_staging
+      - <<: *webpack_build_assets
       - <<: *composer_restore_cache
       - <<: *composer_packagist
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
-          server_ip: $SERVER_IP
+          server_ip: $SERVER_IP_S02
       - rsync_deploy:
-          jobname: "staging"
-          path: $STAGING_PATH
-          server_ip: $SERVER_IP
+          jobname: "test"
+          domain: $DOMAIN_TEST
+          path: $SERVER_PATH
+          server_ip: $SERVER_IP_S02
 
-  production:
+  "Acceptance":
     <<: *default
     steps:
       - checkout
@@ -165,48 +148,103 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *gulp_build_production
+      - <<: *webpack_build_assets
       - <<: *composer_restore_cache
       - <<: *composer_packagist
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
-          server_ip: $SERVER_IP
+          server_ip: $SERVER_IP_S02
+      - rsync_deploy:
+          jobname: "acceptance"
+          domain: $DOMAIN_ACCEPTANCE
+          path: $SERVER_PATH
+          server_ip: $SERVER_IP_S02
+
+  "Production":
+    <<: *default
+    steps:
+      - checkout
+      - <<: *rsync_install
+      - <<: *npm_restore_cache
+      - <<: *npm_install
+      - <<: *npm_save_cache
+      - <<: *webpack_build_assets
+      - <<: *composer_restore_cache
+      - <<: *composer_packagist
+      - <<: *composer_install
+      - <<: *composer_save_cache
+      - add_serverkey:
+          server_ip: $SERVER_IP_S02
       - rsync_deploy:
           jobname: "production"
-          path: $PRODUCTION_PATH
-          server_ip: $SERVER_IP
+          domain: $DOMAIN_PRODUCTION
+          path: $SERVER_PATH
+          server_ip: $SERVER_IP_S02
       
 workflows:
-  lint:
+  "Feature deployment":
     jobs:
-      - jslint:
-          filters:
-            branches:
-              ignore:
-                - staging
-                - production
-      - sasslint:
-          filters:
-            branches:
-              ignore:
-                - staging
-                - production
-
-  deploy:
-    jobs:
-      - staging: 
+      - "Test": 
           context:
             - buro-voor-de-boeg
-          filters:
+          filters: &filter_develop
             branches:
               only:
-                - staging
+                - develop
 
-      - production:
+  "Release deployment":
+    jobs:
+      - "Acceptance": 
           context:
             - buro-voor-de-boeg
-          filters:
+          filters: &filter_all_tags
             branches:
+              ignore: /.*/
+            tags:
               only:
-                - production
+                # v1.0.0-1 / v1.0.0-pre1 / v1.0.0
+                - /^v\d+\.\d+\.\d+(\-.+)?$/
+
+      - "Approve deploy":
+          type: approval
+          requires:
+            - "Acceptance"
+          filters: &filter_production
+            branches:
+              ignore: /.*/
+            tags:
+              only:
+                # v1.0.0
+                - /^v\d+\.\d+\.\d+$/
+
+      - "Production":
+          requires:
+            - "Acceptance"
+            - "Approve deploy"
+          context:
+            - buro-voor-de-boeg
+          filters: *filter_production
+
+  "Hotfix deployment":
+    jobs:
+      - "Test": 
+          context:
+            - buro-voor-de-boeg
+          filters: &filter_hotfix
+            branches:
+              ignore: /.*/
+            tags:
+              only: 
+                # hotfix-
+                - /^hotfix-.*$/
+
+      - "Acceptance": 
+          context:
+            - buro-voor-de-boeg
+          filters: *filter_hotfix
+
+      - "Production": 
+          context:
+            - buro-voor-de-boeg
+          filters: *filter_hotfix
