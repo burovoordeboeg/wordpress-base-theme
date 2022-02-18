@@ -2,6 +2,8 @@
 
 CircleCi is middels een context voorzien van de belangrijkste gegevens, zoals de informatie van de server, Packagist token en juiste poortnummers. Echter moet op projectniveau een aantal zaken worden ingesteld. 
 
+## Setting up the CircleCi project
+
 Om je CircleCi omgeving op te zetten voer je de volgende stappen uit:
 
 1. Ga naar CircleCi en klik aan de linkerzijde op projects, zoek de juiste repository en klik op "set up project", of klik op "follow" als dit erbij staat (in dat geval zijn onderstaande stappen wellicht overbodig)
