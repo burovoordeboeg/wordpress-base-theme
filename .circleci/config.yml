@@ -111,9 +111,9 @@ commands:
       - run:
           name: Rsync deploy to <<parameters.jobname>>
           command: |
-            if [ -z <<parameters.path>> ]
+            if [ -z <<parameters.domain>> ]
             then
-                echo "No path specified to deploy to"
+                echo "No domain specified to deploy to"
                 exit 1
             fi
             rsync -avz -e "ssh -p $SERVER_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@<<parameters.server_ip>>:/home/$USER/domains/<<parameters.domain>>/<<parameters.path>>
