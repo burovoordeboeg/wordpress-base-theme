@@ -1,0 +1,23 @@
+{
+  "name": "wordpress-base-theme",
+  "version": "1.0.0",
+  "description": "# Tailwind config",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bdfpplinsinga@github.com/burovoordeboeg/wordpress-base-theme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burovoordeboeg/wordpress-base-theme/issues"
+  },
+  "homepage": "https://github.com/burovoordeboeg/wordpress-base-theme#readme"
+}
