@@ -39,16 +39,6 @@
     $utilities->themesupport->add('align-wide');
     $utilities->themesupport->add('align-full');
 
-
-    // Add colors to color palette
-    // $utilities->themesupport->add('editor-color-palette', array(
-    // 	array(
-    // 		'name' => 'Blauw',
-    // 		'slug' => 'blue',
-    // 		'color' => '#59bacc',
-    // 	),
-    // ));
-
     // Register new image size (ID, name, width, height, crop, show in admin)
     $utilities->images->add_image_size('bigthumb', 'Big thumbnail', 500, 500, true, true);
 
@@ -89,10 +79,8 @@
             'ajaxurl' => admin_url('admin-ajax.php')
         ));
 
-		// Editor styles
-		$cssFilePath = glob( get_template_directory() . '/dist/css/styles.*' );
-		$cssFileURIEditor = '/dist/css/' . basename($cssFilePath[0]);
-		add_editor_style( $cssFileURIEditor );
+		// Editor styles		
+		// add_editor_style( $cssFileURIEditor );
 
         // Enqueue all assets (keep at end of file)
         $utilities->assets->load();
