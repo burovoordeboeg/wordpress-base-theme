@@ -90,8 +90,6 @@
 
     }, 1);
 
-    
-
     // =================================================================================
     // Add WooCommerce support
     $utilities->themesupport->add('woocommerce', array());
