@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "# Tailwind config",
   "main": "index.js",
-  "dependencies": {
+  "devDependencies": {
+    "laravel-mix": "^6.0.43"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
