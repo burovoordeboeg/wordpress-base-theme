@@ -1,17 +1,9 @@
 module.exports = {
   content: [
-    './theme/views/**/*.twig',
-    './theme/blocks/**/*.twig',
+    './templates/**/*.twig',
   ],
   safelist:[
     'is-style-indent',
-    'is-style-lead',
-    'columns-2',
-    'columns-3',
-    {
-      pattern: /columns-(2|3|4)/,
-      variants: ['lg', 'md', 'sm'],
-    },
     {
       pattern: /grid-cols-(1|2|3|4|5|6)/,
       variants: ['lg', 'md', 'sm'],
