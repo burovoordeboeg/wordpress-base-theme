@@ -68,7 +68,7 @@
 
         // Setup the scripts to enqueue
         $scripts = $utilities->assets->get_hashed_files_in_dir( get_template_directory() . '/dist/js', '*.js' );
-        $utilities->assets->register_multiple( 'script', $scripts, array('jquery'), true );
+        $utilities->assets->register_multiple( 'script', '' );
 
         // Setup the styles to enqueue
         $styles = $utilities->assets->get_hashed_files_in_dir( get_template_directory() . '/dist/css', '*.css' );
