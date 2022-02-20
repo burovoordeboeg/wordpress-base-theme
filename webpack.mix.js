@@ -4,13 +4,13 @@ const fs = require('fs');
 
 
 mix.setPublicPath('dist')
-	.js('src/scripts/scripts.js', 'scripts')
-	.js('src/scripts/editor.js', 'scripts')
-	.postCss('src/styles/app.css', 'styles', [
+	.js('src/scripts/scripts.js', 'dist')
+	.js('src/scripts/editor.js', 'dist')
+	.postCss('src/styles/app.css', 'dist', [
 		require('tailwindcss'),
 	])
 	.version()
-	.postCss('src/styles/editor-style.css', 'styles', [
+	.postCss('src/styles/editor-style.css', 'dist', [
 		require('tailwindcss'),
 	]);
 

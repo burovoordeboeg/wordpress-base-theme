@@ -65,12 +65,13 @@
      * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
      */
     add_action('after_setup_theme', function() use ($utilities, $gutenberg) {
+		$mixPublicPath = get_template_directory() . '/dist';
 
         // Setup the scripts to enqueue
-		$utilities->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/scripts/scripts.js', array(), false);
+		$utilities->assets->register('script', 'scripts', get_template_directory_uri()  . '/dist' . mix("scripts.js", $mixPublicPath), array(), false);
 
 		// Setup styles to enque
-		$utilities->assets->register('style', 'styles', get_template_directory_uri() . '/dist/styles/app.css', array(), true);
+		$utilities->assets->register('style', 'styles', get_template_directory_uri()  . '/dist' .  mix('/app.css', $mixPublicPath), array(), true);
 
         // Add ajaxurl als default param to scripts
         $utilities->assets->localize('scripts', 'theme', array(
@@ -78,7 +79,15 @@
         ));
 
 		// Editor styles		
-		// add_editor_style( $cssFileURIEditor );
+		add_editor_style(get_template_directory_uri() . '/dist/editor-style.css');
+		
+		// Enqueue gutenberg assets
+		add_action('enqueue_block_editor_assets', 'enqueue_block_editor_assets');
+		function enqueue_block_editor_assets() {
+			// wp_enqueue_style('fira-font', '//fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+			wp_enqueue_script('scripts-js', get_template_directory_uri() . '/dist/scripts.js');
+			wp_enqueue_script('editor-js', get_template_directory_uri() . '/dist/editor.js', ['wp-blocks','wp-dom-ready', 'wp-edit-post' ]);
+		}
 
         // Enqueue all assets (keep at end of file)
         $utilities->assets->load();
@@ -103,4 +112,31 @@
 
 	// Removes core block support
 	remove_theme_support('core-block-patterns');
-	
+
+	// Mix 
+	function mix($path, $manifestDirectory = '')
+    {
+        static $manifest;
+        if ($manifestDirectory && strpos($manifestDirectory, '/') !== 0) {
+            $manifestDirectory = "/{$manifestDirectory}";
+        }
+
+        if (! $manifest) {
+            if (! file_exists($manifestPath = $manifestDirectory.'/mix-manifest.json')) {
+                throw new Exception('The Mix manifest does not exist.');
+            }
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+        }
+
+        if (strpos($path, '/') !== 0) {
+            $path = "/{$path}";
+        }
+
+        if (! array_key_exists($path, $manifest)) {
+            throw new Exception(
+                "Unable to locate Mix file: {$path}. Please check your webpack.mix.js output paths and try again."
+            );
+        }
+
+        return $manifest[$path];
+    }
