@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import-glob "../../blocks/**/*.css";
+@import 'theme';
+@import 'tailwindcss/utilities';
+
+body {
+  @apply font-sans;
+}
+
+.mce-content-body,
+.acf_content,
+.mceContentBody {
+  @apply prose max-w-none p-8;
+}

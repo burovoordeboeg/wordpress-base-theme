@@ -67,12 +67,10 @@
     add_action('after_setup_theme', function() use ($utilities, $gutenberg) {
 
         // Setup the scripts to enqueue
-        $scripts = $utilities->assets->get_hashed_files_in_dir( get_template_directory() . '/dist/js', '*.js' );
-        $utilities->assets->register_multiple( 'script', '' );
+		$utilities->assets->register('script', 'scripts', get_template_directory_uri() . '/dist/scripts/scripts.js', array(), false);
 
-        // Setup the styles to enqueue
-        $styles = $utilities->assets->get_hashed_files_in_dir( get_template_directory() . '/dist/css', '*.css' );
-        $utilities->assets->register_multiple( 'style', $styles );
+		// Setup styles to enque
+		$utilities->assets->register('style', 'styles', get_template_directory_uri() . '/dist/styles/app.css', array(), true);
 
         // Add ajaxurl als default param to scripts
         $utilities->assets->localize('scripts', 'theme', array(
