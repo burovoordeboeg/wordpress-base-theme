@@ -22,7 +22,7 @@ module.exports = {
 		},
     extend: {
       fontFamily: {
-        'sans': ['Fira Sans'],
+        'sans': ['Open Sans'],
       },
       colors: {
         primary: {
