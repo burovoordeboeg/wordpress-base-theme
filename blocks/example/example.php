@@ -16,7 +16,7 @@
 				'name' => 'example',
 				'title' => 'Example',
 				'description' => 'This is an example block',
-				'category' => 'formatting',
+				'category' => 'custom',
 				'icon' => 'admin-comments',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),

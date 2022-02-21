@@ -2,7 +2,6 @@
 let mix = require('laravel-mix');
 const fs = require('fs');
 
-
 mix.setPublicPath('dist')
 	.js('src/scripts/scripts.js', 'dist')
 	.js('src/scripts/editor.js', 'dist')

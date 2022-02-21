@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f35f6e034e8af97603dcff1c4a6f060a",
+    "content-hash": "b36c12cc5a4c941c4909f39a33718c2d",
     "packages": [
         {
             "name": "burovoordeboeg/gutenberg-blocks",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-theme-gutenberg.git",
-                "reference": "e509fd60deae3bd66fa615eefc4fd9a8b03de582"
+                "reference": "14bdb6af254337e1db91ad157c96e196ae427292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-gutenberg/zipball/e509fd60deae3bd66fa615eefc4fd9a8b03de582",
-                "reference": "e509fd60deae3bd66fa615eefc4fd9a8b03de582",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-gutenberg/zipball/14bdb6af254337e1db91ad157c96e196ae427292",
+                "reference": "14bdb6af254337e1db91ad157c96e196ae427292",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -54,10 +54,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-theme-gutenberg/tree/0.0.2",
+                "source": "https://github.com/burovoordeboeg/class-theme-gutenberg/tree/0.0.3",
                 "issues": "https://github.com/burovoordeboeg/class-theme-gutenberg/issues"
             },
-            "time": "2022-01-21T10:38:46+00:00"
+            "time": "2022-02-21T09:10:25+00:00"
         },
         {
             "name": "burovoordeboeg/templates",
