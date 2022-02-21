@@ -17,7 +17,7 @@
     "require": {
         "burovoordeboeg/utilities": "^0.0.4",
         "burovoordeboeg/templates": "^0.0.5",
-        "burovoordeboeg/gutenberg-blocks": "^0.0.2"
+        "burovoordeboeg/gutenberg-blocks": "^0.0.3"
     },
     "autoload": {
         "psr-4": {
