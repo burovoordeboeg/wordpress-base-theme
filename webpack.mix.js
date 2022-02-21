@@ -2,14 +2,14 @@
 let mix = require('laravel-mix');
 const fs = require('fs');
 
-mix.setPublicPath('dist')
-	.js('src/scripts/scripts.js', 'dist')
-	.js('src/scripts/editor.js', 'dist')
-	.postCss('src/styles/app.css', 'dist', [
+mix.setPublicPath('build')
+	.js('assets/scripts/scripts.js', 'scripts')
+	.js('assets/scripts/editor.js', 'scripts')
+	.postCss('assets/styles/app.css', 'styles', [
 		require('tailwindcss'),
 	])
 	.version()
-	.postCss('src/styles/editor-style.css', 'dist', [
+	.postCss('assets/styles/editor-style.css', 'styles', [
 		require('tailwindcss'),
 	]);
 
