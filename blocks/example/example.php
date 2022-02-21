@@ -21,7 +21,7 @@
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
-				'align' => array( 'center', 'wide', 'full' ),
+				'align' => array( 'wide', 'full' ),
 				'multiple' => true,
 			));
 		}
