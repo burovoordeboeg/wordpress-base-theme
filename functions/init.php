@@ -70,7 +70,8 @@
         // Setup the scripts to enqueue
 		$utilities->assets->register('script', 'scripts', get_template_directory_uri()  . '/dist' . mix("scripts.js", $mixPublicPath), array(), false);
 
-		// Setup styles to enque
+		// Setup styles to enqueue
+		$utilities->assets->register('style', 'fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), true);
 		$utilities->assets->register('style', 'styles', get_template_directory_uri()  . '/dist' .  mix('/app.css', $mixPublicPath), array(), true);
 
         // Add ajaxurl als default param to scripts
@@ -85,7 +86,7 @@
 		add_action('enqueue_block_editor_assets', 'enqueue_block_editor_assets');
 		
 		function enqueue_block_editor_assets() {
-			// wp_enqueue_style('fira-font', '//fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+			wp_enqueue_style('open-sans', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 			wp_enqueue_script('scripts-js', get_template_directory_uri() . '/dist/scripts.js');
 			wp_enqueue_script('editor-js', get_template_directory_uri() . '/dist/editor.js', ['wp-blocks','wp-dom-ready', 'wp-edit-post' ]);
 		}
