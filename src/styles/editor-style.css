@@ -3,3 +3,23 @@
 @import-glob "../../blocks/**/*.css";
 @import 'theme';
 @import 'tailwindcss/utilities';
+
+body {
+  @apply font-sans;
+}
+
+.wp-block {
+  @apply max-w-screen-lg;
+}
+
+.wp-block[data-align='center'] {
+  @apply max-w-screen-lg;
+}
+
+.wp-block[data-align='wide'] {
+  @apply max-w-screen-xl;
+}
+
+.wp-block[data-align='full'] {
+  @apply max-w-full;
+}
