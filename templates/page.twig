@@ -1,10 +1,12 @@
 {% extends "base/base.twig" %}
 
+{% set wrapper_class = 'my-12' %}
+
 {% block content %}
 
 	<div class="block-wrapper">
 		<div>
-			<h1 class="text-7xl font-bold">{{object.get_title()}}</h1>
+			<h1 class="">{{object.get_title()}}</h1>
 		</div>
 		{{object.get_content()|raw}}
 	</div>
