@@ -3,11 +3,6 @@
     // Exit if accessed directly
     if (!defined('ABSPATH')) exit;
 
-    // define('WP_DEBUG', true);
-    error_reporting(E_ALL);
-    ini_set('display_errors', 'on');
-
-
     // Create theme instance and call the theme class to initialize globally.
     include_once get_template_directory() . '/vendor/autoload.php';
 
