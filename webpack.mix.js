@@ -5,11 +5,11 @@ const fs = require('fs');
 mix.setPublicPath('build')
 	.js('assets/scripts/scripts.js', 'scripts')
 	.js('assets/scripts/editor.js', 'scripts')
-	.postCss('assets/styles/app.css', 'styles', [
+	.postCss('assets/styles/styles.css', 'styles', [
 		require('tailwindcss'),
 	])
 	.version()
-	.postCss('assets/styles/editor-style.css', 'styles', [
+	.postCss('assets/styles/editor-styles.css', 'styles', [
 		require('tailwindcss'),
 	]);
 

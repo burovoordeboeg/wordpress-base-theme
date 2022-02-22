@@ -4,12 +4,9 @@ module.exports = {
 	'./blocks/**/*.twig',
   ],
   safelist:[
-    'is-style-indent',
-	'lulkoek',
-    {
-      pattern: /grid-cols-(1|2|3|4|5|6)/,
-      variants: ['lg', 'md', 'sm'],
-    },
+	{
+		pattern:/wp-block-.+/,
+	}
   ],
   theme: {
     container: {

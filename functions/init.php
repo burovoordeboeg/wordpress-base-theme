@@ -78,7 +78,7 @@
 
 		// Setup styles to enqueue
 		$utilities->assets->register('style', 'fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), true);
-		$utilities->assets->register('style', 'styles', get_template_directory_uri()  . '/build' .  mix('styles/app.css', $mixPublicPath), array(), true);
+		$utilities->assets->register('style', 'styles', get_template_directory_uri()  . '/build' .  mix('styles/styles.css', $mixPublicPath), array(), true);
 
         // Add ajaxurl als default param to scripts
         $utilities->assets->localize('scripts', 'theme', array(
@@ -86,7 +86,7 @@
         ));
 
 		// Editor styles		
-		add_editor_style(get_template_directory_uri() . '/build/styles/editor-style.css');
+		add_editor_style(get_template_directory_uri() . '/build/styles/editor-styles.css');
 		
 		// Enqueue gutenberg assets
 		add_action('enqueue_block_editor_assets', 'enqueue_block_editor_assets');
