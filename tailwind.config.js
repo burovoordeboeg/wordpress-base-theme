@@ -1,49 +1,44 @@
 module.exports = {
-	content: [
-		'./templates/**/*.twig'
-	],
-	safelist: [
-		// 'bg-red-500',
-		'aligncenter',
-		'alignwide',
-		'alignfull',
-		'is-style-lead',
-		{
-			pattern: /wp-block/
-		}
-	],
-	theme: {
-		container: {
-			padding: {
-				DEFAULT: 'var(--wp--custom--spacing--small)',
-				sm: 'var(--wp--custom--spacing--medium)'
-			},
-			center: true
-		},
-		extend: {
-			colors: {
-				primary: 'var(--wp--preset--color--black)',
-				'dark-blue': 'var(--wp--preset--color--dark-blue)',
-				'rotterdam-cta-oranje': 'var(--wp--preset--color--rotterdam-cta-oranje)',
-				'rotterdam-groen': 'var(--wp--preset--color--rotterdam-groen)'
-			},
-			spacing: {
-				'small': 'var(--wp--custom--spacing--small)',
-				'medium': 'var(--wp--custom--spacing--medium)',
-				'large': 'var(--wp--custom--spacing--large)',
-				'xlarge': 'var(--wp--custom--spacing--xlarge)'
-			},
-			fontFamily: {
-				'fa': ['"Font Awesome 5 Free"']
-			}
-		}
-	},
-	plugins: [
-		require('@tailwindcss/typography'),
-		require('@tailwindcss/forms'),
-		require('@tailwindcss/line-clamp')
-	],
-	corePlugins: {
-		preflight: false
+  content: [
+    './templates/**/*.twig',
+	'./blocks/**/*.twig',
+  ],
+  safelist:[
+	{
+		pattern:/wp-block-.+/,
 	}
+  ],
+  theme: {
+    container: {
+      padding: '2rem',
+      center: true,
+    },
+    screens: {
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px'
+		},
+    extend: {
+      fontFamily: {
+        'sans': ['Open Sans'],
+      },
+      colors: {
+        primary: {
+          100: "#fbfbff",
+          200: "#f8f6ff",
+          300: "#f4f2fe",
+          400: "#f1edfe",
+          500: "#ede9fe",
+          600: "#bebacb",
+          700: "#8e8c98",
+          800: "#5f5d66",
+          900: "#2f2f33"
+        },
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

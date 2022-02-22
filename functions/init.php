@@ -3,11 +3,6 @@
     // Exit if accessed directly
     if (!defined('ABSPATH')) exit;
 
-    // define('WP_DEBUG', true);
-    error_reporting(E_ALL);
-    ini_set('display_errors', 'on');
-
-
     // Create theme instance and call the theme class to initialize globally.
     include_once get_template_directory() . '/vendor/autoload.php';
 
@@ -38,27 +33,23 @@
 	$utilities->themesupport->add('editor-styles');
     $utilities->themesupport->add('align-wide');
     $utilities->themesupport->add('align-full');
-
-
-    // Add colors to color palette
-    // $utilities->themesupport->add('editor-color-palette', array(
-    // 	array(
-    // 		'name' => 'Blauw',
-    // 		'slug' => 'blue',
-    // 		'color' => '#59bacc',
-    // 	),
-    // ));
+	
+	// Remove theme support
+	remove_theme_support('core-block-patterns');
 
     // Register new image size (ID, name, width, height, crop, show in admin)
+	// @see https://github.com/burovoordeboeg/class-theme-utilities/blob/master/docs/Images.md
     $utilities->images->add_image_size('bigthumb', 'Big thumbnail', 500, 500, true, true);
 
-    // Change size of thumbnail
+	// Change size of thumbnail
+	// @see https://github.com/burovoordeboeg/class-theme-utilities/blob/master/docs/Images.md
     $utilities->images->update_image_size('thumbnail', array(
         'size_w' => 300,
         'size_h' => 300
     ));
 
     // Register custom post type
+	// @see https://github.com/burovoordeboeg/class-theme-utilities/blob/master/docs/Posttype.md
     $utilities->posttype->register(
         'faq-item',
         'FAQ',
@@ -75,24 +66,31 @@
      * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
      */
     add_action('after_setup_theme', function() use ($utilities, $gutenberg) {
+		$mixPublicPath = get_template_directory() . '/build';
 
         // Setup the scripts to enqueue
-        $scripts = $utilities->assets->get_hashed_files_in_dir( get_template_directory() . '/dist/js', '*.js' );
-        $utilities->assets->register_multiple( 'script', $scripts, array('jquery'), true );
+		$utilities->assets->register('script', 'scripts', get_template_directory_uri()  . '/build' . mix("scripts/scripts.js", $mixPublicPath), array(), false);
 
-        // Setup the styles to enqueue
-        $styles = $utilities->assets->get_hashed_files_in_dir( get_template_directory() . '/dist/css', '*.css' );
-        $utilities->assets->register_multiple( 'style', $styles );
+		// Setup styles to enqueue
+		$utilities->assets->register('style', 'fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), true);
+		$utilities->assets->register('style', 'styles', get_template_directory_uri()  . '/build' .  mix('styles/styles.css', $mixPublicPath), array(), true);
 
         // Add ajaxurl als default param to scripts
         $utilities->assets->localize('scripts', 'theme', array(
             'ajaxurl' => admin_url('admin-ajax.php')
         ));
 
-		// Editor styles
-		$cssFilePath = glob( get_template_directory() . '/dist/css/styles.*' );
-		$cssFileURIEditor = '/dist/css/' . basename($cssFilePath[0]);
-		add_editor_style( $cssFileURIEditor );
+		// Editor styles		
+		add_editor_style(get_template_directory_uri() . '/build/styles/editor-styles.css');
+		
+		// Enqueue gutenberg assets
+		add_action('enqueue_block_editor_assets', 'enqueue_block_editor_assets');
+		
+		function enqueue_block_editor_assets() {
+			wp_enqueue_style('open-sans', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+			wp_enqueue_script('scripts-js', get_template_directory_uri() . '/build/scripts/scripts.js');
+			wp_enqueue_script('editor-js', get_template_directory_uri() . '/build/scripts/editor.js', ['wp-blocks','wp-dom-ready', 'wp-edit-post' ]);
+		}
 
         // Enqueue all assets (keep at end of file)
         $utilities->assets->load();
@@ -101,8 +99,6 @@
         $blocks_loaded = $gutenberg->blocks->include_blocks();
 
     }, 1);
-
-    
 
     // =================================================================================
     // Add WooCommerce support
@@ -117,6 +113,31 @@
     });
     // =================================================================================
 
-	// Removes core block support
-	remove_theme_support('core-block-patterns');
-	
+
+	// Mix manifest function 
+	function mix($path, $manifestDirectory = '')
+    {
+        static $manifest;
+        if ($manifestDirectory && strpos($manifestDirectory, '/') !== 0) {
+            $manifestDirectory = "/{$manifestDirectory}";
+        }
+
+        if (! $manifest) {
+            if (! file_exists($manifestPath = $manifestDirectory.'/mix-manifest.json')) {
+                throw new Exception('The Mix manifest does not exist.');
+            }
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+        }
+
+        if (strpos($path, '/') !== 0) {
+            $path = "/{$path}";
+        }
+
+        if (! array_key_exists($path, $manifest)) {
+            throw new Exception(
+                "Unable to locate Mix file: {$path}. Please check your webpack.mix.js output paths and try again."
+            );
+        }
+
+        return $manifest[$path];
+    }
