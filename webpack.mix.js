@@ -7,10 +7,12 @@ mix.setPublicPath('build')
 	.js('assets/scripts/editor.js', 'scripts')
 	.postCss('assets/styles/styles.css', 'styles', [
 		require('tailwindcss'),
+		require('tailwindcss/nesting'),
 	])
 	.version()
 	.postCss('assets/styles/editor-styles.css', 'styles', [
 		require('tailwindcss'),
+		require('tailwindcss/nesting'),
 	]);
 
 // Watch files

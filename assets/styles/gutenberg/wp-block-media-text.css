@@ -1,2 +1,6 @@
 .wp-block-media-text {
+  &__media {
+  }
+  &__content {
+  }
 }
