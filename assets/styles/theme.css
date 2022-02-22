@@ -2,3 +2,28 @@
 body {
   @apply bg-red-500;
 }
+
+/* Typography - Default Headings */
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-5xl;
+}
+
+h3 {
+  @apply text-5xl;
+}
+
+h4 {
+  @apply text-5xl;
+}
+
+h5 {
+  @apply text-5xl;
+}
+
+h6 {
+  @apply text-5xl;
+}

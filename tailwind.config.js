@@ -37,7 +37,15 @@ module.exports = {
         },
       },
     },
+	typography: {
+		default: {
+		  	css: {
+				maxWidth: '840px',
+		  	},
+		},
+	},
   },
+  
   plugins: [
     require('@tailwindcss/typography'),
   ],
