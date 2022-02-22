@@ -1,0 +1,4 @@
+/* Custom theme styles */
+body {
+  @apply bg-red-500;
+}
