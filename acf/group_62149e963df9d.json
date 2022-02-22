@@ -1,9 +1,9 @@
 {
-    "key": "group_62134cd2c5616",
-    "title": "Block: Example",
+    "key": "group_62149e963df9d",
+    "title": "Block: Voorbeeld",
     "fields": [
         {
-            "key": "field_62134d1e23f54",
+            "key": "field_62149eb1a2778",
             "label": "Title",
             "name": "title",
             "type": "text",
@@ -40,5 +40,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1645432577
+    "modified": 1645518525
 }
