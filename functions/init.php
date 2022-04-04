@@ -60,7 +60,6 @@
         'dashicons-format-chat'
     );  
     
-
     /**
      * Autoload all theme files such as scripts/styles and Gutenberg blocks
      * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
@@ -141,3 +140,17 @@
 
         return $manifest[$path];
     }
+
+	// Add allowed blocks to editor
+	add_filter('allowed_block_types_all', function(){
+		$allowed_blocks = [
+            'core/columns'
+        ];
+
+		foreach (new DirectoryIterator(dirname(__FILE__) . '/../blocks') as $dir) {
+            $allowed_blocks[] = 'acf/' . $dir;
+        }
+
+        return $allowed_blocks;
+	});
+	

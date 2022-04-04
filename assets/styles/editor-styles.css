@@ -1,7 +1,7 @@
 /* This is using the same setup as styles.css but can be extendig with specific stykles needed in our backend. */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import-glob "./gutenberg/**/*.css";
+@import-glob "./components/**/*.css";
 @import-glob "../../blocks/**/*.css";
 @import 'theme';
 @import 'tailwindcss/utilities';
