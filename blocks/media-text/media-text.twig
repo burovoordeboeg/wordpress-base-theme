@@ -1,0 +1,29 @@
+{% set context = {
+	data: {
+		reverse: true,
+		valign: 'center',
+		align: align|default('none')
+	},
+	align: {
+		none: 'max-w-screen-lg',
+		wide: 'max-w-screen-xl',
+		full: 'max-w-none',
+	},
+	valign: {
+		top: 'items-start',
+		center: 'items-center',
+		bottom: 'items-end'
+	}
+} %}
+
+<div class="{{classes}}mx-auto bg-red-500 grid grid-cols-2 {{context.valign[context.data.valign]}} {{context.align[context.data.align]}}">
+
+	<div>
+		<img class="" src="https://source.unsplash.com/gySMaocSdqs/1200x1200" alt="">
+	</div>
+
+	<div class="{% if context.reverse %} order-first {% endif %}">
+		text
+	</div>
+
+</div>

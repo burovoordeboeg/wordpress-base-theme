@@ -97,6 +97,18 @@
         // Include the blocks
         $blocks_loaded = $gutenberg->blocks->include_blocks();
 
+		add_filter('allowed_block_types_all', function() use ($blocks_loaded) {
+			$allowed_blocks = [
+				'core/columns'
+			];
+	
+			foreach ($blocks_loaded as $name => $path) {
+				$allowed_blocks[] = 'acf/' . $name;
+			}
+	
+			return $allowed_blocks;
+		});
+
     }, 1);
 
     // =================================================================================
@@ -142,15 +154,5 @@
     }
 
 	// Add allowed blocks to editor
-	add_filter('allowed_block_types_all', function(){
-		$allowed_blocks = [
-            'core/columns'
-        ];
-
-		foreach (new DirectoryIterator(dirname(__FILE__) . '/../blocks') as $dir) {
-            $allowed_blocks[] = 'acf/' . $dir;
-        }
-
-        return $allowed_blocks;
-	});
+	
 	
