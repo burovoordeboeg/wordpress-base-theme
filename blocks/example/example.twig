@@ -1,1 +1,9 @@
-<div class="{{classes}} container">test</div>
+{% extends "base/block.twig" %}
+
+{% block block_content %}
+	<div class="{{classes}} {{context.align[context.data.align]}}">
+		<div>
+			test
+		</div>
+	</div>
+{% endblock %}

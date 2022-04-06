@@ -1,0 +1,28 @@
+{% set block = {
+	data: {
+		align: align|default('none'),
+	},
+	classes: {
+		root: 'mx-auto my-12',
+		custom:''
+	},
+	align: {
+		small: 'max-w-screen-md',
+		none: 'max-w-screen-lg',
+		wide: 'max-w-screen-xl',
+		full: 'max-w-none',
+	},
+} %}
+
+{# Merge data / classes / variants (optional) #}
+{% set context = {
+	data: data is defined and data is iterable ? block.data | merge(data) : block.data,
+	classes: classes is defined and classes is iterable ? block.classes | merge(classes) : block.classes,
+	align: block.align,
+} %}
+
+<div class="acf-block acf-block__{{blockname}} {{context.classes.root}} {{context.align[context.data.align]}} {{context.classes.custom}}">
+	{% block block_content %}
+		This is our block placeholder
+	{% endblock %}
+</div>

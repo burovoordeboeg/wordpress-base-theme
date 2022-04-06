@@ -1,29 +1,20 @@
-{% set context = {
-	data: {
-		reverse: true,
-		valign: 'center',
-		align: align|default('none')
-	},
-	align: {
-		none: 'max-w-screen-lg',
-		wide: 'max-w-screen-xl',
-		full: 'max-w-none',
-	},
-	valign: {
-		top: 'items-start',
-		center: 'items-center',
-		bottom: 'items-end'
-	}
-} %}
+{% extends "base/block.twig"%}
 
-<div class="{{classes}}mx-auto bg-red-500 grid grid-cols-2 {{context.valign[context.data.valign]}} {{context.align[context.data.align]}}">
+{% set classes = { 
+	root: 'my-24 mx-auto',
+	custom: 'poep' } 
+%}
 
-	<div>
-		<img class="" src="https://source.unsplash.com/gySMaocSdqs/1200x1200" alt="">
+{% block block_content %}
+
+	<div class="bg-red-500 grid grid-cols-2">
+		<div>
+			<img class="" src="https://source.unsplash.com/gySMaocSdqs/1200x1200" alt="">
+		</div>
+
+		<div class="{% if context.reverse %} order-first {% endif %}">
+			text
+		</div>
 	</div>
 
-	<div class="{% if context.reverse %} order-first {% endif %}">
-		text
-	</div>
-
-</div>
+{% endblock %}

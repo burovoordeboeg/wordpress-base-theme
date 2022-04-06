@@ -1,0 +1,11 @@
+{% extends "base/block.twig" %}
+
+{% block block_content %}
+
+	<div class="{{classes}}">
+		<div class="prose max-w-none">
+			{{fields.wysiwyg_content|raw}}
+		</div>
+	</div>
+
+{% endblock %}
