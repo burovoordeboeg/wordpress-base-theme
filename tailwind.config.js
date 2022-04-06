@@ -3,11 +3,6 @@ module.exports = {
     './templates/**/*.twig',
 	'./blocks/**/*.twig',
   ],
-  safelist:[
-	{
-		pattern:/wp-block-.+/,
-	}
-  ],
   theme: {
     container: {
       padding: '2rem',
@@ -37,16 +32,8 @@ module.exports = {
         },
       },
     },
-	typography: {
-		default: {
-		  	css: {
-				maxWidth: '840px',
-		  	},
-		},
-	},
   },
-  
   plugins: [
-    require('@tailwindcss/typography'),
+	require('@tailwindcss/typography'),
   ],
 }

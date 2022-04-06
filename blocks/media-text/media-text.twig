@@ -1,0 +1,20 @@
+{% extends "base/block.twig"%}
+
+{% set classes = { 
+	root: 'my-24 mx-auto',
+	custom: 'poep' } 
+%}
+
+{% block block_content %}
+
+	<div class="bg-red-500 grid grid-cols-2">
+		<div>
+			<img class="" src="https://source.unsplash.com/gySMaocSdqs/1200x1200" alt="">
+		</div>
+
+		<div class="{% if context.reverse %} order-first {% endif %}">
+			text
+		</div>
+	</div>
+
+{% endblock %}

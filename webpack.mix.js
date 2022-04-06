@@ -14,7 +14,6 @@ mix.setPublicPath('build')
 		require('tailwindcss'),
 		require('tailwindcss/nesting'),
 	]);
-
 // Watch files
 if (fs.existsSync('browsersync.config.js')) {
 	const config = require('./browsersync.config');
