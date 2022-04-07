@@ -1,0 +1,40 @@
+{% extends "base/block.twig" %}
+
+{% set context = {
+	data: {
+		horizontal_align: fields.justify|default('right'),
+		vertical_align: fields.orientation|default('horizontal')
+	},
+	valign: {
+		horizontal: 'flex flex-row flex-wrap',
+		vertical: 'flex flex-col',
+	},
+	halign: {
+		vertical: {
+			start: 'items-start',
+			center: 'items-center',
+			right: 'items-end',
+			between: '',
+		},
+		horizontal: {
+			start: 'justify-start',
+			center: 'justify-center',
+			right: 'justify-end',
+			between: 'justify-between',
+		}
+	},
+} %}
+
+{% block block_content %}
+
+	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6">
+		{% for item in fields.button %}
+			{{include('components/button.twig', {
+				data: {
+					text: item.link.title,
+					url: item.link.url
+				}
+			})}}
+		{% endfor %}
+	</div>
+{% endblock %}

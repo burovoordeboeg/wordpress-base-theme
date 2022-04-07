@@ -1,0 +1,37 @@
+{# Comp Defaults #}
+{% set button = {
+  data: {
+    name: 'btn',
+    variant: 'primary',
+    text: null,
+    url: null,
+    target: null,
+  },
+  classes: {
+    root: 'inline-flex p-4 rounded-md',
+    custom: '',
+  },
+  variants: {
+    primary: 'text-white bg-green-700 hover:bg-green-800 group-hover:bg-green-800',
+    secondary: 'text-blue-900 bg-blue-300 hover:bg-blue-400 group-hover:bg-blue-400',
+    outlined: 'text-slate-900 border-slate-200 bg-white hover:bg-slate-50 group-hover:bg-slate-50',
+  }
+} %}
+
+{# Merge data / classes / variants (optional) #}
+{% set context = {
+  data: data is defined and data is iterable ? button.data | merge(data) : button.data,
+  classes: classes is defined and classes is iterable ? button.classes | merge(classes) : button.classes,
+  variants: button.variants,
+} %}
+
+{% if context.data.text or context.data.icon %}
+	{% set tag = context.data.url ? 'a' : 'button' %}
+	{% set attr = context.data.url ? 'href=' ~ context.data.url : 'type=button' %}
+
+	<{{tag}} {{ attr }} {{ context.data.url and context.data.target ? 'target=' ~ context.data.target : '' }} class="{{ context.data.name }} {{ context.classes.root }} {{ context.classes.rounded }} {{ context.classes.display }} {{ context.variants[context.data.variant] }} {{ context.variants[context.data.variantSize] }} {{ context.classes.custom }}">
+
+		{{ context.data.text ?? null }}
+
+	</{{tag}}>
+{% endif %}

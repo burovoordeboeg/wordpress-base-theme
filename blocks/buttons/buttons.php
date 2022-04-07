@@ -5,7 +5,7 @@
 	use BvdB\Gutenberg;
 	use BvdB\Gutenberg\Blocks as Blocks;
 
-	class Wysiwyg extends Blocks
+	class Buttons extends Blocks
 	{
 		/**
 		 * Register the block
@@ -13,12 +13,12 @@
 		public function __construct()
 		{
 			PARENT::register_block( array(
-				'name' => 'wysiwyg',
-				'title' => 'Wysiwyg',
-				'description' => 'This is an wysiwyg block',
+				'name' => 'buttons',
+				'title' => 'Buttons',
+				'description' => 'This is an button block',
 				'category' => 'custom',
 				'icon' => 'admin-comments',
-				'keywords' => array( 'text' ),
+				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
 				'align' => array( 'wide', 'full',),
@@ -30,5 +30,5 @@
 	}
 
 	// Call block-class
-	new Wysiwyg();
+	new Buttons();
 ?>

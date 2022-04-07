@@ -1,19 +1,33 @@
 {% extends "base/block.twig"%}
 
-{% set classes = { 
-	test: 'hallo',
-	custom: 'custom_class' } 
-%}
+{% set context = {
+	data: {
+		align_text: align_text|default('left'),
+		align_content: align_content|default('top'),
+		reverse: fields.reverse|default(false),
+	},
+	align_text: {
+		left: 'text-left',
+		center: 'text-center',
+		right: 'text-right'
+	},
+	align_content: {
+		top: 'items-start',
+		center: 'items-center',
+		bottom: 'items-end'
+	}
+} %}
+
 
 {% block block_content %}
 
-	<div class="bg-red-500 grid grid-cols-2">
-		<div>
+	<div class="md:grid grid-cols-2 bg-red-500 {{context.align_content[context.data.align_content]}} ">
+		<div class="{{ context.data.reverse ?: 'order-last' }}">
 			<img class="" src="https://source.unsplash.com/gySMaocSdqs/1200x1200" alt="">
 		</div>
 
-		<div class="{% if context.reverse %} order-first {% endif %}">
-			text
+		<div class="p-8 {{context.align_text[context.data.align_text]}} ">
+			<InnerBlocks/>
 		</div>
 	</div>
 
