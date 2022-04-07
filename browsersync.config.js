@@ -1,9 +1,9 @@
 module.exports = {
-  proxy: "http://bvdb-base-theme.local/",
-  files: [
-    "./**/*.css",
-    "./**/*.js",
-    "./**/*.php",
-    "./**/*.twig"
-  ]
+	proxy: "http://localhost:10008/",
+	files: [
+		"./**/*.css",
+		"./**/*.js",
+		"./**/*.php",
+		"./**/*.twig"
+	]
 }

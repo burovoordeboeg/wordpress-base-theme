@@ -5,3 +5,9 @@
 @import-glob "../../blocks/**/*.css";
 @import 'theme';
 @import 'tailwindcss/utilities';
+
+.mce-content-body,
+.acf_content,
+.mceContentBody {
+  @apply prose max-w-none p-4;
+}
