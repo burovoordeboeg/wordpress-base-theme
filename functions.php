@@ -20,5 +20,6 @@
 	// Add theme specific methods
 	include_once 'functions/navigation.php';
   	include_once 'functions/options.php';
+  	include_once 'functions/allowed-twig-functions.php';
 
 	  
