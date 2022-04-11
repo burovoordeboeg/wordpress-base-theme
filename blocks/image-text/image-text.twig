@@ -2,9 +2,8 @@
 
 {% set context = {
 	data: {
-		image: fields.media.image,
-		video: fields.media.video,
-		crop: fields.media.crop,
+		image: fields.image,
+		crop: fields.crop,
 		align_text: align_text|default('left'),
 		align_content: align_content|default('top'),
 		reverse: fields.reverse|default(false),

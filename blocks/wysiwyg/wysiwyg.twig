@@ -1,10 +1,16 @@
 {% extends "base/block.twig" %}
 
+{% set context = {
+	data: {
+		placeholder: 'Klik hier om je teksten in te voeren',
+	}
+} %}
+
 {% block block_content %}
 
 	<div class="{{classes}}">
 		<div class="prose text-gray-800 max-w-none">
-			{{fields.wysiwyg_content|raw}}
+			{{fields.wysiwyg_content|default(context.data.placeholder)|raw}}
 		</div>
 	</div>
 

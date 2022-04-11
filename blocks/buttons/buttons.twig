@@ -28,13 +28,17 @@
 {% block block_content %}
 
 	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6">
-		{% for item in fields.button %}
-			{{include('components/button.twig', {
+		{% if fields.button  %}
+			{% for item in fields.button %}
+				{{include('components/button.twig', {
 				data: {
 					text: item.link.title,
 					url: item.link.url
 				}
 			})}}
-		{% endfor %}
+			{% endfor %}
+		{% else %}
+			<p>Klik hier om een button in te voeren</p>
+		{% endif %}
 	</div>
 {% endblock %}
