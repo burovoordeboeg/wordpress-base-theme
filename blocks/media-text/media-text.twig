@@ -31,7 +31,7 @@
 
 {% block block_content %}
 
-	<div class="md:grid grid-cols-2 {{context.align_content[context.data.align_content]}} {{fields.background_color ? : 'gap-8'}}">
+	<div class="md:grid grid-cols-2 {{context.align_content[context.data.align_content]}} {{fields.background_color ? : 'gap-16'}}">
 		<div class="{{ context.data.reverse ?: 'order-last' }} {{context.data.crop ? 'self-stretch'}}">
 			{% if context.data.image %}
 				<img class="{{context.data.crop ? 'w-full h-full object-cover'}}" src="{{context.data.image.sizes.large}}" alt="">
@@ -43,7 +43,7 @@
 			{% endif %}
 		</div>
 
-		<div class="{{fields.background_color ? 'p-8' : ''}} {{context.align_text[context.data.align_text]}} ">
+		<div class="{{fields.background_color ? 'px-16 py-16' : ''}} {{context.align_text[context.data.align_text]}} ">
 			<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
 		</div>
 	</div>

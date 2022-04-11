@@ -3,10 +3,10 @@
     "title": "Block: Image & text",
     "fields": [
         {
-            "key": "field_6254174505996",
-            "label": "Reverse",
-            "name": "reverse",
-            "type": "true_false",
+            "key": "field_6254174507a4b",
+            "label": "Image",
+            "name": "image",
+            "type": "focuspoint",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,35 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_6254174507a4b",
-            "label": "Image",
-            "name": "image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6254174507a41",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
+            "preview_size": "large",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -54,23 +26,34 @@
             "mime_types": ""
         },
         {
+            "key": "field_6254174505996",
+            "label": "Reverse",
+            "name": "reverse",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_6254174507a51",
             "label": "Crop",
             "name": "crop",
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6254174507a41",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -99,5 +82,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649678179
+    "modified": 1649682847
 }
