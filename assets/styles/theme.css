@@ -40,3 +40,17 @@ h6 {
 p {
   @apply leading-relaxed;
 }
+
+/* Iframes */
+iframe {
+  @apply aspect-video w-full h-auto;
+}
+
+/* Acf Blocks */
+.acf-block {
+  @apply my-8;
+
+  .acf-block {
+    @apply my-0;
+  }
+}

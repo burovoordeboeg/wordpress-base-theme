@@ -1,15 +1,21 @@
 {% set block = {
 	data: {
 		align: align|default('none'),
+		bg: fields.background_color
 	},
 	align: {
 		none: 'max-w-screen-lg',
 		wide: 'max-w-screen-xl',
 		full: 'max-w-none',
 	},
+	bg: {
+		red: 'bg-red-500',
+		blue: 'bg-blue-500',
+		green: 'bg-green-500'
+	}
 } %}
 
-<div class="acf-block acf-block__{{blockname}} mx-auto {{block.align[block.data.align]}} ">
+<div class="acf-block acf-block__{{blockname}} mx-auto {{block.align[block.data.align]}} {{block.bg[block.data.bg]}}">
 	{% block block_content %}
 		This is our block placeholder
 	{% endblock %}

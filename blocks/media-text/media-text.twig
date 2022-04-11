@@ -2,9 +2,13 @@
 
 {% set context = {
 	data: {
+		image: fields.media.image,
+		video: fields.media.video,
+		crop: fields.media.crop,
 		align_text: align_text|default('left'),
 		align_content: align_content|default('top'),
 		reverse: fields.reverse|default(false),
+		
 	},
 	align_text: {
 		left: 'text-left',
@@ -20,10 +24,16 @@
 
 
 {% block block_content %}
-
-	<div class="md:grid grid-cols-2 bg-red-500 {{context.align_content[context.data.align_content]}} ">
-		<div class="{{ context.data.reverse ?: 'order-last' }}">
-			<img class="" src="https://source.unsplash.com/gySMaocSdqs/1200x1200" alt="">
+	<div class="md:grid grid-cols-2 {{context.align_content[context.data.align_content]}} ">
+		<div class="{{ context.data.reverse ?: 'order-last' }} {{context.data.crop ? 'self-stretch'}}">
+			{% if context.data.image %}
+				<img class="{{context.data.crop ? 'w-full h-full object-cover'}}" src="{{context.data.image.sizes.large}}" alt="">
+			{% endif %}
+			{% if context.data.video %}
+				<div class="relative aspect-video">
+					{{context.data.video|raw}}
+				</div>
+			{% endif %}
 		</div>
 
 		<div class="p-8 {{context.align_text[context.data.align_text]}} ">
