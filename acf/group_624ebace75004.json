@@ -22,10 +22,10 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_624ebafc37a80",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "link",
+                    "key": "field_6255875fa5e0a",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -34,7 +34,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "clone": [
+                        "field_625586a9cedd5"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
         },
@@ -109,5 +115,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649333322
+    "modified": 1649772466
 }

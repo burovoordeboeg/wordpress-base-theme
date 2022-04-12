@@ -2,7 +2,8 @@
 {% set button = {
   data: {
     name: 'btn',
-    variant: 'primary',
+    type: 'outline',
+	color: 'blue',
     text: null,
     url: null,
     target: null,
@@ -11,25 +12,37 @@
     root: 'inline-flex p-4 rounded-md',
     custom: '',
   },
-  variants: {
-    primary: 'text-white bg-green-700 hover:bg-green-800 group-hover:bg-green-800',
-    secondary: 'text-blue-900 bg-blue-300 hover:bg-blue-400 group-hover:bg-blue-400',
-    outlined: 'text-slate-900 border-slate-200 bg-white hover:bg-slate-50 group-hover:bg-slate-50',
-  }
+  type: {
+	fill: {
+		red: 'bg-red-500',
+		green: 'bg-green-500',
+		blue: 'bg-blue-500'
+	},
+	outline: {
+		red: 'border border-red-500',
+		green: 'border border-green-500',
+		blue: 'border border-blue-500',
+	},
+	inline: {
+		red: 'text-red-500',
+		green: 'text-green-500',
+		blue: 'text-blue-500',
+	},
+  },
 } %}
 
 {# Merge data / classes / variants (optional) #}
 {% set context = {
   data: data is defined and data is iterable ? button.data | merge(data) : button.data,
   classes: classes is defined and classes is iterable ? button.classes | merge(classes) : button.classes,
-  variants: button.variants,
+  type: button.type,
 } %}
 
 {% if context.data.text or context.data.icon %}
 	{% set tag = context.data.url ? 'a' : 'button' %}
 	{% set attr = context.data.url ? 'href=' ~ context.data.url : 'type=button' %}
 
-	<{{tag}} {{ attr }} {{ context.data.url and context.data.target ? 'target=' ~ context.data.target : '' }} class="{{ context.data.name }} {{ context.classes.root }} {{ context.classes.rounded }} {{ context.classes.display }} {{ context.variants[context.data.variant] }} {{ context.variants[context.data.variantSize] }} {{ context.classes.custom }}">
+	<{{tag}} {{ attr }} {{ context.data.url and context.data.target ? 'target=' ~ context.data.target : '' }} class="{{ context.data.name }} {{ context.classes.root }} {{context.type[context.data.type][context.data.color]}} {{ context.classes.custom }}">
 
 		{{ context.data.text ?? null }}
 

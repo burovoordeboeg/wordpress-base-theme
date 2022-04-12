@@ -31,7 +31,6 @@
 
 {% block block_content %}
 
-
 	<div class="relative grid h-full min-h-[768px] py-16 px-16">
 
 		<div class="container p-0 flex h-full {{context.align_content[context.data.align_content]}}">
@@ -39,7 +38,6 @@
 				<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
 			</div>
 		</div>
-
 
 		<div class="absolute inset-0 z-0">
 			{% if context.data.image %}
