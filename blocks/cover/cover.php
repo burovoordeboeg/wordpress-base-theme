@@ -23,6 +23,7 @@
 				'mode' => 'preview',
 				'align' => array('wide', 'full',),
 				'align_text' => false,
+				'align_content'=> 'matrix',
 				'multiple' => true,
 			));
 		}
