@@ -1,0 +1,46 @@
+{% extends "base/block.twig"%}
+
+{% set context = {
+	data: {
+		image: fields.image|default(''),
+		align_content: align_content|default('top'),
+	},
+	align_content: {
+		top: 'items-start',
+		center: 'items-center',
+		bottom: 'items-end'
+	},
+	focal_points: {
+		left: fields.image.left,
+		top: fields.image.top,
+	}
+} %}
+
+
+{% set allowed_blocks = [
+	'acf/heading',
+	'acf/wysiwyg',
+	'acf/buttons'
+] %}
+
+{% block block_content %}
+
+	<div class="relative flex h-full {{context.align_content[context.data.align_content]}} min-h-[768px] py-16 px-16">
+
+		<div class="relative z-10 container px-0 ">
+			<div class="max-w-screen-md">
+				<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
+			</div>
+		</div>
+
+		<div class="absolute inset-0 z-0">
+			{% if context.data.image %}
+				{{wp_get_attachment_image(context.data.image.id, 'full', '', {'class' : 'object-cover w-full h-full', 'style' : 'object-position: ' ~ context.focal_points.left ~ '% ' ~ context.focal_points.left ~'%' } )|raw}}
+			{% else %}
+				<img src="https://via.placeholder.com/1920x768.png" class="object-cover w-full h-full" alt="">
+			{% endif %}
+		</div>
+
+	</div>
+
+{% endblock %}
