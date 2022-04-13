@@ -20,6 +20,26 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_6256bcf071f6d",
+            "label": "Columns",
+            "name": "columns",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "min": 1,
+            "max": 5,
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -40,5 +60,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649168810
+    "modified": 1649851661
 }

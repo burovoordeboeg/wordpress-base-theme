@@ -47,6 +47,26 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_6256c697fb31c",
+            "label": "Columns",
+            "name": "columns",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 1,
+            "max": 5,
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -67,5 +87,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649833485
+    "modified": 1649854115
 }
