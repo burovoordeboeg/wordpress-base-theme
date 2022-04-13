@@ -1,0 +1,30 @@
+{% extends "base/block.twig" %}
+
+{% set context = {
+	data: {
+		placeholder: 'Klik hier om je teksten in te voeren',
+		align: align_text|default('left'),
+		size: fields.size
+	},
+	align: {
+		left: 'text-left',
+		center: 'text-center',
+		right: 'text-right',
+	},
+	size: {
+		small: 'prose prose-sm',
+		medium: 'prose',
+		large: 'prose prose-lg',
+		xlarge: 'prose prose-xl'
+	}
+} %}
+
+{% block block_content %}
+
+	<div class="{{classes}}">
+		<div class="{{context.size[context.data.size]}} text-gray-800 max-w-none {{context.align[context.data.align]}} ">
+			{{fields.paragraph|default(context.data.placeholder)|raw}}
+		</div>
+	</div>
+
+{% endblock %}
