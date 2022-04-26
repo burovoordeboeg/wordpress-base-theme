@@ -80,7 +80,7 @@
         ));
 
 		// Editor styles		
-		add_editor_style(get_template_directory_uri() . '/build/styles/editor-styles.css');
+		add_editor_style('/build/styles/editor-styles.css');
 		
 		// Enqueue gutenberg assets
 		add_action('enqueue_block_editor_assets', 'enqueue_block_editor_assets');
