@@ -29,14 +29,14 @@
 
 {% block block_content %}
 
-	<div class="md:grid grid-cols-2 {{context.align_content[context.data.align_content]}} {{fields.background_color ? : 'gap-16'}}">
+	<div class="md:grid grid-cols-2 {{context.align_content[context.data.align_content]}} gap-8">
 		<div class="{{ context.data.reverse ?: 'order-last' }} {{context.data.crop ? 'self-stretch'}}">
 			{% if context.data.image %}
 				<img class="object-cover w-full h-full left-4" style="object-position: {{fields.image.left}}% {{fields.image.top}}%" src="{{wp_get_attachment_image_url(context.data.image.id, context.data.size)|raw}}" alt="">
 			{% endif %}
 		</div>
 
-		<div class="{{fields.background_color ? 'px-16 py-16' : ''}} {{context.align_text[context.data.align_text]}} ">
+		<div class="{{context.align_text[context.data.align_text]}} ">
 			<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
 		</div>
 	</div>

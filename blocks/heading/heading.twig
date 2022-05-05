@@ -1,11 +1,12 @@
 {% extends "base/block.twig" %}
 
+
 {% set context = {
 	data: {
 		text: fields.heading.text|default('Klik hier voor een titel'),
 		type: fields.heading.type|default('h2'),
 		size: fields.heading.size|default('medium'),
-		align_text: align_text|default('left')
+		align_text: align_text|default('left'),
 	},
 	size: {
 		xsmall: 'text-lg mb-2',
@@ -20,7 +21,6 @@
 		right: 'text-right'
 	}
 } %}
-
 
 {% block block_content %}
 	<{{context.data.type}} class="{{context.size[context.data.size]}} {{context.align_text[context.data.align_text]}}">{{context.data.text}}</{{context.data.type}}>

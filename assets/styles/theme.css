@@ -45,12 +45,3 @@ p {
 iframe {
   @apply aspect-video w-full h-auto;
 }
-
-/* Acf Blocks */
-.acf-block {
-  @apply my-8;
-
-  .acf-block {
-    @apply my-0;
-  }
-}
