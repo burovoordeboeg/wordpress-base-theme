@@ -68,6 +68,7 @@
 		$mixPublicPath = get_template_directory() . '/build';
 
         // Setup the scripts to enqueue
+		$utilities->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), true);
 		$utilities->assets->register('script', 'scripts', get_template_directory_uri()  . '/build' . mix("scripts/scripts.js", $mixPublicPath), array(), false);
 
 		// Setup styles to enqueue

@@ -7,5 +7,6 @@
 @import-glob "./components/**/*.css";
 @import-glob "./blocks/**/*.css";
 @import-glob "../../blocks/**/*.css";
+@import 'magnific-popup';
 @import 'theme';
 @import 'tailwindcss/utilities';

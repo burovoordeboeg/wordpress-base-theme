@@ -8,7 +8,7 @@
 		crop: fields.crop,
 	},
 	classes: {
-		root:'flex flex-wrap mx-auto',
+		root:'flex flex-wrap mx-auto ',
 	},
 	columns: {
 		1: 'w-full',
@@ -22,16 +22,16 @@
 
 {% block block_content %}
 
-	<div class="{{context.classes.root}} ">
+	<div class="{{context.classes.root}} gallery">
 		{% for image in context.data.images %}
-			<div class="{{context.columns[context.data.columns]}} p-2 flex-grow relative">
+			<a href="{{wp_get_attachment_image_url(image.id, 'full')}}" class="{{context.columns[context.data.columns]}} p-2 flex-grow relative ">
 				<figure class="relative {{context.data.crop ? 'w-full h-full object-cover'}}">
 					{{wp_get_attachment_image(image.id, 'full', '', {'class' : context.data.crop ? 'w-full h-full object-cover'})|raw}}
 					{% if image.caption %}
 						<p class="text-sm px-4 pb-4 pt-8 text-white absolute bg-gradient-to-t from-black/50 w-full left-0 bottom-0 ">{{image.caption}}</p>
 					{% endif %}
 				</figure>
-			</div>
+			</a>
 		{% endfor %}
 	</div>
 

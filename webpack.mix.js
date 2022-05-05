@@ -14,6 +14,10 @@ mix.setPublicPath('build')
 		require('tailwindcss'),
 		require('tailwindcss/nesting'),
 	]);
+
+mix.autoload({
+	jquery: ['$', 'window.jQuery']
+});
 // Watch files
 if (fs.existsSync('browsersync.config.js')) {
 	const config = require('./browsersync.config');
