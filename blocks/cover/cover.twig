@@ -4,6 +4,7 @@
 	data: {
 		image: fields.image|default(''),
 		align_content: align_content|replace({' ': '_'}),
+
 	},
 	align_content: {
 		top_left: 'items-start justify-start',
@@ -19,7 +20,7 @@
 	focal_points: {
 		left: fields.image.left,
 		top: fields.image.top,
-	}
+	},
 } %}
 
 
@@ -31,15 +32,19 @@
 
 {% block block_content %}
 
-	<div class="relative grid h-full min-h-[768px] py-16 px-16">
+	<div class="relative grid h-full min-h-[768px] py-16 px-8 md:px-0">
 
 		<div class="container p-0 flex h-full {{context.align_content[context.data.align_content]}}">
-			<div class="relative z-10 px-0 max-w-screen-md">
+			<div class="relative z-10 px-0 max-w-screen-md {{fields.text_color ? 'text-white'}}">
 				<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
 			</div>
 		</div>
 
 		<div class="absolute inset-0 z-0">
+			{% if fields.add_overlay %}
+				<span class="absolute inset-0" style="background-color:{{fields.overlay.color}}; opacity:{{fields.overlay.opacity}}%;"></span>
+			{% endif %}
+			
 			{% if context.data.image %}
 				{{wp_get_attachment_image(context.data.image.id, 'full', '', {'class' : 'object-cover w-full h-full', 'style' : 'object-position: ' ~ context.focal_points.left ~ '% ' ~ context.focal_points.left ~'%' } )|raw}}
 			{% else %}

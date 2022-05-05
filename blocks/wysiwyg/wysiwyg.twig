@@ -7,10 +7,10 @@
 		columns: fields.columns|default(''),
 	},
 	size: {
-		small: 'prose prose-sm',
-		medium: 'prose',
-		large: 'prose prose-lg',
-		xlarge: 'prose prose-xl'
+		small: 'prose prose-sm text-inherit',
+		medium: 'prose text-inherit',
+		large: 'prose prose-lg text-inherit',
+		xlarge: 'prose prose-xl text-inherit'
 	},
 	columns: {
 		1: 'gap-8 columns-1',
@@ -24,7 +24,7 @@
 {% block block_content %}
 
 	<div class="{{classes}}">
-		<div class="{{context.size[context.data.size]}} text-gray-800 max-w-none {{context.columns[context.data.columns]}}">
+		<div class="{{context.size[context.data.size]}} max-w-none {{context.columns[context.data.columns]}}">
 			{{fields.wysiwyg_content|default(context.data.placeholder)|raw}}
 		</div>
 	</div>
