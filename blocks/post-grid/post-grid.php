@@ -17,7 +17,7 @@
 				'title' => 'Post Grid',
 				'description' => 'This is an post grid block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'grid-view',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

@@ -17,7 +17,7 @@
 				'title' => 'Gallery',
 				'description' => 'This is an gallery block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'format-gallery',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

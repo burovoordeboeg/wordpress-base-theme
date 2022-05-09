@@ -17,7 +17,7 @@
 				'title' => 'Wysiwyg',
 				'description' => 'This is an wysiwyg block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'text',
 				'keywords' => array( 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

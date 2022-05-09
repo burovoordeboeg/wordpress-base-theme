@@ -17,7 +17,7 @@
 				'title' => 'Image',
 				'description' => 'This is an image block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'format-image',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

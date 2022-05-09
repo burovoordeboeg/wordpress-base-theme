@@ -17,7 +17,7 @@
 				'title' => 'Buttons',
 				'description' => 'This is an button block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'button',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

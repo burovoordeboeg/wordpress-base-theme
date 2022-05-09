@@ -17,7 +17,7 @@
 				'title' => 'Cover',
 				'description' => 'This is an cover block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'cover-image',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

@@ -17,7 +17,7 @@
 				'title' => 'Image & text',
 				'description' => 'This is an image and text block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'align-pull-right',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

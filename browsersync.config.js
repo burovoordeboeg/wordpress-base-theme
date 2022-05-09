@@ -1,5 +1,5 @@
 module.exports = {
-	proxy: "http://localhost:10008/",
+	proxy: "http://wordpress-base-theme.local",
 	files: [
 		"./**/*.css",
 		"./**/*.js",

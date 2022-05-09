@@ -17,7 +17,7 @@
 				'title' => 'Paragraph',
 				'description' => 'This is an paragraph block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'editor-table',
 				'keywords' => array( 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',

@@ -17,7 +17,7 @@
 				'title' => 'Heading',
 				'description' => 'This is an example block',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'heading',
 				'keywords' => array( 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
