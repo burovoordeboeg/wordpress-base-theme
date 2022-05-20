@@ -15,9 +15,9 @@
         }
     },
     "require": {
-        "burovoordeboeg/utilities": "^0.0.4",
-        "burovoordeboeg/templates": "^0.0.5",
-        "burovoordeboeg/gutenberg-blocks": "^0.0.3"
+        "burovoordeboeg/utilities": "^0.1.0",
+        "burovoordeboeg/templates": "^0.1.0",
+        "burovoordeboeg/gutenberg-blocks": "^0.1.0"
     },
     "autoload": {
         "psr-4": {
