@@ -60,7 +60,6 @@
         'dashicons-format-chat'
     );  
     
-
     /**
      * Autoload all theme files such as scripts/styles and Gutenberg blocks
      * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
@@ -69,6 +68,7 @@
 		$mixPublicPath = get_template_directory() . '/build';
 
         // Setup the scripts to enqueue
+		$utilities->assets->register('script', 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), true);
 		$utilities->assets->register('script', 'scripts', get_template_directory_uri()  . '/build' . mix("scripts/scripts.js", $mixPublicPath), array(), false);
 
 		// Setup styles to enqueue
@@ -81,7 +81,7 @@
         ));
 
 		// Editor styles		
-		add_editor_style(get_template_directory_uri() . '/build/styles/editor-styles.css');
+		add_editor_style('/build/styles/editor-styles.css');
 		
 		// Enqueue gutenberg assets
 		add_action('enqueue_block_editor_assets', 'enqueue_block_editor_assets');
@@ -97,6 +97,18 @@
         
         // Include the blocks
         $blocks_loaded = $gutenberg->blocks->include_blocks();
+
+		add_filter('allowed_block_types_all', function() use ($blocks_loaded) {
+			$allowed_blocks = [
+				'core/columns'
+			];
+	
+			foreach ($blocks_loaded as $name => $path) {
+				$allowed_blocks[] = 'acf/' . $name;
+			}
+	
+			return $allowed_blocks;
+		});
 
     }, 1);
 
@@ -141,3 +153,7 @@
 
         return $manifest[$path];
     }
+
+	// Add allowed blocks to editor
+	
+	

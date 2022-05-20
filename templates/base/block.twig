@@ -1,0 +1,12 @@
+{% set block = {
+	data: {
+		name: blockname,
+	},
+} %}
+
+
+<div class="acf-block acf-block__{{blockname}} {{align}}">
+	{% block block_content %}
+		This is our block placeholder
+	{% endblock %}
+</div>

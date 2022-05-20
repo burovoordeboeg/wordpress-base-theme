@@ -16,12 +16,14 @@
     }
 
 
-/**
- * Enqueue theme block editor scripts.
- */
-// function rich_block_editor_scripts() {
-// 	$jsBlockFilePath = glob( get_template_directory() . '/dist/js/block-styles.*.js' );
-// 	$jsBlockFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsBlockFilePath[0]);
-// 	wp_enqueue_script( 'rich-editor',  $jsBlockFileURI , array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
-// }
-// add_action( 'enqueue_block_editor_assets', 'rich_block_editor_scripts' );
+add_action('admin_enqueue_scripts',function(){
+	wp_enqueue_script( 'jquery-ui-resizable');
+});
+
+add_action('admin_head', function() { ?>
+	<style>
+		.interface-interface-skeleton__sidebar .interface-complementary-area{ width:100%;}
+		.edit-post-layout:not(.is-sidebar-opened) .interface-interface-skeleton__sidebar{ display:none;}
+		.is-sidebar-opened .interface-interface-skeleton__sidebar{ width:25%;}
+	</style>
+<?php });

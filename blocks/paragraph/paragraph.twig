@@ -1,0 +1,38 @@
+{% extends "base/block.twig" %}
+
+{% set context = {
+	data: {
+		placeholder: 'Klik hier om je teksten in te voeren',
+		align: align_text|default('left'),
+		size: fields.size,
+		columns: fields.columns|default(''),
+	},
+	align: {
+		left: 'text-left',
+		center: 'text-center',
+		right: 'text-right',
+	},
+	size: {
+		small: 'prose prose-sm',
+		medium: 'prose',
+		large: 'prose prose-lg',
+		xlarge: 'prose prose-xl'
+	},
+	columns: {
+		1: 'gap-8 columns-1',
+		2: 'gap-8 columns-1 md:columns-2',
+		3: 'gap-8 columns-1 md:columns-2 lg:columns-3',
+		4: 'gap-8 columns-1 md:columns-2 lg:columns-4',
+		5: 'gap-8 columns-1 md:columns-3 lg:columns-5'
+	}
+} %}
+
+{% block block_content %}
+
+	<div class="{{classes}}">
+		<div class="{{context.size[context.data.size]}} text-gray-800 max-w-none {{context.align[context.data.align]}} {{context.columns[context.data.columns]}} ">
+			{{fields.paragraph|default(context.data.placeholder)|raw}}
+		</div>
+	</div>
+
+{% endblock %}

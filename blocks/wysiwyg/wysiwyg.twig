@@ -1,0 +1,32 @@
+{% extends "base/block.twig" %}
+
+{% set context = {
+	data: {
+		placeholder: 'Klik hier om je teksten in te voeren',
+		size: fields.size|default('medium'),
+		columns: fields.columns|default(''),
+	},
+	size: {
+		small: 'prose prose-sm text-inherit',
+		medium: 'prose text-inherit',
+		large: 'prose prose-lg text-inherit',
+		xlarge: 'prose prose-xl text-inherit'
+	},
+	columns: {
+		1: 'gap-8 columns-1',
+		2: 'gap-8 columns-1 md:columns-2',
+		3: 'gap-8 columns-1 md:columns-2 lg:columns-3',
+		4: 'gap-8 columns-1 md:columns-2 lg:columns-4',
+		5: 'gap-8 columns-1 md:columns-3 lg:columns-5'
+	}
+} %}
+
+{% block block_content %}
+
+	<div class="{{classes}}">
+		<div class="{{context.size[context.data.size]}} max-w-none {{context.columns[context.data.columns]}}">
+			{{fields.wysiwyg_content|default(context.data.placeholder)|raw}}
+		</div>
+	</div>
+
+{% endblock %}
