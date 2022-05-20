@@ -66,35 +66,38 @@
      */
     add_action('after_setup_theme', function() use ($utilities, $gutenberg) {
 		
+		// Setup assets loader
+		$assets = $utilities->assets;
+
 		// Set the mix manifest location
-		$utilities->assets->set_manifest_location( '/build/mix-manifest.json' );
+		$assets->set_manifest_location( '/build/mix-manifest.json' );
 
         // Setup the scripts to enqueue
-		$utilities->assets->register('theme', 'script', 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), true);
-		$utilities->assets->register('theme', 'script', 'scripts', $utilities->assets->get_file_from_manifest( 'scripts/scripts.js' ), array(), false);
+		$assets->register('theme', 'script', 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), true);
+		$assets->register('theme', 'script', 'scripts', $assets->get_file_from_manifest( 'scripts/scripts.js' ), array(), false);
 
 		// Setup styles to enqueue
-		$utilities->assets->register('theme', 'style', 'fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), true);
-		$utilities->assets->register('theme', 'style', 'styles', $utilities->assets->get_file_from_manifest( 'styles/styles.css' ), array(), true);
+		$assets->register('theme', 'style', 'fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), true);
+		$assets->register('theme', 'style', 'styles', $assets->get_file_from_manifest( 'styles/styles.css' ), array(), true);
 
         // Add ajaxurl als default param to scripts
-        $utilities->assets->localize('scripts', 'theme', array(
+        $assets->localize('scripts', 'theme', array(
             'ajaxurl' => admin_url('admin-ajax.php')
         ));
 
 		// Editor styles		
-		$utilities->assets->add_editor_style('/build/styles/editor-styles.css');
+		$assets->add_editor_style('/build/styles/editor-styles.css');
 		
         // Enqueue all assets
-        $utilities->assets->load_theme_assets();
+        $assets->load_theme_assets();
 
 		// Setup editor assets to enqueue
-		$utilities->assets->register('editor', 'style', 'open-sans', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap' );
-		$utilities->assets->register('editor', 'script', 'bvdb-scripts', $utilities->assets->get_file_from_manifest( 'scripts/scripts.js' ) );
-		$utilities->assets->register('editor', 'script', 'bvdb-editor-scripts', $utilities->assets->get_file_from_manifest( 'scripts/editor.js' ), array('wp-blocks','wp-dom-ready', 'wp-edit-post') );
+		$assets->register('editor', 'style', 'open-sans', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap' );
+		$assets->register('editor', 'script', 'bvdb-scripts', $assets->get_file_from_manifest( 'scripts/scripts.js' ) );
+		$assets->register('editor', 'script', 'bvdb-editor-scripts', $assets->get_file_from_manifest( 'scripts/editor.js' ), array('wp-blocks','wp-dom-ready', 'wp-edit-post') );
 
 		// Load editor assets
-		$utilities->assets->load_editor_assets();
+		$assets->load_editor_assets();
         
         // Include the blocks
         $blocks_loaded = $gutenberg->blocks->include_blocks();
