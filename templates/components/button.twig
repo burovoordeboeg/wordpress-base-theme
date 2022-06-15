@@ -1,50 +1,40 @@
-{# Comp Defaults #}
-{% set button = {
-  data: {
-    name: 'btn',
-    type: 'outline',
-	color: 'blue',
-    text: null,
-    url: null,
-    target: null,
-  },
-  classes: {
-    root: 'inline-flex p-4 rounded-md',
-    custom: '',
-  },
-  type: {
-	fill: {
-		red: 'bg-red-500',
-		green: 'bg-green-500',
-		blue: 'bg-blue-500'
+{% set defaults = {
+	data: {
+		link: null,
+		text: null,
+		target: null,
+		variant: 'default',
+		color: 'primary',
+		icon_alignment: 'right',
 	},
-	outline: {
-		red: 'border border-red-500',
-		green: 'border border-green-500',
-		blue: 'border border-blue-500',
+	classes: {
+		root: 'btn flex items-center justify-center inline-flex border-2 py-1.5 px-3 focus:outline-none rounded transition-colors duration-500',
+		custom: 'asdasdasdasd',
 	},
-	inline: {
-		red: 'text-red-500',
-		green: 'text-green-500',
-		blue: 'text-blue-500',
-	},
-  },
+
+
+	variants: {
+		default: {
+			primary: 'default primary',
+			secondary: 'default secondary',
+		},
+		outline: {
+			primary: 'outline primary',
+			secondary: 'outline secondary',
+		},
+		link: {
+			primary: 'link primary',
+			secondary: 'link secondary',
+		}
+	}
 } %}
 
-{# Merge data / classes / variants (optional) #}
-{% set context = {
-  data: data is defined and data is iterable ? button.data | merge(data) : button.data,
-  classes: classes is defined and classes is iterable ? button.classes | merge(classes) : button.classes,
-  type: button.type,
+{% set props = {
+	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+	variants: defaults.variants,
 } %}
 
-{% if context.data.text or context.data.icon %}
-	{% set tag = context.data.url ? 'a' : 'button' %}
-	{% set attr = context.data.url ? 'href=' ~ context.data.url : 'type=button' %}
 
-	<{{tag}} {{ attr }} {{ context.data.url and context.data.target ? 'target=' ~ context.data.target : '' }} class="{{ context.data.name }} {{ context.classes.root }} {{context.type[context.data.type][context.data.color]}} {{ context.classes.custom }}">
-
-		{{ context.data.text ?? null }}
-
-	</{{tag}}>
-{% endif %}
+{# Echo classes order #}
+{# {{props.classes.root}} ---- {{props.variants[props.data.variant][props.data.color]}} --- {{props.classes.custom}} #}

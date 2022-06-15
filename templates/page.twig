@@ -4,6 +4,13 @@
 
 {% block content %}
 
+	{{include('components/button.twig')}}
+
+
+	{{include('components/btn.twig', {
+		url: '#'
+	})}}
+
 	<div class="block-wrapper">
 		{% if show_page_title %}
 			<div class="max-w-screen-lg mx-auto my-12">
