@@ -74,7 +74,7 @@
 
         // Setup the scripts to enqueue
 		$assets->register('theme', 'script', 'jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), true);
-		$assets->register('theme', 'script', 'scripts', $assets->get_file_from_manifest( 'scripts/scripts.js' ), array(), false);
+		$assets->register('theme', 'script', 'scripts', $assets->get_file_from_manifest( 'scripts/scripts.js' ), array(), true);
 
 		// Setup styles to enqueue
 		$assets->register('theme', 'style', 'fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), true);
