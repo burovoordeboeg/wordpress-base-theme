@@ -2,6 +2,9 @@
 let mix = require('laravel-mix');
 const fs = require('fs');
 
+// Copy images from assest image folder
+mix.copy('assets/images/', 'build/images');
+
 mix.setPublicPath('build')
 	.js('assets/scripts/scripts.js', 'scripts')
 	.js('assets/scripts/editor.js', 'scripts')

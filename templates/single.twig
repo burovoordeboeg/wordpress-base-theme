@@ -1,1 +1,8 @@
 {% extends "page.twig" %}
+
+{% set da = value %}
+
+	{{include('components/image-text.twig',
+	{
+		data: {}
+	})}}

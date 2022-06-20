@@ -1,40 +1,83 @@
+{# >>>  Defaults #}
 {% set defaults = {
-	data: {
-		link: null,
-		text: null,
-		target: null,
-		variant: 'default',
-		color: 'primary',
-		icon_alignment: 'right',
+  data: {
+    name: 'c-button',
+    variant: 'primary',
+	color:'red',
+    icon: null,
+	iconStyle: 'solid',
+	iconSize: 'sm',
+    text: null,
+    url: null,
+    reverse: false,
+  },
+  classes: {
+    root: 'items-center px-8 py-4 rounded border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    custom: '',
+    display: 'inline-flex gap-2',
+  },
+  variants: {
+    outline: {
+		root:'',
+		color: {
+			red: 'text-red-500 border-red-500',
+			blue: 'text-blue-500 border-blue-500',
+			green: 'text-green-500 border-green-500'
+		}
 	},
-	classes: {
-		root: 'btn flex items-center justify-center inline-flex border-2 py-1.5 px-3 focus:outline-none rounded transition-colors duration-500',
-		custom: 'asdasdasdasd',
+    inline: {
+		root:'px-0 py-0',
+		color: {
+			red: 'text-red-500',
+			blue: 'text-blue-500',
+			green: 'text-green-500'
+		}
 	},
-
-
-	variants: {
-		default: {
-			primary: 'default primary',
-			secondary: 'default secondary',
-		},
-		outline: {
-			primary: 'outline primary',
-			secondary: 'outline secondary',
-		},
-		link: {
-			primary: 'link primary',
-			secondary: 'link secondary',
+    fill: {
+		root:'',
+		color: {
+			red: 'text-white bg-red-500',
+			blue: 'text-white bg-blue-500',
+			green: 'text-white bg-green-500'
 		}
 	}
+  }
 } %}
 
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
-	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
-	variants: defaults.variants,
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  variants: defaults.variants,
 } %}
 
+{% set tag = props.data.url ? 'a' : 'button' %}
+{% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
-{# Echo classes order #}
-{# {{props.classes.root}} ---- {{props.variants[props.data.variant][props.data.color]}} --- {{props.classes.custom}} #}
+{# Combine classes #}
+{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.classes.display  ~ ' ' ~ props.variants[props.data.variant].root  ~ ' ' ~ props.variants[props.data.variant].color[props.data.color] ~ ' ' ~ props.classes.custom  %}
+
+{# Template #}
+{% if props.data.text or props.data.icon %}
+  
+	<{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }} class="{{ class | spaceless }}">
+
+	{# >>> If icon exists #}
+	{% if props.data.icon %}
+		{# >>> Render icon  #}
+		{{ include('components/icon.twig', {
+		data: {
+			icon: props.data.icon,
+			style: props.data.iconStyle,
+			variant: props.data.iconSize
+		},
+		classes: {
+			custom: (props.data.reverse ? 'order-2')
+		}
+		}, withContext = false) }}
+	{% endif %}
+
+		{{ props.data.text }}
+		
+	</{{ tag }}>
+{% endif %}
