@@ -2,12 +2,20 @@
 
 {% block block_content %}
 
-	{{include('components/text/text.twig', {
-		data: {
-			text: fields.wysiwyg_content,
-			columns: fields.columns,
-			size: fields.size
-		}
-	})}}
+	{% if not fields.wysiwyg_content %}
+		{% if is_preview %}
+			<div class="p-4 bg-gray-100 w-full">
+				<p>Nog geen tekst aangemaakt</p>
+			</div>
+		{% endif %}
+		{% else %}
+			{{include('components/text/text.twig', {
+				data: {
+					text: fields.wysiwyg_content,
+					columns: fields.columns,
+					size: fields.size
+				}
+			})}}
+	{% endif %}
 
 {% endblock %}

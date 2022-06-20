@@ -27,10 +27,12 @@
 
 {% block block_content %}
 
-	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6">
-		{% if fields.button  %}
+	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6 ">
+		{% if fields.button|length > 0  %}
+			<pre>
+				{{ dump() }}
+			</pre>
 			{% for item in fields.button %}
-				
 				{{include('components/button.twig', {
 					data: {
 						text: item.button.link.title,
@@ -40,11 +42,13 @@
 						color:item.button.color,
 					}
 				})}}
-
-
 			{% endfor %}
 		{% else %}
-			<p>Klik hier om een button in te voeren</p>
+			{% if is_preview %}
+				<div class="p-4 bg-gray-100 w-full">
+					<p>Nog geen button(s) aangemaakt</p>
+				</div>
+			{% endif %}
 		{% endif %}
 	</div>
 {% endblock %}
