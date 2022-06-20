@@ -74,7 +74,12 @@ references:
   webpack_build_assets: &webpack_build_assets
     run:
       name: Build assets
-      command: npm run build
+      command: npm run development
+
+  webpack_build_production_assets: &webpack_build_production_assets
+    run:
+      name: Build assets for production
+      command: npm run production
 
 # Setup commands
 commands:
@@ -148,7 +153,7 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *webpack_build_assets
+      - <<: *webpack_build_production_assets
       - <<: *composer_restore_cache
       - <<: *composer_packagist
       - <<: *composer_install
@@ -169,7 +174,7 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *webpack_build_assets
+      - <<: *webpack_build_production_assets
       - <<: *composer_restore_cache
       - <<: *composer_packagist
       - <<: *composer_install
