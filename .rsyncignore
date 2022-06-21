@@ -1,9 +1,14 @@
 .*/
 .*
-dev
+assets
+browsersync.config.js
+postcss.config.js
 node_modules
 composer.json
 composer.lock
 gulpfile.js
 package-lock.json
 package.json
+tailwind.config.js
+theme.json
+webpack.mix.js
