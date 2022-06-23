@@ -1,35 +1,45 @@
-{# >>> Comp Defaults #}
-{% set compDefaults = {
-  data: {
-    name: 'c-headline',
-    text: null,
-    variant: 'h2',
-    tag: 'h2',
-  },
-  classes: {
-    root: 'font-bold',
-    custom: '',
-  },
-  variants: {
-    mega: 'text-9xl',
-    h1: 'text-4xl',
-    h2: 'text-3xl',
-    h3: 'text-2xl',
-    h4: 'text-xl',
-    h5: 'text-lg',
-    h6: 'text-base',
-  }
+{# >>>  Defaults #}
+{% set defaults = {
+	data: {
+		name: 'c-heading',
+		text: text|default('Klik hier voor een titel'),
+		type: type|default('h2'),
+		size: size|default('medium'),
+		align_text: align_text|default('left'),
+		color: color|default('#000000')
+	},
+	classes: {
+		root: '',
+		custom:''
+	},
+	size: {
+		xsmall: 'text-lg mb-2',
+		small: 'text-xl mb-4',
+		medium: 'text-3xl mb-6',
+		large: 'text-5xl mb-6',
+		xlarge: 'text-7xl mb-6'
+	},
+	align_text: {
+		left: 'text-left',
+		center: 'text-center',
+		right: 'text-right'
+	},
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants,
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  size: size is defined and size is iterable ? defaults.size | merge(size) : defaults.size,
+  align: defaults.align_text,
 } %}
 
+{# Combine classes #}
+{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.size[props.data.size] ~ ' ' ~ props.align[props.data.align_text] ~ ' ' ~ props.classes.custom %}
+
 {% if props.data.text %}
-	<{{props.data.tag}} class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
-		{{ props.data.text | nl2br | raw }}
-	</{{props.data.tag}}>
+	<{{props.data.type}} class="{{ class | spaceless }}" style="color: {{props.data.color}} ">
+		{{ props.data.text | raw }}
+	</{{props.data.type}}>
 {% endif %}
+

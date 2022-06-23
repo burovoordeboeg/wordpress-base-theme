@@ -1,11 +1,21 @@
-{% set block = {
+{% set defaults = {
 	data: {
 		name: blockname,
 	},
+	classes: {
+		root:'acf-block acf-block__'~blockname~ ' ' ~ align,
+		custom: ''
+	}
+} %}
+
+{% set props = {
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  variants: defaults.variants,
 } %}
 
 
-<div class="acf-block acf-block__{{blockname}} {{align}}">
+<div class="{{props.classes.root}} {{props.classes.custom}} "> 
 	{% block block_content %}
 		This is our block placeholder
 	{% endblock %}

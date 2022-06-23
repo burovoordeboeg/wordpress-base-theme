@@ -121,16 +121,16 @@
         },
         {
             "name": "burovoordeboeg/utilities",
-            "version": "0.1.3",
+            "version": "0.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-theme-utilities.git",
-                "reference": "89f02314895d43a99f4354c4c125fd2588f976cc"
+                "reference": "94b6731b99f10ec8e52340283de0b3de67694adc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-utilities/zipball/89f02314895d43a99f4354c4c125fd2588f976cc",
-                "reference": "89f02314895d43a99f4354c4c125fd2588f976cc",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-utilities/zipball/94b6731b99f10ec8e52340283de0b3de67694adc",
+                "reference": "94b6731b99f10ec8e52340283de0b3de67694adc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -167,10 +167,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-theme-utilities/tree/0.1.3",
+                "source": "https://github.com/burovoordeboeg/class-theme-utilities/tree/0.1.4",
                 "issues": "https://github.com/burovoordeboeg/class-theme-utilities/issues"
             },
-            "time": "2022-05-30T10:10:48+00:00"
+            "time": "2022-06-17T12:50:37+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

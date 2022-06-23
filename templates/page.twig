@@ -4,6 +4,17 @@
 
 {% block content %}
 
+	{{include('components/button.twig', {
+		data: {
+			url: '#',
+			text: 'hallo',
+			icon: 'chevron-down',
+			icon_style: 'outline',
+			reverse: true,
+			iconSize: 'sm'
+		}
+	})}}
+
 	<div class="block-wrapper">
 		{% if show_page_title %}
 			<div class="max-w-screen-lg mx-auto my-12">

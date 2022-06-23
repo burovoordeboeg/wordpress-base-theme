@@ -1,50 +1,83 @@
-{# Comp Defaults #}
-{% set button = {
+{# >>>  Defaults #}
+{% set defaults = {
   data: {
-    name: 'btn',
-    type: 'outline',
-	color: 'blue',
+    name: 'c-button',
+    variant: 'primary',
+	color:'red',
+    icon: null,
+	iconStyle: 'solid',
+	iconSize: 'sm',
     text: null,
     url: null,
-    target: null,
+    reverse: false,
   },
   classes: {
-    root: 'inline-flex p-4 rounded-md',
+    root: 'items-center px-8 py-4 rounded border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
     custom: '',
+    display: 'inline-flex gap-2',
   },
-  type: {
-	fill: {
-		red: 'bg-red-500',
-		green: 'bg-green-500',
-		blue: 'bg-blue-500'
+  variants: {
+    outline: {
+		root:'',
+		color: {
+			red: 'text-red-500 border-red-500',
+			blue: 'text-blue-500 border-blue-500',
+			green: 'text-green-500 border-green-500'
+		}
 	},
-	outline: {
-		red: 'border border-red-500',
-		green: 'border border-green-500',
-		blue: 'border border-blue-500',
+    inline: {
+		root:'px-0 py-0',
+		color: {
+			red: 'text-red-500',
+			blue: 'text-blue-500',
+			green: 'text-green-500'
+		}
 	},
-	inline: {
-		red: 'text-red-500',
-		green: 'text-green-500',
-		blue: 'text-blue-500',
-	},
-  },
+    fill: {
+		root:'',
+		color: {
+			red: 'text-white bg-red-500',
+			blue: 'text-white bg-blue-500',
+			green: 'text-white bg-green-500'
+		}
+	}
+  }
 } %}
 
-{# Merge data / classes / variants (optional) #}
-{% set context = {
-  data: data is defined and data is iterable ? button.data | merge(data) : button.data,
-  classes: classes is defined and classes is iterable ? button.classes | merge(classes) : button.classes,
-  type: button.type,
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  variants: defaults.variants,
 } %}
 
-{% if context.data.text or context.data.icon %}
-	{% set tag = context.data.url ? 'a' : 'button' %}
-	{% set attr = context.data.url ? 'href=' ~ context.data.url : 'type=button' %}
+{% set tag = props.data.url ? 'a' : 'button' %}
+{% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
-	<{{tag}} {{ attr }} {{ context.data.url and context.data.target ? 'target=' ~ context.data.target : '' }} class="{{ context.data.name }} {{ context.classes.root }} {{context.type[context.data.type][context.data.color]}} {{ context.classes.custom }}">
+{# Combine classes #}
+{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.classes.display  ~ ' ' ~ props.variants[props.data.variant].root  ~ ' ' ~ props.variants[props.data.variant].color[props.data.color] ~ ' ' ~ props.classes.custom  %}
 
-		{{ context.data.text ?? null }}
+{# Template #}
+{% if props.data.text or props.data.icon %}
+  
+	<{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }} class="{{ class | spaceless }}">
 
-	</{{tag}}>
+	{# >>> If icon exists #}
+	{% if props.data.icon %}
+		{# >>> Render icon  #}
+		{{ include('components/icon.twig', {
+		data: {
+			icon: props.data.icon,
+			style: props.data.iconStyle,
+			variant: props.data.iconSize
+		},
+		classes: {
+			custom: (props.data.reverse ? 'order-2')
+		}
+		}, withContext = false) }}
+	{% endif %}
+
+		{{ props.data.text }}
+		
+	</{{ tag }}>
 {% endif %}

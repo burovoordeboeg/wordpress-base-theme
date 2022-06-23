@@ -1,19 +1,14 @@
 {% extends "base/block.twig"%}
 
-{% set context = {
+{% set block = {
 	data: {
 		image: fields.image,
-		crop: fields.crop,
-		align_text: align_text|default('left'),
-		align_content: align_content|default('top'),
-		reverse: fields.reverse|default(false),
+		video: fields.video,
+		valign: 'top',
+		reverse: fields.reverse,
+		crop: fields.crop
 	},
-	align_text: {
-		left: 'text-left',
-		center: 'text-center',
-		right: 'text-right'
-	},
-	align_content: {
+	variants : {
 		top: 'items-start',
 		center: 'items-center',
 		bottom: 'items-end'
@@ -29,16 +24,37 @@
 
 {% block block_content %}
 
-	<div class="grid grid-cols-1 md:grid-cols-2  {{context.align_content[context.data.align_content]}} gap-4 md:gap-8">
-		<div class="{{ context.data.reverse ?: 'order-last' }} {{context.data.crop ? 'self-stretch'}}">
-			{% if context.data.image %}
-				<img class="object-cover w-full h-full left-4" style="object-position: {{fields.image.left}}% {{fields.image.top}}%" src="{{wp_get_attachment_image_url(context.data.image.id, context.data.size)|raw}}" alt="">
-			{% endif %}
-		</div>
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 {{block.variants[block.data.valign]}}">
 
-		<div class="{{context.align_text[context.data.align_text]}} ">
-			<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
-		</div>
+	<div class="{{block.data.reverse ? 'order-last'}} {{block.data.crop ? 'self-stretch'}}" >
+
+		{% if block.data.video %}
+			{{include('components/video/video.twig', {
+				data: {
+					url: fields.video.url,
+					poster: wp_get_attachment_image_url(block.data.image.id),
+					autoplay: fields.autoplay_video
+				}
+			})}}
+		{% else %}
+			{{include('components/image/image.twig', {
+				data: {
+					id: block.data.image.id,
+					top:block.data.image.top,
+					left:block.data.image.left
+				},
+			})}}	
+		{% endif %}
 	</div>
 
+	<div>
+		<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
+	</div>
+
+</div>
+
+<iframe src="https://www.youtube.com/watch?v=uY-2uF5w0mg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe src="https://player.vimeo.com/video/666777222?h=cd8623a210" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 {% endblock %}
+

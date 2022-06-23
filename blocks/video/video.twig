@@ -1,0 +1,12 @@
+{% extends "base/block.twig" %}
+
+{% block block_content %}
+
+	{{include('components/video/video.twig', {
+		data: {
+			url: fields.video.video_file.url,
+			poster: fields.video.video_poster.url,
+			autoplay: fields.autoplay_video
+		}
+	})}}
+{% endblock %}
