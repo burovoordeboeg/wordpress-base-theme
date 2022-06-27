@@ -25,16 +25,21 @@
 
 {% block block_content %}
 
+<pre>
+	{{ dump(block.data.video) }}
+</pre>
+
 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 {{block.variants[block.data.valign]}}">
 
 	<div class="{{block.data.reverse ? 'order-last'}} {{block.data.crop ? 'self-stretch'}}" >
 
-		{% if block.data.video %}
+		{% if block.data.video.video_file or block.data.video.video_embed%}
 			{{include('components/video/video.twig', {
 				data: {
-					url: fields.video.url,
+					url: fields.video.video_file,
+					embed:  fields.video.video_embed,
 					poster: wp_get_attachment_image_url(block.data.image.id),
-					autoplay: fields.autoplay_video
+					autoplay:fields.video.autoplay_video
 				}
 			})}}
 		{% else %}

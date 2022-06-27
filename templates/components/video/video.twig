@@ -28,6 +28,16 @@
 
 {% set attr = props.data.autoplay ? 'autoplay muted loop' %}
 
-<video class="{{props.classes.root}}" {{attr}} poster="{{props.data.poster}}">>
-  <source src="{{props.data.url}}" type="video/mp4">
-</video>
+{% if props.data.url %}
+
+	<video class="{{props.classes.root}}" {{attr}} poster="{{props.data.poster}}">>
+		<source src="{{props.data.url}}" type="video/mp4">
+	</video>
+
+	{% else %}
+		
+		{{props.data.embed|raw}}
+
+{% endif %}
+
+
