@@ -1,0 +1,7 @@
+.edit-post-visual-editor__post-title-wrapper {
+  @apply bg-gray-50 mt-0 py-16 mb-8 border-b border-dashed;
+}
+
+.wp-block-post-title {
+  @apply text-4xl font-bold mb-0 text-gray-600;
+}

@@ -1,23 +1,27 @@
 {% extends "base/block.twig"%}
 
-{% set context = {
-  data: {
-	image: fields.image.image,
-	alt: image.alt,
-	size: fields.image.size,
-	variant: fields.image.aspect_ratio,
-	align: align_text,
-  },
-  align: {
-	  left:'mr-auto',
-	  right:'ml-auto',
-	  center:'mx-auto',
-  }
-} %}
+{# TODO Remove/change custom class based on project #}
 
+{% set image = fields.image.image %}
+{% set ratio = fields.image.ratio %}
+{% set caption = wp_get_attachment_caption(image.id) %}
 
 {% block block_content %}
 
-	{{wp_get_attachment_image(context.data.image.id, context.data.size, '', {'class' : context.variants[context.data.variant] ~ context.align[context.data.align]})|raw}}
+	{{include('components/media/image.twig', {
+		data: {
+			id: image.id,
+			size: 'large',
+			ratio: ratio,
+			caption: caption,
+			position: {
+				top: image.top,
+				left: image.left
+			}
+		},
+		classes: {
+			custom: 'my-8'
+		}
+	}, with_context = false)}}
 
 {% endblock %}
