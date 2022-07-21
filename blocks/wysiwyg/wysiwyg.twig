@@ -1,21 +1,25 @@
 {% extends "base/block.twig" %}
 
-{% block block_content %}
+{# TODO Remove/change custom class based on project #}
 
-	{% if not fields.wysiwyg_content %}
+{% block block_content %}
+	{% if fields.wysiwyg_content %}
+		{{include('components/text/text.twig', {
+			data: {
+				text: fields.wysiwyg_content,
+				columns: fields.columns,
+				size: fields.size,
+			},
+			classes: {
+				custom: 'my-8'
+			}
+		})}}
+	{% else %}
 		{% if is_preview %}
-			<div class="p-4 bg-gray-100 w-full">
-				<p>Nog geen tekst aangemaakt</p>
+			<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+				<p>Voer een tekst in</p>
 			</div>
 		{% endif %}
-		{% else %}
-			{{include('components/text/text.twig', {
-				data: {
-					text: fields.wysiwyg_content,
-					columns: fields.columns,
-					size: fields.size
-				}
-			})}}
 	{% endif %}
-
+	
 {% endblock %}
