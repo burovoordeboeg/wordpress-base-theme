@@ -43,7 +43,7 @@ module.exports = {
 			screens: {
 				'wp-none': '768px',
 				'wp-wide': '1200px',
-				'wp-full': '100%',
+				'wp-full': '1660px',
 			},
 		},
 	},
