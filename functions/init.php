@@ -118,7 +118,7 @@
 			}
 
 			// Remove Example block
-			unset($allowed_blocks['acf/example']);
+			// unset($allowed_blocks['acf/example']);
 	
 			// Return allowed blocks
 			return $allowed_blocks;
