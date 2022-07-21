@@ -118,12 +118,10 @@
 			}
 
 			// Remove Example block
-			// unset($allowed_blocks['acf/example']);
+			unset($allowed_blocks[array_search('acf/example', $allowed_blocks)]);
 	
 			// Return allowed blocks
 			return $allowed_blocks;
 		});
 
     }, 1);
-
-
