@@ -2,40 +2,43 @@
 {% set defaults = {
   data: {
     name: 'c-button',
+    text: null,
+    url: null,
     variant: 'primary',
 	color:'red',
     icon: null,
 	iconStyle: 'solid',
 	iconSize: 'sm',
-    text: null,
-    url: null,
     reverse: false,
   },
   classes: {
-    root: 'items-center px-8 py-4 rounded border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    root: 'items-center justify-center rounded  border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
     custom: '',
     display: 'inline-flex gap-2',
   },
   variants: {
-    outline: {
-		root:'',
+	outline: {
+		root:'px-6 py-3',
 		color: {
+			base: 'text-slate-800 border-slate-800',
 			red: 'text-red-500 border-red-500',
 			blue: 'text-blue-500 border-blue-500',
 			green: 'text-green-500 border-green-500'
 		}
 	},
     inline: {
-		root:'px-0 py-0',
+		root:'px-0 py-4',
 		color: {
+			base: 'text-slate-800',
 			red: 'text-red-500',
 			blue: 'text-blue-500',
 			green: 'text-green-500'
 		}
 	},
     fill: {
-		root:'',
+		root:'px-6 py-3',
 		color: {
+			base: 'text-white bg-slate-800',
 			red: 'text-white bg-red-500',
 			blue: 'text-white bg-blue-500',
 			green: 'text-white bg-green-500'
@@ -49,13 +52,14 @@
   data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
   classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
   variants: defaults.variants,
+  size: defaults.sizes
 } %}
 
 {% set tag = props.data.url ? 'a' : 'button' %}
 {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
 {# Combine classes #}
-{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.classes.display  ~ ' ' ~ props.variants[props.data.variant].root  ~ ' ' ~ props.variants[props.data.variant].color[props.data.color] ~ ' ' ~ props.classes.custom  %}
+{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.classes.display  ~ ' ' ~ props.variants[props.data.variant].root ~ ' ' ~ props.variants[props.data.variant].color[props.data.color] ~  ' ' ~ props.classes.custom  %}
 
 {# Template #}
 {% if props.data.text or props.data.icon %}

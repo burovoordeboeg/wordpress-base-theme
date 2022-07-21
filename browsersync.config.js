@@ -1,5 +1,5 @@
 module.exports = {
-	proxy: "http://wordpress-base-theme.local",
+	proxy: "http://bvdb-base-theme.local/",
 	files: [
 		"./**/*.css",
 		"./**/*.js",

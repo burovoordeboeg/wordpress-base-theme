@@ -72,12 +72,13 @@
                         "id": ""
                     },
                     "choices": {
+                        "base": "Default",
                         "red": "Red",
                         "blue": "Blue",
                         "green": "Green"
                     },
-                    "default_value": false,
-                    "allow_null": 1,
+                    "default_value": "base",
+                    "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
                     "return_format": "value",
@@ -105,5 +106,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649772368
+    "modified": 1658382676
 }
