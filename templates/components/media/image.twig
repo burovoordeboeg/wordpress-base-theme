@@ -3,8 +3,7 @@
   data: {
     name: 'c-image',
 	id: '24',
-	size: 'medium_large',
-	alttext: '',
+	size: 'medium',
 	top:'50',
 	left:'50'
   },
@@ -12,6 +11,11 @@
     root: 'object-cover w-full h-full',
     custom: '',
   },
+  variants: {
+	none: '',
+	square: '',
+	video: ''
+  }
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
@@ -23,4 +27,3 @@
 {% set styleAttr = 'object-position:'~ props.data.left ~'%' ~ ' ' ~ props.data.top~'%' %}
 
 {{wp_get_attachment_image(props.data.id, props.data.size, '', { 'class' : props.classes.root, 'style': styleAttr, 'alt' : props.data.alttext })|raw}}
-

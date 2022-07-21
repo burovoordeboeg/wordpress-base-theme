@@ -21,7 +21,7 @@
                     "key": "field_62541b14b642d",
                     "label": "Image",
                     "name": "image",
-                    "type": "image",
+                    "type": "focuspoint",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -30,8 +30,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "preview_size": "medium",
+                    "preview_size": "large",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -42,11 +41,11 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_62541f13ac133",
-                    "label": "Size",
-                    "name": "size",
-                    "type": "select",
-                    "instructions": "Thumbnail: <small>300px - 300px<\/small> <br>\r\nMedium: <small>300px - auto<\/small><br>\r\nLarge: <small>768px - auto<\/small><br>\r\nXlarge: <small>1024px - auto<\/small>",
+                    "key": "field_62d90f1add24f",
+                    "label": "Ratio",
+                    "name": "ratio",
+                    "type": "button_group",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -55,19 +54,14 @@
                         "id": ""
                     },
                     "choices": {
-                        "thumbnail": "Thumbnail",
-                        "medium": "Medium",
-                        "medium_large": "Large",
-                        "large": "Xlarge",
-                        "full": "Full"
+                        "none": "None",
+                        "square": "Square",
+                        "video": "Video"
                     },
-                    "default_value": false,
                     "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
+                    "default_value": "none: None",
+                    "layout": "horizontal",
+                    "return_format": "value"
                 }
             ]
         }
@@ -90,5 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649681516
+    "modified": 1658392513
 }
