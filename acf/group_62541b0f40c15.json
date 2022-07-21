@@ -55,8 +55,8 @@
                     },
                     "choices": {
                         "none": "None",
-                        "square": "Square",
-                        "video": "Video"
+                        "1:1": "1:1",
+                        "16:9": "16:9"
                     },
                     "allow_null": 0,
                     "default_value": "none: None",
@@ -84,5 +84,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1658392513
+    "modified": 1658395065
 }

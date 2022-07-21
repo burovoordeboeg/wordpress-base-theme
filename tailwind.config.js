@@ -39,9 +39,19 @@ module.exports = {
 					900: "#2f2f33"
 				},
 			},
+			// Here you can set widths you use in wp blocks
+			screens: {
+				'wp-none': '768px',
+				'wp-wide': '1200px',
+				'wp-full': '100%',
+			},
 		},
+	},
+	corePlugins: {
+		aspectRatio: false,
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
+		require('@tailwindcss/aspect-ratio'),
 	],
 }
