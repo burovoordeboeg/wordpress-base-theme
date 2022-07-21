@@ -6,7 +6,7 @@
 	size: 'medium',
   },
   classes: {
-    root: 'h-full',
+    root: 'h-full relative',
 	image: 'w-full h-full object-center object-cover',
     custom: '',
   },
@@ -42,7 +42,6 @@
 		})|raw}}
 		</div>
 		{% if props.data.caption %}
-			
 			<figcaption class="text-sm py-2 {{props.data.ratio == 'gallery' ? 'absolute bottom-0 p-2 bg-gray-800 bg-opacity-50 text-white w-full' : 'dag'}}" >{{props.data.caption}}</figcaption>
 		{% endif %}
 	</figure>
