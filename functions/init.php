@@ -102,18 +102,26 @@
         // Include the blocks
         $blocks_loaded = $gutenberg->blocks->include_blocks();
 
+		/**
+		 * Set the allowed blocks for use in editor
+		 */
 		add_filter('allowed_block_types_all', function() use ($blocks_loaded) {
-			$allowed_blocks = [
+
+			// Set default allowed blocks
+			$allowed_blocks = array(
 				'core/columns'
-			];
+			);
 	
+			// Load all ACF blocks
 			foreach ($blocks_loaded as $name => $path) {
 				$allowed_blocks[] = 'acf/' . $name;
 			}
+
+			// Remove Example block
+			unset($allowed_blocks[array_search('acf/example', $allowed_blocks)]);
 	
+			// Return allowed blocks
 			return $allowed_blocks;
 		});
 
     }, 1);
-
-
