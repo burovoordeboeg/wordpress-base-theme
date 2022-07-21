@@ -2,22 +2,22 @@
 {% set defaults = {
 	data: {
 		name: 'c-heading',
-		text: text|default('Klik hier voor een titel'),
-		type: type|default('h2'),
-		size: size|default('medium'),
-		align_text: align_text|default('left'),
-		color: color|default('#000000')
+		text: null,
+		type: 'h2',
+		size: 'medium',
+		align_text: 'left',
+		color:'#000000'
 	},
 	classes: {
 		root: '',
 		custom:''
 	},
 	size: {
-		xsmall: 'text-lg mb-2',
-		small: 'text-xl mb-4',
-		medium: 'text-3xl mb-6',
-		large: 'text-5xl mb-6',
-		xlarge: 'text-7xl mb-6'
+		xsmall: 'text-base',
+		small: 'text-xl',
+		medium: 'text-3xl',
+		large: 'text-5xl',
+		xlarge: 'text-7xl'
 	},
 	align_text: {
 		left: 'text-left',

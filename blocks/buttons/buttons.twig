@@ -28,8 +28,8 @@
 {% block block_content %}
 
 	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6 ">
-		{% if fields.button|length > 0  %}
 
+		{% if fields.button.link  %}
 			{% for item in fields.button %}
 				{{include('components/button.twig', {
 					data: {
@@ -42,13 +42,10 @@
 					}
 				})}}
 			{% endfor %}
-
-
-
 		{% else %}
 			{% if is_preview %}
-				<div class="p-4 bg-gray-100 w-full">
-					<p>Nog geen button(s) aangemaakt</p>
+				<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+				<p>Voer een button in</p>
 				</div>
 			{% endif %}
 		{% endif %}

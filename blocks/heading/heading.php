@@ -22,6 +22,7 @@
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
 				'align' => array( 'wide', 'full',),
+				'default-align' => 'full',
 				'multiple' => true,
 				'align_content' => false
 			));
@@ -30,4 +31,3 @@
 
 	// Call block-class
 	new Heading();
-?>

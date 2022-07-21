@@ -1,14 +1,21 @@
 {% extends "base/block.twig" %}
-
+{% set heading = fields.heading.heading %}
 {% set data = {
-	text: fields.heading.text,
-	type: fields.heading.type,
-	size: fields.heading.size,
+	text: heading.text,
+	type: heading.type,
+	size: heading.size,
 	align_text: align_text,
-	color: fields.heading.color
+	color: heading.color
 } %}
 
-
 {% block block_content %}
+	{% if data.text  %}
 	{{include('components/text/headline.twig', { data: data })}}
+	{% else %}
+		{% if is_preview %}
+			<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+				<p>Voer een heading in</p>
+			</div>
+		{% endif %}
+	{% endif %}
 {% endblock %}
