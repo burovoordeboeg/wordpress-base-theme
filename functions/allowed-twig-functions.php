@@ -14,7 +14,8 @@ add_filter('bvdb_allowed_twig_functions', function ($functions) {
 		'wp_get_attachment_metadata',
 		'wp_get_attachment_caption',
 		'get_the_title',
-		'get_post_meta'
+		'get_post_meta',
+		'get_object_by_post_id'
 	);
 
 	// Return the array of current functions and add extra allowed functions
