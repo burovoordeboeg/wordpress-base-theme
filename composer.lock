@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "add36f48e7139cfbed9530162737ec35",
+    "content-hash": "bfc26f7cb03fef9cc7fddc8627231fc9",
     "packages": [
         {
             "name": "burovoordeboeg/gutenberg-blocks",
@@ -1623,5 +1623,5 @@
     "platform-overrides": {
         "php": "7.3"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

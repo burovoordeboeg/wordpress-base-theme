@@ -1,3 +1,35 @@
+
+const fs = require('fs')
+
+const themeJson = fs.readFileSync('./theme.json')
+const theme = JSON.parse(themeJson)
+
+
+const colors = theme.settings.color.palette.reduce((acc, item) => {
+	const [color, number] = item.slug.split('-')
+
+	// If there is a number identifier, make this an object
+	if (undefined !== number) {
+		if (!acc[color]) {
+			acc[color] = {}
+		}
+		acc[color][number] = item.color
+	} else {
+		acc[color] = item.color
+	}
+
+	return acc
+
+}, {});
+
+// TODO make single line function with reduce
+let colorList = [];
+for (color in colors) {
+	colorList.push(color);
+}
+
+
+
 module.exports = {
 	content: [
 		'./templates/**/*.twig',
@@ -9,6 +41,14 @@ module.exports = {
 		{
 			pattern: /^object-/,
 			variants: ['lg', 'hover', 'focus', 'lg:hover'],
+		},
+		{
+			pattern: /^bg-/,
+			variants: colorList,
+		},
+		{
+			pattern: /^text-/,
+			variants: colorList,
 		},
 	],
 	theme: {
@@ -26,25 +66,13 @@ module.exports = {
 			fontFamily: {
 				'sans': ['Open Sans'],
 			},
-			colors: {
-				primary: {
-					100: "#fbfbff",
-					200: "#f8f6ff",
-					300: "#f4f2fe",
-					400: "#f1edfe",
-					500: "#ede9fe",
-					600: "#bebacb",
-					700: "#8e8c98",
-					800: "#5f5d66",
-					900: "#2f2f33"
-				},
-			},
 			// Here you can set widths you use in wp blocks
 			screens: {
 				'wp-none': '768px',
 				'wp-wide': '1200px',
 				'wp-full': '1660px',
 			},
+			colors
 		},
 	},
 	corePlugins: {

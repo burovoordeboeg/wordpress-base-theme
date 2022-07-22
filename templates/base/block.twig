@@ -1,10 +1,9 @@
-
 {% set defaults = {
   data: {
 	align: align|default('none'),
   },
   classes: {
-    root: 'acf-block acf-block--' ~ blockname ~ ' acf-block--' ~ align|default('none') ~ ' mx-auto',
+    root: 'acf-block acf-block--' ~ blockname ~ ' acf-block--' ~ align|default('none') ~ ' mx-auto bg-' ~ colors.background,
   },
   variants: {
 	none: 'max-w-screen-wp-none',
@@ -20,7 +19,7 @@
 } %}
 
 
-<div class="{{props.classes.root}} {{props.variants[props.data.align]}}">
+<div class="{{props.classes.root}} {{props.variants[props.data.align]}} {{ classes }}">
 	{% block block_content %}
 		This is our block placeholder
 	{% endblock %}

@@ -38,8 +38,7 @@
 {% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.size[props.data.size] ~ ' ' ~ props.align[props.data.align_text] ~ ' ' ~ props.classes.custom %}
 
 {% if props.data.text %}
-	<{{props.data.type}} class="{{ class | spaceless }}" style="color: {{props.data.color}} ">
+	<{{props.data.type}} class="{{ class | spaceless }} text-{{ props.data.color }}">
 		{{ props.data.text | raw }}
 	</{{props.data.type}}>
 {% endif %}
-

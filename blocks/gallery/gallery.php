@@ -25,6 +25,10 @@
 				'align_content' => false,
 				'align_text' => false,
 				'multiple' => true,
+				'color' => array(
+					'text' => false,
+					'background' => true,
+				),
 			));
 		}
 	}

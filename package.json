@@ -6,6 +6,7 @@
   "dependencies": {
     "alpinejs": "^3.8.0",
     "autoprefixer": "^10.4.2",
+    "fs": "^0.0.1-security",
     "jquery": "^3.6.0",
     "magnific-popup": "^1.1.0",
     "postcss": "^8.4.5",

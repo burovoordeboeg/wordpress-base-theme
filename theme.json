@@ -5,6 +5,36 @@
 		"layout": {
 			"contentSize": "1024px",
 			"wideSize": "1280px"
+		},
+		"color": {
+			"defaultPalette": false,
+			"palette": [
+				{
+					"slug": "white",
+					"color": "#FFFFFF",
+					"name": "Wit"
+				},
+				{
+					"slug": "yellow",
+					"color": "#D3A403",
+					"name": "Geel"
+				},
+				{
+					"slug": "brightblue",
+					"color": "#009FE3",
+					"name": "Licht Blauw"
+				},
+				{
+					"slug": "mediumblue",
+					"color": "#004B8C",
+					"name": "Medium Blauw"
+				},
+				{
+					"slug": "black",
+					"color": "#000000",
+					"name": "Zwart"
+				}
+			]
 		}
 	}
 }
