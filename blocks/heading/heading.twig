@@ -10,12 +10,21 @@
 
 {% block block_content %}
 	{% if data.text  %}
-	{{include('components/text/headline.twig', { data: data })}}
+		{{include('components/text/headline.twig', { data: data })}}
 	{% else %}
 		{% if is_preview %}
-			<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
-				<p>Voer een heading in</p>
-			</div>
+			{% if example.heading.text %}
+				{# @todo: use correct examples #}
+				{{include('components/text/headline.twig', { data: {
+					text: example.heading.text,
+					type: example.heading.type,
+					size: example.heading.size
+				 }})}}
+			{% else %}
+				<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+					<p>Voer een heading in</p>
+				</div>
+			{% endif %}
 		{% endif %}
 	{% endif %}
 {% endblock %}

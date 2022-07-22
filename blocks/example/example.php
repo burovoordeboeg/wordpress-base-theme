@@ -21,7 +21,14 @@
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
-				'align' => array( 'wide', 'full',),
+				'align' => array('wide', 'full',),
+				'align_text' => false,
+				'align_content'=> 'matrix',
+				'full_height' => true,
+				'color' => array(
+					'text' => true,
+					'background' => false,
+				),
 				'multiple' => true,
 			));
 		}
