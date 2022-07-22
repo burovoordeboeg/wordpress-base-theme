@@ -24,6 +24,7 @@
 				'align' => array('wide', 'full',),
 				'align_text' => false,
 				'align_content'=> 'matrix',
+				'full_height' => true,
 				'multiple' => true,
 			));
 		}

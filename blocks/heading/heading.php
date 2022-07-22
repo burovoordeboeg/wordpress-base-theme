@@ -25,6 +25,12 @@
 				'default-align' => 'full',
 				'multiple' => true,
 				'align_content' => false
+			), array(
+				'heading' => array(
+					'text' => 'Hallo!',
+					'type' => 'h2',
+					'size' => 'large',
+				)
 			));
 		}
 	}

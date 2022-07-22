@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "burovoordeboeg/gutenberg-blocks",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-theme-gutenberg.git",
-                "reference": "f0efb87e05acc8b350a5025e2cb611dddeec0a69"
+                "reference": "497fc6d6fca24f87b303776f7f40a0dc496add6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-gutenberg/zipball/f0efb87e05acc8b350a5025e2cb611dddeec0a69",
-                "reference": "f0efb87e05acc8b350a5025e2cb611dddeec0a69",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-gutenberg/zipball/497fc6d6fca24f87b303776f7f40a0dc496add6d",
+                "reference": "497fc6d6fca24f87b303776f7f40a0dc496add6d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -54,10 +54,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-theme-gutenberg/tree/0.1.2",
+                "source": "https://github.com/burovoordeboeg/class-theme-gutenberg/tree/0.1.3",
                 "issues": "https://github.com/burovoordeboeg/class-theme-gutenberg/issues"
             },
-            "time": "2022-07-19T09:59:51+00:00"
+            "time": "2022-07-22T07:30:05+00:00"
         },
         {
             "name": "burovoordeboeg/templates",
