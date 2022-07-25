@@ -5,7 +5,7 @@ namespace BvdB\Blocks;
 use BvdB\Gutenberg;
 use BvdB\Gutenberg\Blocks as Blocks;
 
-class Video extends Blocks
+class Buttonskopie extends Blocks
 {
 	/**
 	 * Register the block
@@ -13,19 +13,22 @@ class Video extends Blocks
 	public function __construct()
 	{
 		PARENT::register_block(array(
-			'name' => 'video',
-			'title' => 'Video',
-			'description' => 'This is an video block',
+			'name' => 'buttons_kopie',
+			'title' => 'Buttons',
+			'description' => 'This is an button block',
 			'category' => 'custom',
-			'icon' => 'video-alt3',
+			'icon' => 'button',
 			'keywords' => array('image', 'text'),
 			'post_types' => array('post', 'page'),
 			'mode' => 'preview',
-			'align' => array('wide', 'full',),
+			'align' => array('wide', 'full'),
+			'align_text' => false,
+			'align_content' => false,
 			'multiple' => true,
 		));
 	}
 }
 
 // Call block-class
-new Video();
+new Buttonskopie();
+?>

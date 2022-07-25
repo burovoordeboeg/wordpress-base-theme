@@ -28,7 +28,7 @@ for (color in colors) {
 	colorList.push(color);
 }
 
-
+// TODO make safelist voor hover on buttons
 module.exports = {
 	content: [
 		'./templates/**/*.twig',
@@ -47,6 +47,10 @@ module.exports = {
 		},
 		{
 			pattern: /^text-/,
+			variants: colorList,
+		},
+		{
+			pattern: /^border-/,
 			variants: colorList,
 		},
 	],
