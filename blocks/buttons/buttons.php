@@ -31,3 +31,4 @@ class Buttons extends Blocks
 
 // Call block-class
 new Buttons();
+?>
