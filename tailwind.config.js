@@ -29,7 +29,6 @@ for (color in colors) {
 }
 
 
-
 module.exports = {
 	content: [
 		'./templates/**/*.twig',
