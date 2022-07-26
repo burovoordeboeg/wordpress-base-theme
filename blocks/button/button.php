@@ -14,10 +14,11 @@
 		{
 			PARENT::register_block( array(
 				'name' => 'button',
+				'parent' => array('acf/buttons'),
 				'title' => 'Button',
 				'description' => 'This is a single button',
 				'category' => 'custom',
-				'icon' => 'admin-comments',
+				'icon' => 'button',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
@@ -30,4 +31,3 @@
 
 	// Call block-class
 	new Button();
-?>

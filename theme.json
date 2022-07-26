@@ -25,6 +25,11 @@
 					"name": "Licht Blauw"
 				},
 				{
+					"slug": "secondaryblue",
+					"color": "#00FF00",
+					"name": "Secundair blauw"
+				},
+				{
 					"slug": "mediumblue",
 					"color": "#004B8C",
 					"name": "Medium Blauw"

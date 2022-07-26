@@ -36,4 +36,3 @@
 
 	// Call block-class
 	new Cover();
-?>

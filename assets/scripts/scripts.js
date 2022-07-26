@@ -1,5 +1,5 @@
-import 'magnific-popup';
-import './magnific-popup';
+// import 'magnific-popup';
+// import './magnific-popup';
 
 // Import js for componenents
 function importAll(r) {

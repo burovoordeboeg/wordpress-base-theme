@@ -29,9 +29,13 @@
 	'acf/button',
 ] %}
 
+{% set template = [
+	[ 'acf/button', {} ]
+] %}
+
 {% block block_content %}
 
 	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6 ">
-		<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
+		<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}" template="{{template|json_encode()}}"/>
 	</div>
 {% endblock %}
