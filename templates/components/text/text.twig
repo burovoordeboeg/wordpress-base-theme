@@ -1,29 +1,41 @@
-{# >>> Comp Defaults #}
-{% set compDefaults = {
-  data: {
-    name: 'text',
-    text: null,
-    richText: true
-  },
-  classes: {
-    root: 'space-y-4 md:space-y-8',
-    custom: null,
-  }
+{#  Defaults #}
+{% set defaults = {
+	data: {
+		text: 'Type some text',
+		size: 'medium',
+		columns: 1,
+	},
+	classes: {
+		root:'prose max-w-none text-inherit gap-8 columns-1',
+		custom: ''
+	},
+	size: {
+		small: 'prose prose-sm',
+		medium: '',
+		large: 'prose prose-lg',
+		xlarge: 'prose prose-xl'
+	},
+	columns: {
+		1: '',
+		2: 'md:columns-2',
+		3: 'md:columns-2 lg:columns-3',
+		4: 'md:columns-2 lg:columns-4',
+		5: 'md:columns-3 lg:columns-5'
+	}
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
 } %}
 
-{# Modul #}
+{# Combine classes #}
+{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ defaults.size[props.data.size]  ~ ' ' ~ defaults.columns[props.data.columns] ~ ' ' ~ props.classes.custom  %}
+
+{# Template #}
 {% if props.data.text %}
-	<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-		{% if props.data.richText %}
-			{{ props.data.text | raw }}
-		{% else %}
-			{{ props.data.text | nl2br | raw }}
-		{% endif %}
+	<div class="{{ class }}">
+		{{ props.data.text | raw }}
 	</div>
 {% endif %}

@@ -12,3 +12,13 @@
 .mceContentBody {
   @apply prose max-w-none p-4;
 }
+
+.block-editor__container {
+  .editor-styles-wrapper {
+      color: transparent !important;
+  }
+}
+
+[data-type="acf/button"] {
+  @apply inline-flex;
+}

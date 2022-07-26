@@ -1,5 +1,6 @@
 {% extends "base/block.twig" %}
 
+{# TODO Add option to create slider #}
 
 {% set context = {
 	data: {
@@ -8,31 +9,44 @@
 		crop: fields.crop,
 	},
 	classes: {
-		root:'flex flex-wrap mx-auto ',
+		root:'gallery grid flex flex-wrap mx-auto gap-4 my-4 relative',
 	},
 	columns: {
 		1: 'w-full',
-		2: 'w-full md:w-1/2',
-		3: 'w-full md:w-1/2 lg:w-1/3',
-		4: 'w-full md:w-1/2 lg:w-1/4',
-		5: 'w-full md:w-1/2 lg:w-1/5',
-		6: 'w-full md:w-1/2 lg:w-1/6',
+		2: 'grid-cols-1 lg:grid-cols-2',
+		3: 'grid-cols-1 lg:grid-cols-3',
+		4: 'grid-cols-1 lg:grid-cols-4',
+		5: 'grid-cols-1 lg:grid-cols-5',
+		6: 'grid-cols-1 lg:grid-cols-6',
 	}
 } %}
 
 {% block block_content %}
 
-	<div class="{{context.classes.root}} gallery">
-		{% for image in context.data.images %}
-			<a href="{{wp_get_attachment_image_url(image.id, 'full')}}" class="{{context.columns[context.data.columns]}} p-2 flex-grow relative ">
-				<figure class="relative {{context.data.crop ? 'w-full h-full object-cover'}}">
-					{{wp_get_attachment_image(image.id, 'full', '', {'class' : context.data.crop ? 'w-full h-full object-cover'})|raw}}
-					{% if image.caption %}
-						<p class="text-sm px-4 pb-4 pt-8 text-white absolute bg-gradient-to-t from-black/50 w-full left-0 bottom-0 ">{{image.caption}}</p>
-					{% endif %}
-				</figure>
-			</a>
-		{% endfor %}
+	<div class="{{context.classes.root}} {{context.columns[context.data.columns]}}">
+		
+		{% if context.data.images %}
+			{% for image in context.data.images %}
+				<a href="{{wp_get_attachment_image_url(image.id, 'full')}}" class="{% if is_preview %}pointer-events-none{% endif %}">
+					{{include('components/media/image.twig', {
+						data: {
+							id: image.id,
+							size: 'bigthumb',
+							ratio: 'gallery',
+							caption: wp_get_attachment_caption(image.id),
+						}
+					}, with_context = false)}}
+				</a>
+			{% endfor %}
+		{% else %}
+			{% if is_preview %}
+				<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+					<p>Voer een gallery in</p>
+				</div>
+			{% endif %}	
+		{% endif %}
+
+
 	</div>
 
 {% endblock %}

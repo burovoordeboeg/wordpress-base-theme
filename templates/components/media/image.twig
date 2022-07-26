@@ -1,0 +1,49 @@
+{# >>>  Defaults #}
+{% set defaults = {
+  data: {
+    name: 'c-image',
+	id: null,
+	size: 'medium',
+  },
+  classes: {
+    root: 'h-full relative',
+	image: 'w-full h-full object-center object-cover',
+    custom: '',
+  },
+  variants: {
+	none: 'aspect-none',
+	'1:1': 'aspect-w-1 aspect-h-1',
+	'16:9': 'aspect-w-16 aspect-h-9',
+	'gallery': 'h-full'
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  variants: defaults.variants, 
+} %}
+
+{% if props.data.id %}
+	{# TODO Here we are using get_the_title. This needs to be refactored to get_title #}
+	{% set attr = {
+		class: props.classes.image,
+		alt: get_post_meta(props.data.id, '_wp_attachment_image_alt', true)|default(get_the_title(props.data.id)),
+		style: props.data.ratio == 'none' ? '' : 'object-position:'~ props.data.position.left ~'%' ~ ' ' ~ props.data.position.top~'%'
+	} %}
+
+	<figure class="{{props.classes.root}} {{props.classes.custom}}">
+		<div class="{{props.variants[props.data.ratio]}}">
+		{{wp_get_attachment_image(props.data.id, props.data.size, false , {
+			'class': attr.class,
+			'alt': attr.alt,
+			'style': attr.style,
+		})|raw}}
+		</div>
+		{% if props.data.caption %}
+			<figcaption class="text-sm py-2 {{props.data.ratio == 'gallery' ? 'absolute bottom-0 p-2 bg-gray-800 bg-opacity-50 text-white w-full' : 'dag'}}" >{{props.data.caption}}</figcaption>
+		{% endif %}
+	</figure>
+{% endif %}
+

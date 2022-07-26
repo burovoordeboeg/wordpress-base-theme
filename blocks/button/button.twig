@@ -1,0 +1,24 @@
+{% block block_content %}
+	{% if fields.button.button.link.title %}
+
+		{{include('components/button.twig', {
+			data: {
+				text: fields.button.button.link.title,
+				url: fields.button.button.link.url,
+				target: fields.button.button.link.target,
+				variant: fields.button.button.type,
+				textcolor: fields.text_editor_color_picker,
+				bgcolor: fields.bg_editor_color_picker
+			}
+		})}}
+
+	{% else %}
+		{% if is_preview %}
+			<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+				<p>Voer een button in</p>
+			</div>
+		{% endif %}
+	{% endif %}
+
+
+{% endblock %}

@@ -15,19 +15,30 @@
 			PARENT::register_block( array(
 				'name' => 'heading',
 				'title' => 'Heading',
-				'description' => 'This is an example block',
+				'description' => 'This is a heading block',
 				'category' => 'custom',
 				'icon' => 'heading',
 				'keywords' => array( 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
 				'align' => array( 'wide', 'full',),
+				'align_text' => true,
+				'align_content'=> 'matrix',
+				'full_height' => false,
+				'color' => array(
+					'text' => true,
+					'background' => true,
+				),
 				'multiple' => true,
-				'align_content' => false
+				), array(
+					'heading' => array(
+						'text' => 'Hallo!',
+						'type' => 'h2',
+						'size' => 'large',
+				)
 			));
 		}
 	}
 
 	// Call block-class
 	new Heading();
-?>

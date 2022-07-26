@@ -1,0 +1,43 @@
+{# >>>  Defaults #}
+{% set defaults = {
+  data: {
+    name: 'c-video',
+    url: null,
+	controls: true,
+	autoplay: true,
+	muted: false,
+	loop: false,
+	variant: 'background',
+	poster:''
+  },
+  classes: {
+    root: 'object-cover w-full h-full',
+    custom: '',
+  },
+  variants: {
+    background: '',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  variants: defaults.variants,
+} %}
+
+{% set attr = props.data.autoplay ? 'autoplay muted loop' %}
+
+{% if props.data.url %}
+
+	<video class="{{props.classes.root}}" {{attr}} poster="{{props.data.poster}}">>
+		<source src="{{props.data.url}}" type="video/mp4">
+	</video>
+
+	{% else %}
+		
+		{{props.data.embed|raw}}
+
+{% endif %}
+
+

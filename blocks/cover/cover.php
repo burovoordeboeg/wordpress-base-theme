@@ -24,11 +24,15 @@
 				'align' => array('wide', 'full',),
 				'align_text' => false,
 				'align_content'=> 'matrix',
+				'full_height' => true,
 				'multiple' => true,
+				'color' => array(
+					'text' => true,
+					'background' => false,
+				),
 			));
 		}
 	}
 
 	// Call block-class
 	new Cover();
-?>

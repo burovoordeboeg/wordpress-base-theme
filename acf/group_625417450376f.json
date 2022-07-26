@@ -1,6 +1,6 @@
 {
     "key": "group_625417450376f",
-    "title": "Block: Image & text",
+    "title": "Block: Media & text",
     "fields": [
         {
             "key": "field_6254174507a4b",
@@ -9,7 +9,15 @@
             "type": "focuspoint",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62b058f3b2de4",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -24,6 +32,119 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_62b0560d635ed",
+            "label": "Video",
+            "name": "video",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_62b18412ede0e",
+                    "label": "Include or Embed",
+                    "name": "include_or_embed",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Include": "Include",
+                        "Oembed": "Oembed"
+                    },
+                    "allow_null": 0,
+                    "default_value": "Include",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_62b1841eede0f",
+                    "label": "Video Url",
+                    "name": "video_file",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62b18412ede0e",
+                                "operator": "==",
+                                "value": "Include"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_62b18424ede10",
+                    "label": "Video Embed",
+                    "name": "video_embed",
+                    "type": "oembed",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62b18412ede0e",
+                                "operator": "==",
+                                "value": "Oembed"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "width": "",
+                    "height": ""
+                },
+                {
+                    "key": "field_62b062bdc3cd0",
+                    "label": "Autoplay video",
+                    "name": "autoplay_video",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_62b1841eede0f",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
         },
         {
             "key": "field_6254174505996",
@@ -82,5 +203,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649682847
+    "modified": 1656318320
 }

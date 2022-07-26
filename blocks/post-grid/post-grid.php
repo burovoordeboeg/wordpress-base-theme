@@ -31,4 +31,3 @@
 
 	// Call block-class
 	new Post_grid();
-?>

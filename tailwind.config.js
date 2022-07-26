@@ -1,4 +1,32 @@
-module.exports = {
+
+// Read the theme JSON
+const fs = require('fs')
+const themeJson = fs.readFileSync('./theme.json')
+const theme = JSON.parse(themeJson)
+
+// Setup colors from theme JSON
+const colors = theme.settings.color.palette.reduce((result, item) => {
+	const [color, number] = item.slug.split('-')
+
+	// If there is a number identifier, make this an object
+	if (undefined !== number) {
+		if (!result[color]) {
+			result[color] = {}
+		}
+		result[color][number] = item.color
+	} else {
+		result[color] = item.color
+	}
+
+	return result
+
+}, {});
+
+// Make colorlist array for adding variants to safelist
+const colorList = Object.keys(colors);
+
+// Start typekit config
+const tailwindconfig = {
 	content: [
 		'./templates/**/*.twig',
 		'./blocks/**/*.twig',
@@ -10,6 +38,18 @@ module.exports = {
 			pattern: /^object-/,
 			variants: ['lg', 'hover', 'focus', 'lg:hover'],
 		},
+		{
+			pattern: /^bg-/,
+			variants: colorList,
+		},
+		{
+			pattern: /^text-/,
+			variants: colorList,
+		},
+		{
+			pattern: /^border-/,
+			variants: colorList,
+		}
 	],
 	theme: {
 		container: {
@@ -26,22 +66,28 @@ module.exports = {
 			fontFamily: {
 				'sans': ['Open Sans'],
 			},
-			colors: {
-				primary: {
-					100: "#fbfbff",
-					200: "#f8f6ff",
-					300: "#f4f2fe",
-					400: "#f1edfe",
-					500: "#ede9fe",
-					600: "#bebacb",
-					700: "#8e8c98",
-					800: "#5f5d66",
-					900: "#2f2f33"
-				},
+			// Here you can set widths you use in wp blocks
+			screens: {
+				'wp-none': '768px',
+				'wp-wide': '1200px',
+				'wp-full': '1660px',
 			},
+			colors
 		},
+	},
+	corePlugins: {
+		aspectRatio: false,
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
+		require('@tailwindcss/aspect-ratio'),
 	],
 }
+
+// Create hover states for the safelist
+colorList.forEach( ( color ) => {
+	tailwindconfig.safelist.push( 'hover:bg-' + color );
+} );
+
+// Export the config as module
+module.exports = tailwindconfig;

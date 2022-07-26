@@ -1,0 +1,37 @@
+{# >>> Defaults #}
+{# Search for icons on https://heroicons.com  #}
+{% set defaults = {
+  data: {
+    name: 'c-icon',
+    icon: null,
+	style: 'outline',
+    variant: 'sm',
+  },
+  classes: {
+    root: 'inline-flex',
+    color: '',
+    custom: '',
+  },
+  variants: {
+    sm: 'w-4 h-4',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8',
+    xl: 'w-12 h-12',
+    '2xl': 'w-16 h-16',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+  variants: defaults.variants,
+} %}
+
+{# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
+{% if props.data.icon %}
+	<span class="{{props.data.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.classes.color ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom}}">
+	{{include('/icons/' ~ props.data.style ~ '/' ~ props.data.icon ~ '.svg')}}
+	</span>
+
+{% endif %}

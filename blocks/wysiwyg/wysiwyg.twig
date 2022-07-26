@@ -1,32 +1,25 @@
 {% extends "base/block.twig" %}
 
-{% set context = {
-	data: {
-		placeholder: 'Klik hier om je teksten in te voeren',
-		size: fields.size|default('medium'),
-		columns: fields.columns|default(''),
-	},
-	size: {
-		small: 'prose prose-sm text-inherit',
-		medium: 'prose text-inherit',
-		large: 'prose prose-lg text-inherit',
-		xlarge: 'prose prose-xl text-inherit'
-	},
-	columns: {
-		1: 'gap-8 columns-1',
-		2: 'gap-8 columns-1 md:columns-2',
-		3: 'gap-8 columns-1 md:columns-2 lg:columns-3',
-		4: 'gap-8 columns-1 md:columns-2 lg:columns-4',
-		5: 'gap-8 columns-1 md:columns-3 lg:columns-5'
-	}
-} %}
+{# TODO Remove/change custom class based on project #}
 
 {% block block_content %}
-
-	<div class="{{classes}}">
-		<div class="{{context.size[context.data.size]}} max-w-none {{context.columns[context.data.columns]}}">
-			{{fields.wysiwyg_content|default(context.data.placeholder)|raw}}
-		</div>
-	</div>
-
+	{% if fields.wysiwyg_content %}
+		{{include('components/text/text.twig', {
+			data: {
+				text: fields.wysiwyg_content,
+				columns: fields.columns,
+				size: fields.size,
+			},
+			classes: {
+				custom: 'my-8'
+			}
+		})}}
+	{% else %}
+		{% if is_preview %}
+			<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+				<p>Voer een tekst in</p>
+			</div>
+		{% endif %}
+	{% endif %}
+	
 {% endblock %}
