@@ -24,6 +24,10 @@
 				'align' => array( 'wide', 'full',),
 				'align_content' => false,
 				'multiple' => true,
+				'color' => array(
+					'text' => true,
+					'background' => false,
+				),
 			));
 		}
 	}

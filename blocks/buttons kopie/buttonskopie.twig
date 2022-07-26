@@ -25,13 +25,32 @@
 	},
 } %}
 
-{% set allowed_blocks = [
-	'acf/button',
-] %}
-
 {% block block_content %}
 
+	<pre>
+	{{ dump(fields.button) }}
+</pre>
+
 	<div class="{{context.valign[context.data.vertical_align]}} {{context.halign[context.data.vertical_align][context.data.horizontal_align]}} gap-4 my-6 ">
-		<InnerBlocks allowedblocks="{{allowed_blocks|json_encode()}}"/>
+
+		{% if fields.button  %}
+			{% for item in fields.button %}
+				{{include('components/button.twig', {
+					data: {
+						text: item.button.link.title,
+						url: item.button.link.url,
+						target: item.button.link.target,
+						variant: item.button.type,
+						color:item.button.color
+					}
+				})}}
+			{% endfor %}
+		{% else %}
+			{% if is_preview %}
+				<div class="p-4 border-dashed border text-gray-500 text-center border-gray-800 bg-gray-50 w-full">
+					<p>Voer een button in</p>
+				</div>
+			{% endif %}
+		{% endif %}
 	</div>
 {% endblock %}

@@ -5,44 +5,27 @@
     text: null,
     url: null,
     variant: 'primary',
-	color:'red',
+	textcolor: 'white',
+	bgcolor: 'red',
     icon: null,
 	iconStyle: 'solid',
 	iconSize: 'sm',
     reverse: false,
   },
   classes: {
-    root: 'items-center justify-center rounded  border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    root: 'items-center justify-center rounded font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
     custom: '',
     display: 'inline-flex gap-2',
   },
   variants: {
 	outline: {
-		root:'px-6 py-3',
-		color: {
-			base: 'text-slate-800 border-slate-800',
-			red: 'text-red-500 border-red-500',
-			blue: 'text-blue-500 border-blue-500',
-			green: 'text-green-500 border-green-500'
-		}
+		root:'px-6 py-3 border-2 bg-white border-'~ data.bgcolor ~ ' text-' ~ data.textcolor ~ ' hover:bg-' ~ data.bgcolor ~ ' hover:text-white',
 	},
     inline: {
-		root:'px-0 py-4',
-		color: {
-			base: 'text-slate-800',
-			red: 'text-red-500',
-			blue: 'text-blue-500',
-			green: 'text-green-500'
-		}
+		root:'px-0 py-4 text-'~ data.textcolor,
 	},
     fill: {
-		root:'px-6 py-3',
-		color: {
-			base: 'text-white bg-slate-800',
-			red: 'text-white bg-red-500',
-			blue: 'text-white bg-blue-500',
-			green: 'text-white bg-green-500'
-		}
+		root:'px-6 py-3 bg-'~ data.bgcolor ~ ' text-'~ data.textcolor ~ ' hover:bg-'~ data.bgcolor ~'/80',
 	}
   }
 } %}
