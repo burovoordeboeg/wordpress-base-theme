@@ -10,4 +10,3 @@ include_once 'functions/init.php';
 include_once 'functions/allowed-twig-functions.php';
 include_once 'functions/context.php';
 include_once 'functions/functions.php';
-// include_once 'functions/theme-colors.php';

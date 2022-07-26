@@ -34,4 +34,3 @@
 
 	// Call block-class
 	new Image_text();
-?>

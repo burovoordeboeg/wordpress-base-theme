@@ -1,0 +1,78 @@
+{
+    "key": "group_62de8aea47911",
+    "title": "Colors",
+    "fields": [
+        {
+            "key": "field_62de8af8edc14",
+            "label": "Tekst kleur",
+            "name": "text_editor_color_picker",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "Wit",
+                "yellow": "Geel",
+                "brightblue": "Licht Blauw",
+                "mediumblue": "Medium Blauw",
+                "black": "Zwart"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_62de97c422f75",
+            "label": "Achtergrond kleur",
+            "name": "bg_editor_color_picker",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "Wit",
+                "yellow": "Geel",
+                "brightblue": "Licht Blauw",
+                "mediumblue": "Medium Blauw",
+                "black": "Zwart"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "modified": 1658755239
+}

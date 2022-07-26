@@ -35,4 +35,3 @@
 
 	// Call block-class
 	new Gallery();
-?>

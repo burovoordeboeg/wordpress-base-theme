@@ -1,35 +1,32 @@
 
+// Read the theme JSON
 const fs = require('fs')
-
 const themeJson = fs.readFileSync('./theme.json')
 const theme = JSON.parse(themeJson)
 
-
-const colors = theme.settings.color.palette.reduce((acc, item) => {
+// Setup colors from theme JSON
+const colors = theme.settings.color.palette.reduce((result, item) => {
 	const [color, number] = item.slug.split('-')
 
 	// If there is a number identifier, make this an object
 	if (undefined !== number) {
-		if (!acc[color]) {
-			acc[color] = {}
+		if (!result[color]) {
+			result[color] = {}
 		}
-		acc[color][number] = item.color
+		result[color][number] = item.color
 	} else {
-		acc[color] = item.color
+		result[color] = item.color
 	}
 
-	return acc
+	return result
 
 }, {});
 
-// TODO make single line function with reduce
-let colorList = [];
-for (color in colors) {
-	colorList.push(color);
-}
+// Make colorlist array for adding variants to safelist
+const colorList = Object.keys(colors);
 
-
-module.exports = {
+// Start typekit config
+const tailwindconfig = {
 	content: [
 		'./templates/**/*.twig',
 		'./blocks/**/*.twig',
@@ -49,6 +46,10 @@ module.exports = {
 			pattern: /^text-/,
 			variants: colorList,
 		},
+		{
+			pattern: /^border-/,
+			variants: colorList,
+		}
 	],
 	theme: {
 		container: {
@@ -82,3 +83,11 @@ module.exports = {
 		require('@tailwindcss/aspect-ratio'),
 	],
 }
+
+// Create hover states for the safelist
+colorList.forEach( ( color ) => {
+	tailwindconfig.safelist.push( 'hover:bg-' + color );
+} );
+
+// Export the config as module
+module.exports = tailwindconfig;

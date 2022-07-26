@@ -5,7 +5,7 @@
 	use BvdB\Gutenberg;
 	use BvdB\Gutenberg\Blocks as Blocks;
 
-	class Cover extends Blocks
+	class Button extends Blocks
 	{
 		/**
 		 * Register the block
@@ -13,26 +13,21 @@
 		public function __construct()
 		{
 			PARENT::register_block( array(
-				'name' => 'cover',
-				'title' => 'Cover',
-				'description' => 'This is an cover block',
+				'name' => 'button',
+				'parent' => array('acf/buttons'),
+				'title' => 'Button',
+				'description' => 'This is a single button',
 				'category' => 'custom',
-				'icon' => 'cover-image',
+				'icon' => 'button',
 				'keywords' => array( 'image', 'text' ),
 				'post_types' => array( 'post', 'page' ),
 				'mode' => 'preview',
-				'align' => array('wide', 'full',),
+				'align' => array(''),
 				'align_text' => false,
-				'align_content'=> 'matrix',
-				'full_height' => true,
 				'multiple' => true,
-				'color' => array(
-					'text' => true,
-					'background' => false,
-				),
 			));
 		}
 	}
 
 	// Call block-class
-	new Cover();
+	new Button();

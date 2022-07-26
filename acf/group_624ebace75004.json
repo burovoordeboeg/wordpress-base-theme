@@ -3,48 +3,6 @@
     "title": "Block: Buttons",
     "fields": [
         {
-            "key": "field_624ebaf337a7f",
-            "label": "Button",
-            "name": "button",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_624ebafc37a80",
-            "min": 1,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_6255875fa5e0a",
-                    "label": "Button",
-                    "name": "button",
-                    "type": "clone",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "field_625586a9cedd5"
-                    ],
-                    "display": "seamless",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 0
-                }
-            ]
-        },
-        {
             "key": "field_624eca08d42d3",
             "label": "Justification",
             "name": "justify",
@@ -114,6 +72,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1649772466
+    "modified": 1658739679
 }
