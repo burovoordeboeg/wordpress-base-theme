@@ -5,6 +5,10 @@ const fs = require('fs');
 // Copy images from assest image folder
 mix.copy('assets/images/', 'build/images');
 
+mix.options({ // Do not process URLs anymore
+	processCssUrls: false
+});
+
 mix.setPublicPath('build')
 	.js('assets/scripts/scripts.js', 'scripts')
 	.js('assets/scripts/editor.js', 'scripts')
