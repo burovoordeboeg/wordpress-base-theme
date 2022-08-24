@@ -2,6 +2,7 @@
     "recommendations": [
         "mblode.twig-language-2",
         "bradlc.vscode-tailwindcss",
-        "bourhaouta.tailwindshades"
+        "bourhaouta.tailwindshades",
+        "atlassian.atlascode"
     ]
 }
