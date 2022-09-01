@@ -23,7 +23,7 @@ Het project heeft een aantal settings nodig om te kunnen deployen. Hiervoor klik
 | `USER` | string | Gebruikersnaam op de server | bvdb |
 | `DOMAIN_TEST` | string | Domein voor de testomgeving | bvdb.test.domein.dev |
 | `DOMAIN_ACCEPTANCE` | string | Domein voor de acceptatie omgeving | bvdb.accept.domein.dev |
-| `DOMAIN_PRODUCTION` | string | Domein voor de acceptatie omgeving | burovoordeboeg.nl |
+| `DOMAIN_PRODUCTION` | string | Domein voor de live omgeving | burovoordeboeg.nl |
 | `SERVER_PATH` | string | Pad op de server vanaf de root <u>zonder eerste slash</u> | public_html/content/themes/bvdb/ |
 
 ### SSH-Keys
