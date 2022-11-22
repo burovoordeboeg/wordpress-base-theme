@@ -3,5 +3,5 @@
   RewriteEngine on
   RewriteBase /
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^/content/uploads/(.*)$ https://remotesite.com/content/uploads/$1 [NC,L]
+  RewriteRule ^content/uploads/(.*)$ https://remotesite.com/content/uploads/$1 [NC,L]
 </IfModule>
