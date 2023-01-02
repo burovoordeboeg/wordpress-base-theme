@@ -16,9 +16,9 @@
     },
     "require": {
         "burovoordeboeg/acf-focus-point": "dev-master",
-        "burovoordeboeg/utilities": "^0.1.3",
-        "burovoordeboeg/templates": "^0.1.3",
-        "burovoordeboeg/gutenberg-blocks": "^0.1.3"
+        "burovoordeboeg/utilities": "^0.1.8",
+        "burovoordeboeg/templates": "^0.1.8",
+        "burovoordeboeg/gutenberg": "^1.0.1"
     },
     "autoload": {
         "psr-4": {
