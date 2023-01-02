@@ -28,6 +28,7 @@
   },
   "scripts": {
     "development": "mix",
+    "start": "mix watch",
     "watch": "mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
