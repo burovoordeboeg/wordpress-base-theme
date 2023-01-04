@@ -7,6 +7,7 @@
 			"wideSize": "1280px"
 		},
 		"color": {
+      "link": true,
 			"defaultPalette": false,
 			"palette": [
 				{
