@@ -1,25 +1,4 @@
-{% set defaults = {
-  data: {
-	align: align|default('none'),
-  },
-  classes: {
-    root: 'acf-block acf-block--' ~ blockname ~ ' acf-block--' ~ align|default('none') ~ ' mx-auto',
-  },
-  variants: {
-	none: 'max-w-screen-wp-none',
-	wide: 'max-w-screen-wp-wide',
-	full: 'max-w-screen-wp-full'
-  }
-} %}
-
-{% set props = {
-  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
-  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
-  variants: defaults.variants, 
-} %}
-
-
-<div class="{{props.classes.root}} {{props.variants[props.data.align]}} {{ classes }}">
+<div class="">
 	{% block block_content %}
 		This is our block placeholder
 	{% endblock %}
