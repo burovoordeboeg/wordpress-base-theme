@@ -1,16 +1,5 @@
 {% extends "base/base.twig" %}
 
-{% block content %}{% endblock %}
+{% block content %}
 
-
-<div class="grid grid-cols-1 md:grid-cols-4  {{context.align_content[context.data.align_content]}} gap-4 md:gap-8">
-		<div class="{{ context.data.reverse ?: 'order-last' }} {{context.data.crop ? 'self-stretch'}}">
-			{% if context.data.image %}
-				{{include('components/{}.twig')}}
-			{% endif %}
-		</div>
-
-		<div class="{{context.align_text[context.data.align_text]}} ">
-			{{include('components/{}.twig')}}
-		</div>
-	</div>
+{% endblock %}

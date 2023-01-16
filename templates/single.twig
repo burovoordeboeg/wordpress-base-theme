@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 {% extends "page.twig" %}
-=======
-{% extends "page.twig" %}
->>>>>>> feature/media-blocks
+
+{% block content %}
+	{{object.get_content()|raw}}
+{% endblock %}
