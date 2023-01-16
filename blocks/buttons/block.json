@@ -12,7 +12,7 @@
         "postTypes": [ "page" ]
     },
     "supports": {
-        "align": ["none", "wide", "full"],
+        "align": ["wide", "full"],
         "anchor": true,
         "alignContent": true,
         "alignText": true,
