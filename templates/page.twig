@@ -1,17 +1,10 @@
 {% extends "base/base.twig" %}
 
-{% set show_page_title = true %}
 
 {% block content %}
 
-	<div class="block-wrapper">
-		{% if show_page_title %}
-			<div class="max-w-screen-lg mx-auto my-12">
-				<h1>{{object.get_title()}}</h1>
-			</div>
-		{% endif %}
 
-		{{object.get_content()|raw}}
-	</div>
+	{{object.get_content()|raw}}
+
 
 {% endblock %}
