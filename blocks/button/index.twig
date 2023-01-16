@@ -1,5 +1,7 @@
-<div class="wp-block bg-{{ attributes.colors.background }} text-{{ attributes.colors.text }} w-full">
-	<div class="text-{{ block.textColor }} prose">
-		Dit is een button block
-	</div>
-</div>
+{{include('components/button.twig', {
+	blockname: blockname,
+	text: fields.link.title,
+	url: fields.link.url,
+	target: fields.link.target,
+	style: attributes.class|default('is-style-primary')
+})}} 

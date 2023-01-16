@@ -14,20 +14,15 @@
     "supports": {
         "align": ["wide", "full"],
         "anchor": true,
-        "alignContent": true,
+        "alignContent": false,
         "alignText": true,
         "color": {
-            "text": true,
-            "background": true
-        },
-        "spacing": {
-            "margin": true,
-            "padding": true,
-            "blockGap": [ "horizontal", "vertical" ]
+            "text": false,
+            "background": false
         },
         "typography": {
             "fontSize": false
         },
-        "fullHeight": true
+        "fullHeight": false
     }
 }
