@@ -1,12 +1,11 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/buttons",
-    "title": "Buttons",
-    "description": "Een buttons block met één of meerdere buttons",
-    "style": [  ],
+    "name": "acf/content",
+    "title": "Content",
+    "description": "Een content block",
+    "style": [],
     "category": "buro-voor-de-boeg",
     "icon": "button",
-    "parent": [],
     "acf": {
         "mode": "preview",
         "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],
@@ -16,10 +15,10 @@
         "align": ["wide", "full"],
         "anchor": true,
         "alignContent": false,
-        "alignText": true,
+        "alignText": false,
         "color": {
-            "text": false,
-            "background": false
+            "text": true,
+            "background": true
         },
         "typography": {
             "fontSize": false

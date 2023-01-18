@@ -1,0 +1,7 @@
+[data-block-id="media-content"] {
+	.innerblocks {
+		.container {
+			@apply w-full m-0 p-0;
+		}
+	} 
+}

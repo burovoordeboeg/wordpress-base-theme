@@ -1,0 +1,12 @@
+{% set attr = {
+	blockname: blockname ? 'data-block-id=' ~ blockname : '',
+	content: content ? content : '',
+	classes: 'prose max-w-none',
+	cls: cls ? cls : '' 
+} %}
+
+{% if attr.content %}
+	<div {{attr.blockname}} class="{{attr.classes}} {{cls}}">
+		{{attr.content|raw}}
+	</div>
+{% endif %}

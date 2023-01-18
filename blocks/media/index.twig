@@ -1,0 +1,12 @@
+{% extends "base/block.twig" %}
+
+{% set allowed_blocks = [
+	'acf/image',
+	'acf/video',
+] %}
+
+{% block content %}
+
+	<InnerBlocks class="innerblocks" allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
+
+{% endblock %}

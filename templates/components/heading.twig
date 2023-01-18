@@ -1,0 +1,9 @@
+{% set attr = {
+	blockname: blockname ? 'data-block-id=' ~ blockname : '',
+	type: type ? type : 'h2',
+	text: text ? text : null,
+	classes: 'font-display font-bold font-display',
+	cls: cls ? cls : '' 
+} %}
+
+<{{attr.type|raw}} {{attr.blockname}} class="{{attr.classes}} {{attr.cls}}">{{attr.text|raw}}</{{attr.type|raw}}>

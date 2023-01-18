@@ -1,0 +1,7 @@
+[data-block-id="media-content"] {
+	[data-block-id="heading"] + *,
+	[data-block-id="wysiwyg"] + *,
+	[data-block-id="buttons"] + * {
+		@apply mt-6;
+	}	
+}
