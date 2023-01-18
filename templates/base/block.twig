@@ -1,5 +1,9 @@
-<div class="">
+{% import "macros/block.twig" as block %}
+
+<div data-block-id="{{ blockname }}" class="{{block.background(attributes)|spaceless}} {{is_preview ? 'pointer-events-none'}}">
+	<div class="{{block.container(attributes)|spaceless}} {{block.spacing(attributes)|spaceless}}">
 	{% block block_content %}
-		This is our block placeholder
+		<div class="bg-red-500">This is our block placeholder</div>
 	{% endblock %}
+	</div>
 </div>

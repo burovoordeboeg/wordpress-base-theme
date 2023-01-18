@@ -3,8 +3,8 @@
 	"version": 2,
 	"settings": {
 		"layout": {
-			"contentSize": "1024px",
-			"wideSize": "1280px"
+			"contentSize": "768px",
+			"wideSize": "1024px"
 		},
 		"color": {
       "link": true,
