@@ -1,0 +1,23 @@
+{# Set background color on block #}
+{% macro background(attributes) %}
+	{{attributes.colors.background ? 'bg-' ~ attributes.colors.background : 'bg-transparent' }}
+{% endmacro %}
+
+{# Set vertical spacing to margin or padding based on background color #}
+{% macro spacing(attributes) %}
+	{{attributes.colors.background ? 'py-12 md:py-24 lg:py-32' : 'my-12 md:my-24 lg:my-32'}}
+{% endmacro %}
+
+{# Set container width based on alignment #}
+{% macro container(attributes) %}	
+	{# Set max width #}
+	{% if attributes.alignment.align == 'wide' %}
+	 	{% set container = 'max-w-screen-lg' %}
+	{% elseif attributes.alignment.align == 'full' %}
+		{% set container = 'max-w-screen-2xl' %}
+	{% else %}
+		{% set container = 'max-w-screen-md' %}
+	{% endif %}
+	{# Return container #}
+	{{'container ' ~ container}}
+{% endmacro %}
