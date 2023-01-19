@@ -1,0 +1,13 @@
+{% extends "base/block.twig" %}
+
+{% set allowed_blocks = [
+	'acf/buttons',
+	'acf/heading',
+	'acf/wysiwyg',
+] %}
+
+{% block content %}
+
+	<InnerBlocks allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
+
+{% endblock %}

@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/video",
-    "title": "Video",
-    "description": "Een video block",
+    "name": "acf/columns",
+    "title": "Columns",
+    "description": "Een columns block",
     "style": [],
     "category": "buro-voor-de-boeg",
     "icon": "button",
@@ -12,10 +12,10 @@
         "postTypes": [ "page" ]
     },
     "supports": {
-        "align": ["wide", "full"],
+   
         "anchor": true,
-        "alignContent": true,
-        "alignText": true,
+        "alignContent": false,
+        "alignText": false,
         "color": {
             "text": true,
             "background": true
@@ -23,6 +23,10 @@
         "typography": {
             "fontSize": false
         },
-        "fullHeight": false
+        "fullHeight": false,
+        "spacing": {
+			"margin": true,
+			"padding": true
+		}
     }
 }

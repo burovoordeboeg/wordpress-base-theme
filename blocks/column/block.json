@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/media-content",
-    "title": "Media & Content",
-    "description": "Een media en content block",
+    "name": "acf/column",
+    "title": "Column",
+    "description": "Een column block",
     "style": [],
     "category": "buro-voor-de-boeg",
     "icon": "button",
