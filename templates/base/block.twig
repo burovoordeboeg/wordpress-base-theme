@@ -1,9 +1,9 @@
 {% import "macros/block.twig" as block %}
 
-<div data-block-id="{{ blockname }}" class="{{block.background(attributes)|spaceless}} {{is_preview ? 'pointer-events-none'}}">
-	<div class="{{block.container(attributes)|spaceless}} {{block.spacing(attributes)|spaceless}}">
-	{% block block_content %}
-		<div class="bg-gray-100">This is our block placeholder</div>
+<div data-block-id="{{ blockname }}" class="{{block.background(attributes)|spaceless}} {{block.fullheight(attributes)|spaceless}}">
+	<div class="{{block.container(attributes)|spaceless}} {{block.spacing(attributes)|spaceless}} bg-green-100/50">
+	{% block content %}
+		<div class="bg-gray-100">This is our block:{{blockname}}</div>
 	{% endblock %}
 	</div>
 </div>

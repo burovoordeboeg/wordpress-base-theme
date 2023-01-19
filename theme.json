@@ -43,7 +43,26 @@
 			]
 		},
 		"spacing": {
-            "blockGap": true
-        }
+			"blockGap": true,
+			"margin": true,
+			"padding": true,
+			"spacingSizes": [
+				{
+					"size": "1rem",
+					"slug": "small",
+					"name": "small"
+				},
+				{ 
+					"size": "2rem",
+					"slug": "medium",
+					"name": "medium" 
+				},
+				{
+					"size": "3rem",
+					"slug": "large",
+					"name": "large"
+				}
+			]
+		}
 	}
 }

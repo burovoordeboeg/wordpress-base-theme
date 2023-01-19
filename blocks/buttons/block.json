@@ -20,9 +20,24 @@
             "text": false,
             "background": false
         },
+        "inserter": false,
         "typography": {
             "fontSize": false
         },
-        "fullHeight": false
+        "fullHeight": false,
+        "__experimentalLayout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "flex"
+			}
+		},
+        "spacing": {
+			"blockGap": true,
+			"margin": [ "top", "bottom" ],
+			"__experimentalDefaultControls": {
+				"blockGap": true
+			}
+		}
     }
 }

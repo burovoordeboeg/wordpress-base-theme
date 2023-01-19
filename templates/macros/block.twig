@@ -21,3 +21,8 @@
 	{# Return container #}
 	{{'container ' ~ container}}
 {% endmacro %}
+
+{# Set block height based on attributes #}
+{% macro fullheight(attributes) %}
+	{{attributes.alignment.fullHeight ? 'h-screen'}}
+{% endmacro %}

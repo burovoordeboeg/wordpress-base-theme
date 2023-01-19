@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/startblock",
-    "title": "Startblock",
-    "description": "Een blockom mee te starten",
+    "name": "acf/columns",
+    "title": "Columns",
+    "description": "Een columns block",
     "style": [],
     "category": "buro-voor-de-boeg",
     "icon": "button",
@@ -12,26 +12,21 @@
         "postTypes": [ "page" ]
     },
     "supports": {
-        "align": ["wide", "full"],
+   
         "anchor": true,
-        "alignContent": true,
-        "alignText": true,
+        "alignContent": false,
+        "alignText": false,
         "color": {
             "text": true,
             "background": true
         },
         "typography": {
-            "fontSize": true
+            "fontSize": false
         },
-        "fullHeight": true,
+        "fullHeight": false,
         "spacing": {
 			"margin": true,
 			"padding": true
 		}
-    },
-    "example": {
-        "attributes": {
-            "message": "This is a notice!"
-        }
     }
 }

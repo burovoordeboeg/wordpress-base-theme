@@ -101,7 +101,8 @@
 		
 		// Set allowed default_blocks
 		$gutenberg->set_allowed_default_blocks( array(
-			'gravityforms/form'
+			'gravityforms/form',
+			// 'core/buttons'
 		) );
 
 		// Load all blocks
