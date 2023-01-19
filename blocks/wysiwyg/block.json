@@ -18,17 +18,16 @@
         "alignContent": false,
         "alignText": false,
         "color": {
-            "text": false,
+            "text": true,
             "background": false
         },
+        "spacing": {
+			"margin": ["bottom"]
+		},
         "typography": {
             "fontSize": false
         },
         "fullHeight": false
     },
-    "styles": [
-        { "name": "primary", "label": "Primary", "isDefault": true },
-        { "name": "secondary", "label": "Secondary" },
-        { "name": "link", "label": "Link" }
-    ]
+    "styles": []
 }
