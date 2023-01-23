@@ -8,7 +8,8 @@
 		size: 'xxl', 
 		color: 'brightblue',
 		custom_color: '#ff6600',
-		margin: 'large'
+		margin: 'large',
+		font_style: 'is-style-serif'
 	}, with_context = false)}}
 
 #}
@@ -20,5 +21,6 @@
 	size: fields.size,
 	color: attributes.colors.text|default('mediumblue'),
 	custom_color: attributes.custom_colors.text,
-	margin: attributes.spacing.margin.bottom
+	margin: attributes.spacing.margin.bottom,
+	font_style:  attributes.class
 }, with_context = false)}}

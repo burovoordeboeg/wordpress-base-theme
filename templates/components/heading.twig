@@ -15,6 +15,12 @@
 	large: 'mb-8',
 }  %}
 
+{# Set font style #}
+{% set font = {
+	'is-style-sans': 'font-sans',
+	'is-style-serif': 'font-serif'
+} %}
+
 {# Set attributes #}
 {% set attr = {
 	blockname: blockname ? 'data-block-id=' ~ blockname : '',
@@ -25,10 +31,11 @@
 	classes: 'font-display font-bold',
 	cls: cls ? cls : null,
 	size: size ? font_size[size] : font_size['md'],
-	margin_bottom: margin ? margin_bottom[margin] : null
+	margin_bottom: margin ? margin_bottom[margin] : null,
+	font_style: font_style ? font[font_style] : 'hallo'
 } %}
 
 {# Return Template only is there is text #}
 {% if attr.text %}
-	<{{attr.type|raw}} {{attr.blockname}} class="{{attr.classes}} {{attr.color}} {{attr.margin_bottom}} {{attr.size}} {{attr.cls}}" {{attr.custom_color}}>{{attr.text|raw}}</{{attr.type|raw}}>
+	<{{attr.type|raw}} {{attr.blockname}} class="{{attr.classes}} {{attr.color}} {{attr.margin_bottom}} {{attr.size}} {{attr.font_style}} {{attr.cls}}" {{attr.custom_color}}>{{attr.text|raw}}</{{attr.type|raw}}>
 {% endif %}
