@@ -11,6 +11,6 @@
 
 {% block content %}
 
-	<InnerBlocks class="md:flex gap-8" allowedBlocks={{ json_encode(allowed_blocks) }} template="{{ json_encode(template) }}"  />
+	<InnerBlocks class="md:flex gap-8 [&_*]:flex-1" allowedBlocks={{ json_encode(allowed_blocks) }} template="{{ json_encode(template) }}"  />
 
 {% endblock %}
