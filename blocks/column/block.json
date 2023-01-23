@@ -17,8 +17,8 @@
         "alignContent": false,
         "alignText": false,
         "color": {
-            "text": true,
-            "background": true
+            "text": false,
+            "background": false
         },
         "typography": {
             "fontSize": false

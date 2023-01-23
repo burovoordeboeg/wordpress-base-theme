@@ -1,5 +1,3 @@
-{% extends "base/block.twig" %}
-
 {% set allowed_blocks = [
 	'acf/buttons',
 	'acf/heading',
@@ -8,6 +6,6 @@
 
 {% block content %}
 
-	<InnerBlocks allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
+	<InnerBlocks class="flex-1" allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
 
 {% endblock %}

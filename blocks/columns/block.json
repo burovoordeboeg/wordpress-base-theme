@@ -12,7 +12,7 @@
         "postTypes": [ "page" ]
     },
     "supports": {
-   
+        "align": ["wide", "full"],
         "anchor": true,
         "alignContent": false,
         "alignText": false,
@@ -25,8 +25,9 @@
         },
         "fullHeight": false,
         "spacing": {
-			"margin": true,
-			"padding": true
+			"margin": ["bottom", "top"],
+            "padding": ["bottom"],
+            "blockGap": true
 		}
     }
 }

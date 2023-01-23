@@ -1,12 +1,22 @@
+{# Set margin bottom options #}
+{% set margin_bottom = {
+	small: 'mb-2',
+	medium: 'mb-4',
+	large: 'mb-8',
+}  %}
+
 {% set attr = {
-	blockname: blockname ? 'data-block-id=' ~ blockname : '',
-	content: content ? content : '',
+	blockname: blockname ? 'data-block-id=' ~ blockname : null,
+	content: content ? content : null,
 	classes: 'prose max-w-none',
-	cls: cls ? cls : '' 
+	color: color ? 'text-' ~ color : null,
+	custom_color: custom_color ? 'style=color:' ~ custom_color : null,
+	cls: cls ? cls : null,
+	margin_bottom: margin ? margin_bottom[margin] : null
 } %}
 
 {% if attr.content %}
-	<div {{attr.blockname}} class="{{attr.classes}} {{cls}}">
+	<div {{attr.blockname}} class="{{attr.classes}} {{attr.color}} {{attr.margin_bottom}} {{attr.cls}}" {{attr.custom_color}}>
 		{{attr.content|raw}}
 	</div>
 {% endif %}

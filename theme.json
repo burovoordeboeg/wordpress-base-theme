@@ -46,21 +46,27 @@
 			"blockGap": true,
 			"margin": true,
 			"padding": true,
+			"customSpacingSize": false,
 			"spacingSizes": [
 				{
-					"size": "1rem",
+					"size": "",
 					"slug": "small",
 					"name": "small"
 				},
 				{ 
-					"size": "2rem",
+					"size": "",
 					"slug": "medium",
 					"name": "medium" 
 				},
 				{
-					"size": "3rem",
+					"size": "",
 					"slug": "large",
 					"name": "large"
+				},
+				{
+					"size": "",
+					"slug": "xlarge",
+					"name": "Extra large"
 				}
 			]
 		}

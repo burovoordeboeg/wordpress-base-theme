@@ -6,6 +6,7 @@
     "style": [  ],
     "category": "buro-voor-de-boeg",
     "icon": "button",
+    "parent": [],
     "acf": {
         "mode": "preview",
         "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],
@@ -20,7 +21,6 @@
             "text": false,
             "background": false
         },
-        "inserter": false,
         "typography": {
             "fontSize": false
         },
@@ -33,11 +33,7 @@
 			}
 		},
         "spacing": {
-			"blockGap": true,
-			"margin": [ "top", "bottom" ],
-			"__experimentalDefaultControls": {
-				"blockGap": true
-			}
+			"margin": [ "top" ]
 		}
     }
 }

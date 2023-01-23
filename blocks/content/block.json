@@ -17,12 +17,16 @@
         "alignContent": false,
         "alignText": false,
         "color": {
-            "text": true,
+            "text": false,
             "background": true
         },
         "typography": {
             "fontSize": false
         },
+        "spacing": {
+			"margin": ["bottom", "top"],
+            "padding": ["bottom"]
+		},
         "fullHeight": false
     }
 }

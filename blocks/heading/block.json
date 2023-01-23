@@ -18,17 +18,20 @@
         "alignContent": false,
         "alignText": false,
         "color": {
-            "text": false,
+            "text": true,
             "background": false
         },
         "typography": {
             "fontSize": false
         },
-        "fullHeight": false
+        "fullHeight": false,
+        "spacing": {
+			"margin": ["bottom"],
+			"padding": false
+		}
     },
     "styles": [
-        { "name": "primary", "label": "Primary", "isDefault": true },
-        { "name": "secondary", "label": "Secondary" },
-        { "name": "link", "label": "Link" }
+        { "name": "default", "label": "Sans", "isDefault": true },
+        { "name": "serif", "label": "Serif" }
     ]
 }

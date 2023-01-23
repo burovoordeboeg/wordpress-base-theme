@@ -1,9 +1,41 @@
+{# Set font size options #}
+{% set font_size = {
+	xs: 'text-lg',
+	sm: 'text-xl',
+	md: 'text-2xl',
+	lg: 'text-3xl',
+	xl: 'text-4xl',
+	xxl: 'text-5xl',
+} %}
+
+{# Set margin bottom options #}
+{% set margin_bottom = {
+	small: 'mb-2',
+	medium: 'mb-4',
+	large: 'mb-8',
+}  %}
+
+{# Set font style #}
+{% set font = {
+	'is-style-sans': 'font-sans',
+	'is-style-serif': 'font-serif'
+} %}
+
+{# Set attributes #}
 {% set attr = {
 	blockname: blockname ? 'data-block-id=' ~ blockname : '',
 	type: type ? type : 'h2',
 	text: text ? text : null,
-	classes: 'font-display font-bold font-display',
-	cls: cls ? cls : '' 
+	color: color ? 'text-' ~ color : null,
+	custom_color: custom_color ? 'style=color:' ~ custom_color : null,
+	classes: 'font-display font-bold',
+	cls: cls ? cls : null,
+	size: size ? font_size[size] : font_size['md'],
+	margin_bottom: margin ? margin_bottom[margin] : null,
+	font_style: font_style ? font[font_style] : 'hallo'
 } %}
 
-<{{attr.type|raw}} {{attr.blockname}} class="{{attr.classes}} {{attr.cls}}">{{attr.text|raw}}</{{attr.type|raw}}>
+{# Return Template only is there is text #}
+{% if attr.text %}
+	<{{attr.type|raw}} {{attr.blockname}} class="{{attr.classes}} {{attr.color}} {{attr.margin_bottom}} {{attr.size}} {{attr.font_style}} {{attr.cls}}" {{attr.custom_color}}>{{attr.text|raw}}</{{attr.type|raw}}>
+{% endif %}

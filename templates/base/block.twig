@@ -1,7 +1,7 @@
 {% import "macros/block.twig" as block %}
 
-<div data-block-id="{{ blockname }}" class="{{block.background(attributes)|spaceless}} {{block.fullheight(attributes)|spaceless}}">
-	<div class="{{block.container(attributes)|spaceless}} {{block.spacing(attributes)|spaceless}} bg-green-100/50">
+<div data-block-id="{{ blockname }}" class="{{block.background(attributes)|spaceless}} {{block.fullheight(attributes)|spaceless}}" {{block.style(attributes)|spaceless}}>
+	<div class="{{block.container(attributes)|spaceless}} {{block.spacing(attributes)|spaceless}}">
 	{% block content %}
 		<div class="bg-gray-100">This is our block:{{blockname}}</div>
 	{% endblock %}

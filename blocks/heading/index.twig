@@ -1,5 +1,26 @@
+{#
+	Usage:
+
+	{{include('components/heading.twig', {
+		blockname: blockname,
+		type: 'h1',
+		text:'Cras mattis consectetur purus sit amet fermentum.',
+		size: 'xxl', 
+		color: 'brightblue',
+		custom_color: '#ff6600',
+		margin: 'large',
+		font_style: 'is-style-serif'
+	}, with_context = false)}}
+
+#}
+
 {{include('components/heading.twig', {
 	blockname: blockname,
-	type: 'h2',
-	text: 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.',
+	type: fields.type,
+	text:fields.text,
+	size: fields.size,
+	color: attributes.colors.text|default('mediumblue'),
+	custom_color: attributes.custom_colors.text,
+	margin: attributes.spacing.margin.bottom,
+	font_style:  attributes.class
 }, with_context = false)}}
