@@ -1,0 +1,3 @@
+.innerblock .container {
+	@apply max-w-none px-0;
+}
