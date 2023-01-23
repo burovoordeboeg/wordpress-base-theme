@@ -7,3 +7,8 @@ function importAll(r) {
 }
 
 importAll(require.context("../../blocks/", true, /\/scripts\.js$/));
+
+// Import js for pages
+function importAll(r) {
+  r.keys().forEach(r);
+}

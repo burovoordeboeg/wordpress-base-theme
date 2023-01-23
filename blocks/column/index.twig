@@ -2,10 +2,11 @@
 	'acf/buttons',
 	'acf/heading',
 	'acf/wysiwyg',
+	'acf/image',
 ] %}
 
 {% block content %}
 
-	<InnerBlocks class="flex-1" allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
+	<InnerBlocks class="innerblock" allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
 
 {% endblock %}
