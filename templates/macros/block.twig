@@ -1,11 +1,17 @@
-{# Set background color on block #}
+
+{# Set background color as tailwind class #}
 {% macro background(attributes) %}
 	{{attributes.colors.background ? 'bg-' ~ attributes.colors.background }}
 {% endmacro %}
 
+{# Set text color as tailwind class #}
+{% macro textcolor(attributes) %}
+	{{attributes.colors.text ? 'text-' ~ attributes.colors.text }}
+{% endmacro %}
+
 {# Set custom inline styles #}
 {% macro style(attributes) %}
-	{{attributes.custom_colors.background ? 'style=background:' ~ attributes.custom_colors.background}}
+	style="background: {{ attributes.custom_colors.background }}; color: {{ attributes.custom_colors.text }};"
 {% endmacro %}
 
 {# Set vertical spacing to margin or padding based on background color #}
@@ -52,3 +58,4 @@
 {% macro fullheight(attributes) %}
 	{{attributes.alignment.fullHeight ? 'h-screen'}}
 {% endmacro %}
+

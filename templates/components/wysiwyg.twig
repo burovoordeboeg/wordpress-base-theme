@@ -16,8 +16,10 @@
 	margin_bottom: margin ? margin_bottom[margin] : null
 } %}
 
+
+
 {% if attr.content %}
-	<div {{attr.blockname}} class="{{attr.classes}} {{attr.color}} {{attr.margin_bottom}} {{attr.cls}}" {{attr.custom_color}}>
+	<div {{attr.blockname}} class="{{attr.classes}} {{attr.color ? attr.color : 'text-inherit'}} {{attr.margin_bottom}} {{attr.cls}}" {{attr.custom_color}}>
 		{{attr.content|raw}}
 	</div>
 {% endif %}
