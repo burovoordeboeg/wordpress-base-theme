@@ -1,0 +1,25 @@
+{# Set margin bottom options #}
+{% set margin_bottom = {
+	small: 'mb-2',
+	medium: 'mb-4',
+	large: 'mb-8',
+	xlarge: 'mb-12',
+}  %}
+
+{% set attr = {
+	blockname: blockname ? 'data-block-id=' ~ blockname : null,
+	content: content ? content : null,
+	classes: 'prose max-w-none',
+	color: color ? 'text-' ~ color : null,
+	custom_color: custom_color ? 'style=color:' ~ custom_color : null,
+	cls: cls ? cls : null,
+	margin_bottom: margin ? margin_bottom[margin] : null
+} %}
+
+
+
+{% if attr.content %}
+	<div {{attr.blockname}} class="{{attr.classes}} {{attr.color ? attr.color : 'text-inherit'}} {{attr.margin_bottom}} {{attr.cls}}" {{attr.custom_color}}>
+		{{attr.content|raw}}
+	</div>
+{% endif %}

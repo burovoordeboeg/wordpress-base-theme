@@ -1,0 +1,16 @@
+{% extends "base/block.twig" %}
+
+{% set allowed_blocks = [
+	'acf/column',
+] %}
+
+{% set template = [
+	["acf/column"],
+	["acf/column"],
+] %}
+
+{% block content %}
+
+	<InnerBlocks class="md:flex gap-8 [&_*]:flex-1" allowedBlocks={{ json_encode(allowed_blocks) }} template="{{ json_encode(template) }}"  />
+
+{% endblock %}

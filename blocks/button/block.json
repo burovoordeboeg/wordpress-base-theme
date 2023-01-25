@@ -13,22 +13,22 @@
         "postTypes": [ "page" ]
     },
     "supports": {
-        "align": ["none", "wide", "full"],
+        "align": false,
         "anchor": true,
-        "alignContent": true,
-        "alignText": true,
+        "alignContent": false,
+        "alignText": false,
         "color": {
-            "text": true,
-            "background": true
-        },
-        "spacing": {
-            "margin": true,
-            "padding": true,
-            "blockGap": [ "horizontal", "vertical" ]
+            "text": false,
+            "background": false
         },
         "typography": {
             "fontSize": false
         },
-        "fullHeight": true
-    }
+        "fullHeight": false
+    },
+    "styles": [
+        { "name": "primary", "label": "Primary", "isDefault": true },
+        { "name": "secondary", "label": "Secondary" },
+        { "name": "link", "label": "Link" }
+    ]
 }

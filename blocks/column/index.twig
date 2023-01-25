@@ -1,0 +1,12 @@
+{% set allowed_blocks = [
+	'acf/buttons',
+	'acf/heading',
+	'acf/wysiwyg',
+	'acf/image',
+] %}
+
+{% block content %}
+
+	<InnerBlocks class="innerblock" allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
+
+{% endblock %}

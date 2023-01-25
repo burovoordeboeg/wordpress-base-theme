@@ -1,0 +1,37 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "name": "acf/startblock",
+    "title": "Startblock",
+    "description": "Een blockom mee te starten",
+    "style": [],
+    "category": "buro-voor-de-boeg",
+    "icon": "button",
+    "acf": {
+        "mode": "preview",
+        "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],
+        "postTypes": [ "page" ]
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "alignContent": true,
+        "alignText": true,
+        "color": {
+            "text": true,
+            "background": true
+        },
+        "typography": {
+            "fontSize": true
+        },
+        "fullHeight": true,
+        "spacing": {
+			"margin": ["bottom", "top"],
+            "padding": ["bottom"]
+		}
+    },
+    "example": {
+        "attributes": {
+            "message": "This is a notice!"
+        }
+    }
+}

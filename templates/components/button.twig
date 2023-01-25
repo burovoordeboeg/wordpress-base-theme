@@ -1,71 +1,23 @@
-{# >>>  Defaults #}
-{% set defaults = {
-  data: {
-    name: 'c-button',
-    text: null,
-    url: null,
-    variant: 'primary',
-	textcolor: 'white',
-	bgcolor: 'red',
-    icon: null,
-	iconStyle: 'solid',
-	iconSize: 'sm',
-    reverse: false,
-  },
-  classes: {
-    root: 'items-center justify-center rounded font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
-    custom: '',
-    display: 'inline-flex gap-2',
-  },
-  variants: {
-	outline: {
-		root:'px-6 py-3 border-2 bg-white border-'~ data.bgcolor ~ ' text-' ~ data.textcolor ~ ' hover:bg-' ~ data.bgcolor ~ ' hover:text-white',
+{# Basics #}
+{% set blockname 	= blockname ? 'data-block-id='~blockname : '' %}
+{% set tag 			= url ? 'a' : 'button' %}
+{% set att 			= url ? 'href=' ~ url : 'type=button' %}
+{% set target 		= target ? 'target=' ~ target : '' %}
+{% set pointer 		= is_preview ? 'pointer-events-none ' : '' %}
+
+{# Set classes #}
+{% set class = {
+	base: pointer ~ 'inline-flex items-center justify-center rounded px-4 py-3 text-black',
+	style: {
+		'is-style-primary' : 'bg-red-500 text-white',
+		'is-style-secondary' : 'bg-green-500 text-black',
+		'is-style-link' : 'bg-transparent text-red-500',
 	},
-    inline: {
-		root:'px-0 py-4 text-'~ data.textcolor,
-	},
-    fill: {
-		root:'px-6 py-3 bg-'~ data.bgcolor ~ ' text-'~ data.textcolor ~ ' hover:bg-'~ data.bgcolor ~'/80',
-	}
-  }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
-  classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
-  variants: defaults.variants,
-  size: defaults.sizes
-} %}
+{# Output #}
+<{{tag}} {{ att }} {{ target }} {{blockname}} class="{{class.base}} {{class.style[style]}}">
 
-{% set tag = props.data.url ? 'a' : 'button' %}
-{% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
+	{{ text }}
 
-{# Combine classes #}
-{% set class = props.data.name ~ ' ' ~  props.classes.root ~ ' ' ~ props.classes.display  ~ ' ' ~ props.variants[props.data.variant].root ~ ' ' ~ props.variants[props.data.variant].color[props.data.color] ~  ' ' ~ props.classes.custom  %}
-
-{# Template #}
-{% if props.data.text or props.data.icon %}
-
-	<{{tag}}
-		{{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }} class="{{ class | spaceless }}">
-
-		{# >>> If icon exists #}
-		{% if props.data.icon %}
-			{# >>> Render icon  #}
-			{{ include('components/icon.twig', {
-		data: {
-			icon: props.data.icon,
-			style: props.data.iconStyle,
-			variant: props.data.iconSize
-		},
-		classes: {
-			custom: (props.data.reverse ? 'order-2')
-		}
-		}, withContext = false) }}
-		{% endif %}
-
-		{{ props.data.text }}
-
-	</{{tag}}>
-{% endif %}
+</{{tag}}>

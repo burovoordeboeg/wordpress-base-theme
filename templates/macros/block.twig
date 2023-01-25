@@ -1,0 +1,61 @@
+
+{# Set background color as tailwind class #}
+{% macro background(attributes) %}
+	{{attributes.colors.background ? 'bg-' ~ attributes.colors.background }}
+{% endmacro %}
+
+{# Set text color as tailwind class #}
+{% macro textcolor(attributes) %}
+	{{attributes.colors.text ? 'text-' ~ attributes.colors.text }}
+{% endmacro %}
+
+{# Set custom inline styles #}
+{% macro style(attributes) %}
+	style="background: {{ attributes.custom_colors.background }}; color: {{ attributes.custom_colors.text }};"
+{% endmacro %}
+
+{# Set vertical spacing to margin or padding based on background color #}
+{% macro spacing(attributes) %}
+	{% set padding = {
+		small: 'py-4 md:py-8 lg:py-12',
+		medium: 'py-8 md:py-12 lg:py-16',
+		large: 'py-12 md:py-16 lg:py-24',
+		xlarge: 'py-16 md:py-24 lg:py-32',
+	} %}
+	
+	{% set margin_top = {
+		small: 'mt-4 md:mt-8 lg:mt-12',
+		medium: 'mt-8 md:mt-12 lg:mt-16',
+		large: 'mt-12 md:mt-16 lg:mt-24',
+		xlarge: 'mt-16 md:mt-24 lg:mt-32',
+	} %}
+
+	{% set margin_bottom = {
+		small: 'mb-4 md:mb-8 lg:mb-12',
+		medium: 'mb-8 md:mb-12 lg:mb-16',
+		large: 'mb-12 md:mb-16 lg:mb-24',
+		xlarge: 'mb-16 md:mb-24 lg:mb-32',
+	} %}
+
+	{{padding[attributes.spacing.padding.bottom]}} {{margin_top[attributes.spacing.margin.top]}} {{margin_bottom[attributes.spacing.margin.bottom]}}
+{% endmacro %}
+
+{# Set container width based on alignment #}
+{% macro container(attributes) %}	
+	{# Set max width #}
+	{% if attributes.alignment.align == 'wide' %}
+	 	{% set container = 'max-w-screen-lg' %}
+	{% elseif attributes.alignment.align == 'full' %}
+		{% set container = 'max-w-screen-2xl' %}
+	{% else %}
+		{% set container = 'max-w-screen-md' %}
+	{% endif %}
+	{# Return container #}
+	{{'container ' ~ container}}
+{% endmacro %}
+
+{# Set block height based on attributes #}
+{% macro fullheight(attributes) %}
+	{{attributes.alignment.fullHeight ? 'h-screen'}}
+{% endmacro %}
+

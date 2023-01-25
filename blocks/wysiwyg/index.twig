@@ -1,0 +1,8 @@
+
+{{include('components/wysiwyg.twig', {
+	blockname: blockname,
+	content: fields.wysiwyg,
+	color: attributes.colors.text,
+	custom_color: attributes.custom_colors.text,
+	margin: attributes.spacing.margin.bottom
+}, with_context = false)}}

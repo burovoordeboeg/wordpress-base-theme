@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/buttons",
-    "title": "Buttons",
-    "description": "Een buttons block met één of meerdere buttons",
+    "name": "acf/wysiwyg",
+    "title": "Wysiwyg",
+    "description": "Een wysiwyg block",
     "style": [  ],
     "category": "buro-voor-de-boeg",
     "icon": "button",
@@ -13,27 +13,21 @@
         "postTypes": [ "page" ]
     },
     "supports": {
-        "align": ["wide", "full"],
+        "align": false,
         "anchor": true,
         "alignContent": false,
-        "alignText": true,
+        "alignText": false,
         "color": {
-            "text": false,
+            "text": true,
             "background": false
         },
+        "spacing": {
+			"margin": ["bottom"]
+		},
         "typography": {
             "fontSize": false
         },
-        "fullHeight": false,
-        "__experimentalLayout": {
-			"allowSwitching": false,
-			"allowInheriting": false,
-			"default": {
-				"type": "flex"
-			}
-		},
-        "spacing": {
-			"margin": [ "top" ]
-		}
-    }
+        "fullHeight": false
+    },
+    "styles": []
 }
