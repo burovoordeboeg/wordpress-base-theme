@@ -1,0 +1,73 @@
+{# 1. Background color based on class or hex #}
+{% set bgcolor = attributes.colors.background ? 'bg-' ~ attributes.colors.background %}
+{% set bghex = attributes.custom_colors.background ? 'background:' ~ attributes.custom_colors.background ~ ';' %}
+
+{# 2. Text color based on class or hex #}
+{% set textcolor = attributes.colors.text ? 'text-' ~ attributes.colors.text %}
+{% set texthex = attributes.custom_colors.text ? 'color:' ~ attributes.custom_colors.text ~ ';' %}
+
+{# 3. Get and set margin top and bottom #}
+{% set margin = {
+	top: {
+		none: '',
+		small: 'mt-4 md:mt-8 lg:mt-12',
+		medium: 'mt-8 md:mt-12 lg:mt-16',
+		large: 'mt-12 md:mt-16 lg:mt-24',
+		xlarge: 'mt-16 md:mt-24 lg:mt-32',
+	},
+	bottom: {
+		none: '',
+		small: 'mb-4 md:mb-8 lg:mb-12',
+		medium: 'mb-8 md:mb-12 lg:mb-16',
+		large: 'mb-12 md:mb-16 lg:mb-24',
+		xlarge: 'mb-16 md:mb-24 lg:mb-32',
+	}
+} %}
+
+{% set mt = attributes.spacing.margin.top ? margin.top[attributes.spacing.margin.top] %}
+{% set mb = attributes.spacing.margin.bottom ? margin.bottom[attributes.spacing.margin.bottom] %}
+
+{# 4. Padding y #}
+{% set padding = {
+	top: {
+		none: '',
+		small: 'pt-4 md:pt-8 lg:pt-12',
+		medium: 'pt-8 md:pt-12 lg:pt-16',
+		large: 'pt-12 md:pt-16 lg:pt-24',
+		xlarge: 'pt-16 md:pt-24 lg:pt-32',
+	},
+	bottom: {
+		none: '',
+		small: 'pb-4 md:pb-8 lg:pb-12',
+		medium: 'pb-8 md:pb-12 lg:pb-16',
+		large: 'pb-12 md:pb-16 lg:pb-24',
+		xlarge: 'pb-16 md:pb-24 lg:pb-32',
+	}
+} %}
+
+{% set pt = attributes.spacing.padding.top ? padding.top[attributes.spacing.padding.top] %}
+{% set pb = attributes.spacing.padding.bottom ? padding.bottom[attributes.spacing.padding.bottom] %}
+
+{# 5. Container max width based on align #}
+{% set align = {
+	'none': 'max-w-screen-md',
+	'wide': 'max-w-screen-lg',
+	'full': 'max-w-screen-2xl',
+} %}
+{% set maxwidth = attributes.alignment.align ? align[attributes.alignment.align] : align['none'] %}
+
+{# 6. Set classes and styles #}
+{% set class = bgcolor ~ ' ' ~ textcolor ~ ' ' ~ mt ~ ' ' ~ mb ~ ' ' ~ pt ~ ' ' ~ pb %}
+{% set style = 'style="' ~ bghex ~ ' ' ~ texthex ~ '"' %}
+
+<div data-block-id="{{ blockname }}" class="{{class|spaceless}}" {{style|raw}}>
+	
+	<div class="container {{maxwidth}}">
+
+		{% block content %}
+			This is our block: {{blockname}}
+		{% endblock %}
+
+	</div>
+
+</div>

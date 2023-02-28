@@ -1,7 +1,9 @@
-{% extends "base/block.twig" %}
+{% embed "embeds/block.twig" %}
+	
+	{% block content %}
 
-{% block content %}
+		<img class="w-full h-full object-cover" src="https://source.unsplash.com/gySMaocSdqs/600x300" alt="">
 
-	<img class="" src="https://source.unsplash.com/gySMaocSdqs/600x300" alt="">
+	{% endblock %}
 
-{% endblock %}
+{% endembed %}

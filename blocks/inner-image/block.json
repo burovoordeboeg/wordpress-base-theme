@@ -1,11 +1,12 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/image",
+    "name": "acf/inner-image",
     "title": "Image",
-    "description": "Een image block",
+    "description": "Een inner image block",
     "style": [],
     "category": "buro-voor-de-boeg",
     "icon": "button",
+    "parent": ["acf/media"],
     "acf": {
         "mode": "preview",
         "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],

@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/image",
-    "title": "Image",
-    "description": "Een image block",
+    "name": "acf/media-text",
+    "title": "Media and text",
+    "description": "Een media & text block",
     "style": [],
     "category": "buro-voor-de-boeg",
     "icon": "button",
@@ -13,8 +13,8 @@
     },
     "supports": {
         "align": ["wide", "full"],
-        "anchor": false,
-        "alignContent": false,
+        "anchor": true,
+        "alignContent": true,
         "alignText": false,
         "color": {
             "text": true,
@@ -23,15 +23,11 @@
         "typography": {
             "fontSize": false
         },
-        "fullHeight": true,
+        "fullHeight": false,
         "spacing": {
-			"margin": ["top", "bottom"],
-            "padding": ["top","bottom"]
+			"margin": ["bottom", "top"],
+            "padding": ["bottom"],
+            "blockGap": true
 		}
-    },
-    "example": {
-        "attributes": {
-            "message": "This is a notice!"
-        }
     }
 }
