@@ -1,23 +1,30 @@
 {# Basics #}
-{% set blockname 	= blockname ? 'data-block-id='~blockname : '' %}
 {% set tag 			= url ? 'a' : 'button' %}
 {% set att 			= url ? 'href=' ~ url : 'type=button' %}
 {% set target 		= target ? 'target=' ~ target : '' %}
+{% set name 		= name ? name : 'c-button' %}
 {% set pointer 		= is_preview ? 'pointer-events-none ' : '' %}
+{% set style 		= style ? style : 'default' %}
 
 {# Set classes #}
-{% set class = {
-	base: pointer ~ 'inline-flex items-center justify-center rounded px-4 py-3 text-black',
-	style: {
-		'is-style-primary' : 'bg-red-500 text-white',
-		'is-style-secondary' : 'bg-green-500 text-black',
-		'is-style-link' : 'bg-transparent text-red-500',
-	},
+{% set classes = {
+	base: name ~ ' ' ~ pointer ~ 'inline-flex items-center justify-center rounded px-4 py-3',
+	default: 'text-black, bg-gray-200',
+	primary: 'bg-teal-500 text-white'
 } %}
 
 {# Output #}
-<{{tag}} {{ att }} {{ target }} {{blockname}} class="{{class.base}} {{class.style[style]}}">
+<{{tag}} {{ att }} {{ target }} {{blockname}} class="{{classes.base}} {{classes[style]}} {{class}}">
 
 	{{ text }}
 
 </{{tag}}>
+
+
+{# How to include #}
+{# {{include('components/button.twig', {
+	text: Button',
+	url: '#',
+	target: '_blank',
+	name: 'c-button'
+}, withContext = false }}  #}

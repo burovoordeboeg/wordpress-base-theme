@@ -1,7 +1,32 @@
 {% extends "base/block.twig" %}
 
+{% set class = 'bg-gray-100 py-16 px-8' %}
+
 {% block content %}
+	<div class="max-w-7xl mx-auto flex">
+		<div class="mr-4 flex-shrink-0">
+			<svg class="h-full w-16 border border-gray-300 bg-white text-gray-300" preserveAspectRatio="none" stroke="currentColor" fill="none" viewBox="0 0 200 200" aria-hidden="true">
+				<path vector-effect="non-scaling-stroke" stroke-width="1" d="M0 0l200 200M0 200L200 0" />
+			</svg>
+		</div>
+		<div>
+			<h4 class="text-lg font-bold">Lorem ipsum</h4>
+			<p class="mt-1 mb-">Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.</p>
+				
+				{{include('components/button.twig', {
+					text: 'button',
+					url: null,
+					target: null,
+					style: 'primary'
+				}, withContext = false)}}
 
-{{fields.video}}
+				{{include('components/button.twig', {
+					text: 'button',
+					url: '#',
+					target: null,
+					class: 'mt-2'
+				}, withContext = false) }}
 
+		</div>
+	</div>
 {% endblock %}

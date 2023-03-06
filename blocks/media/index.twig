@@ -1,9 +1,0 @@
-{% set allowed_blocks = [
-	'acf/inner-image',
-] %}
-
-{% block content %}
-
-	<InnerBlocks class="h-full w-full"  allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
-
-{% endblock %}

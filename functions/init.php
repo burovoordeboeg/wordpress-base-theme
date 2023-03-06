@@ -83,7 +83,6 @@
 		$assets->load_theme_assets();
 
 		// Setup editor assets to enqueue
-		$assets->register('editor', 'script', 'bvdb-scripts', $assets->get_file_from_manifest('scripts/scripts.js'));
 		$assets->register('editor', 'script', 'bvdb-editor-scripts', $assets->get_file_from_manifest('scripts/editor.js'), array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'));
 
 		// Load editor assets
@@ -105,7 +104,6 @@
 		// Set allowed default_blocks
 		$gutenberg->set_allowed_default_blocks( array(
 			'gravityforms/form',
-			'core/media-text'
 		) );
 
 		// Load all blocks
