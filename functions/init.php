@@ -83,7 +83,6 @@
 		$assets->load_theme_assets();
 
 		// Setup editor assets to enqueue
-		$assets->register('editor', 'script', 'bvdb-scripts', $assets->get_file_from_manifest('scripts/scripts.js'));
 		$assets->register('editor', 'script', 'bvdb-editor-scripts', $assets->get_file_from_manifest('scripts/editor.js'), array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'));
 
 		// Load editor assets
