@@ -1,6 +1,3 @@
-// import 'magnific-popup';
-// import './magnific-popup';
-
 // Import js for componenents
 importAll(require.context("../../blocks/", true, /\/scripts\.js$/));
 
