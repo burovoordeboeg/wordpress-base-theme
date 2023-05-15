@@ -3,19 +3,4 @@
 
 {% block content %}
 	{{object.get_content()|raw}}
-
-	{{include('components/button.twig', {
-		text: 'button',
-		url: null,
-		target: null,
-		style: 'primary'
-	})}}
-
-	{{include('components/button.twig', {
-		text: 'button',
-		url: '#',
-		target: null,
-	})}}
-
-
 {% endblock %}

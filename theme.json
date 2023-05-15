@@ -3,11 +3,11 @@
 	"version": 2,
 	"settings": {
 		"layout": {
-			"contentSize": "768px",
-			"wideSize": "1024px"
+			"contentSize": "1024px",
+			"wideSize": "1280px"
 		},
 		"color": {
-      	"link": true,
+			"link": true,
 			"defaultPalette": false,
 			"palette": [
 				{
@@ -43,32 +43,7 @@
 			]
 		},
 		"spacing": {
-			"blockGap": true,
-			"margin": true,
-			"padding": true,
-			"customSpacingSize": false,
-			"spacingSizes": [
-				{
-					"size": "",
-					"slug": "small",
-					"name": "small"
-				},
-				{ 
-					"size": "",
-					"slug": "medium",
-					"name": "medium" 
-				},
-				{
-					"size": "",
-					"slug": "large",
-					"name": "large"
-				},
-				{
-					"size": "",
-					"slug": "xlarge",
-					"name": "Extra large"
-				}
-			]
+			"blockGap": true
 		}
 	}
 }

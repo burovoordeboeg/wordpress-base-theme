@@ -2,11 +2,9 @@
 /* @import-glob "../../blocks/" is importing all block styles that are included in acf blocks */
 /* Theme can be used for specific theme styles */
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 @import-glob "./components/**/*.css";
-@import-glob "./blocks/**/*.css";
 @import-glob "../../blocks/**/*.css";
-@import 'magnific-popup';
-@import 'theme';
-@import 'tailwindcss/utilities';
+@import "theme";
+@import "tailwindcss/utilities";

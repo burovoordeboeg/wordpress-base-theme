@@ -1,0 +1,23 @@
+<pre class="prose max-w-none">
+	{{ dump() }}
+</pre>
+
+{% if attributes.colors %}
+	{% if attributes.colors.text %}
+		{% set text_color = 'color:' ~ attributes.colors.text ~ ';' %}
+	{% endif %}
+
+	{% if attributes.colors.background %}
+		{% set bg_color = 'background-color:' ~ attributes.colors.background ~ ';' %}
+	{% endif %}
+
+	{% set style = 'style=' ~ text_color ~ bg_color  %}
+
+{% endif %}
+
+
+<section data-block-id="{{ blockname }}" class="{{class}}"  {{style}}>
+	{% block content %}
+		<div class="bg-gray-100">This is our block:{{blockname}}</div>
+	{% endblock %}
+</section>

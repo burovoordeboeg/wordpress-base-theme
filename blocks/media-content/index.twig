@@ -1,0 +1,10 @@
+{# <pre class="prose max-w-none">
+	{{ dump() }}
+</pre> #}
+
+<section data-block-id="{{ blockname }}" class="grid grid-cols-2 gap-8 my-8">
+	<div class="bg-gray-100">
+		{{ wp_get_attachment_image(fields.image, size, null, { class: class|default('w-full') })|raw }}
+	</div>
+	<div class="bg-gray-100">Contents</div>
+</section>
