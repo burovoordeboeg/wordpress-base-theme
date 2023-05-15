@@ -1,13 +1,13 @@
 {
-    "key": "group_63c952b4328d7",
-    "title": "Wysiwyg",
+    "key": "group_6462193899913",
+    "title": "Media Content",
     "fields": [
         {
-            "key": "field_63c952b4b5f2d",
-            "label": "Wysiwyg",
-            "name": "wysiwyg",
+            "key": "field_6462193801eaf",
+            "label": "Image",
+            "name": "image",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -28,7 +33,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/wysiwyg"
+                "value": "acf\/media-content"
             }
         ]
     ],
@@ -41,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674138319
+    "modified": 1684150613
 }
