@@ -30,7 +30,7 @@
             "fontSize": false
         },
         "fullHeight": false,
-        "spacing": []
+        "spacing": {}
     },
     "example": {
         "attributes": {
