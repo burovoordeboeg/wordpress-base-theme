@@ -1,0 +1,67 @@
+{# <pre class="prose max-w-none">
+	{{ dump() }}
+</pre> #}
+
+{% from 'macros/images.twig' import wpimage as image %}
+
+{% set template = [
+    ['core/heading', {
+        'level': 1,
+        'placeholder': 'Heading goes here.',
+        'align': 'center',
+        'className': 'mt-24 text-4xl font-bold tracking-tight sm:mt-10 sm:text-6xl',
+    }],
+    ['core/paragraph', {
+        'placeholder': 'Describe here.', 
+        'align': 'left', 
+        'className': 'mt-6 mr-12 text-lg leading-8',
+    }],
+	 ['core/buttons',{
+		'className': 'mt-10',
+	 },[
+        ['core/button', {
+			'placeholder': 'Placeholder text',
+		}],
+		['core/button', {
+			'placeholder': 'Placeholder text',
+		}]
+    ]]
+] %}
+
+{% set allowed_blocks = [
+    'core/heading', 
+    'core/paragraph',
+    'core/buttons',
+    'core/button',
+] %}
+
+
+{% set class = {
+	'is-style-red': '',
+	'is-style-green': 'bg-green-500',
+	'is-style-blue': 'bg-blue-500'
+} %}
+
+<div class="acf-{{blockname}} relative {{class[attributes.class]}} {{attributes.class}}">
+  <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+    <div class="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
+		<InnerBlocks class="mx-auto max-w-2xl lg:mx-0" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
+    </div>
+    <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
+
+		{% if is_preview and fields.image == empty%}
+			<div class="h-full w-full bg-gray-50 flex items-center justify-center border-2 border-dashed border-gray-200">
+				<p class="bg-gray-200 px-8 py-4 rounded text-gray-600 inline-flex items-center gap-2">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+					Add image in sidepanel
+				</p>
+			</div>
+			{% else %}
+			{{image(fields.image, 'full', 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full')}}
+		{% endif %}
+    
+	</div>
+  </div>
+</div>

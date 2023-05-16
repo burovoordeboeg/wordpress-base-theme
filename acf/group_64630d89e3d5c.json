@@ -1,9 +1,9 @@
 {
-    "key": "group_6462193899913",
-    "title": "Media Content",
+    "key": "group_64630d89e3d5c",
+    "title": "Hero",
     "fields": [
         {
-            "key": "field_6462193801eaf",
+            "key": "field_64630d8ae314a",
             "label": "Image",
             "name": "image",
             "aria-label": "",
@@ -33,7 +33,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/media-content"
+                "value": "acf\/hero"
             }
         ]
     ],
@@ -46,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684150613
+    "modified": 1684213159
 }

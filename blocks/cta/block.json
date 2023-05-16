@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/media-content",
-    "title": "Media-content",
-    "description": "Een blockom mee te starten",
+    "name": "acf/cta",
+    "title": "Cta",
+    "description": "Een block om mee te starten",
     "style": [],
     "category": "common",
     "icon": "button",
@@ -15,17 +15,10 @@
         "postTypes": []
     },
     "supports": {
-        "align": [
-            "wide",
-            "full"
-        ],
+        "align": [],
         "anchor": true,
         "alignContent": false,
         "alignText": false,
-        "color": {
-            "text": false,
-            "background": false
-        },
         "typography": {
             "fontSize": false
         },

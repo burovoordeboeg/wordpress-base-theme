@@ -1,0 +1,5 @@
+.acf-hero {
+  &.is-style-red {
+    @apply text-red-900 bg-red-400;
+  }
+}

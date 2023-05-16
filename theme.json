@@ -3,47 +3,36 @@
 	"version": 2,
 	"settings": {
 		"layout": {
-			"contentSize": "1024px",
-			"wideSize": "1280px"
+			"contentSize": "1280px",
+			"wideSize": "1440px"
 		},
 		"color": {
-			"link": true,
-			"defaultPalette": false,
-			"palette": [
-				{
-					"slug": "white",
-					"color": "#FFFFFF",
-					"name": "Wit"
-				},
-				{
-					"slug": "yellow",
-					"color": "#D3A403",
-					"name": "Geel"
-				},
-				{
-					"slug": "brightblue",
-					"color": "#009FE3",
-					"name": "Licht Blauw"
-				},
-				{
-					"slug": "secondaryblue",
-					"color": "#00FF00",
-					"name": "Secundair blauw"
-				},
-				{
-					"slug": "mediumblue",
-					"color": "#004B8C",
-					"name": "Medium Blauw"
-				},
-				{
-					"slug": "black",
-					"color": "#000000",
-					"name": "Zwart"
-				}
-			]
+			"text": false,
+			"background": false,
+			"link": false,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": true
+		},
+		"typography": {
+			"fluid": false,
+			"customFontSize": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"lineHeight": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"dropCap": false,
+			"fontSizes": [],
+			"fontFamilies": []
 		},
 		"spacing": {
 			"blockGap": true
-		}
+		},
+		"blocks": {}
 	}
 }
