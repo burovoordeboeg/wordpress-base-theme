@@ -30,7 +30,8 @@
 		// Add any other Gutenberg stylesheets you want to remove
 	}
 	add_action('wp_enqueue_scripts', 'remove_gutenberg_stylesheets', 100);
-
+	
+	// Remove Gutenberg stylesheets from backend for performance
 	function remove_gutenberg_backend_styles() {
 		wp_dequeue_style('wp-block-library');              // Gutenberg blocks styles
 		wp_dequeue_style('wp-block-library-theme');        // Gutenberg default theme styles
@@ -38,3 +39,12 @@
 		wp_dequeue_style('storefront-gutenberg-blocks');   // Storefront theme's Gutenberg blocks styles (if applicable)
 	}
 	add_action('admin_enqueue_scripts', 'remove_gutenberg_backend_styles', 100);
+
+	// Disable unlocking of blocks by certain users
+	function bvdb_admin_only_block_locking($settings, $context) {
+		// admin level only
+		// change current_user_can to 'delete_others_posts' for editor level+
+		$settings['canLockBlocks'] = current_user_can('activate_plugins');
+		return $settings;
+	  }
+	  add_filter('block_editor_settings_all', 'bvdb_admin_only_block_locking', 10, 2);
