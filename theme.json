@@ -4,7 +4,7 @@
 	"settings": {
 		"layout": {
 			"contentSize": "1280px",
-			"wideSize": "1440px"
+			"wideSize": "1536px"
 		},
 		"color": {
 			"text": false,
@@ -33,6 +33,19 @@
 		"spacing": {
 			"blockGap": true
 		},
-		"blocks": {}
+		"blocks": {
+			"core/paragraph": {
+				"color": {},
+				"custom": {},
+				"layout": {},
+				"typography": {}
+			},
+			"core/heading": {
+				"color": {},
+				"custom": {},
+				"layout": {},
+				"typography": {}
+			}
+		}
 	}
 }

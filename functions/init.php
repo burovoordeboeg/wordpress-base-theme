@@ -48,10 +48,6 @@
 		'size_h' => 300
 	));
 
-	
-
-
-
 	/**
 	 * Autoload all theme files such as scripts/styles needed for the theme
 	 * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/

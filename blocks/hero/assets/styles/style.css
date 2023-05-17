@@ -1,4 +1,15 @@
-.acf-hero {
+.hero {
+  @apply container mx-auto;
+
+  &--small {
+    @apply max-w-screen-xl;
+  }
+  &--wide {
+    @apply max-w-screen-2xl;
+  }
+  &--full {
+    @apply max-w-full;
+  }
   &.is-style-red {
     @apply text-red-900 bg-red-400;
   }

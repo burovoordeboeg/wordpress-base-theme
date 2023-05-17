@@ -2,7 +2,7 @@
 	{{ dump() }}
 </pre> #}
 
-{% from 'macros/images.twig' import wpimage as image %}
+{% import "macros/macro.twig" as macro %}
 
 {% set template = [
     ['core/heading', {
@@ -36,32 +36,18 @@
 ] %}
 
 
-{% set class = {
-	'is-style-red': '',
-	'is-style-green': 'bg-green-500',
-	'is-style-blue': 'bg-blue-500'
-} %}
-
-<div class="acf-{{blockname}} relative {{class[attributes.class]}} {{attributes.class}}">
-  <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-    <div class="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
-		<InnerBlocks class="mx-auto max-w-2xl lg:mx-0" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
+<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8'}}">
+  <div class="lg:grid lg:grid-cols-12 lg:gap-x-8">
+    <div class="lg:col-span-7">
+		<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
     </div>
-    <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
-
+    <div class="lg:col-span-5">
 		{% if is_preview and fields.image == empty%}
-			<div class="h-full w-full bg-gray-50 flex items-center justify-center border-2 border-dashed border-gray-200">
-				<p class="bg-gray-200 px-8 py-4 rounded text-gray-600 inline-flex items-center gap-2">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-					</svg>
-					Add image in sidepanel
-				</p>
-			</div>
+			{{macro.preview}}
 			{% else %}
-			{{image(fields.image, 'full', 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full')}}
+			{{macro.wpimage(fields.image, 'full', ' w-full bg-gray-50')}}
 		{% endif %}
-    
+
 	</div>
   </div>
 </div>

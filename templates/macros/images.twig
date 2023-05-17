@@ -1,5 +1,0 @@
-{% macro wpimage(id, size = 'full', class = 'w-full') %}
-	{{wp_get_attachment_image(id, size, null, { class: class|default('w-full') })|raw }}
-{% endmacro %}
-
-

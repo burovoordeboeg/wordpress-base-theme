@@ -38,6 +38,7 @@
             "wide",
             "full"
         ],
+        "mode": false,
         "anchor": true,
         "alignContent": false,
         "alignText": false,
@@ -50,6 +51,7 @@
     "example": {
         "attributes": {
             "message": "This is a notice!"
-        }
+        },
+        "viewportWidth": 1200
     }
 }

@@ -50,6 +50,7 @@
     "example": {
         "attributes": {
             "message": "This is a notice!"
-        }
+        },
+        "viewportWidth": 1200
     }
 }
