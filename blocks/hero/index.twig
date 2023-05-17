@@ -36,16 +36,16 @@
 ] %}
 
 
-<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8'}}">
+<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : 'px-8 lg:px-0'}}">
   <div class="lg:grid lg:grid-cols-12 lg:gap-x-8">
     <div class="lg:col-span-7">
 		<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
     </div>
-    <div class="lg:col-span-5">
+    <div class="lg:col-span-5 relative">
 		{% if is_preview and fields.image == empty%}
 			{{macro.preview}}
 			{% else %}
-			{{macro.wpimage(fields.image, 'full', ' w-full bg-gray-50')}}
+			{{macro.wpimage(fields.image, 'full', ' w-full bg-gray-50 h-full object-cover')}}
 		{% endif %}
 
 	</div>

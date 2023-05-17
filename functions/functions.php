@@ -19,3 +19,22 @@
 
 		return null;
 	}
+
+
+	// Remove Gutenberg stylesheets from frontend for performance
+	function remove_gutenberg_stylesheets() {
+		wp_dequeue_style('wp-block-library');              // Gutenberg blocks styles
+		wp_dequeue_style('wp-block-library-theme');        // Gutenberg default theme styles
+		wp_dequeue_style('wc-block-style');                // WooCommerce blocks styles
+		wp_dequeue_style('storefront-gutenberg-blocks');   // Storefront theme's Gutenberg blocks styles (if applicable)
+		// Add any other Gutenberg stylesheets you want to remove
+	}
+	add_action('wp_enqueue_scripts', 'remove_gutenberg_stylesheets', 100);
+
+	function remove_gutenberg_backend_styles() {
+		wp_dequeue_style('wp-block-library');              // Gutenberg blocks styles
+		wp_dequeue_style('wp-block-library-theme');        // Gutenberg default theme styles
+		wp_dequeue_style('wc-block-style');                // WooCommerce blocks styles
+		wp_dequeue_style('storefront-gutenberg-blocks');   // Storefront theme's Gutenberg blocks styles (if applicable)
+	}
+	add_action('admin_enqueue_scripts', 'remove_gutenberg_backend_styles', 100);

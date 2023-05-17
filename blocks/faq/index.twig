@@ -1,25 +1,20 @@
 {# <pre class="prose max-w-none">
 	{{ dump() }}
 </pre> #}
+{% import "macros/macro.twig" as macro %}
 
 {% set template = [
     ['core/heading', {
         'level': 2,
         'placeholder': 'Heading goes here.',
         'align': 'center',
-        'className': 'text-2xl font-bold leading-10 tracking-tight',
+        'className': '',
     }],
     ['core/paragraph', {
         'placeholder': 'Describe here.', 
         'align': 'left', 
-        'className': 'mt-4 text-base leading-7',
+        'className': '',
     }],
-	 ['acf/faq-item',{
-		'className': 'mt-10 lg:col-span-7 lg:mt-0',
-		'lock': {
-			'move' : false
-		}
-	 }]
 ] %}
 
 {% set allowed_blocks = [
@@ -27,27 +22,19 @@
     'core/paragraph',
 ] %}
 
-	
+{% set alignment = attributes.alignment.align %}
 
 
-<div class="bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
-    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : 'px-8 lg:px-0'}}">
+  
+    <div class="container lg:grid lg:grid-cols-12 lg:gap-16 py-24 sm:pt-32 lg:py-40">
       
 	  <InnerBlocks class="lg:col-span-5" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all" />
       
 	  <div class="mt-10 lg:col-span-7 lg:mt-0">
         
-		
 		{% if is_preview and fields.item == empty%}
-			<div class="h-full w-full bg-gray-50 flex items-center justify-center border-2 border-dashed border-gray-200">
-				<p class="bg-gray-200 px-8 py-4 rounded text-gray-600 inline-flex items-center gap-2">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-					</svg>
-					Add faq in sidepanel
-				</p>
-			</div>
+			{{macro.preview('Add faq')}}
 		{% else %}
 			<dl class="space-y-10">
 			{% for item in fields.item %}
@@ -60,6 +47,7 @@
 		{% endif %}
       </div>
     </div>
-  </div>
+
+
 </div>
 

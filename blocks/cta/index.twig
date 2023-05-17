@@ -6,13 +6,12 @@
     ['core/heading', {
         'level': 2,
         'placeholder': 'Heading goes here.',
-        'align': 'left',
-        'className': 'text-3xl font-bold tracking-tight sm:text-4xl',
+        'className': 'cta__heading',
     }],
     ['core/paragraph', {
         'placeholder': 'Describe here.', 
         'align': 'left', 
-        'className': 'mx-auto mt-6  text-lg leading-8',
+        'className': 'cta__paragraph',
     }],
 	 ['core/buttons',{
 		'className': 'mt-10',
@@ -25,13 +24,6 @@
 			},
 			
 		}],
-		['core/button', {
-			'placeholder': 'Get started',
-			'lock': {
-				'move'   : true,
-				'remove' : false,
-			},
-		}]
     ]]
 ] %}
 
@@ -43,8 +35,8 @@
 ] %}
 
 
-<div class="bg-white">
+<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8'}}">
   <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-	<InnerBlocks class="mx-auto max-w-4xl" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
+	<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="contentOnly"/>
   </div>
 </div>
