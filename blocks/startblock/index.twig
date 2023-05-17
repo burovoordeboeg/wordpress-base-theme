@@ -2,16 +2,7 @@
 	{{ dump() }}
 </pre> #}
 
-{% set block = {
-	alignment: attributes.alignment.align
-} %}
-
-{# Set container width #}
-{% set container = {
-	'' : 'container max-w-5xl mx-auto',
-	'wide' : 'container mx-auto max-w-7xl mx-auto',
-	'full' : 'container mx-auto max-w-none'
-} %}
+{% import "macros/macro.twig" as macro %}
 
 <section data-block-id="{{ blockname }}" class="{{container[block.alignment]}} {{class}}">
 	<div class="bg-gray-100">This is our block: {{blockname}}</div>

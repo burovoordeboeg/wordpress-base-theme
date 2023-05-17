@@ -1,7 +1,15 @@
 /* This is using the same setup as styles.css but can be extended with specific styles needed in our backend. */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
-@import-glob "./components/**/*.css";
+@import-glob "./wordpress/*.css";
 @import-glob "../../blocks/**/*.css";
 @import "theme";
 @import "tailwindcss/utilities";
+
+.edit-post-visual-editor__post-title-wrapper {
+  @apply bg-gray-50 mt-0 py-16 mb-8 border-b border-dashed !important;
+}
+
+.wp-block-post-title {
+  @apply text-4xl font-bold mb-0 text-gray-600;
+}

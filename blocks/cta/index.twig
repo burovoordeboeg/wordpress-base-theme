@@ -1,0 +1,42 @@
+{# <pre class="prose max-w-none">
+	{{ dump() }}
+</pre> #}
+
+{% set template = [
+    ['core/heading', {
+        'level': 2,
+        'placeholder': 'Heading goes here.',
+        'className': 'cta__heading',
+    }],
+    ['core/paragraph', {
+        'placeholder': 'Describe here.', 
+        'align': 'left', 
+        'className': 'cta__paragraph',
+    }],
+	 ['core/buttons',{
+		'className': 'mt-10',
+	 },[
+        ['core/button', {
+			'placeholder': 'Get started',
+			'lock': {
+				'move'   : true,
+				'remove' : false,
+			},
+			
+		}],
+    ]]
+] %}
+
+{% set allowed_blocks = [
+    'core/heading', 
+    'core/paragraph',
+    'core/buttons',
+    'core/button',
+] %}
+
+
+<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8'}}">
+  <div class="container max-w-3xl py-24  sm:py-32">
+	<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="contentOnly"/>
+  </div>
+</div>

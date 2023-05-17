@@ -48,10 +48,6 @@
 		'size_h' => 300
 	));
 
-	
-
-
-
 	/**
 	 * Autoload all theme files such as scripts/styles needed for the theme
 	 * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
@@ -104,6 +100,12 @@
 		// Set allowed default_blocks
 		$gutenberg->set_allowed_default_blocks( array(
 			'gravityforms/form',
+			'core/heading',
+			'core/paragraph',
+			'core/buttons',
+			'core/button',
+			'acf/columns',
+			'acf/column',
 		) );
 
 		// Load all blocks

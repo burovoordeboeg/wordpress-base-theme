@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/media-content",
-    "title": "Media-content",
+    "name": "acf/hero",
+    "title": "Hero",
     "description": "Een blockom mee te starten",
     "style": [],
     "category": "common",
@@ -38,7 +38,6 @@
             "wide",
             "full"
         ],
-        "mode": false,
         "anchor": true,
         "alignContent": false,
         "alignText": false,
