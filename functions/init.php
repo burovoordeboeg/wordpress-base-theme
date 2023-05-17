@@ -106,6 +106,7 @@
 			'core/button',
 			'acf/columns',
 			'acf/column',
+			'core/media-text',
 		) );
 
 		// Load all blocks

@@ -18,9 +18,15 @@
     }],
 	 ['core/buttons',{
 		'className': '',
+		'lock': {
+			'remove': false
+		}
 	 },[
         ['core/button', {
 			'placeholder': 'Placeholder text',
+			'lock': {
+				'remove': false
+			}
 		}]
     ]]
 ] %}
@@ -33,9 +39,16 @@
 ] %}
 
 {% set alignment = attributes.alignment.align %}
+{% set valign = {
+	top : 'items-start',
+	center : 'items-center',
+	bottom : 'items-end',
+} %}
+
+
 
 <div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : ''}}">
-  <div class="container lg:grid lg:grid-cols-12 lg:gap-x-8 items-center">
+  <div class="container lg:grid lg:grid-cols-12 lg:gap-x-8 {{valign[attributes.alignment.aligncontent]|default('items-center')}}">
     <div class="lg:col-span-6">
 		<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
     </div>

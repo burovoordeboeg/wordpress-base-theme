@@ -12,7 +12,7 @@
   }
 
   &__innerblocks {
-    @apply py-12;
+    @apply py-8;
   }
 
   /* Iframe width */

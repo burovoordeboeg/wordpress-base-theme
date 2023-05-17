@@ -14,25 +14,7 @@
         ],
         "postTypes": []
     },
-    "styles": [
-        {
-            "name": "default",
-            "label": "Default",
-            "isDefault": true
-        },
-        {
-            "name": "red",
-            "label": "Red"
-        },
-        {
-            "name": "green",
-            "label": "Green"
-        },
-        {
-            "name": "blue",
-            "label": "Blue"
-        }
-    ],
+    "styles": [],
     "supports": {
         "align": [
             "wide",
@@ -40,7 +22,7 @@
         ],
         "mode": false,
         "anchor": true,
-        "alignContent": false,
+        "alignContent": true,
         "alignText": false,
         "typography": {
             "fontSize": false
