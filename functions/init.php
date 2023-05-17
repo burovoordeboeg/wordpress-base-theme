@@ -104,6 +104,8 @@
 			'core/paragraph',
 			'core/buttons',
 			'core/button',
+			'acf/columns',
+			'acf/column',
 		) );
 
 		// Load all blocks

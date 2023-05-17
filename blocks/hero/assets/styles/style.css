@@ -1,15 +1,6 @@
 .hero {
-  @apply container mx-auto mb-24;
+  @apply mb-24;
 
-  &--small {
-    @apply max-w-screen-xl;
-  }
-  &--wide {
-    @apply max-w-screen-2xl;
-  }
-  &--full {
-    @apply max-w-full;
-  }
   &.is-style-red {
     @apply text-red-900 bg-red-400;
   }

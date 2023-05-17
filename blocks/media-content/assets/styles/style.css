@@ -1,5 +1,5 @@
 .media-content {
-  @apply container mx-auto mb-24;
+  @apply mx-auto mb-24;
 
   &--small {
     @apply max-w-screen-xl;

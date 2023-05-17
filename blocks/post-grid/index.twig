@@ -7,12 +7,12 @@
         'level': 2,
         'placeholder': 'Heading goes here.',
         'align': 'center',
-        'className': 'text-3xl font-bold tracking-tight sm:text-4xl',
+        'className': '',
     }],
     ['core/paragraph', {
         'placeholder': 'Describe here.', 
         'align': 'center', 
-        'className': 'mt-2 text-lg leading-8',
+        'className': '',
 		'lock': {
             'move'   : true,
             'remove' : false,
@@ -26,9 +26,11 @@
 ] %}
 
 
-<div class="bg-slate-50 py-24 sm:py-32">
+<div class="{{blockname}} bg-slate-50 py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <InnerBlocks class="mx-auto max-w-2xl text-center" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="contentOnly"/>  
+    
+	<InnerBlocks class="{{blockname}}__innerblocks mx-auto max-w-2xl text-center" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="contentOnly"/>  
+	
 	<div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       
 		{% for item in 1..3 %}

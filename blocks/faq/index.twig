@@ -25,7 +25,7 @@
 {% set alignment = attributes.alignment.align %}
 
 
-<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : 'px-8 lg:px-0'}}">
+<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : ''}}">
   
     <div class="container lg:grid lg:grid-cols-12 lg:gap-16 py-24 sm:pt-32 lg:py-40">
       
