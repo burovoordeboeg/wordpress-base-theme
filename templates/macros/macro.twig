@@ -15,4 +15,25 @@
 	</button>
 {% endmacro %}
 
+{% macro video(data, class) %}
 
+	{% if data.video_url %}
+
+		{% set autoplay = data.video_options.autoplay %}
+		{% set loop = data.video_options.loop %}
+		{% set muted = data.video_options.muted %}
+		{% set cover = data.video_options.cover %}
+
+		<video class="{{class}}" {{loop ? 'loop'}} {{autoplay ? 'autoplay muted' : 'controls'}} {{muted ? 'muted'}}>
+			<source src="{{data.video_url}}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+
+	{% else %}
+
+		<div class="aspect-video">
+			{{data.video_embed|raw}}
+		</div>
+		
+	{% endif %}
+{% endmacro %}

@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "name": "acf/image-content",
+    "title": "Image-content",
+    "description": "Een blockom mee te starten",
+    "style": [],
+    "category": "common",
+    "icon": "button",
+    "acf": {
+        "mode": "preview",
+        "renderCallback": [
+            "BvdB\\Gutenberg\\Blocks",
+            "render"
+        ],
+        "postTypes": []
+    },
+    "styles": [
+        {
+            "name": "default",
+            "label": "Default",
+            "isDefault": true
+        },
+        {
+            "name": "red",
+            "label": "Red"
+        },
+        {
+            "name": "green",
+            "label": "Green"
+        },
+        {
+            "name": "blue",
+            "label": "Blue"
+        }
+    ],
+    "supports": {
+        "align": [
+            "wide",
+            "full"
+        ],
+        "mode": false,
+        "anchor": true,
+        "alignContent": false,
+        "alignText": false,
+        "typography": {
+            "fontSize": false
+        },
+        "fullHeight": false,
+        "spacing": {}
+    },
+    "example": {
+        "attributes": {
+            "message": "This is a notice!"
+        },
+        "viewportWidth": 1200
+    }
+}

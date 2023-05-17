@@ -1,6 +1,6 @@
 {
     "key": "group_646366bced846",
-    "title": "Media Content",
+    "title": "Image Content",
     "fields": [
         {
             "key": "field_646366bd92a06",
@@ -33,7 +33,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/media-content"
+                "value": "acf\/image-content"
             }
         ]
     ],
@@ -46,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684235988
+    "modified": 1684318533
 }
