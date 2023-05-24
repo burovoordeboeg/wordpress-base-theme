@@ -4,6 +4,9 @@
     "title": "Column",
     "description": "Een blockom mee te starten",
     "style": [],
+    "parent": [
+        "acf/columns"
+    ],
     "category": "common",
     "icon": "button",
     "acf": {

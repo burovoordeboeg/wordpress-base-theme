@@ -8,13 +8,26 @@
         'placeholder': 'Heading goes here.',
         'align': 'center',
         'className': '',
+		'lock': {
+            'move'   : false,
+            'remove' : false,
+        },
     }],
     ['core/paragraph', {
         'placeholder': 'Describe here.', 
         'align': 'center', 
         'className': '',
 		'lock': {
-            'move'   : true,
+            'move'   : false,
+            'remove' : false,
+        },
+    }],
+	 ['core/paragraph', {
+        'placeholder': 'Describe here.', 
+        'align': 'center', 
+        'className': '',
+		'lock': {
+            'move'   : false,
             'remove' : false,
         },
     }]
@@ -29,7 +42,7 @@
 <div class="{{blockname}} bg-slate-50 py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     
-	<InnerBlocks class="{{blockname}}__innerblocks mx-auto max-w-2xl text-center" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="contentOnly"/>  
+	<InnerBlocks class="{{blockname}}__innerblocks mx-auto max-w-2xl text-center" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>  
 	
 	<div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       

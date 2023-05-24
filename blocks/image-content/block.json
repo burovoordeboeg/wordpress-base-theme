@@ -33,6 +33,12 @@
             "label": "Blue"
         }
     ],
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
     "supports": {
         "align": [
             "wide",
@@ -40,7 +46,7 @@
         ],
         "mode": false,
         "anchor": true,
-        "alignContent": false,
+        "alignContent": true,
         "alignText": false,
         "typography": {
             "fontSize": false
