@@ -103,7 +103,11 @@
 			// 'core/heading',
 			// 'core/paragraph',
 			// 'core/buttons',
-			// 'core/button',
+			'core/button',
+			'core/buttons',
+			'core/heading', 
+			'core/media-text',
+			'core/paragraph',
 		) );
 
 		// Load all blocks

@@ -22,7 +22,9 @@
         ],
         "mode": false,
         "anchor": true,
-        "alignContent": true,
+        "alignContent": [
+            "top"
+        ],
         "alignText": false,
         "typography": {
             "fontSize": false

@@ -12,7 +12,8 @@
             "BvdB\\Gutenberg\\Blocks",
             "render"
         ],
-        "postTypes": []
+        "postTypes": [],
+        "align": "full"
     },
     "styles": [
         {
@@ -33,17 +34,8 @@
             "label": "Blue"
         }
     ],
-    "attributes": {
-        "align": {
-            "type": "string",
-            "default": "wide"
-        }
-    },
     "supports": {
-        "align": [
-            "wide",
-            "full"
-        ],
+        "align": [],
         "mode": false,
         "anchor": true,
         "alignContent": true,
@@ -52,7 +44,8 @@
             "fontSize": false
         },
         "fullHeight": false,
-        "spacing": {}
+        "spacing": {},
+        "lock": false
     },
     "example": {
         "attributes": {

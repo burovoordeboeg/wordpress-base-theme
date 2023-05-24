@@ -38,32 +38,14 @@
     'core/button',
 ] %}
 
-{% set alignment = attributes.alignment.align %}
-{% set valign = {
-	top : 'items-start',
-	center : 'items-center',
-	bottom : 'items-end',
-} %}
+{% embed "embeds/media-content.twig" with {cover: fields.video_options.cover}%}
 
+	{% block content %}
+		<InnerBlocks class="py-12" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}" templatelock="all" />
+	{% endblock %}
 
+	{% block media %}
+		{% include "components/wp-video.twig" with { data: fields, class: cover ? 'w-full h-full object-cover' } %}
+	{% endblock %}
 
-<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : ''}}">
-  <div class="container lg:grid lg:grid-cols-12 lg:gap-x-8 {{valign[attributes.alignment.aligncontent]|default('items-center')}}">
-    <div class="lg:col-span-6">
-		<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
-    </div>
-    <div class="lg:col-span-6 relative">
-		{% if is_preview %}
-			
-			{{fields != '' ? macro.video(fields, 'w-full ') : macro.preview('Add media')}}
-			
-			{% else %}
-			
-			{% if fields %}
-				{{macro.video(fields, 'w-full ')}}
-			{% endif %}
-			
-		{% endif %}
-	</div>
-  </div>
-</div>
+{% endembed %}

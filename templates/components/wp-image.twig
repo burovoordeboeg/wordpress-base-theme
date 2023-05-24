@@ -1,0 +1,14 @@
+{# Import macros #}
+{% import "macros/macro.twig" as macro %}
+
+{# Set variables #}
+{% set id 		= id|default('') %}
+{% set size 	= size|default('medium_large') %}
+{% set class 	= class|default('w-full') %}
+
+{# Ouput html/twig #}
+{% if is_preview and id == empty %}
+	{{macro.preview('Add media')}}
+{% else %}
+	{{wp_get_attachment_image(id, size, null, { class:class })|raw }}
+{% endif %}

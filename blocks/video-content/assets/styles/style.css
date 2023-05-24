@@ -1,20 +1,4 @@
 .video-content {
-  @apply mx-auto my-24;
-
-  &--small {
-    @apply max-w-screen-xl;
-  }
-  &--wide {
-    @apply max-w-screen-2xl;
-  }
-  &--full {
-    @apply max-w-full;
-  }
-
-  &__innerblocks {
-    @apply py-8;
-  }
-
   /* Iframe width */
   iframe {
     @apply w-full h-full;

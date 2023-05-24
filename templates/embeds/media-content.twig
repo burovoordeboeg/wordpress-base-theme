@@ -1,0 +1,24 @@
+{% set vertical_alignment = {
+	'top': 'items-start',
+	'center': 'items-center',
+	'bottom': 'items-end',
+} %}
+
+
+{% if cover  %}
+	{% set valign = '' %}
+	{% else %}
+	{% set valign = vertical_alignment[attributes.alignment.aligncontent] %}
+{% endif %}
+
+
+<div class="{{blockname}} bg-gray-100 my-24 first:mt-0  {{attributes.class}}">
+  <div class="container lg:grid lg:grid-cols-12 lg:gap-x-16 {{valign}}">
+    <div class="lg:col-span-6 relative">
+		{% block content %}{% endblock %}
+    </div>
+    <div class="lg:col-span-6 relative">
+		{% block media %}{% endblock %}
+	</div>
+  </div>
+</div>

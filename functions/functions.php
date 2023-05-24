@@ -46,5 +46,6 @@
 		// change current_user_can to 'delete_others_posts' for editor level+
 		$settings['canLockBlocks'] = current_user_can('activate_plugins');
 		return $settings;
-	  }
-	  add_filter('block_editor_settings_all', 'bvdb_admin_only_block_locking', 10, 2);
+	}
+	
+	add_filter('block_editor_settings_all', 'bvdb_admin_only_block_locking', 10, 2);
