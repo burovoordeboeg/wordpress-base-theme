@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.twig", "./blocks/**/*.twig"],
+  content: ["./templates/**/*.twig", "./blocks/**/*.twig", "./assets/**/*.js"],
   theme: {
     container: {
       center: true,
@@ -8,8 +8,13 @@ module.exports = {
     },
     extend: {},
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require("@tailwindcss/typography"),
-    // require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/container-queries"),
   ],
 };

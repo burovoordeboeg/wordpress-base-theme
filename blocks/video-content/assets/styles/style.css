@@ -1,6 +1,0 @@
-.video-content {
-  /* Iframe width */
-  iframe {
-    @apply w-full h-full;
-  }
-}

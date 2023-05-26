@@ -1,5 +1,0 @@
-.image-content {
-  &__innerblocks {
-    @apply py-12;
-  }
-}
