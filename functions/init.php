@@ -86,8 +86,6 @@
 
 	}, 1);
 
-
-
 	/**
 	 * Initialize the Gutenberg blocks
 	 * @see https://developer.wordpress.org/reference/hooks/init/
@@ -103,11 +101,6 @@
 			// 'core/heading',
 			// 'core/paragraph',
 			// 'core/buttons',
-			'core/button',
-			'core/buttons',
-			'core/heading', 
-			'core/media-text',
-			'core/paragraph',
 		) );
 
 		// Load all blocks
