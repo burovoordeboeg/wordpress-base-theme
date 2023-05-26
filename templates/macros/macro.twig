@@ -7,27 +7,14 @@
 {% endmacro %}
 
 {# Video macro #}
-{% macro video(data, class) %}
-
-	{% if data.video_url %}
-
-		{% set autoplay = data.video_options.autoplay %}
-		{% set loop = data.video_options.loop %}
-		{% set muted = data.video_options.muted %}
-		{% set cover = data.video_options.cover %}
-
-		<video class="{{class}}" {{loop ? 'loop'}} {{autoplay ? 'autoplay muted' : 'controls'}} {{muted ? 'muted'}}>
-			<source src="{{data.video_url}}" type="video/mp4">
-			Your browser does not support the video tag.
-		</video>
-
-	{% else %}
-		<div class="aspect-video">
-			{{data.video_embed|raw}}
-		</div>
-		
-	{% endif %}
+{% macro videoUrl(url, options, class) %}
+	<video class="{{options.cover ? 'w-full h-full object-cover'}} {{class}}" {{options.loop ? 'loop'}} {{options.autoplay ? 'autoplay muted' : 'controls'}} {{options.muted ? 'muted'}}>
+		<source src="{{url}}" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
 {% endmacro %}
+
+
 
 {# Preview macro #}
 {% macro preview(text = 'Add content') %}
