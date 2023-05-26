@@ -14,9 +14,10 @@
   @apply text-4xl font-bold mb-0 text-gray-600;
 }
 
+/* Set wid of backend blocks */
 .edit-post-visual-editor__post-title-wrapper,
 .block-editor-block-list__layout.is-root-container {
-  > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-    @apply mx-auto max-w-none !important;
+  > :where(:not(.alignleft):not(.alignright)) {
+    @apply mx-auto max-w-[98%] !important;
   }
 }

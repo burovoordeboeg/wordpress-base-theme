@@ -1,12 +1,10 @@
 {# Image macro #}
 {% macro wpimage(id, size = 'full', class = 'w-full', is_preview) %}
 	{% if is_preview and id == empty %}
-		{{_self.preview('Add media')}}
 	{% else %}
 		{{wp_get_attachment_image(id, size, null, { class: class|default('w-full') })|raw }}
 	{% endif %}
 {% endmacro %}
-
 
 {# Video macro #}
 {% macro video(data, class) %}
@@ -30,7 +28,6 @@
 		
 	{% endif %}
 {% endmacro %}
-
 
 {# Preview macro #}
 {% macro preview(text = 'Add content') %}
