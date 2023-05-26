@@ -1,0 +1,32 @@
+
+{% import "macros/macro.twig" as macro %}
+
+{% set data = {
+	title: fields.title,
+	copy: fields.copy,
+	button: fields.button,
+	image: fields.image
+} %}
+
+<div class="bg-gray-900">
+
+  <div class="relative isolate overflow-hidden pt-14 px-8">
+    
+	{{macro.wpimage(data.image, 'full', 'absolute inset-0 -z-10 h-full w-full object-cover')}}
+   
+    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">{{data.title|raw}}</h1>
+        {% if data.copy %}
+			<div class="mt-6 text-lg leading-8 text-gray-300">{{data.copy|raw}}</div>
+		{% endif %}
+        {% if data.button %}
+			<div class="mt-10 flex items-center justify-center gap-x-6">
+				<a href="{{data.button.url}}" class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">{{data.button.title}}</a>
+			</div>
+		{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
