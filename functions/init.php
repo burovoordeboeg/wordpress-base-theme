@@ -31,8 +31,6 @@
 
 	// Add theme support for Gutenberg
 	$utilities->themesupport->add('editor-styles');
-	$utilities->themesupport->add('align-wide');
-	$utilities->themesupport->add('align-full');
 
 	// Remove theme support
 	$utilities->themesupport->remove('core-block-patterns');
