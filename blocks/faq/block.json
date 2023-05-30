@@ -1,8 +1,8 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/team",
-    "title": "Team",
-    "description": "Een team block",
+    "name": "acf/faq",
+    "title": "Faq",
+    "description": "Een blockom mee te starten",
     "style": [],
     "category": "common",
     "icon": "button",
@@ -15,7 +15,10 @@
         "postTypes": []
     },
     "supports": {
-        "align": [],
+        "align": [
+            "wide",
+            "full"
+        ],
         "anchor": true,
         "alignContent": false,
         "alignText": false,
