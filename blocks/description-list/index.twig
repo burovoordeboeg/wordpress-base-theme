@@ -1,0 +1,30 @@
+{% import "macros/macro.twig" as macro %}
+
+{% set data = {
+	heading: fields.heading,
+	copy: fields.copy,
+	dl: fields.list_items
+} %}
+
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+	
+	<div class="px-4 sm:px-0">
+		<h3 class="text-base font-semibold leading-7 text-gray-900">{{data.heading}}</h3>
+		<div class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{{data.copy|raw}}</div>
+	</div>
+	
+	<div class="mt-6 border-t border-gray-100">
+		<dl class="divide-y divide-gray-100">
+			
+			{% for item in data.dl %}
+				<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+					<dt class="text-sm font-medium leading-6 text-gray-900">{{item.dt}}</dt>
+					<dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{item.dd|raw}}</dd>
+				</div>
+			{% endfor %}
+		</dl>
+	</div>
+	</div>
+</div>
