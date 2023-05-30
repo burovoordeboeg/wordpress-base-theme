@@ -21,3 +21,7 @@
     @apply mx-auto max-w-[98%] !important;
   }
 }
+
+.mce-content-body {
+  @apply prose max-w-[98%] mx-auto;
+}
