@@ -1,0 +1,57 @@
+{% set image = {
+	id: fields.image.id,
+	class: 'w-full ',
+	alt: fields.image.alt|default(fields.image.title),
+} %}
+
+{% set padding = {
+	top = {
+		small: 'pt-4 md:pt-8 lg:pt-12',
+		medium: 'pt-8 md:pt-12 lg:pt-16',
+		large: 'pt-12 md:pt-16 lg:pt-24',
+		xlarge: 'pt-16 md:pt-24 lg:pt-32',
+	},
+	bottom = {
+		small: 'pb-4 md:pb-8 lg:pb-12',
+		medium: 'pb-8 md:pb-12 lg:pb-16',
+		large: 'pb-12 md:pb-16 lg:pb-24',
+		xlarge: 'pb-16 md:pb-24 lg:pb-32',
+	},
+	left = {
+		small: 'pl-4 md:pl-8 lg:pl-12',
+		medium: 'pl-8 md:pl-12 lg:pl-16',
+		large: 'pl-12 md:pl-16 lg:pl-24',
+		xlarge: 'pl-16 md:pl-24 lg:pl-32',
+	},
+	right = {
+		small: 'pr-4 md:pr-8 lg:pr-12',
+		medium: 'pr-8 md:pr-12 lg:pr-16',
+		large: 'pr-12 md:pr-16 lg:pr-24',
+		xlarge: 'pr-16 md:pr-24 lg:pr-32',
+	}
+
+
+} %}
+
+
+
+{% block content %}
+
+{# <pre>
+	{{ dump() }}
+</pre> #}
+
+	{% if fields %}		
+		<div >
+			{{wp_get_attachment_image(image.id, 'full', '', {'class' : image.class ~ ' ' ~ image_style[image.style], 'alt': image.alt, } ) | raw}}
+		</div>
+
+		{% else %}
+			{% if is_preview %}
+				<div class="">
+					<img src="https://via.placeholder.com/1920x320.png" alt="">
+				</div>
+			{% endif %}
+	{% endif %}
+
+{% endblock %}

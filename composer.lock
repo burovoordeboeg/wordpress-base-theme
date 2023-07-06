@@ -67,6 +67,7 @@
         },
         {
             "name": "burovoordeboeg/gutenberg",
+<<<<<<< Updated upstream
             "version": "1.0.4",
             "source": {
                 "type": "git",
@@ -77,6 +78,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/burovoordeboeg/class-gutenberg/zipball/96b895e775923c841269d3c7f6ae84b8f8731de5",
                 "reference": "96b895e775923c841269d3c7f6ae84b8f8731de5",
+=======
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:burovoordeboeg/class-gutenberg.git",
+                "reference": "f84ec2efab3af55b86ba39e5a5244134bf5b4604"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-gutenberg/zipball/f84ec2efab3af55b86ba39e5a5244134bf5b4604",
+                "reference": "f84ec2efab3af55b86ba39e5a5244134bf5b4604",
+>>>>>>> Stashed changes
                 "shasum": "",
                 "mirrors": [
                     {
@@ -113,10 +126,17 @@
                 "wordpress"
             ],
             "support": {
+<<<<<<< Updated upstream
                 "source": "https://github.com/burovoordeboeg/class-gutenberg/tree/v1.0.4",
                 "issues": "https://github.com/burovoordeboeg/class-gutenberg/issues"
             },
             "time": "2023-01-24T19:58:03+00:00"
+=======
+                "source": "https://github.com/burovoordeboeg/class-gutenberg/tree/v1.0.3",
+                "issues": "https://github.com/burovoordeboeg/class-gutenberg/issues"
+            },
+            "time": "2023-01-19T11:30:25+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "burovoordeboeg/templates",
@@ -1660,5 +1680,5 @@
     "platform-overrides": {
         "php": "7.3"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

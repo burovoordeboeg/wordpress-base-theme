@@ -25,7 +25,15 @@
     'core/button',
 ] %}
 
+<<<<<<< Updated upstream
 {% set alignment = attributes.alignment.align %}
+=======
+<pre>
+	{{ dump() }}
+</pre>
+
+	<InnerBlocks class="innerblock" allowedBlocks={{ json_encode(allowed_blocks) }} templateLock="false"/>
+>>>>>>> Stashed changes
 
 <div class="{{blockname}} {{is_preview ? 'p-8 border border-dashed' : ''}}">
 	<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}" />

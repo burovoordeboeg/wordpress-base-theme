@@ -1,0 +1,34 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "name": "acf/image",
+    "title": "Image",
+    "description": "Een image block",
+    "style": [],
+    "category": "buro-voor-de-boeg",
+    "icon": "button",
+    "acf": {
+        "mode": "preview",
+        "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],
+        "postTypes": [ "page" ]
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "anchor": true,
+        "alignContent": true,
+        "alignText": true,
+        "color": {
+            "text": true,
+            "background": true
+        },
+        "fullHeight": true,
+        "spacing": {
+			"margin": ["bottom", "top"],
+            "padding": true
+		}
+    },
+    "example": {
+        "attributes": {
+            "message": "This is a notice!"
+        }
+    }
+}
