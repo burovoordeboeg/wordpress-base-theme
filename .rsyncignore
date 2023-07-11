@@ -2,6 +2,7 @@
 .*
 assets
 browsersync.config.js
+browsersync.config.example
 postcss.config.js
 node_modules
 composer.json
@@ -10,4 +11,5 @@ gulpfile.js
 package-lock.json
 package.json
 tailwind.config.js
+README.md
 webpack.mix.js

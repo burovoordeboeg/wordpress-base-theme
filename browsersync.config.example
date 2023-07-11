@@ -1,0 +1,7 @@
+/**
+ * Add URL and change .example to .js in filename to enable browsersync proxy
+ */
+module.exports = {
+  proxy: "http://ADD_URL_HERE/",
+  files: ["./**/*.css", "./**/*.js", "./**/*.php", "./**/*.twig"],
+};

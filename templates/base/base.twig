@@ -8,6 +8,8 @@
 	</head>
 	<body {{ body_class() }}>
 
+		{{ wp_body_open() }}
+
 		{% block header %}
 			{% include 'base/header.twig' %}
 		{% endblock %}

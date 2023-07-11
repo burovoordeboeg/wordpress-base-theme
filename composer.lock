@@ -120,16 +120,16 @@
         },
         {
             "name": "burovoordeboeg/templates",
-            "version": "0.1.10",
+            "version": "0.1.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-theme-template-loader.git",
-                "reference": "ad533149493197b96fe161259d560ac108ea3ffc"
+                "reference": "73ae8091e3b5b01cb38764f695acd176283e6dcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-template-loader/zipball/ad533149493197b96fe161259d560ac108ea3ffc",
-                "reference": "ad533149493197b96fe161259d560ac108ea3ffc",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-template-loader/zipball/73ae8091e3b5b01cb38764f695acd176283e6dcc",
+                "reference": "73ae8091e3b5b01cb38764f695acd176283e6dcc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -173,10 +173,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-theme-template-loader/tree/0.1.10",
+                "source": "https://github.com/burovoordeboeg/class-theme-template-loader/tree/0.1.11",
                 "issues": "https://github.com/burovoordeboeg/class-theme-template-loader/issues"
             },
-            "time": "2023-03-28T12:44:28+00:00"
+            "time": "2023-05-26T11:11:29+00:00"
         },
         {
             "name": "burovoordeboeg/utilities",
