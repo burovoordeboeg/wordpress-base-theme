@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/team",
-    "title": "Team",
+    "name": "acf/image-text",
+    "title": "Image-text",
     "description": "Een team block",
     "style": [],
     "category": "common",
