@@ -28,19 +28,6 @@ Er wordt gebruik gemaakt van een Tailwind. Om componenten en secties te herkenne
 
 Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft de HTML in de Twig-files leesbaar.
 
-## .htaccess
-
-Add these lines to load media files from production server if they don't exist locally
-
-```
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^content/uploads/(.*)$ https://remotesite.com/content/uploads/$1 [NC,L]
-</IfModule>
-```
-
 ## Twig Include, Extends, Use, Macro and Embed
 
 There are various types of inheritance and code reuse in Twig:
@@ -254,3 +241,16 @@ Also you may pass extra variables to the embedded file:
 **Note:**
 
 It has the functionality of both `Use` & `Include` together.
+
+## .htaccess voor productie images
+
+Add these lines to load media files from production server if they don't exist locally
+
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^content/uploads/(.*)$ https://remotesite.com/content/uploads/$1 [NC,L]
+</IfModule>
+```
