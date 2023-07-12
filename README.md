@@ -32,8 +32,6 @@ Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft d
 
 There are various types of inheritance and code reuse in Twig:
 
--
-
 ### Include
 
 **Main Goal:** Code Reuse
@@ -64,8 +62,6 @@ There are various types of inheritance and code reuse in Twig:
 <main>{% block main %}{% endblock %}</main>
 {% include 'footer.html.twig' %}
 ```
-
--
 
 ### Extends
 
@@ -100,8 +96,6 @@ There are various types of inheritance and code reuse in Twig:
 <p>About page</p>
 {% endblock %}
 ```
-
--
 
 ### Use
 
@@ -167,8 +161,6 @@ There are various types of inheritance and code reuse in Twig:
     <div>{{ form.input('submit', 'Submit', 'submit') }}</div>
 </form>
 ```
-
--
 
 ### Embed
 
