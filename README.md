@@ -8,7 +8,7 @@ Het BvdB Base Theme is ons Wordpress thema dat we gebruiken als starttheme bij d
 -   ACF Gutenbergblocks voor het opzetten van Wordpress Blocks ([https://www.advancedcustomfields.com/resources/blocks/](https://www.advancedcustomfields.com/resources/blocks/))
 -   Webpack (middels Laravel Mix) als development tool ([https://laravel-mix.com/]())
 
-# Instalatie
+## Instalatie
 
 Voor de instalatie van het Base Theme volg je de volgende stappen, hierbij ga ik uit van het gebruik van Local By Flywheel, echter zijn de stappen in o.a. Docker grotendeels gelijk.
 
@@ -31,6 +31,8 @@ Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft d
 ## Twig Include, Extends, Use, Macro and Embed
 
 There are various types of inheritance and code reuse in Twig:
+
+---
 
 ### Include
 
@@ -62,6 +64,8 @@ There are various types of inheritance and code reuse in Twig:
 <main>{% block main %}{% endblock %}</main>
 {% include 'footer.html.twig' %}
 ```
+
+---
 
 ### Extends
 
@@ -96,6 +100,8 @@ There are various types of inheritance and code reuse in Twig:
 <p>About page</p>
 {% endblock %}
 ```
+
+---
 
 ### Use
 
@@ -134,7 +140,7 @@ There are various types of inheritance and code reuse in Twig:
 1. It's like macros, but for blocks.
 1. The use tag only imports a template if it does not extend another template, if it does not define macros, and if the body is empty.
 
--
+---
 
 ### Macro
 
@@ -161,6 +167,8 @@ There are various types of inheritance and code reuse in Twig:
     <div>{{ form.input('submit', 'Submit', 'submit') }}</div>
 </form>
 ```
+
+---
 
 ### Embed
 
