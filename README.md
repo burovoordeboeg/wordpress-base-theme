@@ -12,9 +12,8 @@ Het BvdB Base Theme is ons Wordpress thema dat we gebruiken als starttheme bij d
 
 Voor de instalatie van het Base Theme volg je de volgende stappen, hierbij ga ik uit van het gebruik van Local By Flywheel, echter zijn de stappen in o.a. Docker grotendeels gelijk.
 
--   Maak een nieuwe website aan in Local By Flywheel. Gebruik hierbij **Apache** als webserver en **PHP 8.1.9** als PHP versie
-    ![](/Users/danielplinsinga/Library/Application Support/CleanShot/media/media_EvvIV7qn3h/BVDB -2023-07-13 at 06.30.28@2x.png)
--   Ga naar onze [Github](https://github.com/burovoordeboeg/wordpress-base-theme) en maak een nieuwe repositorie aan op basis van dit template. ![](/Users/danielplinsinga/Library/Application Support/CleanShot/media/media_UbW2zKF0uO/BVDB -2023-07-13 at 06.41.02@2x.png)
+-   Maak een nieuwe website aan in Local By Flywheel. Gebruik hierbij **Apache** als webserver en **PHP 8.1.9** als PHP versie.
+-   Ga naar onze [Github](https://github.com/burovoordeboeg/wordpress-base-theme) en maak een nieuwe repositorie aan op basis van dit template.
 -   Clone de nieuwe repositorie in je Wordpress themes folder `app/public/wp-content/themes/`
 -   Open het theme in VSC en in de terminal run je de volgde scripts: `composer install && npm install && npm run build`
 -   Binnen Wordpress kun je het thema nu activeren en starten met de development van het project met `npm start`. Hiermee run je de development scripts welke de code compiled en watched.
