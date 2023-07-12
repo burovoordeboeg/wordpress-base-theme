@@ -97,7 +97,6 @@
 		$gutenberg->set_allowed_default_blocks( array(
 			'gravityforms/form',
 		) );
-
 		// Load all blocks
 		$blocks = $gutenberg->load_blocks();
 		
