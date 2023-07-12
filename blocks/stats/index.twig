@@ -1,28 +1,21 @@
-{% import "macros/media.twig" as media %}
-
-{% set data = {
-	heading: fields.heading,
-	copy: fields.copy,
-	stats: fields.stats
-} %}
-
 <div class="bg-slate-50 py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:max-w-none">
-      <div class="text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{data.heading}}</h2>
-        <div class="mt-4 text-lg leading-8 text-gray-600">{{data.copy|raw}}</div>
-      </div>
-      
-	  <dl class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-        {% for item in data.stats %}
-			<div class="flex flex-col bg-gray-400/5 p-8">
-				<dt class="text-sm font-semibold leading-6 text-gray-600">{{item.copy|raw}}</dt>
-				<dd class="order-first text-3xl font-semibold tracking-tight text-gray-900">{{item.heading}}</dd>
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl lg:max-w-none">
+			<div class="text-center">
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{fields.heading|raw}}</h2>
+				<div class="mt-4 text-lg leading-8 text-gray-600">{{fields.copy|raw}}</div>
 			</div>
-		{% endfor %}
-      </dl>
 
-    </div>
-  </div>
+			<dl class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+				{% for item in fields.stats %}
+					<div class="flex flex-col bg-gray-400/5 p-8">
+						<dt class="text-sm font-semibold leading-6 text-gray-600">{{item.copy|raw}}</dt>
+						<dd class="order-first text-3xl font-semibold tracking-tight text-gray-900">{{item.heading}}</dd>
+					</div>
+				{% endfor %}
+			</dl>
+
+		</div>
+	</div>
 </div>
+

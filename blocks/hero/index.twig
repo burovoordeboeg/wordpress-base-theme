@@ -1,28 +1,22 @@
 
 {% import "macros/media.twig" as media %}
-
-{% set data = {
-	title: fields.title,
-	copy: fields.copy,
-	button: fields.button,
-	image: fields.image
-} %}
+{% import "macros/buttons.twig" as button %}
 
 <div class="bg-gray-900">
 
   <div class="relative isolate overflow-hidden pt-14 px-8">
     
-	{{media.wpimage(data.image, 'full', 'absolute inset-0 -z-10 h-full w-full object-cover', is_preview)}}
+	{{media.wpimage(fields.image, 'full', 'absolute inset-0 -z-10 h-full w-full object-cover', is_preview)}}
    
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
     	<div class="text-center">
-        	<h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">{{data.title|raw}}</h1>
-			{% if data.copy %}
-				<div class="mt-6 text-lg leading-8 text-gray-300">{{data.copy|raw}}</div>
+        	<h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">{{fields.title|raw}}</h1>
+			{% if fields.copy %}
+				<div class="mt-6 text-lg leading-8 text-gray-300">{{fields.copy|raw}}</div>
 			{% endif %}
-			{% if data.button %}
+			{% if fields.button %}
 				<div class="mt-10 flex items-center justify-center gap-x-6">
-					<a href="{{data.button.url}}" class="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">{{data.button.title}}</a>
+					{{button.button(fields.button)}}
 				</div>
 			{% endif %}
       	</div>
