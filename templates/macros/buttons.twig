@@ -1,9 +1,11 @@
 {# Wordpress (Link) Button #}
-{% macro button(data) %}
+{% macro button(data, style = 'primary', attributes) %}
+		
 	{% set class = {
-		base: 'rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm',
-		hover: 'hover:bg-primary-600',
-		focus: 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+		base: 'rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+		primary: 'bg-primary-500 hover:bg-primary-600 focus-visible:outline-primary-600',
+		secondary: 'bg-gray-500 hover:bg-gray-600 focus-visible:outline-gray-600'
 	} %}
-	<a href="{{data.url}}" class="{{class.base}} {{class.hover}} {{class.focus}} ">{{data.title}}</a>
+
+	<a {{attributes}} href="{{data.url}}" {{data.target ? 'target="_blank"'}} class="{{class.base}} {{class[style]}}">{{data.title}}</a>
 {% endmacro %}

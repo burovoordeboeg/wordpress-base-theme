@@ -9,7 +9,7 @@
 			
 			<div class="mt-10 flex items-center justify-center gap-x-6">
 				{% for item in fields.buttons %}
-					{{button.button(item.button)}}
+					{{button.button(item.button, 'secondary', 'data=test')}}
 				{% endfor %}
 			</div>
 		</div>
