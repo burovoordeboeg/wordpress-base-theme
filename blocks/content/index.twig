@@ -6,7 +6,7 @@
 	4: 'lg:columns-2 xl:columns-4 gap-16',
 } %}
 
-<div class="bg-slate-50 px-6 py-32 lg:px-8">
+<div data-block-id="{{ blockname }}" class="bg-slate-50 px-6 py-32 lg:px-8">
 
 	{% if fields.heading %}
 		<div class="mx-auto max-w-7xl mb-6">
@@ -17,4 +17,5 @@
 	<div class="mx-auto max-w-7xl {{columns[fields.content_options.columns]}} prose ">
 		{{fields.content|raw}}
 	</div>
+
 </div>
