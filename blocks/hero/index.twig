@@ -1,5 +1,5 @@
 
-{% import "macros/macro.twig" as macro %}
+{% import "macros/media.twig" as media %}
 
 {% set data = {
 	title: fields.title,
@@ -8,12 +8,11 @@
 	image: fields.image
 } %}
 
-
 <div class="bg-gray-900">
 
   <div class="relative isolate overflow-hidden pt-14 px-8">
     
-	{{macro.wpimage(data.image, 'full', 'absolute inset-0 -z-10 h-full w-full object-cover')}}
+	{{media.wpimage(data.image, 'full', 'absolute inset-0 -z-10 h-full w-full object-cover', is_preview)}}
    
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
     	<div class="text-center">

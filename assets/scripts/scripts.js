@@ -5,5 +5,3 @@ importAll(require.context("../../blocks/", true, /\/scripts\.js$/));
 function importAll(r) {
     r.keys().forEach(r);
 }
-
-console.log("Hello from scripts.js");

@@ -1,5 +1,5 @@
 
-{% import "macros/macro.twig" as macro %}
+{% import "macros/media.twig" as media %}
 
 {% set data = {
 	title: fields.title,
@@ -31,7 +31,7 @@
     </div>
     
 	<div class="relative lg:col-span-5 xl:absolute xl:inset-0 {{data.reversed ? 'lg:-ml-8 lg:col-start-1 lg:row-start-1 xl:right-1/2 xl:ml-0' : 'lg:-mr-8  xl:left-1/2 xl:mr-0'}}">
-      {{macro.wpimage(data.image, 'full', 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full')}}
+      {{media.wpimage(data.image, 'full', 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full')}}
     </div>
 
   </div>
