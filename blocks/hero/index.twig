@@ -26,9 +26,14 @@
 				{% if fields.copy %}
 					<div class="mt-6 text-lg leading-8 text-gray-300">{{fields.copy|raw}}</div>
 				{% endif %}
+
 				{% if fields.button %}
 					<div class="mt-10 flex items-center justify-center gap-x-6">
 						{{button.button(fields.button)}}
+
+						{{button.btn(fields.button, 'primary', 'bg-blue-500')}}
+						{{button.btn(fields.button, 'primary', 'bg-pink-500', 'arrow-left-circle')}}
+						{{button.btn(fields.button, 'primary', 'bg-pink-800', 'arrow-left-circle', 'reverse', 'data-attr=value')}}
 					</div>
 				{% endif %}
 			</div>

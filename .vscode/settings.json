@@ -1,5 +1,5 @@
 {
-    "editor.rulers": [120, 200],
+    "editor.rulers": [160, 200],
     "editor.insertSpaces": false,
     "[html]": {
         "editor.detectIndentation": false,
@@ -11,6 +11,6 @@
         "editor.tabSize": 4,
         "editor.formatOnSave": true,
         "editor.wordWrap": "bounded",
-        "editor.wordWrapColumn": 120
+        "editor.wordWrapColumn": 160
     }
 }
