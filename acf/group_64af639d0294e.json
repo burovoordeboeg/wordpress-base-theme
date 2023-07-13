@@ -1,0 +1,73 @@
+{
+    "key": "group_64af639d0294e",
+    "title": "Atom: Heading",
+    "fields": [
+        {
+            "key": "field_64af639d1da5e",
+            "label": "Text",
+            "name": "text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64af63d01da5f",
+            "label": "Type",
+            "name": "type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4: H4": "h4: H4"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "This is used as a clone field inside blocks or other ACF groeps",
+    "show_in_rest": 0,
+    "modified": 1689216066
+}
