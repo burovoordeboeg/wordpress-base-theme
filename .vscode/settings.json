@@ -1,5 +1,5 @@
 {
-    "editor.rulers": [140, 160],
+    "editor.rulers": [120, 200],
     "editor.insertSpaces": false,
     "[html]": {
         "editor.detectIndentation": false,
@@ -9,16 +9,8 @@
     "[twig]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
-        "editor.formatOnSave": true
-    },
-    "[javascript]": {
-        "editor.detectIndentation": false,
-        "editor.tabSize": 4,
-        "editor.formatOnSave": true
-    },
-    "[php]": {
-        "editor.detectIndentation": false,
-        "editor.tabSize": 4,
-        "editor.formatOnSave": false
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 120
     }
 }
