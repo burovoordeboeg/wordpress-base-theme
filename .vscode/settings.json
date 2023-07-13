@@ -12,5 +12,10 @@
         "editor.formatOnSave": true,
         "editor.wordWrap": "bounded",
         "editor.wordWrapColumn": 160
+    },
+    "[php]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true
     }
 }

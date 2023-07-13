@@ -13,42 +13,41 @@
 		</a>
 	{% endif %}
 
-	% endmacro %
+{% endmacro %}
 
-	{# Wordpress complex button #}
-	{% macro btn(data, variant, custom_classes, icon_id, reverse_icon = false) %}
+{# Wordpress complex button #}
+{% macro btn(data, variant, custom_classes, icon_id, reverse_icon = false) %}
 
-		{# Set base classes #}
-		{% set classes = {
+	{# Set base classes #}
+	{% set classes = {
 		root: 'inline-flex whitespace-nowrap items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm',
 		hover: 'hover:rounded-sm',
 		focus: 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-		custom: custom_classes
 	} %}
 
-		{# Define Variants #}
-		{% set variants = {
+	{# Define Variants #}
+	{% set variants = {
 		primary: 'bg-primary-500 hover:bg-primary-600 focus-visible:outline-primary-600',
 		secondary: 'bg-gray-500 hover:bg-gray-600 focus-visible:outline-gray-600'
 	} %}
 
-		{% set tag = data.url ? 'a' : 'button' %}
-		{% set attr = data.url ? 'href=' ~ data.url : 'type=button' %}
-		{% set class = classes.root ~ ' ' ~ classes.hover ~ ' ' ~ classes.focus ~ ' ' ~ variants[variant] ~ ' ' ~ classes.custom  %}
+	{% set tag = data.url ? 'a' : 'button' %}
+	{% set attr = data.url ? 'href=' ~ data.url : 'type=button' %}
+	{% set class = classes.root ~ ' ' ~ classes.hover ~ ' ' ~ classes.focus ~ ' ' ~ variants[variant] ~ ' ' ~ custom_classes  %}
 
-		{# Template #}
-		{% if data.title or data.icon %}
-			<{{tag}} {{ attr }} {{ data.url and data.target ? 'target=' ~ data.target : '' }} class="{{ class | spaceless }}">
-				{{_self.icon(icon_id, reverse_icon)}}
-				{{ data.title }}
-			</{{tag}}>
-		{% endif %}
+	{# Template #}
+	{% if data.title or data.icon %}
+		<{{tag}} {{ attr }} {{ data.url and data.target ? 'target=' ~ data.target : '' }} class="{{ class | spaceless }}">
+			{{_self.icon(icon_id, reverse_icon)}}
+			{{ data.title }}
+		</{{tag}}>
+	{% endif %}
 
-	{% endmacro %}
+{% endmacro %}
 
-	{# Icon macro #}
-	{% macro icon(icon, order) %}
-		{% if icon %}
-			{{include('icons/' ~ icon ~ '.twig', { class: order ? 'order-2', size: 'h-5 w-5' }, with_context = false)}}
-		{% endif %}
-	{% endmacro %}
+{# Icon macro #}
+{% macro icon(icon, order) %}
+	{% if icon %}
+		{{include('icons/' ~ icon ~ '.twig', { class: order ? 'order-2', size: 'h-5 w-5' }, with_context = false)}}
+	{% endif %}
+{% endmacro %}

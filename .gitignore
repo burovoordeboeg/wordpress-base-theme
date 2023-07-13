@@ -4,3 +4,4 @@ build
 assets/styles/blocks
 .DS_Store
 */.DS_Store
+browsersync.config.js
