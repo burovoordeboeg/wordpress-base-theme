@@ -9,23 +9,16 @@
     "[twig]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
-        "editor.formatOnSave": false
+        "editor.formatOnSave": true
     },
     "[javascript]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
         "editor.formatOnSave": true
     },
-    "[scss]": {
-        "editor.detectIndentation": false,
-        "editor.tabSize": 4,
-        "editor.insertSpaces": true,
-        "editor.formatOnSave": true
-    },
     "[php]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
         "editor.formatOnSave": false
-    },
-    "prettier.singleQuote": true
+    }
 }
