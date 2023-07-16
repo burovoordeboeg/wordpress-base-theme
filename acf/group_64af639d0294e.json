@@ -38,7 +38,9 @@
             },
             "choices": {
                 "h1": "H1",
-                "h2": "H2"
+                "h2": "H2",
+                "h3": "H3",
+                "p": "Paragraph"
             },
             "default_value": "h2",
             "return_format": "value",
@@ -67,5 +69,5 @@
     "active": false,
     "description": "This is used as a clone field inside blocks or other ACF groeps",
     "show_in_rest": 0,
-    "modified": 1689255484
+    "modified": 1689551202
 }
