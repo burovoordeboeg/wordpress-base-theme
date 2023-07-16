@@ -1,53 +1,39 @@
-{# Wordpress (Link) Button #}
-{% macro button(data, style = 'primary', attributes) %}
+{# Base Button #}
+{% macro btn(data, cls, icon_left = false) %}
 
 	{% set class = {
-		base: 'rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-		primary: 'bg-primary-500 hover:bg-primary-600 focus-visible:outline-primary-600',
-		secondary: 'bg-gray-500 hover:bg-gray-600 focus-visible:outline-gray-600'
-	} %}
+		root: 'inline-flex whitespace-nowrap items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm duration-300',
+		hover: 'hover:rounded-sm',
+		focus: 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 '
+	}%}
 
 	{% if data.title %}
-		<a {{attributes}} href="{{data.url}}" {{data.target ? 'target="_blank"'}} class="{{class.base}} {{class[style]}}">
+		<a href="{{data.url}}" {{data.target ? 'target=' ~ data.target}} class="{{class.root}} {{class.hover}} {{class.focus}} {{cls}}">
 			{{data.title}}
+
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" class="w-5 h-5 {{icon_left ? 'order-first'}}">
+				<path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"/>
+			</svg>
+
 		</a>
 	{% endif %}
-
 {% endmacro %}
 
-{# Wordpress complex button #}
-{% macro btn(data, variant, custom_classes, icon_id, reverse_icon = false) %}
-
-	{# Set base classes #}
-	{% set classes = {
-		root: 'inline-flex whitespace-nowrap items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm',
-		hover: 'hover:rounded-sm',
-		focus: 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-	} %}
-
-	{# Define Variants #}
-	{% set variants = {
-		primary: 'bg-primary-500 hover:bg-primary-600 focus-visible:outline-primary-600',
-		secondary: 'bg-gray-500 hover:bg-gray-600 focus-visible:outline-gray-600'
-	} %}
-
-	{% set tag = data.url ? 'a' : 'button' %}
-	{% set attr = data.url ? 'href=' ~ data.url : 'type=button' %}
-	{% set class = classes.root ~ ' ' ~ classes.hover ~ ' ' ~ classes.focus ~ ' ' ~ variants[variant] ~ ' ' ~ custom_classes  %}
-
-	{# Template #}
-	{% if data.title or data.icon %}
-		<{{tag}} {{ attr }} {{ data.url and data.target ? 'target=' ~ data.target : '' }} class="{{ class | spaceless }}">
-			{{_self.icon(icon_id, reverse_icon)}}
-			{{ data.title }}
-		</{{tag}}>
-	{% endif %}
-
+{# Primary button // Use: {{btn.primary(fields.button)}} #}
+{% macro primary(data, icon_left = false) %}
+	{% set class = 'bg-primary-500 hover:bg-primary-600 focus-visible:outline-primary-600' %}
+	{{_self.btn(data, class, icon_left)}}
 {% endmacro %}
 
-{# Icon macro #}
-{% macro icon(icon, order) %}
-	{% if icon %}
-		{{include('icons/' ~ icon ~ '.twig', { class: order ? 'order-2', size: 'h-5 w-5' }, with_context = false)}}
-	{% endif %}
+{# Secondary Button //Use: {{btn.secondary(fields.button)}} #}
+{% macro secondary(data, icon_left = false) %}
+	{% set class = 'bg-gray-500 hover:bg-gray-600 focus-visible:outline-gray-600' %}
+	{{_self.btn(data, class, icon_left)}}
+{% endmacro %}
+
+{# Secondary Button //Use: {{btn.link(fields.button)}} or {{btn.link(fields.button, true)}} or {{btn.link(fields.button, 'inverted')}} #}
+{% macro link(data, inverted = false, icon_left = false) %}
+	{% set inverted = inverted ? ' text-black' %}
+	{% set class = 'hover:underline' ~ inverted  %}
+	{{_self.btn(data, class, icon_left)}}
 {% endmacro %}
