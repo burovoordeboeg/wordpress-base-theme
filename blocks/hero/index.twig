@@ -9,19 +9,9 @@
 		{{media.wpimage(fields.image, 'full', 'absolute inset-0 -z-10 h-full w-full object-cover', is_preview)}}
 
 		<div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-			<div
-				class="text-center">
+			<div class="text-center">
 
-				{# Clasic example #}
-				<{{fields.title.type}} class="font-bold tracking-tight text-4xl sm:text-6xl text-white">
-					{{fields.title.text|raw}}
-				</{{fields.title.type}}>
-
-				{# Macro example 1 #}
-				{{type.heading(fields.title.type, fields.title.text, 'font-bold tracking-tight text-4xl sm:text-6xl  text-white')}}
-
-				{# Macro example 1 #}
-				{{type.title(fields.title, 'text-4xl sm:text-6xl text-white')}}
+				{{type.heading(fields.title, 'text-4xl sm:text-6xl text-white')}}
 
 				{% if fields.copy %}
 					<div class="mt-6 text-lg leading-8 text-gray-300">{{fields.copy|raw}}</div>
@@ -29,10 +19,7 @@
 
 				{% if fields.button %}
 					<div class="mt-10 flex items-center justify-center gap-x-6">
-						{{btn.primary(fields.button, true)}}
-						{{btn.secondary(fields.button)}}
-						{{btn.link(fields.button, true)}}
-						{{btn.link(fields.button)}}
+						{{button.main(item.button, item.variant)}}
 					{% endif %}
 				</div>
 			</div>
