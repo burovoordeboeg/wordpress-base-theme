@@ -45,11 +45,11 @@
             "delay": 0
         },
         {
-            "key": "field_647061b070d37",
+            "key": "field_64b477c161265",
             "label": "Button",
             "name": "button",
             "aria-label": "",
-            "type": "link",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -58,7 +58,13 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "clone": [
+                "group_64b46ff51fae4"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
         },
         {
             "key": "field_647061bd70d38",
@@ -104,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689216187
+    "modified": 1689549014
 }
