@@ -1,5 +1,5 @@
 {% import "macros/media.twig" as media %}
-{% import "macros/buttons.twig" as button %}
+{% import "macros/buttons.twig" as btn %}
 {% import "macros/typography.twig" as type %}
 
 <div data-block-id="{{ blockname }}" class="bg-gray-900">
@@ -29,14 +29,12 @@
 
 				{% if fields.button %}
 					<div class="mt-10 flex items-center justify-center gap-x-6">
-						{{button.button(fields.button)}}
-
-						{{button.btn(fields.button, 'primary', 'bg-blue-500')}}
-						{{button.btn(fields.button, 'primary', 'bg-pink-500', 'arrow-left-circle')}}
-						{{button.btn(fields.button, 'primary', 'bg-pink-800', 'arrow-left-circle', 'reverse', 'data-attr=value')}}
-					</div>
-				{% endif %}
+						{{btn.primary(fields.button, true)}}
+						{{btn.secondary(fields.button)}}
+						{{btn.link(fields.button, true)}}
+						{{btn.link(fields.button)}}
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
