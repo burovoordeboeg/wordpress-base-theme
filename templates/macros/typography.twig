@@ -1,12 +1,4 @@
-{% macro heading(type, text, class) %}
-
-	<{{type}} class="{{class}}">
-		{{text|raw}}
-	</{{type}}>
-
-{% endmacro %}
-
-{% macro title(data, class) %}
+{% macro heading(data, class) %}
 
 	<{{data.type}} class="font-bold tracking-tight {{class}}">
 		{{data.text|raw}}

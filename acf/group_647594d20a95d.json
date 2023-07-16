@@ -65,11 +65,11 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_64759571807db",
+                    "key": "field_64b4705b41a63",
                     "label": "Button",
                     "name": "button",
                     "aria-label": "",
-                    "type": "link",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -78,7 +78,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "clone": [
+                        "group_64b46ff51fae4"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
                     "parent_repeater": "field_64759561807da"
                 }
             ]
@@ -102,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685427605
+    "modified": 1689546971
 }
