@@ -1,10 +1,12 @@
 {% import "macros/media.twig" as media %}
+{% import "macros/typography.twig" as type %}
+
 
 <div data-block-id="{{ blockname }}" class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 
 		<div class="px-4 sm:px-0">
-			<h3 class="text-base font-semibold leading-7 text-gray-900">{{fields.heading|raw}}</h3>
+			{{type.heading(fields.heading, 'text-base font-semibold leading-7 text-gray-900')}}
 			<div class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{{fields.copy|raw}}</div>
 		</div>
 
@@ -21,4 +23,3 @@
 		</div>
 	</div>
 </div>
-

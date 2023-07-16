@@ -23,26 +23,6 @@
             "append": ""
         },
         {
-            "key": "field_6475ceacd8c60",
-            "label": "Copy",
-            "name": "copy",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_6475cf059e9b9",
             "label": "Policy",
             "name": "policy",
@@ -81,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685442327
+    "modified": 1689549905
 }

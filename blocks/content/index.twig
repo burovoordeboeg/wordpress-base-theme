@@ -1,4 +1,6 @@
 {% import "macros/media.twig" as media %}
+{% import "macros/typography.twig" as type %}
+
 
 {% set columns = {
 	2: 'lg:columns-2 gap-16',
@@ -10,7 +12,7 @@
 
 	{% if fields.heading %}
 		<div class="mx-auto max-w-7xl mb-6">
-			<h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{fields.heading|raw}}</h1>
+			{{type.heading(fields.heading, 'text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl')}}
 		</div>
 	{% endif %}
 

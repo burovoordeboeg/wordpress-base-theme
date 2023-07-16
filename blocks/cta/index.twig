@@ -1,10 +1,13 @@
 {% import "macros/media.twig" as media %}
 {% import "macros/buttons.twig" as button %}
+{% import "macros/typography.twig" as type %}
 
 <div data-block-id="{{ blockname }}" class="bg-white">
 	<div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
 		<div class="mx-auto max-w-4xl text-center">
-			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{fields.heading|raw}}</h2>
+
+			{{type.heading(fields.heading, 'text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl')}}
+
 			<div class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">{{fields.copy|raw}}</div>
 
 			<div class="mt-10 flex items-center justify-center gap-x-6">

@@ -14,9 +14,9 @@
 					<div class="mt-6 text-lg leading-8 text-gray-600">{{fields.copy|raw}}</div>
 				{% endif %}
 
-				{% if data.button %}
+				{% if fields.button %}
 					<div class="mt-10 flex items-center gap-x-6">
-						{{button.main(item.button, item.variant)}}
+						{{button.main(fields.button.button, fields.button.variant)}}
 					</div>
 				{% endif %}
 
