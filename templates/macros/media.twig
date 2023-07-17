@@ -1,7 +1,7 @@
 {# Wordpress Image macro #}
 {% macro wpimage(id, size = 'full', class = 'w-full', is_preview) %}
 	{% if is_preview and id == empty %}
-		<img class="{{class}}" src="https://place-hold.it/300x500?text=Nog geen afbeelding ingevoerd">
+		<img class="{{class}}" src="https://place-hold.it/1600x900?text=Nog geen afbeelding ingevoerd">
 	{% else %}
 		{{wp_get_attachment_image(id, size, null, { class: class })|raw }}
 	{% endif %}
