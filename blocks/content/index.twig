@@ -9,6 +9,7 @@
 } %}
 
 <div data-block-id="{{ blockname }}" class="bg-slate-50 px-6 py-32 lg:px-8">
+	{% include "components/preview.twig" %}
 
 	{% if fields.heading %}
 		<div class="mx-auto max-w-7xl mb-6">

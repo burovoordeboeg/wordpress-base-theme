@@ -5,6 +5,7 @@
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 
 		<div class="px-4 sm:px-0">
+			{% include "components/preview.twig" %}
 			{{type.heading(fields.heading, 'text-base font-semibold leading-7 text-gray-900')}}
 			<div class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{{fields.copy|raw}}</div>
 		</div>
