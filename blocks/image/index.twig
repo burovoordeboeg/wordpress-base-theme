@@ -8,8 +8,8 @@
 
 <div data-block-id="{{ blockname }}" class="relative my-32">
 	<div class="mx-auto {{alignment[attributes.alignment.align|default('none')]}}">
-		<div class="relative aspect-w-16 aspect-h-9">
-			{{media.videoUrl(fields.video_url,  fields.video_options, '', is_preview) }}
+		<div class="relative">
+			{{media.wpimage(fields.image, 'full', '', is_preview)}}
 		</div>
 	</div>
 </div>
