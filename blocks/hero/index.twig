@@ -10,8 +10,9 @@
 
 		<div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
 			<div class="text-center">
+				{% include "components/preview.twig" %}
 
-				{{type.heading(fields.title, 'text-4xl sm:text-6xl text-white')}}
+				{{type.heading(fields.title, 'text-4xl sm:text-6xl text-white', is_preview, fields)}}
 
 				{% if fields.copy %}
 					<div class="mt-6 text-lg leading-8 text-gray-300">{{fields.copy|raw}}</div>
