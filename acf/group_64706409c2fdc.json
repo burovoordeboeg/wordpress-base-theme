@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_64706409c4f96",
-            "label": "Title",
-            "name": "title",
+            "label": "Heading",
+            "name": "heading",
             "aria-label": "",
             "type": "clone",
             "instructions": "",
@@ -130,5 +130,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689549307
+    "modified": 1689555997
 }
