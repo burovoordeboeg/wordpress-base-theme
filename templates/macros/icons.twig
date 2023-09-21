@@ -1,13 +1,12 @@
 {#
   Macro for using SVG icons from a SVG symbol sprite
-  Learn more: https://fvsch.com/code/svg-icons/
   Usage:
       {{ icon('name') }}
-      {{ icon('name', {url: '/path/to/sprite.svg#icon-%s', width: 64}) }}
+      {{ icon('name', {class: 'text-green-500', width: 64}) }}
 #}
 {% macro icon(name, settings) %}
 
-	{% set url = settings.url ?? get_template_directory_uri() ~ '/build/images/icons.svg' ~ '#icon-%s' %}
+	{% set url = get_template_directory_uri() ~ '/build/images/icons.svg' ~ '#icon-%s' %}
 	{% set width = settings.width ?? 24 %}
 	{% set height = settings.height ?? width %}
 	{% set class = settings.class ?? null %}
