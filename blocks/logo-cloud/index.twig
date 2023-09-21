@@ -1,0 +1,16 @@
+{% import "macros/media.twig" as media %}
+{% import "macros/typography.twig" as type %}
+
+<div data-block-id="{{ blockname }}" class="bg-slate-50 py-24 sm:py-32">
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		{% include "components/preview.twig" %}
+
+		{{type.heading(fields.heading, 'text-center text-lg font-semibold leading-8 text-gray-900')}}
+
+		<div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+			{% for item in fields.logos %}
+				{{media.wpimage(item, 'full', 'col-span-2 max-h-12 w-full object-contain lg:col-span-1')}}
+			{% endfor %}
+		</div>
+	</div>
+</div>

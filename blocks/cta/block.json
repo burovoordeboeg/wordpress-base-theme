@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "name": "acf/cta",
     "title": "Cta",
-    "description": "Een block om mee te starten",
+    "description": "Een blockom mee te starten",
     "style": [],
     "category": "common",
     "icon": "button",

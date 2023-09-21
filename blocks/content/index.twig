@@ -1,0 +1,24 @@
+{% import "macros/media.twig" as media %}
+{% import "macros/typography.twig" as type %}
+
+
+{% set columns = {
+	2: 'lg:columns-2 gap-16',
+	3: 'lg:columns-3 gap-16',
+	4: 'lg:columns-2 xl:columns-4 gap-16',
+} %}
+
+<div data-block-id="{{ blockname }}" class="bg-slate-50 px-6 py-32 lg:px-8">
+	{% include "components/preview.twig" %}
+
+	{% if fields.heading %}
+		<div class="mx-auto max-w-7xl mb-6">
+			{{type.heading(fields.heading, 'text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl')}}
+		</div>
+	{% endif %}
+
+	<div class="mx-auto max-w-7xl {{columns[fields.content_options.columns]}} prose">
+		{{fields.content|raw}}
+	</div>
+
+</div>

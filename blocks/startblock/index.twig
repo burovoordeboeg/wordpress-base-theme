@@ -1,9 +1,9 @@
-{# <pre class="prose max-w-none">
-	{{ dump() }}
-</pre> #}
+{% import "macros/media.twig" as media %}
 
-{% import "macros/macro.twig" as macro %}
+<div data-block-id="{{ blockname }}" class="{{container[block.alignment]}} {{class}}">
+	{% include "components/preview.twig" %}
 
-<section data-block-id="{{ blockname }}" class="{{container[block.alignment]}} {{class}}">
-	<div class="bg-gray-100">This is our block: {{blockname}}</div>
-</section>
+	<div class="bg-gray-100">This is our block:
+		{{blockname}}
+	</div>
+</div>
