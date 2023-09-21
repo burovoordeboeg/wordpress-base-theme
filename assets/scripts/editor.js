@@ -1,1 +1,1 @@
-console.log("hallo editor");
+console.log('hallo editor');

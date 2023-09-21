@@ -1,7 +1,5 @@
-/**
- * Add URL and change .example to .js in filename to enable browsersync proxy
- */
+// Usage: rename this file to browsersync.config.js and change the proxy to your local url
 module.exports = {
-  proxy: "http://ADD_URL_HERE/",
-  files: ["./**/*.css", "./**/*.js", "./**/*.php", "./**/*.twig"],
+    proxy: 'your-local-url-here',
+    files: ['./**/*.css', './**/*.js', './**/*.php', './**/*.twig'],
 };
