@@ -1,26 +1,27 @@
 /* This is using the same setup as styles.css but can be extended with specific styles needed in our backend. */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import-glob "./components/**/*.css";
-@import-glob "./blocks/**/*.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import-glob "./wordpress/*.css";
 @import-glob "../../blocks/**/*.css";
-@import 'theme';
-@import 'tailwindcss/utilities';
+@import "theme";
+@import "tailwindcss/utilities";
 
-
-/* Set wysiwyg base styles in editor */
-.mce-content-body,
-.acf_content,
-.mceContentBody {
-  @apply prose max-w-none p-4;
+.edit-post-visual-editor__post-title-wrapper {
+  @apply bg-gray-50 mt-0 py-16 mb-8 border-b border-dashed !important;
 }
 
-/* Change backend block alignment */
-.edit-post-visual-editor__post-title-wrapper > .alignwide, 
-.block-editor-block-list__layout.is-root-container > .alignwide,
-.edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)), 
-.block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright)),
-.edit-post-visual-editor__post-title-wrapper > .alignfull, 
-.block-editor-block-list__layout.is-root-container > .alignfull {
-  @apply max-w-[98%] mx-auto !important;
+.wp-block-post-title {
+  @apply text-4xl font-bold mb-0 text-gray-600;
+}
+
+/* Set wid of backend blocks */
+.edit-post-visual-editor__post-title-wrapper,
+.block-editor-block-list__layout.is-root-container {
+  > :where(:not(.alignleft):not(.alignright)) {
+    @apply mx-auto max-w-[98%] !important;
+  }
+}
+
+.mce-content-body {
+  @apply prose max-w-[98%] mx-auto;
 }

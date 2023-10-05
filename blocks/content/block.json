@@ -2,31 +2,35 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "name": "acf/content",
     "title": "Content",
-    "description": "Een content block",
+    "description": "Een blockom mee te starten",
     "style": [],
-    "category": "buro-voor-de-boeg",
+    "category": "common",
     "icon": "button",
     "acf": {
         "mode": "preview",
-        "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],
-        "postTypes": [ "page" ]
+        "renderCallback": [
+            "BvdB\\Gutenberg\\Blocks",
+            "render"
+        ],
+        "postTypes": []
     },
     "supports": {
-        "align": ["wide", "full"],
+        "align": [
+            "wide",
+            "full"
+        ],
         "anchor": true,
         "alignContent": false,
         "alignText": false,
-        "color": {
-            "text": true,
-            "background": true
-        },
         "typography": {
             "fontSize": false
         },
-        "spacing": {
-			"margin": ["bottom", "top"],
-            "padding": ["bottom"]
-		},
-        "fullHeight": false
+        "fullHeight": false,
+        "spacing": {}
+    },
+    "example": {
+        "attributes": {
+            "message": "This is a notice!"
+        }
     }
 }

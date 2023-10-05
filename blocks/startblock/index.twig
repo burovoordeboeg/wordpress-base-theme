@@ -1,7 +1,9 @@
-{% extends "base/block.twig" %}
+{% import "macros/media.twig" as media %}
 
-{% block content %}
+<div data-block-id="{{ blockname }}" class="{{container[block.alignment]}} {{class}}">
+	{% include "components/preview.twig" %}
 
-{{fields.video}}
-
-{% endblock %}
+	<div class="bg-gray-100">This is our block:
+		{{blockname}}
+	</div>
+</div>

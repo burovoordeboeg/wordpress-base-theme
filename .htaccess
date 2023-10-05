@@ -1,5 +1,7 @@
 # NEW SERVER VERSION
+
 # Add these lines to load media files from production server if they don't exist locally
+
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	RewriteCond %{REQUEST_FILENAME} !-f [NC]
@@ -8,7 +10,9 @@
 </IfModule>
 
 # OLD SERVERS VERSION
+
 # Add these lines to load media files from production server if they don't exist locally
+
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteBase /

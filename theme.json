@@ -3,72 +3,49 @@
 	"version": 2,
 	"settings": {
 		"layout": {
-			"contentSize": "768px",
-			"wideSize": "1024px"
+			"contentSize": "1280px",
+			"wideSize": "1536px"
 		},
 		"color": {
-      	"link": true,
-			"defaultPalette": false,
-			"palette": [
-				{
-					"slug": "white",
-					"color": "#FFFFFF",
-					"name": "Wit"
-				},
-				{
-					"slug": "yellow",
-					"color": "#D3A403",
-					"name": "Geel"
-				},
-				{
-					"slug": "brightblue",
-					"color": "#009FE3",
-					"name": "Licht Blauw"
-				},
-				{
-					"slug": "secondaryblue",
-					"color": "#00FF00",
-					"name": "Secundair blauw"
-				},
-				{
-					"slug": "mediumblue",
-					"color": "#004B8C",
-					"name": "Medium Blauw"
-				},
-				{
-					"slug": "black",
-					"color": "#000000",
-					"name": "Zwart"
-				}
-			]
+			"text": false,
+			"background": false,
+			"link": false,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": true
+		},
+		"typography": {
+			"fluid": false,
+			"customFontSize": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"lineHeight": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"dropCap": false,
+			"fontSizes": [],
+			"fontFamilies": []
 		},
 		"spacing": {
-			"blockGap": true,
-			"margin": true,
-			"padding": true,
-			"customSpacingSize": false,
-			"spacingSizes": [
-				{
-					"size": "",
-					"slug": "small",
-					"name": "small"
-				},
-				{ 
-					"size": "",
-					"slug": "medium",
-					"name": "medium" 
-				},
-				{
-					"size": "",
-					"slug": "large",
-					"name": "large"
-				},
-				{
-					"size": "",
-					"slug": "xlarge",
-					"name": "Extra large"
-				}
-			]
+			"blockGap": true
+		},
+		"blocks": {
+			"core/paragraph": {
+				"color": {},
+				"custom": {},
+				"layout": {},
+				"typography": {}
+			},
+			"core/heading": {
+				"color": {},
+				"custom": {},
+				"layout": {},
+				"typography": {}
+			}
 		}
 	}
 }

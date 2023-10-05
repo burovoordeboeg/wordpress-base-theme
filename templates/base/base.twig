@@ -8,12 +8,14 @@
 	</head>
 	<body {{ body_class() }}>
 
+		{{ wp_body_open() }}
+
 		{% block header %}
 			{% include 'base/header.twig' %}
 		{% endblock %}
 
 		{% block main %}
-			<main class="wrapper {{wrapper_class}}">
+			<main data-section-id="main" class="wrapper {{wrapper_class}}">
 				{% block content %}
 					<p>Content gets rendered here</p>
 				{% endblock %}

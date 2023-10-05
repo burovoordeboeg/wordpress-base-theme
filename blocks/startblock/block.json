@@ -4,30 +4,26 @@
     "title": "Startblock",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "buro-voor-de-boeg",
+    "category": "common",
     "icon": "button",
     "acf": {
         "mode": "preview",
-        "renderCallback": ["BvdB\\Gutenberg\\Blocks", "render"],
-        "postTypes": [ "page" ]
+        "renderCallback": [
+            "BvdB\\Gutenberg\\Blocks",
+            "render"
+        ],
+        "postTypes": []
     },
     "supports": {
-        "align": ["wide", "full"],
+        "align": [],
         "anchor": true,
-        "alignContent": true,
-        "alignText": true,
-        "color": {
-            "text": true,
-            "background": true
-        },
+        "alignContent": false,
+        "alignText": false,
         "typography": {
-            "fontSize": true
+            "fontSize": false
         },
-        "fullHeight": true,
-        "spacing": {
-			"margin": ["bottom", "top"],
-            "padding": ["bottom"]
-		}
+        "fullHeight": false,
+        "spacing": {}
     },
     "example": {
         "attributes": {
