@@ -4,8 +4,8 @@
     "title": "Hero",
     "description": "Een hero block",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "streamers",
+    "icon": "welcome-view-site",
     "acf": {
         "mode": "preview",
         "renderCallback": [

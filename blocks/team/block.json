@@ -4,8 +4,8 @@
     "title": "Team",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "misc",
+    "icon": "groups",
     "acf": {
         "mode": "preview",
         "renderCallback": [

@@ -91,6 +91,9 @@ add_action('init', function () use ($gutenberg) {
 
 	// Add block category
 	$gutenberg->add_block_category('Lay-out', 'layout');
+	$gutenberg->add_block_category('Steamers', 'streamers');
+	$gutenberg->add_block_category('Projecten', 'projecten');
+	$gutenberg->add_block_category('Overig', 'misc');
 
 	// Set allowed default_blocks
 	$gutenberg->set_allowed_default_blocks(array(

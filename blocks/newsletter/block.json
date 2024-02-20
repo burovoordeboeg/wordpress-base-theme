@@ -4,8 +4,8 @@
     "title": "Newsletter",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "streamers",
+    "icon": "welcome-learn-more",
     "acf": {
         "mode": "preview",
         "renderCallback": [

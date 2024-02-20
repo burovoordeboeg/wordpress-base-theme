@@ -5,7 +5,7 @@
     "description": "Een team block",
     "style": [],
     "category": "common",
-    "icon": "button",
+    "icon": "align-pull-left",
     "acf": {
         "mode": "preview",
         "renderCallback": [

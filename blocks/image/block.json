@@ -4,8 +4,8 @@
     "title": "Image",
     "description": "Een image block",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "media",
+    "icon": "format-image",
     "acf": {
         "mode": "preview",
         "renderCallback": [

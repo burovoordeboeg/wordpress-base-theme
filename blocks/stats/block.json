@@ -4,8 +4,8 @@
     "title": "Stats",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "misc",
+    "icon": "editor-ol",
     "acf": {
         "mode": "preview",
         "renderCallback": [

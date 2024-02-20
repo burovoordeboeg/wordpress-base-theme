@@ -4,8 +4,8 @@
     "title": "Features",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "misc",
+    "icon": "list-view",
     "acf": {
         "mode": "preview",
         "renderCallback": [

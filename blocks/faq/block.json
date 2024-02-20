@@ -4,8 +4,8 @@
     "title": "Faq",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "misc",
+    "icon": "editor-help",
     "acf": {
         "mode": "preview",
         "renderCallback": [

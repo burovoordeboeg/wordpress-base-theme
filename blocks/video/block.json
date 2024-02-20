@@ -4,8 +4,8 @@
     "title": "Video",
     "description": "Een video block",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "media",
+    "icon": "format-video",
     "acf": {
         "mode": "preview",
         "renderCallback": [

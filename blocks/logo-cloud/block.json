@@ -4,8 +4,8 @@
     "title": "Logo cloud",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "misc",
+    "icon": "cloud",
     "acf": {
         "mode": "preview",
         "renderCallback": [
