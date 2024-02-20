@@ -16,6 +16,7 @@
     },
     "supports": {
         "align": [
+            "center",
             "wide",
             "full"
         ],

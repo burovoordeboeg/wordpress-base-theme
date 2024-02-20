@@ -1,21 +1,21 @@
-{% import "macros/media.twig" as media %}
+{% extends "base/block.twig" %}
+
+{# Import macros #}
 {% import "macros/buttons.twig" as button %}
 {% import "macros/typography.twig" as type %}
 
-<div data-block-id="{{ blockname }}" class="bg-white">
-	<div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-		<div class="mx-auto max-w-4xl text-center">
-			{% include "components/preview.twig" %}
+{% block content %}
 
-			{{type.heading(fields.heading, 'text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl')}}
+	{{type.heading(fields.heading)}}
 
-			<div class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">{{fields.copy|raw}}</div>
-
-			<div class="mt-10 flex items-center justify-center gap-x-6">
-				{% for item in fields.buttons %}
-					{{button.main(item.button, item.variant)}}
-				{% endfor %}
-			</div>
-		</div>
+	<div class="prose max-w-none">
+		{{fields.copy|raw}}
 	</div>
-</div>
+
+	<div class="flex items-center gap-x-6">
+		{% for item in fields.buttons %}
+			{{button.main(item.button, item.variant)}}
+		{% endfor %}
+	</div>
+
+{% endblock %}
