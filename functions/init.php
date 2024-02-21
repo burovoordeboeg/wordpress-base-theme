@@ -6,9 +6,14 @@ if (!defined('ABSPATH')) exit;
 // Create theme instance and call the theme class to initialize globally.
 include_once get_template_directory() . '/vendor/autoload.php';
 
+
+// Load template classes
 $template = \BvdB\Templates\Autoloader::get_instance();
 $utilities = \BvdB\Utilities\Autoloader::get_instance();
 $gutenberg = \BvdB\Gutenberg\Blocks::get_instance();
+
+// Load ACF focuspoint field
+$acf_focuspoint = new \BvdB\ACF\FocusPoint();
 
 // Set ACF save path
 $utilities->acf->settings->set_save_load_paths(get_template_directory() . '/acf/');

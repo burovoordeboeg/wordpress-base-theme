@@ -15,10 +15,10 @@
         }
     },
     "require": {
-        "burovoordeboeg/acf-focus-point": "dev-master",
+        "burovoordeboeg/acf-focus-point": "^0.2.1",
         "burovoordeboeg/utilities": "^0.1.8",
-        "burovoordeboeg/templates": "^0.1.8",
-        "burovoordeboeg/gutenberg": "^1.0.1"
+        "burovoordeboeg/templates": "^0.1.11",
+        "burovoordeboeg/gutenberg": "^1.0.4"
     },
     "autoload": {
         "psr-4": {
@@ -27,11 +27,20 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://repo.packagist.com/burovoordeboeg/"
+            "type": "vcs",
+            "url": "https://github.com/burovoordeboeg/acf-focuspoint"
         },
         {
-            "packagist.org": false
+            "type": "vcs",
+            "url": "https://github.com/burovoordeboeg/class-theme-utilities"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/burovoordeboeg/class-theme-template-loader"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/burovoordeboeg/class-gutenberg"
         },
         {
             "type": "composer",
