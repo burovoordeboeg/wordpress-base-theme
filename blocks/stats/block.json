@@ -15,7 +15,11 @@
         "postTypes": []
     },
     "supports": {
-        "align": [],
+        "align": [
+            "center",
+            "wide",
+            "full"
+        ],
         "anchor": true,
         "alignContent": false,
         "alignText": false,

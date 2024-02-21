@@ -17,7 +17,8 @@
     "supports": {
         "align": [
             "full",
-            "wide"
+            "wide",
+            "center"
         ],
         "anchor": true,
         "alignContent": false,

@@ -3,11 +3,5 @@
 
 
 {% block content %}
-	<div class="text-blue-500 p-8">
-		{{ icon.icon('arrow-down-on-square') }}
-		{{ icon.icon('arrow-down-on-square', { width: 64 }) }}
-		{{ icon.icon('arrow-down-on-square', {class: 'text-green-500'}) }}
-	</div>
-
 	{{object.get_content()|raw}}
 {% endblock %}

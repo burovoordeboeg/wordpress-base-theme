@@ -1,20 +1,19 @@
+{% extends "base/block.twig" %}
+
+{# Import macros #}
 {% import "macros/typography.twig" as type %}
 
-<div data-block-id="{{ blockname }}" class="bg-slate-50 py-24 sm:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl lg:max-w-none">
-			<div class="text-center">
-				{{type.heading(fields.heading, 'text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl')}}
-				<div class="mt-4 text-lg leading-8 text-gray-600">{{fields.copy|raw}}</div>
+{% block content %}
+
+	{{type.heading(fields.heading)}}
+	<div class="prose">{{fields.copy|raw}}</div>
+
+	<dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+		{% for item in fields.stats %}
+			<div class="">
+				<dd class="">{{item.heading}}</dd>
+				<dt class="prose max-w-none">{{item.copy|raw}}</dt>
 			</div>
-			<dl class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-				{% for item in fields.stats %}
-					<div class="flex flex-col bg-gray-400/5 p-8">
-						<dt class="text-sm font-semibold leading-6 text-gray-600">{{item.copy|raw}}</dt>
-						<dd class="order-first text-3xl font-semibold tracking-tight text-gray-900">{{item.heading}}</dd>
-					</div>
-				{% endfor %}
-			</dl>
-		</div>
-	</div>
-</div>
+		{% endfor %}
+	</dl>
+{% endblock %}

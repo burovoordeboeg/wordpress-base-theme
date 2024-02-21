@@ -1,22 +1,27 @@
+{% extends "base/block.twig" %}
+
+{# Import macros #}
 {% import "macros/media.twig" as media %}
 {% import "macros/buttons.twig" as button %}
 {% import "macros/typography.twig" as type %}
 
-<div data-block-id="{{ blockname }}" class="relative bg-gray-50">
-	<div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-16 lg:px-8">
+{% block content %}
+	<div class="lg:grid lg:grid-cols-12 lg:gap-x-16 ">
 
-		<div class="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6 {{fields.reverse ? 'lg:col-start-6 xl:col-start-7'}}">
+		<div class="lg:col-span-7 xl:col-span-6 {{fields.reverse ? 'lg:col-start-6 xl:col-start-7'}}">
 
-			<div class="mx-auto max-w-2xl lg:mx-0">
-				{% include "components/preview.twig" %}
-				{{type.heading(fields.heading, 'mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl')}}
+			<div class="">
+
+				{{type.heading(fields.heading)}}
 
 				{% if fields.copy %}
-					<div class="mt-6 text-lg leading-8 text-gray-600">{{fields.copy|raw}}</div>
+					<div class="prose max-w-none">
+						{{fields.copy|raw}}
+					</div>
 				{% endif %}
 
 				{% if fields.button %}
-					<div class="mt-10 flex items-center gap-x-6">
+					<div class="flex items-center gap-x-6">
 						{{button.main(fields.button.button, fields.button.variant)}}
 					</div>
 				{% endif %}
@@ -29,4 +34,4 @@
 		</div>
 
 	</div>
-</div>
+{% endblock %}
