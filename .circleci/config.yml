@@ -62,8 +62,8 @@ references:
   
   composer_packagist: &composer_packagist
     run:
-      name: Setup packagist authentication
-      command: composer config --global --auth github-oauth.github.com $GITHUB_TOKEN
+      name: Setup Github Oauth
+      command: composer config --global --auth github-oauth.github.com $GITHUB_OAUTH_TOKEN
 
   composer_install: &composer_install
     run:
