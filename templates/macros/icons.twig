@@ -1,0 +1,18 @@
+{#
+  Macro for using SVG icons from a SVG symbol sprite
+  Usage:
+      {{ icon('name') }}
+      {{ icon('name', {class: 'text-green-500', width: 64}) }}
+#}
+{% macro icon(name, settings) %}
+
+	{% set url = get_template_directory_uri() ~ '/build/images/icons.svg' ~ '#icon-%s' %}
+	{% set width = settings.width ?? 24 %}
+	{% set height = settings.height ?? width %}
+	{% set class = settings.class ?? null %}
+
+	<svg class="icon icon-{{name}} {% if class %}{{class}}{% endif %}" aria-hidden="true" focusable="false" {%- if width %} width="{{ width }}" height="{{ height }}" {% endif %}>
+		<use xlink:href="{{ url|format(name) }}"></use>
+		<g></g>
+	</svg>
+{% endmacro %}

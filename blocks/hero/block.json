@@ -2,10 +2,10 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "name": "acf/hero",
     "title": "Hero",
-    "description": "Een blockom mee te starten",
+    "description": "Een hero block",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "streamers",
+    "icon": "welcome-view-site",
     "acf": {
         "mode": "preview",
         "renderCallback": [
@@ -14,29 +14,11 @@
         ],
         "postTypes": []
     },
-    "styles": [
-        {
-            "name": "default",
-            "label": "Default",
-            "isDefault": true
-        },
-        {
-            "name": "red",
-            "label": "Red"
-        },
-        {
-            "name": "green",
-            "label": "Green"
-        },
-        {
-            "name": "blue",
-            "label": "Blue"
-        }
-    ],
     "supports": {
         "align": [
             "wide",
-            "full"
+            "full",
+            "center"
         ],
         "anchor": true,
         "alignContent": false,
@@ -50,7 +32,6 @@
     "example": {
         "attributes": {
             "message": "This is a notice!"
-        },
-        "viewportWidth": 1200
+        }
     }
 }

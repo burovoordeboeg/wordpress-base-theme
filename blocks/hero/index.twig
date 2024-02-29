@@ -1,49 +1,28 @@
-{# <pre class="prose max-w-none">
-	{{ dump() }}
-</pre> #}
+{% extends "base/block.twig" %}
 
-{% import "macros/macro.twig" as macro %}
+{# Import macros #}
+{% import "macros/media.twig" as media %}
+{% import "macros/buttons.twig" as button %}
+{% import "macros/typography.twig" as type %}
 
-{% set template = [
-    ['core/heading', {
-        'level': 1,
-        'placeholder': 'Heading goes here.',
-        'align': 'center',
-        'className': '',
-    }],
-    ['core/paragraph', {
-        'placeholder': 'Describe here.', 
-        'align': 'left', 
-        'className': '',
-    }],
-	 ['core/buttons',{
-		'className': 'mt-10',
-	 },[
-        ['core/button', {
-			'placeholder': 'Placeholder text',
-		}],
-    ]]
-] %}
+{% block content %}
+	{{media.wpimage(fields.image, 'full', 'absolute inset-0  h-full w-full object-cover z-0', is_preview)}}
 
-{% set allowed_blocks = [
-    'core/heading', 
-    'core/paragraph',
-    'core/buttons',
-    'core/button',
-] %}
+	<div class="relative z-10">
+		<div class="p-8">
 
-<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8' : ''}}">
-  <div class="container lg:grid lg:grid-cols-12 lg:gap-x-8">
-    <div class="lg:col-span-7">
-		<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="all"/>
-    </div>
-    <div class="lg:col-span-5 relative">
-		{% if is_preview and fields.image == empty%}
-			{{macro.preview}}
-			{% else %}
-			{{macro.wpimage(fields.image, 'full', ' w-full bg-gray-50 h-full object-cover')}}
-		{% endif %}
+			{{type.heading(fields.title)}}
+
+			{% if fields.copy %}
+				<div class="prose max-w-none">{{fields.copy|raw}}</div>
+			{% endif %}
+
+			{% if fields.button %}
+				<div class="flex items-center gap-x-6">
+					{{button.main(fields.button.button, fields.button.variant)}}
+				</div>
+			{% endif %}
+		</div>
 
 	</div>
-  </div>
-</div>
+{% endblock %}

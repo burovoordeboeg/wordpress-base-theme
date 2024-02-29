@@ -1,42 +1,21 @@
-{# <pre class="prose max-w-none">
-	{{ dump() }}
-</pre> #}
+{% extends "base/block.twig" %}
 
-{% set template = [
-    ['core/heading', {
-        'level': 2,
-        'placeholder': 'Heading goes here.',
-        'className': 'cta__heading',
-    }],
-    ['core/paragraph', {
-        'placeholder': 'Describe here.', 
-        'align': 'left', 
-        'className': 'cta__paragraph',
-    }],
-	 ['core/buttons',{
-		'className': 'mt-10',
-	 },[
-        ['core/button', {
-			'placeholder': 'Get started',
-			'lock': {
-				'move'   : true,
-				'remove' : false,
-			},
-			
-		}],
-    ]]
-] %}
+{# Import macros #}
+{% import "macros/buttons.twig" as button %}
+{% import "macros/typography.twig" as type %}
 
-{% set allowed_blocks = [
-    'core/heading', 
-    'core/paragraph',
-    'core/buttons',
-    'core/button',
-] %}
+{% block content %}
 
+	{{type.heading(fields.heading)}}
 
-<div class="{{blockname}} {{blockname}}--{{alignment|default('small')}} {{attributes.class}} {{is_preview ? 'px-8'}}">
-  <div class="container max-w-3xl py-24  sm:py-32">
-	<InnerBlocks class="{{blockname}}__innerblocks" template="{{template|json_encode()|escape}}" allowedblocks="{{allowed_blocks|json_encode()|escape}}"  templatelock="contentOnly"/>
-  </div>
-</div>
+	<div class="prose max-w-none">
+		{{fields.copy|raw}}
+	</div>
+
+	<div class="flex items-center gap-x-6">
+		{% for item in fields.buttons %}
+			{{button.main(item.button, item.variant)}}
+		{% endfor %}
+	</div>
+
+{% endblock %}

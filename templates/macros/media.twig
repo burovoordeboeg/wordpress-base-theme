@@ -1,0 +1,24 @@
+{# Wordpress Image macro #}
+{% macro wpimage(id, size = 'full', class = 'w-full', is_preview) %}
+	{% if is_preview and id == empty %}
+		<img class="{{class}}" src="https://place-hold.it/1600x900?text=Nog geen afbeelding ingevoerd">
+	{% else %}
+		{{wp_get_attachment_image(id, size, null, { class: class })|raw }}
+	{% endif %}
+{% endmacro %}
+
+{# Video macro #}
+{% macro videoUrl(url, options, class, is_preview) %}
+	{% if is_preview and url == empty %}
+		<img class="{{options.cover ? 'w-full h-full object-cover'}} {{class}}" src="https://place-hold.it/1600x900?text=Geen video url ingevoerd">
+	{% else %}
+		{% if url == empty %}
+			<img class="{{options.cover ? 'w-full h-full object-cover'}} {{class}}" src="https://place-hold.it/1600x900?text=Geen video url ingevoerd">
+		{% else %}
+			<video class="{{options.cover ? 'w-full h-full object-cover'}} {{class}}" {{options.loop ? 'loop'}} {{options.autoplay ? 'autoplay muted' : 'controls'}} {{options.muted ? 'muted'}}>
+				<source src="{{url}}" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		{% endif %}
+	{% endif %}
+{% endmacro %}

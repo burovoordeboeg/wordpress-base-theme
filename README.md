@@ -1,26 +1,45 @@
+# THEME NAME
 
-# WordPress Base theme
+De algemene documentatie voor het Buro voor de Boeg Base Theme staat in [confluence](https://burovoordeboeg.atlassian.net/wiki/spaces/BVDBT/pages/57933825/Base+Theme). Deze readme is bedoelt voor dit specifieke project.
 
---
+## Theme settings
 
-AANVULLEN MET INFORMATIE OVER HET THEMA
+Voor de deployment is het van belang de volgende settings in te stellen in de style.css van het thema:
 
+```
+/*
+Theme Name: <<THEME NAME>>
+Theme URI: <<THEME DOMAIN>>
+Author: Buro voor de Boeg
+Author URI: https://www.burovoordeboeg.nl
+Description: WordPress theme build for <<CLIENT NAME>>
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+Text Domain: bvdb
+Domain Path: /languages
+*/
+```
 
-# Tailwind config
-Er wordt gebruik gemaakt van een Tailwind. Om componenten en secties te herkennen maken we gebruik van data attributen. Deze zijn als volgt:
-- Voor secties (zoals headers en navigatie): `data-section-id="NAAM"`
-- Voor componenten (zoals buttons, titels, headings, etc.): `data-component-id="NAAM"`
-- Voor Gutenberg blokken: `data-block-id="{{ blockname }}"`
+## Development
 
-Zo maken we beter onderscheid tussen secties, componenten en blokken en blijft de HTML in de Twig-files leesbaar.
+Na het downloaden/clonen van het basetheme moet je eerst de dependencies installeren. Dit doe je door in de root van het project het volgende commando uit te voeren:
 
-## New setup notes & links
+`composer install`
+`npm install`
 
-* [https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5](https://dev.to/antonmelnyk/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5)
-* [https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one](https://stackoverflow.com/questions/69147962/file-loader-creating-2-images-and-linking-the-wrong-one)
-* [https://webpack.js.org/guides/asset-modules/](https://webpack.js.org/guides/asset-modules/)
+Vervolgens kun je de task runner starten door het volgende commando uit te voeren:
 
-## New setup with webpack
+`npm start` of `npm run build`
 
-De setup maakt gebruik van webpack. We gebruiken tailwind (v3) en schrijven css ipv scss. Door het gebruik van postcss en postcss nesting kunnen we de css schrijven zoals je dat met Sass gewend bent.
+## Browsersync settings
 
+In de root van het thema staat een bestand genaamd `browsersync-config.example`. Deze dien je ter hernoemen naar `browsersync-config.js` en de instellingen aan te passen naar de juiste instellingen voor het project. De instellingen zijn als volgt:
+
+```
+module.exports = {
+  proxy: "http://<<LOCAL_URL_HERE>>/",
+  files: ["./**/*.css", "./**/*.js", "./**/*.php", "./**/*.twig"],
+};
+```

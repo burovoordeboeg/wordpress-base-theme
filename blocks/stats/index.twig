@@ -1,0 +1,19 @@
+{% extends "base/block.twig" %}
+
+{# Import macros #}
+{% import "macros/typography.twig" as type %}
+
+{% block content %}
+
+	{{type.heading(fields.heading)}}
+	<div class="prose">{{fields.copy|raw}}</div>
+
+	<dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+		{% for item in fields.stats %}
+			<div class="">
+				<dd class="">{{item.heading}}</dd>
+				<dt class="prose max-w-none">{{item.copy|raw}}</dt>
+			</div>
+		{% endfor %}
+	</dl>
+{% endblock %}

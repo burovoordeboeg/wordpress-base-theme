@@ -4,6 +4,7 @@
     "title": "Image",
     "description": "Een image block",
     "style": [],
+<<<<<<< HEAD
     "category": "buro-voor-de-boeg",
     "icon": "button",
     "acf": {
@@ -25,10 +26,40 @@
 			"margin": ["bottom", "top"],
             "padding": true
 		}
+=======
+    "category": "media",
+    "icon": "format-image",
+    "acf": {
+        "mode": "preview",
+        "renderCallback": [
+            "BvdB\\Gutenberg\\Blocks",
+            "render"
+        ],
+        "postTypes": []
+    },
+    "supports": {
+        "align": [
+            "full",
+            "wide",
+            "center"
+        ],
+        "anchor": true,
+        "alignContent": false,
+        "alignText": false,
+        "typography": {
+            "fontSize": false
+        },
+        "fullHeight": false,
+        "spacing": {}
+>>>>>>> 4dddc532ceef80b359d67c3c161fb057740a83aa
     },
     "example": {
         "attributes": {
             "message": "This is a notice!"
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4dddc532ceef80b359d67c3c161fb057740a83aa

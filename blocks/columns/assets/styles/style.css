@@ -1,5 +1,0 @@
-.columns {
-  &__innerblocks {
-    @apply flex-wrap md:flex-nowrap;
-  }
-}

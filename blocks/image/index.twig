@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% set image = {
 	id: fields.image.id,
 	class: 'w-full ',
@@ -54,4 +55,13 @@
 			{% endif %}
 	{% endif %}
 
+=======
+{% extends "base/block.twig" %}
+
+{# Import macros #}
+{% import "macros/media.twig" as media %}
+
+{% block content %}
+	{{media.wpimage(fields.image, 'full', '', is_preview)}}
+>>>>>>> 4dddc532ceef80b359d67c3c161fb057740a83aa
 {% endblock %}
