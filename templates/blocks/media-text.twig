@@ -7,7 +7,7 @@
 
 {% block content %}
 
-	<div class="lg:grid lg:grid-cols-12 lg:gap-x-16 lg:px-8">
+	<div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
 
 		<div class="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6 {{fields.reverse ? 'lg:col-start-6 xl:col-start-7'}}">
 			<div class="">
@@ -30,7 +30,14 @@
 		</div>
 
 		<div class="relative lg:col-span-5 xl:absolute xl:inset-0 {{fields.reverse ? 'lg:-ml-8 lg:col-start-1 lg:row-start-1 xl:right-1/2 xl:ml-0' : 'lg:-mr-8  xl:left-1/2 xl:mr-0'}}">
-			{{media.wpimage(fields.image, 'full', 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full')}}
+
+			{% if blockname == 'video-text' %}
+				{{media.videoUrl(fields.video_url, fields.video_options, 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full', is_preview) }}
+			{% endif %}
+
+			{% if blockname == 'image-text' %}
+				{{media.wpimage(fields.image, 'full', 'aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full')}}
+			{% endif %}
 		</div>
 
 	</div>
