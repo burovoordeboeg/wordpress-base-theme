@@ -21,7 +21,7 @@
         ],
         "anchor": true,
         "alignContent": false,
-        "alignText": false,
+        "alignText": true,
         "typography": {
             "fontSize": false
         },
