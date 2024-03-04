@@ -35,8 +35,8 @@
     "hot": "mix watch --hot",
     "production": "mix --production",
     "build": "mix --production",
-    "svgos": "svg-symbol-sprite -i ./templates/icons/  -o ./assets/images/icons.svg",
-    "svgo": "svgo -f ./templates/icons/ -o ./templates/icons/"
+    "svgos": "svg-symbol-sprite -i ./assets/icons/  -o ./assets/images/icons.svg",
+    "svgo": "svgo -f ./assets/icons/ -o ./assets/icons/"
   },
   "repository": {
     "type": "git",

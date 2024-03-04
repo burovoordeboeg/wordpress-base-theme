@@ -18,7 +18,7 @@ mix.setPublicPath('build')
         require('tailwindcss/nesting'),
     ])
     .svgSprite(
-        'templates/icons/**/*.svg', // The directory containing your SVG files
+        'assets/icons/**/*.svg', // The directory containing your SVG files
         'output/sprite.svg' // The output path for the sprite
     )
     .version()

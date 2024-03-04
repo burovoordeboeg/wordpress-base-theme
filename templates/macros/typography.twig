@@ -1,6 +1,6 @@
-{% macro heading(data, class, is_preview, fields) %}
+{% macro heading(data, class) %}
 	{% if data.text %}
-		<{{data.type}} class="font-bold tracking-tight {{class}}">
+		<{{data.type}} class="{{class}}">
 			{{data.text|raw}}
 		</{{data.type}}>
 	{% endif %}
