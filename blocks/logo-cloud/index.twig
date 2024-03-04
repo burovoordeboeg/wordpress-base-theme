@@ -1,17 +1,1 @@
-{% extends "base/block.twig" %}
-
-{# Import macros #}
-{% import "macros/media.twig" as media %}
-{% import "macros/typography.twig" as type %}
-
-
-{% block content %}
-
-	{{type.heading(fields.heading)}}
-
-	<div class="grid grid-cols-4 items-center gap-x-8 gap-y-10 sm:grid-cols-6 sm:gap-x-10 lg:grid-cols-5">
-		{% for item in fields.logos %}
-			{{media.wpimage(item, 'full', 'col-span-2 max-h-12 w-full object-contain lg:col-span-1')}}
-		{% endfor %}
-	</div>
-{% endblock %}
+{{include('blocks/logo-cloud.twig')}}

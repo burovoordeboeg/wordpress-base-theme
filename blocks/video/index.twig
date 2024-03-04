@@ -1,10 +1,1 @@
-{% extends "base/block.twig" %}
-
-{# Import macros #}
-{% import "macros/media.twig" as media %}
-
-{% block content %}
-	<div class="relative aspect-w-16 aspect-h-9">
-		{{media.videoUrl(fields.video_url,  fields.video_options, '', is_preview) }}
-	</div>
-{% endblock %}
+{{include('blocks/video.twig')}}

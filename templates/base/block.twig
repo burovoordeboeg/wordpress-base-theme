@@ -4,6 +4,7 @@
 	align: attributes.alignment.align|default('none'),
 } %}
 
+
 <div data-name="{{ blockname }}" {% if data.id %} data-anchor="{{data.id}}" {% endif %} class="block align{{data.align}} isolate {{data.class}}">
 	{% include "components/preview.twig" %}
 
