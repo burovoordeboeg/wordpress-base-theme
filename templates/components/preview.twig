@@ -1,5 +1,5 @@
 {% if is_preview and fields == empty %}
 	<p class="font-bold tracking-tight text-center opacity-30">
-		{{text|default('Add some content')}}
+		{{example.attributes.message|default('Add some content')}}
 	</p>
 {% endif %}

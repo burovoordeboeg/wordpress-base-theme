@@ -30,7 +30,11 @@
     },
     "example": {
         "attributes": {
-            "message": "This is a notice!"
+            "fields": {
+                "heading": "Add some content",
+                "content": "Add some content"
+            },
+            "message": "Add somess content"
         }
     }
 }

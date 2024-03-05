@@ -1,18 +1,16 @@
 {% extends "base/block.twig" %}
-{# Import macros #}
 
+{# Import macros #}
 {% import "macros/media.twig" as media %}
 {% import "macros/buttons.twig" as button %}
 {% import "macros/typography.twig" as type %}
 
 {# Set Content Align Classes if available #}
-{% if attributes.alignment.aligncontent %}
-	{% set contentalign = {
-		'top': 'items-start',
-		'center': 'items-center',
-		'bottom': 'items-end'
-	}[attributes.alignment.aligncontent] %}
-{% endif %}
+{% set contentalign = {
+	'top': 'items-start',
+	'center': 'items-center',
+	'bottom': 'items-end'
+}[attributes.alignment.aligncontent] ?? 'items-start' %}
 
 {% block content %}
 
