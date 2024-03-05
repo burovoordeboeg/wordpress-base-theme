@@ -1,33 +1,37 @@
-{% set data = {
-	id: attributes.id,
-	class: attributes.class,
-	align: attributes.alignment.align|default('none'),
-	aligntext: attributes.alignment.aligntext|default('none'),
-} %}
+{# Set Root Classes #}
+{% set classes = ['block'] %}
 
-<pre class="prose max-w-none">
-	{{ dump(data.aligntext) }}
-</pre>
+{# Set Block Align Classes #}
+{% set blockalign = {
+	'right': 'alignright',
+	'center': 'aligncenter',
+	'left': 'alignleft',
+	'wide': 'alignwide',
+	'full': 'alignfull'
+}[attributes.alignment.align] ?? 'alignnone' %}
+{% set classes = classes|merge([blockalign]) %}
 
-{% set columns = {
-	2: 'lg:columns-2 gap-16',
-	3: 'lg:columns-3 gap-16',
-	4: 'lg:columns-2 xl:columns-4 gap-16',
-} %}
+{# Set Text Align Classes if available #}
+{% if attributes.alignment.aligntext %}
+	{% set textalign = {
+		'right': 'text-right',
+		'center': 'text-center',
+		'left': 'text-left'
+	}[attributes.alignment.aligntext] %}
+	{% set classes = classes|merge([textalign]) %}
+{% endif %}
 
 
-{% set textalign = {
-	left: 'text-left',
-	center: 'text-center'
-	right:'text-right'
-} %}
+{# Set Custom Classes last #}
+{% if attributes.class %}
+	{% set classes = classes|merge([attributes.class]) %}
+{% endif %}
 
+{# Join all classes #}
+{% set classes = classes|join(' ') %}
 
-<div data-name="{{ blockname }}" {% if data.id %} data-anchor="{{data.id}}" {% endif %} class="block align{{data.align}} isolate {{data.class}}">
+{# Return HTML #}
+<div data-name="{{ blockname }}" {% if attributes.id %} data-anchor="{{attributes.id}}" {% endif %} class="{{classes}}">
 	{% include "components/preview.twig" %}
-
-	{% block content %}
-		hallo
-	{% endblock %}
-
+	{% block content %}{% endblock %}
 </div>
