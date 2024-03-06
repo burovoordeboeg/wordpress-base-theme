@@ -2,7 +2,6 @@
 
 {# Import macros #}
 {% import "macros/media.twig" as media %}
-{% import "macros/buttons.twig" as button %}
 {% import "macros/typography.twig" as type %}
 
 {% block content %}
@@ -19,7 +18,15 @@
 
 			{% if fields.button %}
 				<div class="flex items-center gap-x-6">
-					{{button.main(fields.button.button, fields.button.variant)}}
+					{{include('components/button.twig', {
+						data: {
+							button: fields.button.button,
+							variantSize: 'lg',
+							icon: 'arrow-down-circle',
+							reverse: true,
+							iconSize: '20'
+						}
+					}, with_context = false)}}
 				</div>
 			{% endif %}
 		</div>

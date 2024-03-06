@@ -2,7 +2,6 @@
 
 {# Import macros #}
 {% import "macros/media.twig" as media %}
-{% import "macros/buttons.twig" as button %}
 {% import "macros/typography.twig" as type %}
 
 {# Set Content Align Classes if available #}
@@ -26,7 +25,15 @@
 				</div>
 			{% endif %}
 
-			{{button.main(fields.button.button, fields.button.variant)}}
+			{{include('components/button.twig', {
+				data: {
+					button: fields.button.button,
+					variantSize: 'lg',
+					icon: 'arrow-down-circle',
+					reverse: true,
+					iconSize: '20'
+				}
+			}, with_context = false)}}
 
 		</div>
 

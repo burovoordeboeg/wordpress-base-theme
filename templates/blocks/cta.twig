@@ -1,7 +1,5 @@
 {% extends "base/block.twig" %}
 
-{# Import macros #}
-{% import "macros/buttons.twig" as button %}
 {% import "macros/typography.twig" as type %}
 
 {% block content %}
@@ -14,6 +12,16 @@
 
 	<div class="flex items-center gap-x-6">
 		{% for item in fields.buttons %}
+			{{include('components/button.twig', {
+				data: {
+					button: item.button,
+					variantSize: 'lg',
+					icon: 'arrow-down-circle',
+					reverse: true,
+					iconSize: '20'
+				}
+			}, with_context = false)}}
+
 			{{button.main(item.button, item.variant)}}
 		{% endfor %}
 	</div>
