@@ -1,0 +1,37 @@
+{# Set Root Classes #}
+{% set classes = ['block'] %}
+
+{# Set Block Align Classes #}
+{% set blockalign = {
+	'right': 'alignright',
+	'center': 'aligncenter',
+	'left': 'alignleft',
+	'wide': 'alignwide',
+	'full': 'alignfull'
+}[attributes.alignment.align] ?? 'alignnone' %}
+{% set classes = classes|merge([blockalign]) %}
+
+{# Set Text Align Classes if available #}
+{% if attributes.alignment.aligntext %}
+	{% set textalign = {
+		'right': 'text-right',
+		'center': 'text-center',
+		'left': 'text-left'
+	}[attributes.alignment.aligntext] %}
+	{% set classes = classes|merge([textalign]) %}
+{% endif %}
+
+
+{# Set Custom Classes last #}
+{% if attributes.class %}
+	{% set classes = classes|merge([attributes.class]) %}
+{% endif %}
+
+{# Join all classes #}
+{% set classes = classes|join(' ') %}
+
+{# Return HTML #}
+<div data-name="{{ blockname }}" {% if attributes.id %} data-anchor="{{attributes.id}}" {% endif %} class="{{classes}}">
+	{% include "components/preview.twig" %}
+	{% block content %}{% endblock %}
+</div>
