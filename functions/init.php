@@ -99,17 +99,15 @@ add_action('init', function () use ($gutenberg) {
 	$gutenberg->add_block_category('Steamers', 'streamers');
 	$gutenberg->add_block_category('Projecten', 'projecten');
 	$gutenberg->add_block_category('Overig', 'misc');
-	$gutenberg->add_block_category('kak', 'kak');
 
 	// Set allowed default_blocks
 	$gutenberg->set_allowed_default_blocks(array(
 		'gravityforms/form',
 	));
-	// Load all blocks
-	$blocks = $gutenberg->load_blocks();
 
 	// Add block directory
-	$gutenberg->add_block_directory(get_template_directory() . '/templates/tblocks');
+	$gutenberg->add_block_directory(get_template_directory() . '/templates/wp-blocks');
 
-	print_r(get_template_directory() . '/templates/tblocks');
+	// Load all blocks
+	$blocks = $gutenberg->load_blocks();
 });

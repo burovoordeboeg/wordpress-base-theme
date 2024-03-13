@@ -1,11 +1,11 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/testblock",
-    "title": "Testblock",
+    "name": "acf/faq",
+    "title": "Faq",
     "description": "Een blockom mee te starten",
     "style": [],
-    "category": "common",
-    "icon": "button",
+    "category": "misc",
+    "icon": "editor-help",
     "acf": {
         "mode": "preview",
         "renderCallback": [
@@ -15,7 +15,11 @@
         "postTypes": []
     },
     "supports": {
-        "align": [],
+        "align": [
+            "center",
+            "wide",
+            "full"
+        ],
         "anchor": true,
         "alignContent": false,
         "alignText": false,

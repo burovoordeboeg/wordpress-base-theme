@@ -1,12 +1,12 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/testblock",
-    "title": "Testblock",
-    "description": "Een blockom mee te starten",
+    "name": "acf/video-text",
+    "title": "Video-text",
+    "description": "Een image & text block",
     "style": [],
     "category": "common",
-    "icon": "button",
-    "acf": {    
+    "icon": "align-pull-left",
+    "acf": {
         "mode": "preview",
         "renderCallback": [
             "BvdB\\Gutenberg\\Blocks",
@@ -15,10 +15,14 @@
         "postTypes": []
     },
     "supports": {
-        "align": [],
+        "align": [
+            "full",
+            "wide",
+            "center"
+        ],
         "anchor": true,
-        "alignContent": false,
-        "alignText": false,
+        "alignContent": true,
+        "alignText": true,
         "typography": {
             "fontSize": false
         },
