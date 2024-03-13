@@ -106,7 +106,7 @@ add_action('init', function () use ($gutenberg) {
 	));
 
 	// Add block directory
-	$gutenberg->add_block_directory(get_template_directory() . '/templates/wp-blocks');
+	$gutenberg->add_block_directory(get_template_directory() . '/templates/wpblocks');
 
 	// Load all blocks
 	$blocks = $gutenberg->load_blocks();
