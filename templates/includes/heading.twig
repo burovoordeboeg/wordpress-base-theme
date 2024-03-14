@@ -1,0 +1,56 @@
+<pre class="prose max-w-none">
+	{{ dump() }}
+</pre>
+
+{# Set defaults #}
+{% set defaults = {
+	data: {
+		name: 'inc-heading',
+		text: null,
+		type: 'h2',
+		variantSize: 'md',
+	},
+	classes: {
+		root: 'font-bold',
+		custom: null,
+	},
+	variants: {
+		xs: 'text-3xl',
+		sm: 'text-4xl',
+		md: 'text-5xl',
+		lg: 'text-6xl',
+		xl: 'text-7xl',
+		xxl: 'text-8xl',
+	}
+} %}
+
+{# Set Props #}
+{% set props = {
+	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+	variants: defaults.variants,
+} %}
+
+{# Set empty classes array #}
+{% set classes = [] %}
+
+{# Add root class #}
+{% set classes = classes|merge([props.classes.root]) %}
+
+{# Add variant class #}
+{% if props.variants[props.data.variantSize] is not null %}
+	{% set classes = classes|merge([props.variants[props.data.variantSize]]) %}
+{% endif %}
+
+{# Add custom class #}
+{% if props.classes.custom is not null %}
+	{% set classes = classes|merge([props.classes.custom]) %}
+{% endif %}
+
+{# Merge classes #}
+{% set classes = classes|join(' ') %}
+
+{# Return HTML #}
+<{{props.data.type}} data-component="{{props.data.name}}" class="{{classes}}">
+	{{props.data.text}}
+</{{props.data.type}}>

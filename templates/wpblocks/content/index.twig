@@ -1,1 +1,22 @@
-{{include('blocks/content.twig')}}
+{% extends "./blocks/wrapper-block.twig" %}
+
+{% set columns = {
+	2: 'lg:columns-2 gap-16',
+	3: 'lg:columns-3 gap-16',
+	4: 'lg:columns-2 xl:columns-4 gap-16',
+}[fields.content_options.columns] %}
+
+{% block content %}
+
+	{{include('includes/heading.twig', { 
+		data: { 
+			text: fields.heading.text, 
+			type: fields.heading.type 
+		}
+	}, with_context = false)}}
+
+	<div class="prose max-w-none {{columns}} ">
+		{{fields.content|raw}}
+	</div>
+
+{% endblock %}

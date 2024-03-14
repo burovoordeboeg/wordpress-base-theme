@@ -31,7 +31,7 @@
 			"fontFamilies": []
 		},
 		"spacing": {
-			"blockGap": true
+			"blockGap": false
 		},
 		"blocks": {
 			"core/paragraph": {

@@ -16,6 +16,7 @@
     },
     "supports": {
         "align": [
+            "center",
             "wide",
             "full"
         ],
@@ -24,16 +25,10 @@
         "alignText": true,
         "typography": {
             "fontSize": false
-        },
-        "fullHeight": false,
-        "spacing": {}
+        }
     },
     "example": {
         "attributes": {
-            "fields": {
-                "heading": "Add some content",
-                "content": "Add some content"
-            },
             "message": "Add somess content"
         }
     }
