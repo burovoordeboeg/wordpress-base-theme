@@ -3,7 +3,7 @@
 {# Set defaults #}
 {% set defaults = {
 	data: {
-		name: 'c-button',
+		name: 'inc-button',
 		button: {
 			text: null,
 			url: null,
@@ -17,7 +17,7 @@
 		reverse: false,
 	},
 	classes: {
-		root: 'a11y-keyboard-focus items-center font-bold',
+		root: 'items-center font-bold',
     	custom: '',
     	display: 'inline-flex',
     	rounded: 'rounded-md'
@@ -31,7 +31,7 @@
 		size: {
 			sm: 'px-2.5 py-1.5 gap-2 text-xs',
 			md: 'px-4 py-2 gap-3 text-base',
-			lg: 'px-6 py-3 gap-4 text-base',
+			lg: 'px-8 py-4 gap-4 text-base',
 		}
 	}
 } %}
@@ -42,11 +42,41 @@
   	variants: defaults.variants,
 } %}
 
+
+{# Set base classes #}
+{% set classes = [props.classes.root] %}
+
+{% if props.classes.display is not null %}
+	{% set classes = classes|merge([props.classes.display]) %}
+{% endif %}
+
+{% if props.classes.rounded is not null %}
+	{% set classes = classes|merge([props.classes.rounded]) %}
+{% endif %}
+
+{# Add variant classes #}
+{% if props.variants.style[props.data.variantStyle] %}
+	{% set classes = classes|merge([props.variants.style[props.data.variantStyle]]) %}
+{% endif %}
+
+{% if props.variants.size[props.data.variantSize] %}
+	{% set classes = classes|merge([props.variants.size[props.data.variantSize]]) %}
+{% endif %}
+
+{# Add custom class #}
+{% if props.classes.custom is not null %}
+	{% set classes = classes|merge([props.classes.custom]) %}
+{% endif %}
+
+{# Merge classes #}
+{% set classes = classes|join(' ') %}
+
+{# Return HTML #}
 {% if props.data.button.title or props.data.icon %}
 	{% set tag = props.data.button.url ? 'a' : 'button' %}
 	{% set attr = props.data.button.url ? 'href=' ~ props.data.button.url : 'type=' ~ props.data.buttonType %}
 
-	<{{tag}} {{ attr }} {{ props.data.button.url and props.data.button.target ? 'target=' ~ props.data.button.target : '' }} class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.data.variantStyle] }} {{ props.variants.size[props.data.variantSize] }} {{ props.classes.custom }}">
+	<{{tag}} {{ attr }} {{ props.data.button.url and props.data.button.target ? 'target=' ~ props.data.button.target : '' }} class="{{ props.data.name }} {{classes}}">
 
 		{% if props.data.icon %}
 			{{ icon.icon(props.data.icon, {class: props.data.reverse ? 'order-2' : '', width: props.data.iconSize}) }}

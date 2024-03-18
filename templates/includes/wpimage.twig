@@ -1,0 +1,42 @@
+{% set defaults = {
+	data: {
+		name: 'inc-wpimage',
+		id: null,
+		size: 'full',
+		variantObject: 'auto',
+	},
+	classes: {
+		root: 'w-full',
+		custom: null,
+	},
+	variants: {
+		auto: '',
+		cover: '',
+		fit: '',
+	}
+} %}
+
+{% set props = {
+	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+	variants: defaults.variants,
+} %}
+
+{# Set classes and merge them #}
+{% set classes = [] %}
+
+{% if props.classes.root %}
+	{% set classes = classes|merge([props.classes.root]) %}
+{% endif %}
+
+{% if props.classes.custom %}
+	{% set classes = classes|merge([props.classes.custom]) %}
+{% endif %}
+
+{% set classes = classes|join(' ') %}
+
+{% if is_preview == null and props.data.id == false %}
+	<img class="{{classes}}" src="https://place-hold.it/1600x900?text=Nog geen afbeelding ingevoerd">
+{% else %}
+	{{wp_get_attachment_image(props.data.id, size, null, { class: classes })|raw }}
+{% endif %}

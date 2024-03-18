@@ -1,1 +1,12 @@
-{{include('blocks/image.twig')}}
+{% extends "./wpblocks/wrapper-block.twig" %}
+
+{% block content %}
+
+	{{include('includes/wpimage.twig', {
+		data: {
+			id: fields.image,
+			is_preview: is_preview,
+		}
+	}, with_context = false)}}
+
+{% endblock %}

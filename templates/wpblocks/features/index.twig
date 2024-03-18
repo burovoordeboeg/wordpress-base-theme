@@ -1,1 +1,37 @@
-{{include('blocks/features.twig')}}
+{% extends "./wpblocks/wrapper-block.twig" %}
+
+
+{% block content %}
+
+
+	{{include('includes/heading.twig', { 
+				data: { 
+					text: fields.pre_heading.text, 
+					type: fields.pre_heading.type 
+				}
+			}, with_context = false)}}
+
+	{{include('includes/heading.twig', { 
+				data: { 
+					text: fields.heading.text, 
+					type: fields.heading.type 
+				}
+			}, with_context = false)}}
+
+
+	<div class="prose max-w-none">
+		{{fields.copy|raw}}
+	</div>
+
+	<dl class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
+		{% for item in fields.features %}
+			<div class="relative">
+				<dt class="font-bold">
+					{{item.heading}}
+				</dt>
+				<dd class="prose max-w-none">{{item.copy|raw}}</dd>
+			</div>
+		{% endfor %}
+	</dl>
+
+{% endblock %}

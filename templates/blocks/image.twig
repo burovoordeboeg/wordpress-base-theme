@@ -1,8 +1,0 @@
-{% extends "./blocks/wrapper-block.twig" %}
-
-{# Import macros #}
-{% import "macros/media.twig" as media %}
-
-{% block content %}
-	{{media.wpimage(fields.image, 'full', '', is_preview)}}
-{% endblock %}

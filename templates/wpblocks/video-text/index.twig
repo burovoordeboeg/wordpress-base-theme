@@ -1,1 +1,13 @@
-{{include('blocks/media-text.twig')}}
+{% extends "wpblocks/image-text/index.twig" %}
+
+{% block media %}
+
+	{{include('includes/video.twig', {
+		data: {
+			url: fields.video_url,
+			options: fields.video_options,
+			is_preview: is_preview,
+		}
+	}, with_context = false)}}
+
+{% endblock %}

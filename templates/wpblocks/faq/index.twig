@@ -1,1 +1,40 @@
-{{include('blocks/faq.twig')}}
+{% extends "./wpblocks/wrapper-block.twig" %}
+
+{% block content %}
+
+	{{include('includes/heading.twig', { 
+		data: { 
+			text: fields.heading.text, 
+			type: fields.heading.type 
+		}
+	}, with_context = false)}}
+
+	<dl class="mt-10 space-y-4 divide-y divide-gray-900/10">
+
+		{% for item in fields.faq %}
+			<div data-faq class="">
+				<dt class="pt-4">
+					<button data-faq-button type="button" class="flex w-full items-start justify-between text-left text-gray-900" aria-controls="faq-0" aria-expanded="false">
+						<span class="text-base font-semibold leading-7">{{item.question}}</span>
+						<span class="ml-6 flex h-7 items-center">
+
+							<svg data-faq-plus class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+							</svg>
+
+							<svg data-faq-minus class="hidden h-6 w-6" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6"/>
+							</svg>
+
+						</span>
+					</button>
+				</dt>
+				<dd data-faq-content class="mt-2 pr-12">
+					<div class="prose max-w-none">{{item.answer|raw}}</div>
+				</dd>
+			</div>
+		{% endfor %}
+
+	</dl>
+
+{% endblock %}
