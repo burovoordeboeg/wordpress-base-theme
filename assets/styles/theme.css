@@ -18,3 +18,10 @@
 		max-width: 1536px;
 	}
 }
+
+[data-name="video"] {
+
+	/* video {
+		@apply aspect-w-16 aspect-h-9 object-cover w-full h-full;
+	} */
+}

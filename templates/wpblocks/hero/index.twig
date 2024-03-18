@@ -2,34 +2,35 @@
 
 {% block content %}
 
-	{{include('includes/wpimage.twig', {
-		data: {
-			id: fields.image,
-			is_preview: is_preview,
-		},
-		classes: {
-			custom:'absolute inset-0  h-full w-full object-cover z-0'
-		}
-	}, with_context = false)}}
+	<div class="min-h-[40vh]">
 
+		{{include('includes/wpimage.twig', {
+			data: {
+				id: fields.image,
+				is_preview: is_preview,
+			},
+			classes: {
+				custom:'absolute inset-0  h-full w-full object-cover z-0'
+			}
+		}, with_context = false)}}
 
-	<div class="relative z-10">
-		<div class="p-8">
+		<div class="relative z-10">
+			<div class="p-8">
 
-			{{include('includes/heading.twig', { 
+				{{include('includes/heading.twig', { 
 				data: { 
 					text: fields.title.text, 
 					type: fields.title.type 
 				}
 			}, with_context = false)}}
 
-			{% if fields.copy %}
-				<div class="prose max-w-none">{{fields.copy|raw}}</div>
-			{% endif %}
+				{% if fields.copy %}
+					<div class="prose max-w-none">{{fields.copy|raw}}</div>
+				{% endif %}
 
-			{% if fields.button.button %}
-				<div class="flex items-center gap-x-6">
-					{{include('includes/button.twig', {
+				{% if fields.button.button %}
+					<div class="flex items-center gap-x-6">
+						{{include('includes/button.twig', {
 						data: {
 							button: fields.button.button,
 							variantSize: 'lg',
@@ -38,9 +39,9 @@
 							iconSize: '20'
 						}
 					}, with_context = false)}}
-				</div>
-			{% endif %}
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
-
 {% endblock %}

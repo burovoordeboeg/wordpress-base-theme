@@ -1,7 +1,0 @@
-{% macro heading(data, class) %}
-	{% if data.text %}
-		<{{data.type}} class="{{class}}">
-			{{data.text|raw}}
-		</{{data.type}}>
-	{% endif %}
-{% endmacro %}

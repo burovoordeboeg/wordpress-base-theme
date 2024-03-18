@@ -2,6 +2,7 @@
 	data: {
 		name: 'inc-video',
 		url: null,
+		poster: null,
 		options: null,
 		variantObject: 'large',
 	},
@@ -22,7 +23,6 @@
 	variants: defaults.variants,
 } %}
 
-
 {# Set classes and merge them #}
 {% set classes = [] %}
 
@@ -36,16 +36,17 @@
 
 {% set classes = classes|join(' ') %}
 
-
 {% if is_preview == null and props.data.url == false %}
 	<img class="{{props.data.options.cover ? 'w-full h-full object-cover'}} {{classes}}" src="https://place-hold.it/1600x900?text=Geen video url ingevoerd">
 {% else %}
 	{% if props.data.url == false %}
 		<img class="{{props.data.options.cover ? 'w-full h-full object-cover'}} {{classes}}" src="https://place-hold.it/1600x900?text=Geen video url ingevoerd">
 	{% else %}
-		<video class="{{props.data.options.cover ? 'w-full h-full object-cover'}} {{classes}}" {{props.data.options.loop ? 'loop'}} {{props.data.options.autoplay ? 'autoplay muted' : 'controls'}} {{props.data.options.muted ? 'muted'}}>
+
+		<video class="{{props.data.options.cover ? 'w-full h-full object-cover'}} {{classes}}" {{props.data.options.loop ? 'loop'}} {{props.data.options.autoplay ? 'autoplay muted' : 'controls'}} {{props.data.options.muted ? 'muted'}} poster="{{props.data.poster.sizes.large}}">
 			<source src="{{props.data.url}}" type="video/mp4">
 			Your browser does not support the video tag.
 		</video>
+
 	{% endif %}
 {% endif %}

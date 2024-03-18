@@ -10,9 +10,9 @@
 		custom: null,
 	},
 	variants: {
-		auto: '',
-		cover: '',
-		fit: '',
+		auto: 'object-auto',
+		cover: 'object-cover',
+		fit: 'object-fit',
 	}
 } %}
 
@@ -23,18 +23,23 @@
 } %}
 
 {# Set classes and merge them #}
-{% set classes = [] %}
+{% set classes = [props.classes.root] %}
 
-{% if props.classes.root %}
-	{% set classes = classes|merge([props.classes.root]) %}
-{% endif %}
 
+{# Add custom class #}
 {% if props.classes.custom %}
 	{% set classes = classes|merge([props.classes.custom]) %}
 {% endif %}
 
+{# Add variant classes #}
+{% if props.data.variantObject %}
+	{% set classes = classes|merge([props.variants[props.data.variantObject]]) %}
+{% endif %}
+
+{# Merge classes #}
 {% set classes = classes|join(' ') %}
 
+{# Return HTML #}
 {% if is_preview == null and props.data.id == false %}
 	<img class="{{classes}}" src="https://place-hold.it/1600x900?text=Nog geen afbeelding ingevoerd">
 {% else %}

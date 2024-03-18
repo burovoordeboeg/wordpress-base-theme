@@ -21,6 +21,12 @@
 	{% set classes = classes|merge([textalign]) %}
 {% endif %}
 
+{# Set Text Align Classes if available #}
+{% if attributes.alignment.fullheight %}
+	{% set fullheight = 'h-screen' %}
+	{% set classes = classes|merge([fullheight]) %}
+{% endif %}
+
 {# Set Custom Classes last #}
 {% if attributes.class %}
 	{% set classes = classes|merge([attributes.class]) %}

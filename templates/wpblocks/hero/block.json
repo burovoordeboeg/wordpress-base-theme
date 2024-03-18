@@ -26,8 +26,11 @@
         "typography": {
             "fontSize": false
         },
-        "fullHeight": false,
-        "spacing": {}
+        "fullHeight": true,
+        "spacing": {},
+        "dimensions": {
+            "minHeight": true
+        }
     },
     "example": {
         "attributes": {

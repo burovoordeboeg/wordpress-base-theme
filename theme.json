@@ -33,6 +33,9 @@
 		"spacing": {
 			"blockGap": false
 		},
+		"dimensions": {
+			"minHeight": true
+		},
 		"blocks": {
 			"core/paragraph": {
 				"color": {},
