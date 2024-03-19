@@ -1,0 +1,121 @@
+{% macro paddingtop(value) %}
+	{% set paddingtop = {
+		'0': 'pt-0',
+		'10': 'pt-8',
+		'20': 'pt-16',
+		'30': 'pt-24',
+		'40': 'pt-32',
+		'50': 'pt-40',
+		'60': 'pt-48',
+		'70': 'pt-56',
+		'80': 'pt-64',
+	}[value] ?? 'pt-0' %}
+	{{ paddingtop }}
+{% endmacro %}
+
+{% macro paddingbottom(value) %}
+	{% set paddingbottom = {
+		'0': 'pb-0',
+		'10': 'pb-8',
+		'20': 'pb-16',
+		'30': 'pb-24',
+		'40': 'pb-32',
+		'50': 'pb-40',
+		'60': 'pb-48',
+		'70': 'pb-56',
+		'80': 'pb-64',
+	}[value] ?? 'pb-0' %}
+	{{ paddingbottom }}
+{% endmacro %}
+
+{% macro paddingleft(value) %}
+	{% set paddingleft = {
+		'0': 'pl-0',
+		'10': 'pl-8',
+		'20': 'pl-16',
+		'30': 'pl-24',
+		'40': 'pl-32',
+		'50': 'pl-40',
+		'60': 'pl-48',
+		'70': 'pl-56',
+		'80': 'pl-64',
+	}[value] ?? 'pl-0' %}
+	{{ paddingleft }}
+{% endmacro %}
+
+{% macro paddingright(value) %}
+	{% set paddingright = {
+		'0': 'pr-0',
+		'10': 'pr-8',
+		'20': 'pr-16',
+		'30': 'pr-24',
+		'40': 'pr-32',
+		'50': 'pr-40',
+		'60': 'pr-48',
+		'70': 'pr-56',
+		'80': 'pr-64',
+	}[value] ?? 'pr-0' %}
+	{{ paddingright }}
+{% endmacro %}
+
+
+{# Margins #}
+{% macro margintop(value) %}
+	{% set margintop = {
+		'0': 'mt-0',
+		'10': 'mt-8',
+		'20': 'mt-16',
+		'30': 'mt-24',
+		'40': 'mt-32',
+		'50': 'mt-40',
+		'60': 'mt-48',
+		'70': 'mt-56',
+		'80': 'mt-64',
+	}[value] ?? 'mt-0' %}
+	{{ margintop }}
+{% endmacro %}
+
+{% macro marginbottom(value) %}
+	{% set marginbottom = {
+		'0': 'mb-0',
+		'10': 'mb-8',
+		'20': 'mb-16',
+		'30': 'mb-24',
+		'40': 'mb-32',
+		'50': 'mb-40',
+		'60': 'mb-48',
+		'70': 'mb-56',
+		'80': 'mb-64',
+	}[value] ?? 'mb-0' %}
+	{{ marginbottom }}
+{% endmacro %}
+
+{% macro marginleft(value) %}
+	{% set marginleft = {
+		'0': 'ml-0',
+		'10': 'ml-8',
+		'20': 'ml-16',
+		'30': 'ml-24',
+		'40': 'ml-32',
+		'50': 'ml-40',
+		'60': 'ml-48',
+		'70': 'ml-56',
+		'80': 'ml-64',
+	}[value] ?? 'ml-0' %}
+	{{ marginleft }}
+{% endmacro %}
+
+{% macro marginright(value) %}
+	{% set marginright = {
+		'0': 'mr-0',
+		'10': 'mr-8',
+		'20': 'mr-16',
+		'30': 'mr-24',
+		'40': 'mr-32',
+		'50': 'mr-40',
+		'60': 'mr-48',
+		'70': 'mr-56',
+		'80': 'mr-64',
+	}[value] ?? 'mr-0' %}
+	{{ marginright }}
+{% endmacro %}

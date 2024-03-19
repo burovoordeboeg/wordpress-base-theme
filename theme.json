@@ -31,7 +31,9 @@
 			"fontFamilies": []
 		},
 		"spacing": {
-			"blockGap": false
+			"blockGap": false,
+			"padding": true,
+			"margin": true
 		},
 		"dimensions": {
 			"minHeight": true

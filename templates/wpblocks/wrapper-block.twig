@@ -1,3 +1,7 @@
+{# Include spacing macro #}
+{% import "macros/spacing.twig" as spacing %}
+
+
 {# Set Root Classes #}
 {% set classes = ['block'] %}
 
@@ -26,6 +30,18 @@
 	{% set fullheight = 'h-screen' %}
 	{% set classes = classes|merge([fullheight]) %}
 {% endif %}
+
+{# Set spacing #}
+{% set classes = classes|merge([spacing.paddingtop(attributes.spacing.padding.top)]) %}
+{% set classes = classes|merge([spacing.paddingbottom(attributes.spacing.padding.bottom)]) %}
+{% set classes = classes|merge([spacing.paddingleft(attributes.spacing.padding.left)]) %}
+{% set classes = classes|merge([spacing.paddingright(attributes.spacing.padding.right)]) %}
+
+{% set classes = classes|merge([spacing.margintop(attributes.spacing.margin.top)]) %}
+{% set classes = classes|merge([spacing.marginbottom(attributes.spacing.margin.bottom)]) %}
+{% set classes = classes|merge([spacing.marginleft(attributes.spacing.margin.left)]) %}
+{% set classes = classes|merge([spacing.marginright(attributes.spacing.margin.right)]) %}
+
 
 {# Set Custom Classes last #}
 {% if attributes.class %}

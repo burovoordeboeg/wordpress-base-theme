@@ -25,3 +25,7 @@
 .mce-content-body {
   @apply prose max-w-[98%] mx-auto;
 }
+
+.acf-block-component {
+  @apply !m-0 !p-0;
+}
