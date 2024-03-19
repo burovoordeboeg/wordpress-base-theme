@@ -31,25 +31,20 @@
 	{% set classes = classes|merge([fullheight]) %}
 {% endif %}
 
-{# Set spacing #}
-{% set classes = classes|merge([spacing.paddingtop(attributes.spacing.padding.top)]) %}
-{% set classes = classes|merge([spacing.paddingbottom(attributes.spacing.padding.bottom)]) %}
-{% set classes = classes|merge([spacing.paddingleft(attributes.spacing.padding.left)]) %}
-{% set classes = classes|merge([spacing.paddingright(attributes.spacing.padding.right)]) %}
-
-{% set classes = classes|merge([spacing.margintop(attributes.spacing.margin.top)]) %}
-{% set classes = classes|merge([spacing.marginbottom(attributes.spacing.margin.bottom)]) %}
-{% set classes = classes|merge([spacing.marginleft(attributes.spacing.margin.left)]) %}
-{% set classes = classes|merge([spacing.marginright(attributes.spacing.margin.right)]) %}
-
-
 {# Set Custom Classes last #}
 {% if attributes.class %}
 	{% set classes = classes|merge([attributes.class]) %}
 {% endif %}
 
+{# Set padding #}
+{% set classes = classes|merge([spacing.padding(attributes.spacing)|spaceless]) %}
+
+{# Set margin #}
+{% set classes = classes|merge([spacing.margin(attributes.spacing)|spaceless]) %}
+
 {# Join all classes #}
 {% set classes = classes|join(' ') %}
+
 
 {# Return HTML #}
 <div data-name="{{ blockname }}" {% if attributes.id %} data-anchor="{{attributes.id}}" {% endif %} class="{{classes}}">
