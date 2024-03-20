@@ -28,7 +28,7 @@
         },
         "fullHeight": false,
         "spacing": {
-            "padding": false,
+            "padding": true,
             "margin": true
         }
     },

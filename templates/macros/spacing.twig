@@ -41,7 +41,6 @@
 			{% set padding = padding|merge([pl]) %}
 		{% endif %}
 		{% if spacing.padding.right %}
-
 			{% set pr = {
 				'10': 'pr-8',
 				'20': 'pr-16',
@@ -59,7 +58,7 @@
 		{% set padding = padding|join(' ') %}
 
 		{# Return the values #}
-		{{ padding }}
+		{{ padding  }}
 
 	{% endif %}
 
@@ -123,6 +122,7 @@
 			}[spacing.margin.right] %}
 			{% set margin = margin|merge([mr]) %}
 		{% endif %}
+
 
 		{# Convert to string #}
 		{% set margin = margin|join(' ') %}
