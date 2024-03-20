@@ -29,3 +29,7 @@
 .acf-block-component {
   @apply !m-0 !p-0;
 }
+
+figure > iframe {
+	@apply pointer-events-none;
+}

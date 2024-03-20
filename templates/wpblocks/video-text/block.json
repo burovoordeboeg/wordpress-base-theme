@@ -27,7 +27,10 @@
             "fontSize": false
         },
         "fullHeight": false,
-        "spacing": {}
+        "spacing": {
+            "padding": false,
+            "margin": true
+        }
     },
     "example": {
         "attributes": {

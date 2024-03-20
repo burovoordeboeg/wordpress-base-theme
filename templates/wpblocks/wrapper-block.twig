@@ -1,7 +1,6 @@
 {# Include spacing macro #}
 {% import "macros/spacing.twig" as spacing %}
 
-
 {# Set Root Classes #}
 {% set classes = ['block'] %}
 
@@ -45,9 +44,10 @@
 {# Join all classes #}
 {% set classes = classes|join(' ') %}
 
-
 {# Return HTML #}
-<div data-name="{{ blockname }}" {% if attributes.id %} data-anchor="{{attributes.id}}" {% endif %} class="{{classes}}">
+
+<div data-name="{{ blockname }}" {% if attributes.id %} data-anchor="{{attributes.id}}" {% endif %} class="{{classes}} {% block wrapperclass %}{% endblock %}">
 	{% include "components/preview.twig" %}
+	{% set is_preview = is_preview %}
 	{% block content %}{% endblock %}
 </div>

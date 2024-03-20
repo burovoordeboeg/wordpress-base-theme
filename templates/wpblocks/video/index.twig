@@ -1,12 +1,13 @@
 {% extends "./wpblocks/wrapper-block.twig" %}
 
 {% block content %}
-	{{include('includes/video.twig', {
-		data: {
-			url: fields.video_url,
-			poster: fields.video_poster,
-			options: fields.video_options,
-			is_preview: is_preview,
-		}
-	}, with_context = false)}}
+	{% if fields.video.video_source == 'url' %}
+		{{include('includes/video.twig', {
+			data: fields.video
+		}, with_context = false)}}
+	{% else %}
+		{{include('includes/video-oembed.twig', {
+			data: fields.video
+		}, with_context = false)}}
+	{% endif %}
 {% endblock %}
