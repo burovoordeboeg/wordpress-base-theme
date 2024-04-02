@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5941df03dffa1840e829bfb1510d8c97",
+    "content-hash": "018217ad57cd00a724e80a85bf40330f",
     "packages": [
         {
             "name": "burovoordeboeg/acf-focus-point",
@@ -45,16 +45,16 @@
         },
         {
             "name": "burovoordeboeg/gutenberg",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-gutenberg.git",
-                "reference": "fd2f5640680355896ba022f2c611b424b55a93be"
+                "reference": "fb9afebd0c4f1810db0977d1037d29718c0b3345"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-gutenberg/zipball/fd2f5640680355896ba022f2c611b424b55a93be",
-                "reference": "fd2f5640680355896ba022f2c611b424b55a93be",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-gutenberg/zipball/fb9afebd0c4f1810db0977d1037d29718c0b3345",
+                "reference": "fb9afebd0c4f1810db0977d1037d29718c0b3345",
                 "shasum": ""
             },
             "require": {
@@ -84,10 +84,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-gutenberg/tree/v1.2.0",
+                "source": "https://github.com/burovoordeboeg/class-gutenberg/tree/v1.3.0",
                 "issues": "https://github.com/burovoordeboeg/class-gutenberg/issues"
             },
-            "time": "2024-03-28T15:47:49+00:00"
+            "time": "2024-04-02T18:43:36+00:00"
         },
         {
             "name": "burovoordeboeg/templates",
@@ -1494,5 +1494,5 @@
     "platform-overrides": {
         "php": "7.3"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }
