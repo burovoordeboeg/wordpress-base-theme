@@ -1,5 +1,5 @@
 // Import js for componenents
-importAll(require.context('../../templates/wpblocks/', true, /\/scripts\.js$/))
+importAll(require.context('../../templates/blocks/', true, /\/scripts\.js$/))
 
 // Import js for pages
 function importAll(r) {
