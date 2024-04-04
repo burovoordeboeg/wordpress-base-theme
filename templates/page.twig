@@ -1,13 +1,22 @@
 {% extends "base/base.twig" %}
-{% import "macros/icons.twig" as icon %}
+{% from 'macros/icons.twig' import icon  %}
 
 {% block content %}
-	{{ icon.icon('academic-cap', {class: 'text-green-500', width: 64, style:'fill'}) }}
+	{{ icon('adjustments-horizontal', 'solid',  'size-6 text-green-500')}}
+	{{ icon('adjustments-horizontal', 'outline',  'size-6 text-green-500')}}
+	{{ icon('adjustments-horizontal', 'mini', 'size-5 text-green-500')}}
+	{{ icon('adjustments-horizontal', 'micro', 'size-4 text-green-500 ')}}
 
-	{% include 'includes/icon.twig' with { 
-		name: 'academic-cap', 
-		type: 'solid',
-		class: 'w-8 h-8 text-green-500'
-	} %}
+	{{include('includes/button.twig', {
+		data: {
+			button: {
+				title: 'This is a button',
+			},
+			icon: 'adjustments-horizontal',
+			iconType: 'micro',
+			iconClass:'w-8 h-8',
+		}
+	}, with_context = false)}}
+
 	{{object.get_content()|raw}}
 {% endblock %}

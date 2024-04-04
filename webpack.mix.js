@@ -1,6 +1,5 @@
 let mix = require('laravel-mix');
 const fs = require('fs');
-require('laravel-mix-svg-sprite');
 
 // Copy images from assest image folder
 mix.copy('assets/images/', 'build/images');
@@ -17,10 +16,6 @@ mix.setPublicPath('build')
         require('tailwindcss'),
         require('tailwindcss/nesting'),
     ])
-    .svgSprite(
-        'assets/icons/**/*.svg', // The directory containing your SVG files
-        'output/sprite.svg' // The output path for the sprite
-    )
     .version()
     .postCss('assets/styles/editor-styles.css', 'styles', [
         require('tailwindcss'),

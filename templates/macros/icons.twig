@@ -4,16 +4,12 @@
       {{ icon('name') }}
       {{ icon('name', {class: 'text-green-500', width: 64}) }}
 #}
-{% macro icon(name, settings) %}
 
-	{% set url = get_template_directory_uri() ~ '/build/images/icons.svg' ~ '#icon-%s' %}
-	{% set width = settings.width ?? 24 %}
-	{% set height = settings.height ?? width %}
-	{% set class = settings.class ?? null %}
-	{% set style = settings.style ?? null %}
 
-	<svg class="icon icon-{{name}} {% if class %}{{class}}{% endif %}" {{style == 'solid' ? 'fill="currentColor"' : 'stroke="currentColor"'}} aria-hidden="true" focusable="false" {%- if width %} width="{{ width }}" height="{{ height }}" {% endif %}>
-		<use xlink:href="{{ url|format(name) }}"></use>
-		<g></g>
+{% macro icon(name, type = 'solid', class = '') %}
+
+	<svg class="icon icon-{{name}} {{sizeClass[size]}} {{ class }}">
+		<use xlink:href="{{ get_template_directory_uri()}}/assets/icons/{{type}}-icons.svg#{{name}}"></use>
 	</svg>
+
 {% endmacro %}
