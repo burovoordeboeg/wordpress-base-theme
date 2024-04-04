@@ -10,8 +10,9 @@
 	{% set width = settings.width ?? 24 %}
 	{% set height = settings.height ?? width %}
 	{% set class = settings.class ?? null %}
+	{% set style = settings.style ?? null %}
 
-	<svg class="icon icon-{{name}} {% if class %}{{class}}{% endif %}" aria-hidden="true" focusable="false" {%- if width %} width="{{ width }}" height="{{ height }}" {% endif %}>
+	<svg class="icon icon-{{name}} {% if class %}{{class}}{% endif %}" {{style == 'solid' ? 'fill="currentColor"' : 'stroke="currentColor"'}} aria-hidden="true" focusable="false" {%- if width %} width="{{ width }}" height="{{ height }}" {% endif %}>
 		<use xlink:href="{{ url|format(name) }}"></use>
 		<g></g>
 	</svg>

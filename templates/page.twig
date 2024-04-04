@@ -1,5 +1,13 @@
 {% extends "base/base.twig" %}
+{% import "macros/icons.twig" as icon %}
 
 {% block content %}
+	{{ icon.icon('academic-cap', {class: 'text-green-500', width: 64, style:'fill'}) }}
+
+	{% include 'includes/icon.twig' with { 
+		name: 'academic-cap', 
+		type: 'solid',
+		class: 'w-8 h-8 text-green-500'
+	} %}
 	{{object.get_content()|raw}}
 {% endblock %}
