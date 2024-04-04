@@ -1,9 +1,10 @@
-{% import "macros/media.twig" as media %}
+{% embed "./blocks/wrapper-block.twig" %}
+	{# Set custom classes if needed else remove #}
+	{% set customwrapper = 'bg-gray-100' %}
+	{% set customblock = 'bg-gray-200' %}
 
-<div data-block-id="{{ blockname }}" class="{{container[block.alignment]}} {{class}}">
-	{% include "components/preview.twig" %}
-
-	<div class="bg-gray-100">This is our block:
-		{{blockname}}
-	</div>
-</div>
+	{# This will be rendered inside our wrapper-block #}
+	{% block content %}
+		Content goes here
+	{% endblock %}
+{% endembed %}

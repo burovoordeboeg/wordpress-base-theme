@@ -1,10 +1,9 @@
 {#
   Macro for using SVG icons from a SVG symbol sprite
-  Usage:
-      {{ icon('name') }}
-      {{ icon('name', {class: 'text-green-500', width: 64}) }}
+  Usage: 
+  {{ svg(icon-name, type, class) }}
+  {{ svg('chevron-down', 'solid', text-green-500') }}
 #}
-
 
 {% macro icon(name, type = 'solid', class = '') %}
 

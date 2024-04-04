@@ -1,21 +1,28 @@
-
-
 /* Blocks sizes in css */
 .block {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
+	@apply mx-auto relative max-w-[1280px];
 	
-	&:not(.alignwide, .alignfull) {
-		max-width: 1280px;
-	}
-
 	&.aligncenter {
-		max-width: 768px;
+		@apply max-w-[768px];
 	}
 
 	&.alignwide {
-		max-width: 1536px;
+		@apply max-w-[1536px];
 	}
+
+	&.alignfull {
+		@apply max-w-none;
+	}
+}
+
+/* Textalignment */
+.textleft {
+	@apply text-left;
+}
+.textright {
+	@apply text-right;
+}
+.textcenter {
+	@apply text-center;
 }
 
