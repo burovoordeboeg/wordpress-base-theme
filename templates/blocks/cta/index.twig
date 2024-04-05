@@ -9,9 +9,12 @@
 		},
 	}, with_context = false)}}
 
-	<div class="prose max-w-none">
-		{{fields.copy|raw}}
-	</div>
+	{{include('includes/prose.twig', {
+		data: {
+			content: fields.copy,
+		}
+	}, with_context = false)}}
+
 
 	<div class="flex items-center gap-x-6">
 		{% for item in fields.buttons %}

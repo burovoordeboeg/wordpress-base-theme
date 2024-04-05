@@ -9,14 +9,27 @@
 		}
 	}, with_context = false)}}
 
-	<div class="prose">{{fields.copy|raw}}</div>
+	{{include('includes/prose.twig', {
+		data: {
+			content: fields.copy,
+		}
+	}, with_context = false)}}
 
-	<dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 		{% for item in fields.stats %}
-			<div class="">
-				<dd class="">{{item.heading}}</dd>
-				<dt class="prose max-w-none">{{item.copy|raw}}</dt>
+			<div>
+				{{include('includes/heading.twig', { 
+					data: { 
+						text: item.heading, 
+						type: 'div'
+					}
+				}, with_context = false)}}
+				{{include('includes/prose.twig', {
+					data: {
+						content: fields.copy,
+					}
+				}, with_context = false)}}
 			</div>
 		{% endfor %}
-	</dl>
+	</div>
 {% endblock %}

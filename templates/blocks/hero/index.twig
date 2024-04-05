@@ -18,15 +18,17 @@
 			<div class="p-8">
 
 				{{include('includes/heading.twig', { 
-				data: { 
-					text: fields.title.text, 
-					type: fields.title.type 
-				}
-			}, with_context = false)}}
+					data: { 
+						text: fields.title.text, 
+						type: fields.title.type 
+					}
+				}, with_context = false)}}
 
-				{% if fields.copy %}
-					<div class="prose max-w-none">{{fields.copy|raw}}</div>
-				{% endif %}
+				{{include('includes/prose.twig', {
+					data: {
+						content: fields.copy,
+					}
+				}, with_context = false)}}
 
 				{% if fields.button.button %}
 					<div class="flex items-center gap-x-6">

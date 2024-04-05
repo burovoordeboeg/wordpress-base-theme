@@ -30,7 +30,11 @@
 					</button>
 				</dt>
 				<dd data-faq-content class="mt-2 pr-12">
-					<div class="prose max-w-none">{{item.answer|raw}}</div>
+					{{include('includes/prose.twig', {
+						data: {
+							content: item.answer,
+						}
+					}, with_context = false)}}
 				</dd>
 			</div>
 		{% endfor %}

@@ -8,7 +8,11 @@
 				type: fields.heading.type 
 			}
 		}, with_context = false)}}
-		<div class="prose max-w-none">{{fields.copy|raw}}</div>
+		{{include('includes/prose.twig', {
+			data: {
+				content: fields.copy,
+			}
+		}, with_context = false)}}
 	</div>
 	<ul role="list" class="grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
 

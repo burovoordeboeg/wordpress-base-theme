@@ -19,11 +19,12 @@
 				}
 			}, with_context = false)}}
 
-			{% if fields.copy %}
-				<div class="prose max-w-none">
-					{{fields.copy|raw}}
-				</div>
-			{% endif %}
+
+			{{include('includes/prose.twig', {
+				data: {
+					content: fields.copy,
+				}
+			}, with_context = false)}}
 
 			{{include('includes/button.twig', {
 				data: {
