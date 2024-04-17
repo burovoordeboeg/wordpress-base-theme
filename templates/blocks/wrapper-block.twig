@@ -3,7 +3,7 @@
 
 {# Set classes #}
 {% set blockalign = 'align' ~ attributes.alignment.align|default('none') %}
-{% set textalign = 'text' ~ attributes.alignment.aligntext|default('left') %}
+{% set textalign = attributes.alignment.aligntext ? 'text' ~ attributes.alignment.aligntext %}
 {% set padding = spacing.padding(attributes.spacing)|spaceless %}
 {% set margin = spacing.margin(attributes.spacing)|spaceless %}
 {% set preview = is_preview ? 'pointer-events-none' %}

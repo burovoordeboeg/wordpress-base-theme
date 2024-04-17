@@ -1,19 +1,21 @@
-{% extends "./blocks/wrapper-block.twig" %}
+{% embed "./blocks/wrapper-block.twig" %}
 
-{% block content %}
+	{% block content %}
 
-	{{include('includes/heading.twig', { 
-		data: { 
-			text: fields.heading.text, 
-			type: fields.heading.type 
-		}
-	}, with_context = false)}}
+		{{include('includes/heading.twig', { 
+			data: { 
+				text: fields.heading.text, 
+				type: fields.heading.type 
+			}
+		}, with_context = false)}}
 
-	{{include('includes/prose.twig', {
-		data: {
-			content: fields.content,
-			columns: fields.content_options.columns,
-		}
-	}, with_context = false)}}
+		{{include('includes/prose.twig', {
+			data: {
+				content: fields.content,
+				columns: fields.content_options.columns,
+			}
+		}, with_context = false)}}
 
-{% endblock %}
+	{% endblock %}
+
+{% endembed %}

@@ -1,5 +1,7 @@
 {% extends "blocks/image-text/index.twig" %}
 
+{% set wrapperclass = 'bg-green-500' %}
+
 {% block media %}
 	{% if fields.video.video_source == 'url' %}
 		{{include('includes/video.twig', {

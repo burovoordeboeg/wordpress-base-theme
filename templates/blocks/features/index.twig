@@ -1,46 +1,46 @@
-{% extends "./blocks/wrapper-block.twig" %}
+{% embed "./blocks/wrapper-block.twig" %}
 
+	{% block content %}
 
-{% block content %}
+		{{include('includes/heading.twig', { 
+			data: { 
+				text: fields.pre_heading.text, 
+				type: fields.pre_heading.type 
+			}
+		}, with_context = false)}}
 
+		{{include('includes/heading.twig', { 
+			data: { 
+				text: fields.heading.text, 
+				type: fields.heading.type 
+			}
+		}, with_context = false)}}
 
-	{{include('includes/heading.twig', { 
-		data: { 
-			text: fields.pre_heading.text, 
-			type: fields.pre_heading.type 
-		}
-	}, with_context = false)}}
+		{{include('includes/prose.twig', {
+			data: {
+				content: fields.copy,
+			}
+		}, with_context = false)}}
 
-	{{include('includes/heading.twig', { 
-		data: { 
-			text: fields.heading.text, 
-			type: fields.heading.type 
-		}
-	}, with_context = false)}}
+		<div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
+			{% for item in fields.features %}
+				<div class="relative">
+					{{include('includes/heading.twig', { 
+						data: { 
+							text: item.heading, 
+							type: 'div'
+						}
+					}, with_context = false)}}
 
-	{{include('includes/prose.twig', {
-		data: {
-			content: fields.copy,
-		}
-	}, with_context = false)}}
+					{{include('includes/prose.twig', {
+						data: {
+							content: fields.copy,
+						}
+					}, with_context = false)}}
+				</div>
+			{% endfor %}
+		</div>
 
-	<div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
-		{% for item in fields.features %}
-			<div class="relative">
-				{{include('includes/heading.twig', { 
-					data: { 
-						text: item.heading, 
-						type: 'div'
-					}
-				}, with_context = false)}}
+	{% endblock %}
 
-				{{include('includes/prose.twig', {
-					data: {
-						content: fields.copy,
-					}
-				}, with_context = false)}}
-			</div>
-		{% endfor %}
-	</div>
-
-{% endblock %}
+{% endembed %}

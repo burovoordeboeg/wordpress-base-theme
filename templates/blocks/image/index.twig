@@ -1,12 +1,12 @@
-{% extends "./blocks/wrapper-block.twig" %}
+{% embed "./blocks/wrapper-block.twig" %}
+	{% block content %}
 
-{% block content %}
+		{{include('includes/wpimage.twig', {
+			data: {
+				id: fields.image,
+				is_preview: is_preview,
+			}
+		}, with_context = false)}}
 
-	{{include('includes/wpimage.twig', {
-		data: {
-			id: fields.image,
-			is_preview: is_preview,
-		}
-	}, with_context = false)}}
-
-{% endblock %}
+	{% endblock %}
+{% endembed %}
