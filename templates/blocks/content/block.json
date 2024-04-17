@@ -25,6 +25,10 @@
         "alignText": true,
         "typography": {
             "fontSize": false
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
         }
     },
     "example": {

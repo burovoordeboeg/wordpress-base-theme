@@ -1,13 +1,30 @@
 /* Blocks sizes in css */
-.block {
-	@apply mx-auto relative max-w-[1280px];
-	
-	&.aligncenter {
-		@apply max-w-[768px];
-	}
+/* .block {
+	@apply mx-auto relative;
+	@apply max-w-[1280px];
 
 	&.alignwide {
 		@apply max-w-[1536px];
+	}
+
+	&.alignfull {
+		@apply max-w-none;
+	}
+} */
+
+.block {
+	@apply mx-auto relative container;
+	
+	&:not(.alignwide,.alignfull, .aligncenter) {
+		@apply max-w-screen-lg;
+	}
+
+	&.aligncenter {
+		@apply max-w-screen-md;
+	}
+
+	&.alignwide {
+		@apply max-w-screen-2xl;
 	}
 
 	&.alignfull {

@@ -3,53 +3,53 @@
 		{% set padding = [] %}
 		{% if spacing.padding.top %}
 			{% set pt = {
-				'10': 'pt-8',
-				'20': 'pt-16',
-				'30': 'pt-24',
-				'40': 'pt-32',
-				'50': 'pt-40',
-				'60': 'pt-48',
-				'70': 'pt-56',
-				'80': 'pt-64',
+				'10': 'pt-4 md:pt-6 lg:pt-8',
+				'20': 'pt-8 md:pt-10 lg:pt-12 xl:pt-16',
+				'30': 'pt-16 md:pt-20 lg:pt-24 xl:pt-32',
+				'40': 'pt-24 md:pt-32 lg:pt-40 xl:pt-48',
+				'50': 'pt-32 md:pt-40 lg:pt-48 xl:pt-56',
+				'60': 'pt-40 md:pt-48 lg:pt-56 xl:pt-64',
+				'70': 'pt-48 md:pt-56 lg:pt-64 xl:pt-72',
+				'80': 'pt-56 md:pt-64 lg:pt-72 xl:pt-80',
 			}[spacing.padding.top] %}
 			{% set padding = padding|merge([pt]) %}
 		{% endif %}
 		{% if spacing.padding.bottom %}
 			{% set pb = {
-				'10': 'pb-8',
-				'20': 'pb-16',
-				'30': 'pb-24',
-				'40': 'pb-32',
-				'50': 'pb-40',
-				'60': 'pb-48',
-				'70': 'pb-56',
-				'80': 'pb-64',
+				'10': 'pb-4 md:pb-6 lg:pb-8',
+				'20': 'pb-8 md:pb-10 lg:pb-12 xl:pb-16',
+				'30': 'pb-16 md:pb-20 lg:pb-24 xl:pb-32',
+				'40': 'pb-24 md:pb-32 lg:pb-40 xl:pb-48',
+				'50': 'pb-32 md:pb-40 lg:pb-48 xl:pb-56',
+				'60': 'pb-40 md:pb-48 lg:pb-56 xl:pb-64',
+				'70': 'pb-48 md:pb-56 lg:pb-64 xl:pb-72',
+				'80': 'pb-56 md:pb-64 lg:pb-72 xl:pb-80',
 			}[spacing.padding.bottom] %}
 			{% set padding = padding|merge([pb]) %}
 		{% endif %}
 		{% if spacing.padding.left %}
 			{% set pl = {
-				'10': 'pl-8',
-				'20': 'pl-16',
-				'30': 'pl-24',
-				'40': 'pl-32',
-				'50': 'pl-40',
-				'60': 'pl-48',
-				'70': 'pl-56',
-				'80': 'pl-64',
+				'10': 'pl-4 md:pl-6 lg:pl-8',
+				'20': 'pl-8 md:pl-10 lg:pl-12 xl:pl-16',
+				'30': 'pl-16 md:pl-20 lg:pl-24 xl:pl-32',
+				'40': 'pl-24 md:pl-32 lg:pl-40 xl:pl-48',
+				'50': 'pl-32 md:pl-40 lg:pl-48 xl:pl-56',
+				'60': 'pl-40 md:pl-48 lg:pl-56 xl:pl-64',
+				'70': 'pl-48 md:pl-56 lg:pl-64 xl:pl-72',
+				'80': 'pl-56 md:pl-64 lg:pl-72 xl:pl-80',
 			}[spacing.padding.left] %}
 			{% set padding = padding|merge([pl]) %}
 		{% endif %}
 		{% if spacing.padding.right %}
 			{% set pr = {
-				'10': 'pr-8',
-				'20': 'pr-16',
-				'30': 'pr-24',
-				'40': 'pr-32',
-				'50': 'pr-40',
-				'60': 'pr-48',
-				'70': 'pr-56',
-				'80': 'pr-64',
+				'10': 'pr-4 md:pr-6 lg:pr-8',
+				'20': 'pr-8 md:pr-10 lg:pr-12 xl:pr-16',
+				'30': 'pr-16 md:pr-20 lg:pr-24 xl:pr-32',
+				'40': 'pr-24 md:pr-32 lg:pr-40 xl:pr-48',
+				'50': 'pr-32 md:pr-40 lg:pr-48 xl:pr-56',
+				'60': 'pr-40 md:pr-48 lg:pr-56 xl:pr-64',
+				'70': 'pr-48 md:pr-56 lg:pr-64 xl:pr-72',
+				'80': 'pr-56 md:pr-64 lg:pr-72 xl:pr-80',
 			}[spacing.padding.right] %}
 			{% set padding = padding|merge([pr]) %}
 		{% endif %}
@@ -61,7 +61,6 @@
 		{{ padding|spaceless }}
 
 	{% endif %}
-
 {% endmacro %}
 
 {% macro margin(spacing) %}
@@ -69,56 +68,56 @@
 		{% set margin = [] %}
 		{% if spacing.margin.top %}
 			{% set mt = {
-				'10': 'mt-8',
-				'20': 'mt-16',
-				'30': 'mt-24',
-				'40': 'mt-32',
-				'50': 'mt-40',
-				'60': 'mt-48',
-				'70': 'mt-56',
-				'80': 'mt-64',
+				'10': 'mt-4 md:mt-6 lg:mt-8',
+				'20': 'mt-8 md:mt-10 lg:mt-12 xl:mt-16',
+				'30': 'mt-16 md:mt-20 lg:mt-24 xl:mt-32',
+				'40': 'mt-24 md:mt-32 lg:mt-40 xl:mt-48',
+				'50': 'mt-32 md:mt-40 lg:mt-48 xl:mt-56',
+				'60': 'mt-40 md:mt-48 lg:mt-56 xl:mt-64',
+				'70': 'mt-48 md:mt-56 lg:mt-64 xl:mt-72',
+				'80': 'mt-56 md:mt-64 lg:mt-72 xl:mt-80',
 			}[spacing.margin.top] %}
 			{% set margin = margin|merge([mt]) %}
 		{% endif %}
 
 		{% if spacing.margin.bottom %}
 			{% set mb = {
-				'10': 'mb-8',
-				'20': 'mb-16',
-				'30': 'mb-24',
-				'40': 'mb-32',
-				'50': 'mb-40',
-				'60': 'mb-48',
-				'70': 'mb-56',
-				'80': 'mb-64',
+				'10': 'mb-4 md:mb-6 lg:mb-8',
+				'20': 'mb-8 md:mb-10 lg:mb-12 xl:mb-16',
+				'30': 'mb-16 md:mb-20 lg:mb-24 xl:mb-32',
+				'40': 'mb-24 md:mb-32 lg:mb-40 xl:mb-48',
+				'50': 'mb-32 md:mb-40 lg:mb-48 xl:mb-56',
+				'60': 'mb-40 md:mb-48 lg:mb-56 xl:mb-64',
+				'70': 'mb-48 md:mb-56 lg:mb-64 xl:mb-72',
+				'80': 'mb-56 md:mb-64 lg:mb-72 xl:mb-80',
 			}[spacing.margin.bottom] %}
 			{% set margin = margin|merge([mb]) %}
 		{% endif %}
 
 		{% if spacing.margin.left %}
 			{% set ml = {
-				'10': 'ml-8',
-				'20': 'ml-16',
-				'30': 'ml-24',
-				'40': 'ml-32',
-				'50': 'ml-40',
-				'60': 'ml-48',
-				'70': 'ml-56',
-				'80': 'ml-64',
+				'10': 'ml-4 md:ml-6 lg:ml-8',
+				'20': 'ml-8 md:ml-10 lg:ml-12 xl:ml-16',
+				'30': 'ml-16 md:ml-20 lg:ml-24 xl:ml-32',
+				'40': 'ml-24 md:ml-32 lg:ml-40 xl:ml-48',
+				'50': 'ml-32 md:ml-40 lg:ml-48 xl:ml-56',
+				'60': 'ml-40 md:ml-48 lg:ml-56 xl:ml-64',
+				'70': 'ml-48 md:ml-56 lg:ml-64 xl:ml-72',
+				'80': 'ml-56 md:ml-64 lg:ml-72 xl:ml-80',
 			}[spacing.margin.left] %}
 			{% set margin = margin|merge([ml]) %}
 		{% endif %}
 
 		{% if spacing.margin.right %}
 			{% set mr = {
-				'10': 'mr-8',
-				'20': 'mr-16',
-				'30': 'mr-24',
-				'40': 'mr-32',
-				'50': 'mr-40',
-				'60': 'mr-48',
-				'70': 'mr-56',
-				'80': 'mr-64',
+				'10': 'mr-4 md:mr-6 lg:mr-8',
+				'20': 'mr-8 md:mr-10 lg:mr-12 xl:mr-16',
+				'30': 'mr-16 md:mr-20 lg:mr-24 xl:mr-32',
+				'40': 'mr-24 md:mr-32 lg:mr-40 xl:mr-48',
+				'50': 'mr-32 md:mr-40 lg:mr-48 xl:mr-56',
+				'60': 'mr-40 md:mr-48 lg:mr-56 xl:mr-64',
+				'70': 'mr-48 md:mr-56 lg:mr-64 xl:mr-72',
+				'80': 'mr-56 md:mr-64 lg:mr-72 xl:mr-80',
 			}[spacing.margin.right] %}
 			{% set margin = margin|merge([mr]) %}
 		{% endif %}
