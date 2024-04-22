@@ -1,5 +1,21 @@
 {% from 'macros/icons.twig' import icon  %}
 
+{# De button include is een herbruikbaar component dat een knop genereert met een titel en een optioneel icoon. De knop kan een link bevatten en kan worden aangepast met verschillende stijlen en groottes. De iconen die worden gebruikt in de knop zijn afkomstig van de heroicons-bibliotheek en kunnen worden aangepast met verschillende opties. Zo kun je kiezen voor mico, mini, outline en solid. De sizes en de eventuele order (rechts van tekst) kunnen worden aangepast in de 'iconClass' #}
+
+{# Voorbeeld: 
+	{{include('includes/button.twig', {
+		data: {
+			button: fields.button,
+			variantStyle: fields.variant,
+			variantSize: 'lg',
+			icon: fields.button.icon ? fields.button.icon,
+			iconType: 'solid',
+			iconClass: 'order-last size-8'
+		}
+	}, with_context = false)}}
+#}
+
+
 {# Set defaults #}
 {% set defaults = {
     data: {
@@ -13,7 +29,7 @@
         variantSize: 'md',
         icon: null,
         iconType: 'solid',
-        iconClass: 'w-5 h-5',
+        iconClass: 'size-6',
         buttonType: 'button',
     },
     classes: {
@@ -25,7 +41,7 @@
     variants: {
         style: {
             primary: 'text-white border border-transparent bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
-            secondary: 'text-secondary-900 border border-transparent bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
+            secondary: 'text-teal-900 border border-transparent bg-teal-300 hover:bg-teal-400 group-hover:bg-teal-400',
             outlined: 'text-gray-900 border border-transparent border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
         },
         size: {
@@ -56,12 +72,11 @@
 {% set classes = classes|join(' ') %}
 
 {# Return HTML #}
-{% if props.data.button.title or props.data.icon %}
+	{% if props.data.button.title or props.data.icon %}
 	{% set tag = props.data.button.url ? 'a' : 'button' %}
 	{% set attr = props.data.button.url ? 'href=' ~ props.data.button.url : 'type=' ~ props.data.buttonType ~ (props.data.button.target ? ' target=' ~ props.data.button.target : '') %}
 
-	<{{tag}} {{ attr }} class="{{ props.data.name }} {{ classes }}">
-		{% if props.data.icon %}
+		<{{tag}} {{ attr }} class="{{ props.data.name }} {{ classes }}"> {% if props.data.icon %}
 			{{ icon(props.data.icon, props.data.iconType, props.data.iconClass) }}
 		{% endif %}
 		{{ props.data.button.title ?? null }}

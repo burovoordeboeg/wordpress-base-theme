@@ -105,7 +105,7 @@ add_action('init', function () use ($gutenberg) {
 
 	// Add block category
 	$gutenberg->add_block_category('Lay-out', 'layout');
-	$gutenberg->add_block_category('Steamers', 'streamers');
+	$gutenberg->add_block_category('Streamers', 'streamers');
 	$gutenberg->add_block_category('Projecten', 'projecten');
 	$gutenberg->add_block_category('Overig', 'misc');
 

@@ -19,13 +19,15 @@
 
 		<div class="flex items-center gap-x-6">
 			{% for item in fields.buttons %}
+
 				{{include('includes/button.twig', {
 					data: {
 						button: item.button,
+						variantStyle: item.variant,
 						variantSize: 'lg',
 						icon: 'arrow-down-circle',
-						reverse: true,
-						iconSize: '20'
+						iconType: 'outline',
+						iconClass: 'order-last size-8'
 					}
 				}, with_context = false)}}
 			{% endfor %}

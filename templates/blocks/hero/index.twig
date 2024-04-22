@@ -2,7 +2,7 @@
 
 	{% block content %}
 
-		<div class="min-h-[40vh]">
+		<div class="{{attributes.alignment.fullheight ? 'h-screen' : ' min-h-[40vh]'}} ">
 
 			{{include('includes/wpimage.twig', {
 				data: {
@@ -10,7 +10,7 @@
 					is_preview: is_preview,
 				},
 				classes: {
-					custom:'absolute inset-0  h-full w-full object-cover z-0'
+					custom:'absolute inset-0 h-full w-full object-cover z-0'
 				}
 			}, with_context = false)}}
 
@@ -37,8 +37,7 @@
 									button: fields.button.button,
 									variantSize: 'lg',
 									icon: fields.button.button ? 'arrow-down-circle',
-									reverse: true,
-									iconSize: '20'
+									iconClass: 'order-last w-6 h-6'
 								}
 							}, with_context = false)}}
 						</div>

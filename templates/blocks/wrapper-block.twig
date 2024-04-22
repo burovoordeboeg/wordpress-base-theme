@@ -9,7 +9,7 @@
 {% set preview = is_preview ? 'pointer-events-none' %}
 
 {# Set main wrapper and block classes #}
-{% set wrapper = [textalign, margin, spacing, customwrapper, attributes.class, preview]|join(' ')|spaceless %}
+{% set wrapper = ['block-' ~ blockname, textalign, margin, spacing, customwrapper, attributes.class, preview]|join(' ')|spaceless %}
 {% set block = ['block', blockalign, padding, customblock]|join(' ')|spaceless %}
 
 
