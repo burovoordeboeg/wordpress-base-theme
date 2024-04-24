@@ -1,25 +1,21 @@
-{# Include spacing macro #}
-{% import "macros/spacing.twig" as spacing %}
-
 {# Set classes #}
 {% set blockalign = 'align' ~ attributes.alignment.align|default('none') %}
-{% set textalign = attributes.alignment.aligntext ? 'text' ~ attributes.alignment.aligntext %}
-{% set padding = spacing.padding(attributes.spacing)|spaceless %}
-{% set margin = attributes.spacing.margin ? spacing.margin(attributes.spacing)|spaceless : 'my-16 md:my-20 lg:my-24 xl:my-32'%}
-{% set preview = is_preview ? 'pointer-events-none' %}
 
-{# Set main wrapper and block classes #}
-{% set wrapper = ['block-' ~ blockname, textalign, margin, spacing, customwrapper, attributes.class, preview]|join(' ')|spaceless %}
-{% set block = ['block', blockalign, padding, customblock]|join(' ')|spaceless %}
+{% set merged_class = [
+    attributes.alignment.aligntext ? 'textalign' ~ attributes.alignment.aligntext : '',
+    classes is defined ? classes : '',
+	attributes.class ? attributes.class : '',
+    is_preview ? 'pointer-events-none' : '',
+] | join(' ') %}
 
 
 {# Return HTML #}
-<section data-section="{{ blockname }}" {{attributes.id ? 'data-anchor=' ~ attributes.id}} class="{{wrapper}}">
+<section data-section="{{ blockname }}" {{attributes.id ? 'data-anchor=' ~ attributes.id}} class="block {{merged_class}}">
 	{% include "components/preview.twig" %}
 
-	<div class="{{block}}">
+	<div class="{{blockalign}} bg-gray-100">
 		{% block content %}
-			<p>Content</p>
+			<p class="">Content</p>
 		{% endblock %}
 	</div>
 </section>
