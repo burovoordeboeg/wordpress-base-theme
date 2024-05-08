@@ -1,17 +1,3 @@
-/* Blocks sizes in css */
-/* .block {
-	@apply mx-auto relative;
-	@apply max-w-[1280px];
-
-	&.alignwide {
-		@apply max-w-[1536px];
-	}
-
-	&.alignfull {
-		@apply max-w-none;
-	}
-} */
-
 [data-section] {
 	> * {
 		@apply mx-auto relative;

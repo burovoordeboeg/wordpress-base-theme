@@ -27,8 +27,8 @@
             "fontSize": false
         },
         "spacing": {
-            "padding": true,
-            "margin": true
+            "padding": false,
+            "margin": false
         }
     },
     "example": {
