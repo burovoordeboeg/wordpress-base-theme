@@ -60,10 +60,10 @@ references:
       paths:
         - vendor
   
-  composer_packagist: &composer_packagist
+  composer_github_oauth: &composer_github_oauth
     run:
-      name: Setup packagist authentication
-      command: composer config --global --auth http-basic.repo.packagist.com jstreuper $PACKAGIST_TOKEN
+      name: Setup Github Oauth
+      command: composer config --global --auth github-oauth.github.com $GITHUB_OAUTH_TOKEN
 
   composer_install: &composer_install
     run:
@@ -134,7 +134,7 @@ jobs:
       - <<: *npm_save_cache
       - <<: *webpack_build_assets
       - <<: *composer_restore_cache
-      - <<: *composer_packagist
+      - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
@@ -155,7 +155,7 @@ jobs:
       - <<: *npm_save_cache
       - <<: *webpack_build_production_assets
       - <<: *composer_restore_cache
-      - <<: *composer_packagist
+      - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
@@ -176,7 +176,7 @@ jobs:
       - <<: *npm_save_cache
       - <<: *webpack_build_production_assets
       - <<: *composer_restore_cache
-      - <<: *composer_packagist
+      - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:

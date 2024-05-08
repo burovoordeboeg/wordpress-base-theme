@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "name": "acf/video-text",
+    "title": "Video-text",
+    "description": "Een image & text block",
+    "style": [],
+    "category": "common",
+    "icon": "align-pull-left",
+    "acf": {
+        "mode": "preview",
+        "renderCallback": [
+            "BvdB\\Gutenberg\\Blocks",
+            "render"
+        ],
+        "postTypes": []
+    },
+    "supports": {
+        "align": [
+            "full",
+            "wide",
+            "center"
+        ],
+        "anchor": true,
+        "alignContent": true,
+        "alignText": true,
+        "typography": {
+            "fontSize": false
+        },
+        "fullHeight": false,
+        "spacing": {
+            "padding": false,
+            "margin": false
+        }
+    },
+    "example": {
+        "attributes": {
+            "message": "This is a notice!"
+        }
+    }
+}

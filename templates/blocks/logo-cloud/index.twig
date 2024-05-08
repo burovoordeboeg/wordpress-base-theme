@@ -1,0 +1,27 @@
+{% embed "./blocks/wrapper-block.twig" %}
+	{% block content %}
+
+		{{include('includes/heading.twig', { 
+			data: { 
+				text: fields.heading.text, 
+				type: fields.heading.type 
+			}
+		}, with_context = false)}}
+
+		<div class="grid grid-cols-4 items-center gap-x-8 gap-y-10 sm:grid-cols-6 sm:gap-x-10 lg:grid-cols-5">
+			{% for item in fields.logos %}
+				{{include('includes/wpimage.twig', {
+					data: {
+						id: item,
+						is_preview: is_preview,
+					},
+					classes: {
+						custom:'col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+					}
+				}, with_context = false)}}
+
+			{% endfor %}
+		</div>
+
+	{% endblock %}
+{% endembed %}

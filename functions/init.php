@@ -6,12 +6,26 @@ if (!defined('ABSPATH')) exit;
 // Create theme instance and call the theme class to initialize globally.
 include_once get_template_directory() . '/vendor/autoload.php';
 
+
+// Load template classes
 $template = \BvdB\Templates\Autoloader::get_instance();
 $utilities = \BvdB\Utilities\Autoloader::get_instance();
 $gutenberg = \BvdB\Gutenberg\Blocks::get_instance();
 
+// Load ACF focuspoint field
+$acf_focuspoint = new \BvdB\ACF\FocusPoint();
+
 // Set ACF save path
 $utilities->acf->settings->set_save_load_paths(get_template_directory() . '/acf/');
+
+// Add block directory
+$gutenberg->add_block_directory(get_template_directory() . '/templates/blocks');
+
+// Set option to save ACF in block folder
+$gutenberg->save_acf_in_block_folder();
+
+// Add gutenberg blocks as load path
+$gutenberg->add_acf_blocks_load_path();
 
 // Register an optionspage
 $utilities->acf->optionspage->register(array(
@@ -91,11 +105,15 @@ add_action('init', function () use ($gutenberg) {
 
 	// Add block category
 	$gutenberg->add_block_category('Lay-out', 'layout');
+	$gutenberg->add_block_category('Streamers', 'streamers');
+	$gutenberg->add_block_category('Projecten', 'projecten');
+	$gutenberg->add_block_category('Overig', 'misc');
 
 	// Set allowed default_blocks
 	$gutenberg->set_allowed_default_blocks(array(
 		'gravityforms/form',
 	));
+
 	// Load all blocks
-	$blocks = $gutenberg->load_blocks();
+	$gutenberg->load_blocks();
 });
