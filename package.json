@@ -17,7 +17,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.12",
     "autoprefixer": "^10.4.19",
-    "browser-sync": "^2.27.7",
+    "browser-sync": "^3.0.2",
     "browser-sync-webpack-plugin": "^2.3.0",
     "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.49",
