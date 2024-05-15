@@ -31,7 +31,12 @@
 			"fontFamilies": []
 		},
 		"spacing": {
-			"blockGap": true
+			"blockGap": false,
+			"padding": true,
+			"margin": true
+		},
+		"dimensions": {
+			"minHeight": true
 		},
 		"blocks": {
 			"core/paragraph": {

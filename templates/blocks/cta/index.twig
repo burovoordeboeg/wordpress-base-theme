@@ -1,0 +1,37 @@
+{% embed "./blocks/wrapper-block.twig" %}
+
+
+	{% block content %}
+
+		{{include('includes/heading.twig', { 
+			data: { 
+				text: fields.heading.text, 
+				type: fields.heading.type 
+			},
+		}, with_context = false)}}
+
+		{{include('includes/prose.twig', {
+			data: {
+				content: fields.copy,
+			}
+		}, with_context = false)}}
+
+
+		<div class="flex items-center gap-x-6">
+			{% for item in fields.buttons %}
+
+				{{include('includes/button.twig', {
+					data: {
+						button: item.button,
+						variantStyle: item.variant,
+						variantSize: 'lg',
+						icon: 'arrow-down-circle',
+						iconType: 'outline',
+						iconClass: 'order-last size-8'
+					}
+				}, with_context = false)}}
+			{% endfor %}
+		</div>
+
+	{% endblock %}
+{% endembed %}
