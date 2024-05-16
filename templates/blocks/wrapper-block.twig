@@ -5,6 +5,8 @@
     attributes.alignment.aligntext ? 'textalign' ~ attributes.alignment.aligntext : '',
     classes is defined ? classes : '',
 	attributes.class ? attributes.class : '',
+	margin ? margin : 'my-16',
+	paddin ? paddin,
     is_preview ? 'pointer-events-none' : '',
 ] | join(' ') %}
 
@@ -13,7 +15,7 @@
 <section data-section="{{ blockname }}" {{attributes.id ? 'data-anchor=' ~ attributes.id}} class="block {{merged_class}}">
 	{% include "components/preview.twig" %}
 
-	<div class="{{blockalign}} bg-gray-100">
+	<div class="{{blockalign}} bg-gray-100/20">
 		{% block content %}
 			<p class="">Content</p>
 		{% endblock %}

@@ -1,9 +1,9 @@
 {
-    "key": "group_647593b106ed8",
-    "title": "Logo cloud",
+    "key": "group_6475b6d14314d",
+    "title": "Team",
     "fields": [
         {
-            "key": "field_647593b1d10df",
+            "key": "field_6475b6d1c56b2",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -25,11 +25,11 @@
             "prefix_name": 1
         },
         {
-            "key": "field_647593bfd10e0",
-            "label": "Logos",
-            "name": "logos",
+            "key": "field_6475b6e2c56b3",
+            "label": "Copy",
+            "name": "copy",
             "aria-label": "",
-            "type": "gallery",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,19 +38,41 @@
                 "class": "",
                 "id": ""
             },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6475b6f0c56b4",
+            "label": "Team",
+            "name": "team",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
             "return_format": "id",
-            "library": "all",
             "min": "",
             "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
+            "elements": "",
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -58,7 +80,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/logo-cloud"
+                "value": "acf\/team"
             }
         ]
     ],
@@ -71,5 +93,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689550632
+    "modified": 1715813138
 }

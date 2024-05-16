@@ -1,9 +1,9 @@
 {
-    "key": "group_6475bcebadb88",
-    "title": "Faq",
+    "key": "group_6475c1edf0c86",
+    "title": "Stats",
     "fields": [
         {
-            "key": "field_6475bceb7ea5d",
+            "key": "field_6475c1ee3adf5",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -25,9 +25,29 @@
             "prefix_name": 1
         },
         {
-            "key": "field_6475bd5ca7ddc",
-            "label": "Faq",
-            "name": "faq",
+            "key": "field_6475c1f73adf6",
+            "label": "Copy",
+            "name": "copy",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6475c20f3adf7",
+            "label": "Stats",
+            "name": "stats",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -38,7 +58,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "row",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -47,9 +67,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6475bd67a7ddd",
-                    "label": "Question",
-                    "name": "question",
+                    "key": "field_6475c21c3adf8",
+                    "label": "Heading",
+                    "name": "heading",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -65,12 +85,12 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_6475bd5ca7ddc"
+                    "parent_repeater": "field_6475c20f3adf7"
                 },
                 {
-                    "key": "field_6475bd74a7dde",
-                    "label": "Answer",
-                    "name": "answer",
+                    "key": "field_6475c2283adf9",
+                    "label": "Copy",
+                    "name": "copy",
                     "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -86,7 +106,7 @@
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 0,
-                    "parent_repeater": "field_6475bd5ca7ddc"
+                    "parent_repeater": "field_6475c20f3adf7"
                 }
             ]
         }
@@ -96,7 +116,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/faq"
+                "value": "acf\/stats"
             }
         ]
     ],
@@ -109,5 +129,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689555838
+    "modified": 1715813137
 }

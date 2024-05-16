@@ -40,9 +40,9 @@
     },
     variants: {
         style: {
-            primary: 'text-white border border-transparent bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
+            primary: 'text-white border border-transparent bg-blue-700 hover:bg-blue-800 group-hover:bg-blue-800',
             secondary: 'text-teal-900 border border-transparent bg-teal-300 hover:bg-teal-400 group-hover:bg-teal-400',
-            outlined: 'text-gray-900 border border-transparent border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
+            link: 'text-gray-900 bg-transparent border border-transparent  hover:underline group-hover:underline',
         },
         size: {
             sm: 'px-2.5 py-1.5 gap-2 text-xs',
@@ -70,6 +70,7 @@
 
 {# Merge classes #}
 {% set classes = classes|join(' ') %}
+
 
 {# Return HTML #}
 	{% if props.data.button.title or props.data.icon %}

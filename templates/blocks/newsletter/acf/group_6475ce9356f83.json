@@ -1,9 +1,9 @@
 {
-    "key": "group_6475b6d14314d",
-    "title": "Team",
+    "key": "group_6475ce9356f83",
+    "title": "Newsletter",
     "fields": [
         {
-            "key": "field_6475b6d1c56b2",
+            "key": "field_6475ce93d8c5f",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -19,15 +19,15 @@
             "clone": [
                 "group_64af639d0294e"
             ],
-            "display": "group",
+            "display": "seamless",
             "layout": "block",
-            "prefix_label": 1,
-            "prefix_name": 1
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
-            "key": "field_6475b6e2c56b3",
-            "label": "Copy",
-            "name": "copy",
+            "key": "field_6475cf059e9b9",
+            "label": "Policy",
+            "name": "policy",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -43,35 +43,6 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_6475b6f0c56b4",
-            "label": "Team",
-            "name": "team",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "post"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
-            ],
-            "return_format": "id",
-            "min": "",
-            "max": "",
-            "elements": ""
         }
     ],
     "location": [
@@ -79,7 +50,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/team"
+                "value": "acf\/newsletter"
             }
         ]
     ],
@@ -92,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689556300
+    "modified": 1715813135
 }

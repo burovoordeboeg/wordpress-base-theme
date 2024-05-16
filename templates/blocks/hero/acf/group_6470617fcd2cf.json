@@ -1,11 +1,11 @@
 {
-    "key": "group_64706bfeced36",
-    "title": "Video &amp; text",
+    "key": "group_6470617fcd2cf",
+    "title": "Hero",
     "fields": [
         {
-            "key": "field_64706bfed116e",
-            "label": "Heading",
-            "name": "heading",
+            "key": "field_64af644e3b3e1",
+            "label": "Title",
+            "name": "title",
             "aria-label": "",
             "type": "clone",
             "instructions": "",
@@ -25,7 +25,7 @@
             "prefix_name": 1
         },
         {
-            "key": "field_64706bfed1176",
+            "key": "field_6470619f70d36",
             "label": "Copy",
             "name": "copy",
             "aria-label": "",
@@ -40,12 +40,12 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "very_simple",
+            "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
         },
         {
-            "key": "field_64706bfed117d",
+            "key": "field_64b477c161265",
             "label": "Button",
             "name": "button",
             "aria-label": "",
@@ -54,7 +54,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -67,31 +67,11 @@
             "prefix_name": 1
         },
         {
-            "key": "field_64706bfed1185",
-            "label": "Reverse",
-            "name": "reverse",
+            "key": "field_647061bd70d38",
+            "label": "Image",
+            "name": "image",
             "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
-        },
-        {
-            "key": "field_65fa9287c94ff",
-            "label": "Video",
-            "name": "video",
-            "aria-label": "",
-            "type": "clone",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -100,13 +80,16 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_65fa8e76c8cce"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 1,
-            "prefix_name": 1
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -114,7 +97,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/video-text"
+                "value": "acf\/hero"
             }
         ]
     ],
@@ -127,5 +110,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1710920352
+    "modified": 1715813126
 }

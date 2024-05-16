@@ -1,9 +1,9 @@
 {
-    "key": "group_6475c1edf0c86",
-    "title": "Stats",
+    "key": "group_64759ac52e51c",
+    "title": "Features",
     "fields": [
         {
-            "key": "field_6475c1ee3adf5",
+            "key": "field_64759ac5d4a4d",
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
@@ -25,7 +25,7 @@
             "prefix_name": 1
         },
         {
-            "key": "field_6475c1f73adf6",
+            "key": "field_64759c6bd4a4f",
             "label": "Copy",
             "name": "copy",
             "aria-label": "",
@@ -45,9 +45,9 @@
             "delay": 0
         },
         {
-            "key": "field_6475c20f3adf7",
-            "label": "Stats",
-            "name": "stats",
+            "key": "field_64759c96d4a50",
+            "label": "Features",
+            "name": "features",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -58,7 +58,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "table",
             "pagination": 0,
             "min": 0,
             "max": 0,
@@ -67,7 +67,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6475c21c3adf8",
+                    "key": "field_64759cced4a51",
                     "label": "Heading",
                     "name": "heading",
                     "aria-label": "",
@@ -85,10 +85,10 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_6475c20f3adf7"
+                    "parent_repeater": "field_64759c96d4a50"
                 },
                 {
-                    "key": "field_6475c2283adf9",
+                    "key": "field_64759cdad4a52",
                     "label": "Copy",
                     "name": "copy",
                     "aria-label": "",
@@ -106,9 +106,38 @@
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 0,
-                    "parent_repeater": "field_6475c20f3adf7"
+                    "parent_repeater": "field_64759c96d4a50"
                 }
             ]
+        },
+        {
+            "key": "field_66456ae432ad1",
+            "label": "Columns",
+            "name": "columns",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5"
+            },
+            "default_value": 4,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -116,7 +145,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/stats"
+                "value": "acf\/features"
             }
         ]
     ],
@@ -129,5 +158,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1689556140
+    "modified": 1715825411
 }
