@@ -1,27 +1,36 @@
-{% embed "./blocks/wrapper-block.twig" %}
-	{% block content %}
+{% extends "./blocks/wrapper-block.twig" %}
 
-		{{include('includes/heading.twig', { 
-			data: { 
-				text: fields.heading.text, 
-				type: fields.heading.type 
-			}
-		}, with_context = false)}}
+{% set columns = {
+	1 : '',
+	2 : 'grid-cols-2',
+	3 : 'grid-cols-3',
+	4 : 'grid-cols-4',
+	5 : 'grid-cols-5',
+	6 : 'grid-cols-6',
+	7 : 'grid-cols-7',
+	8 : 'grid-cols-8',
+	9 : 'grid-cols-9',
+	10 : 'grid-cols-10',
+} %}
 
-		<div class="grid grid-cols-4 items-center gap-x-8 gap-y-10 sm:grid-cols-6 sm:gap-x-10 lg:grid-cols-5">
-			{% for item in fields.logos %}
-				{{include('includes/wpimage.twig', {
-					data: {
-						id: item,
-						is_preview: is_preview,
-					},
-					classes: {
-						custom:'col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-					}
-				}, with_context = false)}}
-
-			{% endfor %}
-		</div>
-
-	{% endblock %}
-{% endembed %}
+{% block content %}
+	{{include('includes/heading.twig', { 
+		data: { 
+			text: fields.heading.text, 
+			type: fields.heading.type 
+		}
+	}, with_context = false)}}
+	<div class="grid {{columns[fields.columns]}} items-center gap-x-8 gap-y-10 sm:gap-x-10">
+		{% for item in fields.logos %}
+			{{include('includes/wpimage.twig', {
+				data: {
+					id: item,
+					is_preview: is_preview,
+				},
+				classes: {
+					custom:' max-h-12 w-full object-contain'
+				}
+			}, with_context = false)}}
+		{% endfor %}
+	</div>
+{% endblock %}

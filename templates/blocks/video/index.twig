@@ -1,15 +1,13 @@
-{% embed "./blocks/wrapper-block.twig" %}
+{% extends "./blocks/wrapper-block.twig" %}
 
-	{% block content %}
-		{% if fields.video.video_source == 'url' %}
-			{{include('includes/video.twig', {
+{% block content %}
+	{% if fields.video.video_source == 'url' %}
+		{{include('includes/video.twig', {
 				data: fields.video
 			}, with_context = false)}}
-		{% else %}
-			{{include('includes/video-oembed.twig', {
+	{% else %}
+		{{include('includes/video-oembed.twig', {
 				data: fields.video
 			}, with_context = false)}}
-		{% endif %}
-	{% endblock %}
-
-{% endembed %}
+	{% endif %}
+{% endblock %}
