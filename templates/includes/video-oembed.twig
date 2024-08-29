@@ -1,0 +1,28 @@
+{# Set Defaults #}
+{% set defaults = {
+	data: {
+		name: 'oembed-video',
+		video_oembed: null,
+	},
+	classes: {
+		root: 'w-full aspect-video *:w-full *:h-full ',
+		custom: null,
+	},
+} %}
+
+{# Set Props #}
+{% set props = {
+	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+} %}
+
+{# Join classes #}
+{% set classes = [
+	props.classes.root,
+	props.classes.custom,
+]|join(' ')|spaceless %}
+
+{# Return HTML #}
+<figure class="{{classes}}">
+	{{props.data.video_oembed|raw}}
+</figure>

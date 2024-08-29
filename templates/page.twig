@@ -1,6 +1,5 @@
 {% extends "base/base.twig" %}
-{% import "macros/icons.twig" as icon %}
-
+{% from 'macros/icons.twig' import icon  %}
 
 {% block content %}
 	{{object.get_content()|raw}}

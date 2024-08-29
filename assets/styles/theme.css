@@ -1,18 +1,33 @@
-/* Blocks sizes in css */
-.block {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
+[data-section] {
+	> * {
+		@apply mx-auto relative;
 	
-	&:not(.alignwide, .alignfull) {
-		max-width: 1280px;
-	}
+		&:not(.alignwide,.alignfull, .aligncenter) {
+			@apply max-w-screen-lg;
+		}
 
-	&.aligncenter {
-		max-width: 768px;
-	}
+		&.aligncenter {
+			@apply max-w-screen-md;
+		}
 
-	&.alignwide {
-		max-width: 1536px;
+		&.alignwide {
+			@apply max-w-screen-2xl;
+		}
+
+		&.alignfull {
+			@apply max-w-none;
+		}
 	}
 }
+
+/* Textalignment */
+.textalignleft {
+	@apply text-left;
+}
+.textalignright {
+	@apply text-right;
+}
+.textaligncenter {
+	@apply text-center;
+}
+

@@ -1,0 +1,36 @@
+{% set defaults = {
+	data: {
+		name: 'video',
+		video_url: null,
+		video_options: null,
+		video_poster: null,
+	},
+	classes: {
+		root: 'w-full bg-gray-100',
+		custom: null,
+	},
+} %}
+
+
+{# Set Props #}
+{% set props = {
+	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+} %}
+
+{# Join classes #}
+{% set classes = [
+	props.classes.root,
+	props.classes.custom
+]|join(' ') %}
+
+{# Join options #}
+{% set options = [
+    props.data.video_options.autoplay ? 'autoplay muted' : 'controls',
+    props.data.video_options.loop ? 'loop' : null
+]|join(' ') %}
+
+{# Return HTML #}
+<video class="{{classes}}" {{options}} poster="{{props.data.video_poster.sizes.medium_large}}">
+	<source src="{{props.data.video_url}}" type="video/mp4">
+</video>

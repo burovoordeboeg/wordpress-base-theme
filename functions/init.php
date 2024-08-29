@@ -18,6 +18,15 @@ $acf_focuspoint = new \BvdB\ACF\FocusPoint();
 // Set ACF save path
 $utilities->acf->settings->set_save_load_paths(get_template_directory() . '/acf/');
 
+// Add block directory
+$gutenberg->add_block_directory(get_template_directory() . '/templates/blocks');
+
+// Set option to save ACF in block folder
+$gutenberg->save_acf_in_block_folder();
+
+// Add gutenberg blocks as load path
+$gutenberg->add_acf_blocks_load_path();
+
 // Register an optionspage
 $utilities->acf->optionspage->register(array(
 	'page_title' => 'Site opties',
@@ -96,7 +105,7 @@ add_action('init', function () use ($gutenberg) {
 
 	// Add block category
 	$gutenberg->add_block_category('Lay-out', 'layout');
-	$gutenberg->add_block_category('Steamers', 'streamers');
+	$gutenberg->add_block_category('Streamers', 'streamers');
 	$gutenberg->add_block_category('Projecten', 'projecten');
 	$gutenberg->add_block_category('Overig', 'misc');
 
@@ -104,6 +113,7 @@ add_action('init', function () use ($gutenberg) {
 	$gutenberg->set_allowed_default_blocks(array(
 		'gravityforms/form',
 	));
+
 	// Load all blocks
-	$blocks = $gutenberg->load_blocks();
+	$gutenberg->load_blocks();
 });

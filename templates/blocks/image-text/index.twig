@@ -1,0 +1,56 @@
+{% extends "./blocks/wrapper-block.twig" %}
+
+{# Set Content Align Classes if available #}
+{% set contentalign = {
+		'top': 'items-start',
+		'center': 'items-center',
+		'bottom': 'items-end'
+	}[attributes.alignment.aligncontent] ?? 'items-start' %}
+
+{% block content %}
+
+	<div class="lg:grid lg:grid-cols-12 lg:gap-x-8 {{fields.crop ? '' : contentalign}}">
+		<div class="col-span-6 row-start-1 {{fields.reverse ? 'col-start-7'}}">
+
+			{{include('includes/heading.twig', { 
+					data: { 
+						text: fields.heading.text, 
+						type: fields.heading.type 
+					}
+				}, with_context = false)}}
+
+			{{include('includes/prose.twig', {
+					data: {
+						content: fields.copy,
+					}
+				}, with_context = false)}}
+
+			{{include('includes/button.twig', {
+					data: {
+						button: fields.button.button,
+						variantStyle: fields.button.variant,
+					}
+				}, with_context = false)}}
+
+		</div>
+
+		<div class="col-span-6 row-start-1 {{fields.reverse ? 'col-start-1' : ''}}">
+
+			{% block media %}
+
+				{{include('includes/wpimage.twig', {
+						data: {
+							id: fields.image,
+							is_preview: is_preview,
+						},
+						classes: {
+							custom: fields.crop ? 'w-full h-full object-cover'
+						}
+					}, with_context = false)}}
+
+			{% endblock %}
+		</div>
+
+	</div>
+
+{% endblock %}
