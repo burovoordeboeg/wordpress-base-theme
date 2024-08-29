@@ -1,3 +1,4 @@
+
 // Import js for componenents
 importAll(require.context('../../templates/blocks/', true, /\/scripts\.js$/))
 

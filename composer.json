@@ -64,5 +64,11 @@
                 "type:wordpress-muplugin"
             ]
         }
+    },
+    "scripts": {
+        "post-package-install": [
+            "php -r \"copy('../../mu-plugins/acf-auto-sync/acf-auto-sync.php', '../../mu-plugins/acf-auto-sync.php');\"",
+            "php -r \"array_map('unlink', glob('../../mu-plugins/acf-auto-sync/*.*')); rmdir('../../mu-plugins/acf-auto-sync');\""
+        ]
     }
 }

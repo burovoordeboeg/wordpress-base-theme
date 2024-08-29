@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "burovoordeboeg/acf-auto-sync",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/acf-auto-sync.git",
-                "reference": "737ba301016e6ea72d0a39eabec7419d1291482d"
+                "reference": "6b9906a8b01c5ee60243690373eacede38445ea6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/acf-auto-sync/zipball/737ba301016e6ea72d0a39eabec7419d1291482d",
-                "reference": "737ba301016e6ea72d0a39eabec7419d1291482d",
+                "url": "https://api.github.com/repos/burovoordeboeg/acf-auto-sync/zipball/6b9906a8b01c5ee60243690373eacede38445ea6",
+                "reference": "6b9906a8b01c5ee60243690373eacede38445ea6",
                 "shasum": ""
             },
             "require": {
@@ -27,12 +27,12 @@
             "license": [
                 "GPL-2.0+"
             ],
-            "description": "WordPress must-use plugin for syncing data between WordPress DB and ACF JSON fields",
+            "description": "WordPress must-use plugin for syncing data between WordPress DB en ACF JSON fields",
             "support": {
-                "source": "https://github.com/burovoordeboeg/acf-auto-sync/tree/1.0.0",
+                "source": "https://github.com/burovoordeboeg/acf-auto-sync/tree/1.0.1",
                 "issues": "https://github.com/burovoordeboeg/acf-auto-sync/issues"
             },
-            "time": "2024-08-15T14:07:31+00:00"
+            "time": "2024-08-22T09:55:23+00:00"
         },
         {
             "name": "burovoordeboeg/acf-focus-point",
