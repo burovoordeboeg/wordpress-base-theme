@@ -4,7 +4,7 @@
   "description": "# Tailwind config",
   "main": "index.js",
   "dependencies": {
-    "@burovoordeboeg/component-downloader": "^1.0.4",
+    "@burovoordeboeg/component-downloader": "^1.2.5",
     "@tailwindcss/container-queries": "^0.1.1",
     "fs": "^0.0.1-security",
     "postcss-import": "^15.1.0",
