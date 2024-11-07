@@ -21,8 +21,7 @@
         "burovoordeboeg/acf-focus-point": "^0.2.1",
         "burovoordeboeg/utilities": "^0.1.9",
         "burovoordeboeg/templates": "^0.1.11",
-        "burovoordeboeg/gutenberg": "^1.3.0",
-        "burovoordeboeg/acf-auto-sync": "^1.0.0"
+        "burovoordeboeg/gutenberg": "^1.3.0"
     },
     "autoload": {
         "psr-4": {
@@ -47,10 +46,6 @@
             "url": "https://github.com/burovoordeboeg/class-gutenberg"
         },
         {
-            "type": "vcs",
-            "url": "https://github.com/burovoordeboeg/acf-auto-sync"
-        },
-        {
             "type": "composer",
             "url": "https://packages.burovoordeboeg.nl/satispress/"
         }
@@ -64,11 +59,5 @@
                 "type:wordpress-muplugin"
             ]
         }
-    },
-    "scripts": {
-        "post-package-install": [
-            "php -r \"copy('../../mu-plugins/acf-auto-sync/acf-auto-sync.php', '../../mu-plugins/acf-auto-sync.php');\"",
-            "php -r \"array_map('unlink', glob('../../mu-plugins/acf-auto-sync/*.*')); rmdir('../../mu-plugins/acf-auto-sync');\""
-        ]
     }
 }
