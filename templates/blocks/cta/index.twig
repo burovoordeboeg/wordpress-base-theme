@@ -1,0 +1,33 @@
+{% extends "./blocks/wrapper-block.twig" %}
+
+{% block content %}
+
+	<div class="lg:flex items-center gap-x-8 font-sans">
+		<div>
+			{{include('elements/heading.twig', { 
+			data: { 
+				text: fields.heading.text, 
+				type: fields.heading.type 
+			},
+		}, with_context = false)}}
+
+			<div class="prose max-w-none">
+				{{fields.copy|raw}}
+			</div>
+		</div>
+
+		<div class="min-w-fit">
+			{{include('elements/button.twig', {
+			data: {
+				button: fields.button.button,
+				variantSize: 'lg',
+				icon: 'arrow-down-circle',
+				reverse: true,
+				iconSize: '20'
+			}
+		}, with_context = false)}}
+		</div>
+
+	</div>
+
+{% endblock %}

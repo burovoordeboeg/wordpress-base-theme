@@ -3,4 +3,3 @@ vendor
 build
 .DS_Store
 */.DS_Store
-browsersync.config.js

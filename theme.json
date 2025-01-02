@@ -15,7 +15,19 @@
 			"customGradient": false,
 			"defaultDuotone": false,
 			"defaultGradients": false,
-			"defaultPalette": true
+			"defaultPalette": true,
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#ff6600",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#7C0DDE",
+					"name": "Secondary"
+				}
+			]
 		},
 		"typography": {
 			"fluid": false,

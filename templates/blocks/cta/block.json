@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "acf/cta",
+  "title": "Call to action",
+  "version": "0.0.1",
+  "description": "Een blok met een titel, grote copy en button.",
+  "keywords": [
+    "content",
+    "wysiwyg",
+    "cta",
+    "button"
+  ],
+  "style": [],
+  "category": "streamers",
+  "icon": "button",
+  "acf": {
+    "mode": "preview",
+    "renderCallback": [
+      "BvdB\\Gutenberg\\Blocks",
+      "render"
+    ],
+    "postTypes": []
+  },
+  "supports": {
+    "align": [
+      "center",
+      "wide",
+      "full"
+    ],
+    "anchor": true,
+    "alignContent": false,
+    "alignText": false,
+    "typography": {
+      "fontSize": false
+    },
+    "fullHeight": false,
+    "spacing": {}
+  },
+  "example": {
+    "attributes": {
+      "heading": {
+        "type": "h2",
+        "text": "Dit is een Call To Action"
+      },
+      "copy": "<p>Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo.</p>",
+      "button": {
+        "button": {
+          "title": "Neem contact op",
+          "url": "#",
+          "target": "_blank"
+        }
+      }
+    }
+  }
+}

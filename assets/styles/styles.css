@@ -1,11 +1,33 @@
-/* @import-glob "./gutenberg/" is importing alle native gutenberg block styles */
-/* @import-glob "../../blocks/" is importing all block styles that are included in acf blocks */
-/* Theme can be used for specific theme styles */
+@import "tailwindcss";
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import-glob "./wordpress/*.css";
-@import-glob "../../blocks/**/*.css";
-@import "theme";
-@import "tailwindcss/utilities";
+@config "../../tailwind.config.js";
 
+/* https://tailwindcss.com/docs/v4-beta#namespace-reference */
+@theme {
+	--font-display: 'Inter', sans-serif;
+  
+	--breakpoint-3xl: 1920px;
+	--breakpoint-4xl: 2560px;
+	
+	--color-primary: var(--wp--preset--color--secondary);
+
+	--color-avocado-100: var(--wp--preset);
+	--color-avocado-200: oklch(0.98 0.04 113.22);
+	--color-avocado-300: oklch(0.94 0.11 115.03);
+	--color-avocado-400: oklch(0.92 0.19 114.08);
+	--color-avocado-500: oklch(0.84 0.18 117.33);
+	--color-avocado-600: oklch(0.53 0.12 118.34);
+  
+	--ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+	--ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+	--aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
+}
+
+body {
+	font-family: var(--font-display);
+	background-color: var(--color-avocado-600);
+}
+
+.block {
+	background-color: var(--color-pink-500);
+}
