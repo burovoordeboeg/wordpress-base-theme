@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
+/* We need this to make it work */
 @config "../../tailwind.config.js";
 
 /* https://tailwindcss.com/docs/v4-beta#namespace-reference */
 @theme {
+	--block-align-center: 768px;
+	--block-align-none: var(--wp--style--global--content-size);
+	--block-align-wide: var(--wp--style--global--wide-size);
+
 	--font-display: 'Inter', sans-serif;
   
 	--breakpoint-3xl: 1920px;
 	--breakpoint-4xl: 2560px;
 	
 	--color-primary: var(--wp--preset--color--secondary);
+	--color-secondary: var(--wp--preset--color--primary);
 
-	--color-avocado-100: var(--wp--preset);
+	--color-avocado-100: oklch(0.99 0.02 113.22);
 	--color-avocado-200: oklch(0.98 0.04 113.22);
 	--color-avocado-300: oklch(0.94 0.11 115.03);
 	--color-avocado-400: oklch(0.92 0.19 114.08);
@@ -20,14 +26,30 @@
   
 	--ease-fluid: cubic-bezier(0.3, 0, 0, 1);
 	--ease-snappy: cubic-bezier(0.2, 0, 0, 1);
-	--aspect-ratio: var(--wp--preset--aspect-ratio--3-2);
 }
 
-body {
+* {
 	font-family: var(--font-display);
-	background-color: var(--color-avocado-600);
 }
 
-.block {
-	background-color: var(--color-pink-500);
+.alignnone,
+.aligncenter,
+.alignwide,
+.alignfull
+ {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignnone {
+	max-width: var(--block-align-none);
+}
+
+.aligncenter {
+	max-width: var(--block-align-center);
+}
+
+.alignwide {
+	max-width: var(--block-align-wide);
 }
