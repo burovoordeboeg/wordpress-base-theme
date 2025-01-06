@@ -32,11 +32,7 @@
 	font-family: var(--font-display);
 }
 
-html, body {
-	background: blue;
-}
-
-.alignnone,
+.alignnone,	
 .aligncenter,
 .alignwide,
 .alignfull

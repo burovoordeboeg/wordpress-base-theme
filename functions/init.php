@@ -44,73 +44,28 @@
 	 * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
 	 */
 	add_action('after_setup_theme', function () use ($utilities) {
-
 		// Setup assets loader
 		$assets = $utilities->assets;
-
-		// Set Hot Module Replacement server URL (default is http://localhost:3002)
-		$hmr_server_url = 'http://localhost:3002';
-
-		// Check if HMR is enabled
-		if (wp_remote_get("$hmr_server_url/@vite/client")) 
-		{
-			$assets->enable_hmr($hmr_server_url);
-		} 
-		else 
-		{
-			// Use the default manifest
-			$assets->set_manifest_location('/build/.vite/manifest.json');
 	
-			// Register scripts and styles
+		// Stel de locatie van het Vite-manifest in
+		$assets->set_manifest_location('/build/.vite/manifest.json');
+	
+		// HMR server URL
+		$hmr_server_url = 'http://localhost:3002';
+	
+		// Controleer of de HMR-server actief is
+		$hmr_enabled = (defined('WP_ENV') && WP_ENV == 'development');
+	
+		if ($hmr_enabled && !is_wp_error($hmr_enabled)) {
+			// Activeer HMR voor front-end en admin
+			$assets->enable_hmr($hmr_server_url);
+		} else {
+			// Fallback: Gebruik standaard Laravel Mix configuratie
 			$assets->register('theme', 'script', 'main', $assets->get_file_from_manifest('scripts/main.js'), array(), true);
 			$assets->register('theme', 'style', 'styles', $assets->get_file_from_manifest('styles/styles.css'), array(), true);
-	
-			// Enqueue all assets
 			$assets->load_theme_assets();
 		}
-
 	}, 1);
-
-
-	
-
-	/**
-	 * Add Vite development hook for live reload.
-	 */
-	// function bvd_vite_dev_hook()
-	// {
-	// 	echo '<script type="module" crossorigin src="http://localhost:3002/@vite/client"></script>';
-	// 	echo '<script type="module" crossorigin src="http://localhost:3002/assets/scripts/main.js"></script>';
-	// }
-
-	// /**
-	//  * Enqueue assets for frontend and backend.
-	//  */
-	// function bvd_enqueue_assets()
-	// {
-	// 	$vite_env = defined('WP_ENV') ? WP_ENV : 'production'; // Use WP_ENV or default to production
-	// 	$dist_uri = get_template_directory_uri() . '/build';
-	// 	$manifest = bvd_load_manifest();
-
-	// 	if (is_array($manifest)) {
-	// 		$js_file = 'assets/scripts/main.js';
-
-	// 		if ($vite_env === 'production') {
-	// 			wp_enqueue_style('main', $dist_uri . '/' . $manifest[$js_file]['css'][0]);
-	// 			wp_enqueue_script('main', $dist_uri . '/' . $manifest[$js_file]['file'], [], null, true);
-	// 		}
-
-	// 		if ($vite_env === 'development') {
-	// 			// Add hooks for development live reload
-	// 			add_action('wp_head', 'bvd_vite_dev_hook');
-	// 			add_action('admin_head', 'bvd_vite_dev_hook'); // Explicitly add to admin
-	// 		}
-	// 	}
-	// }
-
-	// add_action('wp_enqueue_scripts', 'bvd_enqueue_assets');
-	// add_action('admin_enqueue_scripts', 'bvd_enqueue_assets'); // Enqueue for backend as well
-
 
 	/**
 	 * Initialize Gutenberg blocks.

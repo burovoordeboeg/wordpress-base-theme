@@ -1,44 +1,46 @@
+//vite.config.mjs
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
-const entries = {
-    main: 'assets/scripts/main.js',
-    styles: 'assets/styles/styles.css',
-};
+
+// Get the main.js where all your JavaScript files are imported
+const entries = [
+	'assets/scripts/main.js',
+	'assets/styles/styles.css',
+]
+
+// Define where the compiled and minified JavaScript files will be saved
+const BUILD_DIR = resolve(__dirname, 'build');
 
 export default defineConfig({
-    plugins: [tailwindcss()],
-    server: {
-        port: 3002,
-        cors: true,
-        strictPort: true,
-        proxy: {
-            '/@vite/': {
-                target: 'http://127.0.0.1:3002',
-                ws: true,
-                changeOrigin: true,
-            },
-            '/': {
-                target: 'http://127.0.0.1:8000',
-                changeOrigin: true,
-            },
-        },
-    },
+	plugins: [
+		tailwindcss(),
+	],
+	server: {
+		cors: true,
+		strictPort: true,
+		port: 3002,
+		https: false,
+		hmr: {
+		  	host: 'localhost',
+		}
+	},
     build: {
-        outDir: resolve(__dirname, 'build'),
-        manifest: true,
-        emptyOutDir: true,
+        assetsDir: '', // Will save the compiled JavaScript files in the root of the dist folder
+        manifest: true, // Generate manifest.json file (for caching)
+        emptyOutDir: true, // Empty the dist folder before building
+        outDir: BUILD_DIR,
         rollupOptions: {
             input: entries,
             output: {
-                entryFileNames: 'scripts/[name]-[hash].js',
-                chunkFileNames: 'scripts/[name]-[hash].js',
+                entryFileNames: 'scripts/[name]-[hash].js', // Save JS in `scripts/`
+                chunkFileNames: 'scripts/[name]-[hash].js', // Save chunks in `scripts/`
                 assetFileNames: (assetInfo) => {
                     if (assetInfo.name.endsWith('.css')) {
-                        return 'styles/[name]-[hash][extname]';
+                        return 'styles/[name]-[hash][extname]'; // Save CSS in `styles/`
                     }
-                    return '[name]-[hash][extname]';
+                    return '[name]-[hash][extname]'; // Default for other assets
                 },
             },
         },
