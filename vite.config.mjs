@@ -1,37 +1,46 @@
-//vite.config.mjs
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
-
-// Get the main.js where all your JavaScript files are imported
-const entries = [
-	'assets/scripts/main.js',
-]
-
-// Define where the compiled and minified JavaScript files will be saved
-const BUILD_DIR = resolve(__dirname, 'build');
+const entries = {
+    main: 'assets/scripts/main.js',
+    styles: 'assets/styles/styles.css',
+};
 
 export default defineConfig({
-	plugins: [
-		tailwindcss(),
-	],
-	server: {
-		cors: true,
-		strictPort: true,
-		port: 3002,
-		https: false,
-		hmr: {
-		  	host: 'localhost',
-		}
-	},
+    plugins: [tailwindcss()],
+    server: {
+        port: 3002,
+        cors: true,
+        strictPort: true,
+        proxy: {
+            '/@vite/': {
+                target: 'http://127.0.0.1:3002',
+                ws: true,
+                changeOrigin: true,
+            },
+            '/': {
+                target: 'http://127.0.0.1:8000',
+                changeOrigin: true,
+            },
+        },
+    },
     build: {
-        assetsDir: '', // Will save the compiled JavaScript files in the root of the dist folder
-        manifest: true, // Generate manifest.json file (for caching)
-        emptyOutDir: true, // Empty the dist folder before building
-        outDir: BUILD_DIR,
+        outDir: resolve(__dirname, 'build'),
+        manifest: true,
+        emptyOutDir: true,
         rollupOptions: {
             input: entries,
+            output: {
+                entryFileNames: 'scripts/[name]-[hash].js',
+                chunkFileNames: 'scripts/[name]-[hash].js',
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name.endsWith('.css')) {
+                        return 'styles/[name]-[hash][extname]';
+                    }
+                    return '[name]-[hash][extname]';
+                },
+            },
         },
     },
 });

@@ -1,3 +1,3 @@
-import '../styles/styles.css'
+import '../styles/styles.css';
 
-console.log('Hello from mains.js')
+console.log('Initialized: main.js');
