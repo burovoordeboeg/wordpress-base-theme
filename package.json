@@ -6,7 +6,8 @@
   "dependencies": {
     "@burovoordeboeg/component-downloader": "^1.0.0",
     "@tailwindcss/vite": "^4.0.0-beta.8",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "vite-plugin-static-copy": "^2.2.0"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
