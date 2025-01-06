@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "acf/features",
+  "title": "Features",
+  "description": "Een overzicht van fetaures in een grid",
+  "style": [],
+  "category": "misc",
+  "icon": "list-view",
+  "acf": {
+    "mode": "preview",
+    "renderCallback": [
+      "BvdB\\Gutenberg\\Blocks",
+      "render"
+    ],
+    "postTypes": []
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full",
+      "center"
+    ],
+    "anchor": true,
+    "alignContent": false,
+    "alignText": false,
+    "typography": {
+      "fontSize": false
+    },
+    "fullHeight": false,
+    "spacing": {}
+  },
+  "example": {
+    "attributes": {
+      "heading": {
+        "type": "h2",
+        "text": "Dit is een overzicht van de specificaties"
+      },
+      "copy": "<p>Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>",
+      "features": [
+        {
+          "heading": "Ullamcorper Mattis",
+          "copy": "Ridiculus Sollicitudin Porta"
+        },
+        {
+          "heading": "Ridiculus Magna Sem",
+          "copy": "Bibendum Lorem"
+        },
+        {
+          "heading": "Adipiscing",
+          "copy": "Euismod Bibendum Mollis Condimentum"
+        },
+        {
+          "heading": "Aenean Vulputate",
+          "copy": "Euismod Bibendum Mollis Condimentum"
+        },
+        {
+          "heading": "Ligula",
+          "copy": "Euismod Bibendum Mollis Condimentum"
+        }
+      ]
+    }
+  }
+}

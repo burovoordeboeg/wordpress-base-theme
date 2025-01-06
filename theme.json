@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"settings": {
 		"layout": {
 			"contentSize": "1280px",
@@ -15,7 +15,19 @@
 			"customGradient": false,
 			"defaultDuotone": false,
 			"defaultGradients": false,
-			"defaultPalette": true
+			"defaultPalette": true,
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#ff6600",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#7C0DDE",
+					"name": "Secondary"
+				}
+			]
 		},
 		"typography": {
 			"fluid": false,

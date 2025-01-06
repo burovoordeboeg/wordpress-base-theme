@@ -8,8 +8,8 @@
 # - SERVER_PATH       string  Path to testing environment
 #
 # Also make sure you know where you want to deploy to:
-# If you want to deploy to S01, you do not need to edit the standard SERVER_IP
-# to SERVER_IP_S01 or SERVER_IP_S02 to deploy to these specific servers
+# If you want to deploy to S01, you do not need to edit the standard SERVER_W210
+# to SERVER_W195 or SERVER_W205 to deploy to these specific servers
 # Also see the contexts menu within cirlceci
 
 version: 2.1
@@ -71,15 +71,15 @@ references:
       command: composer install -n --ignore-platform-reqs --optimize-autoloader --no-dev
   
   # Webpack builds
-  webpack_build_assets: &webpack_build_assets
+  vite_build_assets: &vite_build_assets
     run:
       name: Build assets
-      command: npm run development
+      command: npm run dev # Gebruik dit voor testomgevingen
 
-  webpack_build_production_assets: &webpack_build_production_assets
+  vite_build_production_assets: &vite_build_production_assets
     run:
       name: Build assets for production
-      command: npm run production
+      command: npm run build # Gebruik dit voor acceptatie- en productieomgevingen
 
 # Setup commands
 commands:
@@ -132,18 +132,18 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *webpack_build_assets
+      - <<: *vite_build_assets
       - <<: *composer_restore_cache
       - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
-          server_ip: $SERVER_IP_S02
+          server_ip: $SERVER_W210
       - rsync_deploy:
           jobname: "test"
           domain: $DOMAIN_TEST
           path: $SERVER_PATH
-          server_ip: $SERVER_IP_S02
+          server_ip: $SERVER_W210
 
   "Acceptance":
     <<: *default
@@ -153,18 +153,18 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *webpack_build_production_assets
+      - <<: *vite_build_production_assets
       - <<: *composer_restore_cache
       - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
-          server_ip: $SERVER_IP_S02
+          server_ip: $SERVER_W210
       - rsync_deploy:
           jobname: "acceptance"
           domain: $DOMAIN_ACCEPTANCE
           path: $SERVER_PATH
-          server_ip: $SERVER_IP_S02
+          server_ip: $SERVER_W210
 
   "Production":
     <<: *default
@@ -174,18 +174,18 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *webpack_build_production_assets
+      - <<: *vite_build_production_assets
       - <<: *composer_restore_cache
       - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
       - add_serverkey:
-          server_ip: $SERVER_IP_S02
+          server_ip: $SERVER_W210
       - rsync_deploy:
           jobname: "production"
           domain: $DOMAIN_PRODUCTION
           path: $SERVER_PATH
-          server_ip: $SERVER_IP_S02
+          server_ip: $SERVER_W210
       
 workflows:
   "Feature deployment":
