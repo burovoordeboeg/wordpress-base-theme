@@ -1,3 +1,4 @@
+// Import styles
 import '../styles/styles.css'
 
-console.log('Hello from mains.js')
+// Place other imports or scripts here
