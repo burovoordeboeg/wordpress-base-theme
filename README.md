@@ -29,17 +29,4 @@ Na het downloaden/clonen van het basetheme moet je eerst de dependencies install
 `composer install`
 `npm install`
 
-Vervolgens kun je de task runner starten door het volgende commando uit te voeren:
-
-`npm start` of `npm run build`
-
-## Browsersync settings
-
-In de root van het thema staat een bestand genaamd `browsersync-config.example`. Deze dien je ter hernoemen naar `browsersync-config.js` en de instellingen aan te passen naar de juiste instellingen voor het project. De instellingen zijn als volgt:
-
-```
-module.exports = {
-  proxy: "http://<<LOCAL_URL_HERE>>/",
-  files: ["./**/*.css", "./**/*.js", "./**/*.php", "./**/*.twig"],
-};
-```
+Je moet vervolgens eerst de build-folder genereren, dat doe je door het commando `npm run build` te draaien. Op een lokale ontwikkelomgeving moet je Hot Module Replacement gebruiken, dat doe je door standaard naast je server ook Vite te draaien via het commando `npm run dev`. 
