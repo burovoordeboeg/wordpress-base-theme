@@ -1,6 +1,6 @@
 # THEME NAME
 
-De algemene documentatie voor het Buro voor de Boeg Base Theme staat in [confluence](https://burovoordeboeg.atlassian.net/wiki/spaces/BVDBT/pages/57933825/Base+Theme). Deze readme is bedoelt voor dit specifieke project.
+De algemene documentatie voor het Buro voor de Boeg Base Theme staat in ClickUp. Deze readme is bedoelt voor dit specifieke project.
 
 ## Theme settings
 
