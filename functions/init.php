@@ -11,6 +11,8 @@
 
 	// ACF and Gutenberg Setup
 	$acf_focuspoint = new \BvdB\ACF\FocusPoint();
+
+	// Set Save and Load path for ACF
 	$utilities->acf->settings->set_save_load_paths(get_template_directory() . '/acf/');
 	$utilities->acf->optionspage->register(array(
 		'page_title' => 'Site opties', 
@@ -37,7 +39,6 @@
 		'size_w' => 300, 
 		'size_h' => 300
 	));
-
 
 	/**
 	 * Autoload all theme files such as scripts/styles needed for the theme
