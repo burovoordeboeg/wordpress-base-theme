@@ -1,9 +1,6 @@
 // tailwind.config.js
 module.exports = {
-    mode: 'jit', 
-    purge: ['./**/*.twig', './assets/**/*.js'],
-    theme: {
-        extend: {},
-    },
-    plugins: [],
+    content: [
+        './**/*.twig', // Watch all twig files in the project
+    ],
 };
