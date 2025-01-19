@@ -1,0 +1,28 @@
+{% extends "./blocks/wrapper-block.twig" %}
+
+{% block content %}
+
+	{{include('elements/heading.twig', { 
+		data: { 
+			text: fields.heading.text, 
+			type: fields.heading.type 
+		}
+	}, with_context = false)}}
+
+
+	<div class="prose max-w-none mb-6">
+		{{fields.copy|raw}}
+	</div>
+
+	<dl class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+		{% for item in fields.features %}
+			<div class="relative">
+				<dt class="font-bold">
+					{{item.heading}}
+				</dt>
+				<dd class="prose max-w-none">{{item.copy|raw}}</dd>
+			</div>
+		{% endfor %}
+	</dl>
+
+{% endblock %}

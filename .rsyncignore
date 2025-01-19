@@ -12,4 +12,4 @@ package-lock.json
 package.json
 tailwind.config.js
 README.md
-webpack.mix.js
+vite.config.mjs

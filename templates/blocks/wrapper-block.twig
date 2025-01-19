@@ -2,19 +2,16 @@
 {% set blockalign = 'align' ~ attributes.alignment.align|default('none') %}
 
 {% set merged_class = [
-    attributes.alignment.aligntext ? 'textalign' ~ attributes.alignment.aligntext : '',
+    attributes.alignment.aligntext ? 'text-' ~ attributes.alignment.aligntext,
     classes is defined ? classes : '',
 	attributes.class ? attributes.class : '',
-	margin ? margin : 'my-16',
-	paddin ? paddin,
     is_preview ? 'pointer-events-none' : '',
-] | join(' ') %}
+] | join(' ') | spaceless %}
 
 
 {# Return HTML #}
-<section data-section="{{ blockname }}" {{attributes.id ? 'data-anchor=' ~ attributes.id}} class="block {{merged_class}}">
-
-	<div class="{{blockalign}} bg-gray-100/20">
+<section data-section="{{ blockname }}" {{attributes.id ? 'data-anchor=' ~ attributes.id}} class="{{merged_class}}">
+	<div class="{{blockalign}}">
 		{% block content %}
 			<p class="">Content</p>
 		{% endblock %}

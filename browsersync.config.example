@@ -1,5 +1,0 @@
-// Usage: rename this file to browsersync.config.js and change the proxy to your local url
-module.exports = {
-    proxy: 'your-local-url-here',
-    files: ['./**/*.css', './**/*.js', './**/*.php', './**/*.twig'],
-};
