@@ -7,7 +7,9 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 // Define entry points for JavaScript and CSS
 const entries = [
     'assets/scripts/main.js',
+    'assets/scripts/editor.js',
     'assets/styles/styles.css',
+    'assets/styles/editor-styles.css',
 ];
 
 // Define build output directory
@@ -25,6 +27,11 @@ export default defineConfig({
             ],
         }),
     ],
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, 'assets'),
+        },
+    },
     server: {
         cors: true,
         strictPort: true,
@@ -35,7 +42,6 @@ export default defineConfig({
         },
     },
     build: {
-        assetsDir: '', // Keep assets in the root of the build folder
         manifest: true, // Generate manifest.json
         emptyOutDir: true, // Clear build folder before building
         outDir: BUILD_DIR,

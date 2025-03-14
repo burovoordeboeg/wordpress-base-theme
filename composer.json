@@ -19,8 +19,8 @@
     },
     "require": {
         "burovoordeboeg/acf-focus-point": "^0.2.1",
-        "burovoordeboeg/utilities": "^0.2.1",
-        "burovoordeboeg/templates": "^0.1.14",
+        "burovoordeboeg/utilities": "^0.2.2",
+        "burovoordeboeg/templates": "^0.1.15",
         "burovoordeboeg/gutenberg": "^1.3.0"
     },
     "autoload": {

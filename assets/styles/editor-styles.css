@@ -1,9 +1,13 @@
-@import "tailwindcss";
+@layer theme, base, components;
 
-/* We need this to make it work */
-@config "../../tailwind.config.js";
+/* 
+ * Do not use the default tailwind include as the cascading layers 
+ * are not specific enough to overrule WordPress styles 
+ */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
 
-/* Load the config file */
 @import './config.css';
 
 .alignnone,	

@@ -40,33 +40,62 @@
 		'size_h' => 300
 	));
 
+
+	// HMR server URL
+	$hmr_server_url = 'http://localhost:3002';
+
+	// Only use HMR on development environment
+	$hmr_enabled = (defined('WP_ENV') && WP_ENV == 'development');
+
+	// Setup assets loader
+	$assets = $utilities->assets;
+	
+	// Location of manifest file
+	$assets->set_manifest_location('/build/.vite/manifest.json');
+
 	/**
 	 * Autoload all theme files such as scripts/styles needed for the theme
 	 * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
 	 */
-	add_action('after_setup_theme', function () use ($utilities) {
-		// Setup assets loader
-		$assets = $utilities->assets;
-	
-		// Stel de locatie van het Vite-manifest in
-		$assets->set_manifest_location('/build/.vite/manifest.json');
-	
-		// HMR server URL
-		$hmr_server_url = 'http://localhost:3002';
-	
-		// Controleer of de HMR-server actief is
-		$hmr_enabled = (defined('WP_ENV') && WP_ENV == 'development');
-	
-		if ($hmr_enabled && !is_wp_error($hmr_enabled)) {
-			// Activeer HMR voor front-end en admin
+	add_action('after_setup_theme', function () use ($assets, $hmr_enabled, $hmr_server_url) {
+		
+		if ($hmr_enabled && !is_wp_error($hmr_enabled)) 
+		{
+			// When in development mode
 			$assets->enable_hmr($hmr_server_url);
-		} else {
-			// Fallback: Gebruik standaard Laravel Mix configuratie
-			$assets->register('theme', 'script', 'main', $assets->get_file_from_manifest('scripts/main.js'), array(), true);
-			$assets->register('theme', 'style', 'styles', $assets->get_file_from_manifest('styles/styles.css'), array(), true);
-			$assets->load_theme_assets();
+			$assets->register('theme', 'script', 'main', $hmr_server_url . '/assets/scripts/main.js', [], ['in_footer' => true], true);
 		}
+		else
+		{
+			// When not in development mode
+			$assets->register('theme', 'script', 'main', $assets->get_file_from_manifest('scripts/main.js'), [], true);
+			$assets->register('theme', 'style', 'styles', $assets->get_file_from_manifest('styles/styles.css'), [], true);
+		}
+
+		// Localize scripts
+		$assets->localize('main', 'theme', array(
+			'ajaxurl' => admin_url('admin-ajax.php'),
+			'nonce'   => wp_create_nonce('ajax-nonce')
+		));
+
+		// Load assets
+		$assets->load_theme_assets();
+
 	}, 1);
+
+	/**
+	 * Load admin scripts and styles
+	 */
+	add_action('wp_enqueue_editor', function () use ($assets) 
+	{
+		// Load editor assets
+		$assets->register('editor', 'script', 'bvdb-editor', $assets->get_file_from_manifest('scripts/editor.js'), [], true);
+		$assets->register('editor', 'style', 'bvdb-styles', $assets->get_file_from_manifest('styles/editor-styles.css'), [], true);
+
+		// Load assets
+		$assets->load_editor_assets();
+	}, 1);
+
 
 	/**
 	 * Initialize Gutenberg blocks.
