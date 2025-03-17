@@ -2,5 +2,14 @@
 {% from 'macros/icons.twig' import icon  %}
 
 {% block content %}
-	{{object.get_content()|raw}}
+	
+	<div class="container my-8 mx-auto">
+		<div class="p-20 bg-red-500 prose prose-xl max-w-none ">
+			<p>SLLorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet incidunt sunt ipsa eum debitis illum totam perferendis doloribus cumque temporibus atque optio, exercitationem neque arcdhitecto. Recusandae necessitatibus omnis tenetur ullam.</p>
+		</div>
+	</div>
+
+	<div class="my-8 mx-auto space-y-16">
+		{{object.get_content()|raw}}
+	</div>
 {% endblock %}

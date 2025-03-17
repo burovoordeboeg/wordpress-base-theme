@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0160793f9586d62863000d6f5c18ea14",
+    "content-hash": "16d06ebbadb0bac275c6f0a7e57040c9",
     "packages": [
         {
             "name": "burovoordeboeg/acf-focus-point",
@@ -91,16 +91,16 @@
         },
         {
             "name": "burovoordeboeg/templates",
-            "version": "0.1.12",
+            "version": "0.1.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-theme-template-loader.git",
-                "reference": "f79a181e544234b17d6da12e276a8e127ee0db0d"
+                "reference": "2cac2636e3289dec0b624c7f51ed4407a73e4e56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-template-loader/zipball/f79a181e544234b17d6da12e276a8e127ee0db0d",
-                "reference": "f79a181e544234b17d6da12e276a8e127ee0db0d",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-template-loader/zipball/2cac2636e3289dec0b624c7f51ed4407a73e4e56",
+                "reference": "2cac2636e3289dec0b624c7f51ed4407a73e4e56",
                 "shasum": ""
             },
             "require": {
@@ -137,23 +137,23 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-theme-template-loader/tree/0.1.12",
+                "source": "https://github.com/burovoordeboeg/class-theme-template-loader/tree/0.1.15",
                 "issues": "https://github.com/burovoordeboeg/class-theme-template-loader/issues"
             },
-            "time": "2024-09-13T09:45:36+00:00"
+            "time": "2025-01-07T08:40:52+00:00"
         },
         {
             "name": "burovoordeboeg/utilities",
-            "version": "0.1.10",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:burovoordeboeg/class-theme-utilities.git",
-                "reference": "9bb648c05a444cc6d4ab9048f320c89b76d69216"
+                "reference": "605d2620a64bca2624a9215d1ec76c5a170bf939"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-utilities/zipball/9bb648c05a444cc6d4ab9048f320c89b76d69216",
-                "reference": "9bb648c05a444cc6d4ab9048f320c89b76d69216",
+                "url": "https://api.github.com/repos/burovoordeboeg/class-theme-utilities/zipball/605d2620a64bca2624a9215d1ec76c5a170bf939",
+                "reference": "605d2620a64bca2624a9215d1ec76c5a170bf939",
                 "shasum": ""
             },
             "require": {
@@ -183,10 +183,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/burovoordeboeg/class-theme-utilities/tree/0.1.10",
+                "source": "https://github.com/burovoordeboeg/class-theme-utilities/tree/0.2.2",
                 "issues": "https://github.com/burovoordeboeg/class-theme-utilities/issues"
             },
-            "time": "2024-09-10T14:17:43+00:00"
+            "time": "2025-03-14T13:00:18+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1506,11 +1506,11 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "platform-overrides": {
         "php": "7.3"
     },

@@ -4,18 +4,28 @@
     "[html]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "[twig]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         "editor.wordWrap": "bounded",
         "editor.wordWrapColumn": 160
     },
     "[php]": {
         "editor.detectIndentation": false,
         "editor.tabSize": 4,
-        "editor.formatOnSave": true
-    }
+        "editor.formatOnSave": false
+    },
+    "[js]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": false
+    },
+    "[css]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.formatOnSave": false
+    },
 }

@@ -1,11 +1,4 @@
-/* @import-glob "./gutenberg/" is importing alle native gutenberg block styles */
-/* @import-glob "../../blocks/" is importing all block styles that are included in acf blocks */
-/* Theme can be used for specific theme styles */
+@import "tailwindcss";
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import-glob "./wordpress/*.css";
-@import-glob "../../blocks/**/*.css";
-@import "theme";
-@import "tailwindcss/utilities";
-
+/* Load the config file */
+@import './config.css';

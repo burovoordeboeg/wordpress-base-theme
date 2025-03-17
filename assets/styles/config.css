@@ -1,0 +1,186 @@
+@source "../../templates/**/*";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+/* https://tailwindcss.com/docs/v4-beta#namespace-reference */
+@theme {
+	--color-primary: theme(--color-red-500);
+
+    --color-neutral: var(--color-slate-800);
+    --color-neutral-50: var(--color-slate-50);
+    --color-neutral-100: var(--color-slate-100);
+    --color-neutral-200: var(--color-slate-200);
+    --color-neutral-300: var(--color-slate-300);
+    --color-neutral-400: var(--color-slate-400);
+    --color-neutral-500: var(--color-slate-500);
+    --color-neutral-600: var(--color-slate-600);
+    --color-neutral-700: var(--color-slate-700);
+    --color-neutral-800: var(--color-slate-800);
+    --color-neutral-900: var(--color-slate-900);
+    --color-neutral-950: var(--color-slate-950);
+
+    /* --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+    /* --font-serif: Lavigne, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; */
+    /* --font-mono: Anonymous, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+
+
+	/* Breakpoints */
+	--breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+
+	/* Wp block alignment */
+	--block-align-none: var(--breakpoint-lg);
+	--block-align-center: var(--breakpoint-sm);
+	--block-align-wide: var(--breakpoint-xl);
+}
+
+@layer base {
+	html, * {
+        color: var(--color-neutral);
+        /* Set sans, serif or mono stack with optional custom font as default. */
+        font-family: var(--font-sans);
+        /* font-family: var(--font-serif); */
+        /* font-family: var(--font-mono); */
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    :root {
+        /* Safari resize fix. */
+        min-height: 0vw;
+        --focus-outline-width: 2px;
+        --focus-outline-offset: 3px;
+        --focus-outline-color: currentColor;
+        --focus-outline-style: dotted;
+        --focus-form-outline-width: 3px;
+        --focus-form-outline-offset: 0;
+        --focus-form-outline-color: theme(--color-primary / 50%);
+        --focus-form-outline-style: solid;
+    }
+
+    :focus {
+        outline-width: var(--focus-outline-width, 2px);
+        outline-offset: var(--focus-outline-offset, 3px);
+        outline-color: var(--focus-outline-color, currentColor);
+        outline-style: var(--focus-outline-style, dotted);
+    }
+
+    *:focus:not(:focus-visible) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+
+    input:not([type="button"]),
+    textarea,
+    select {
+        &:focus {
+            box-shadow: none;
+            outline-width: var(--focus-form-outline-width, 3px);
+            outline-offset: var(--focus-form-outline-offset, 0);
+            outline-color: var(--focus-form-outline-color, currentColor);
+            outline-style: var(--focus-form-outline-style, solid);
+        }
+    }
+
+    mark {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+}
+
+/* Typography styles */
+@utility prose {
+    --tw-prose-body: var(--color-neutral);
+    --tw-prose-headings: var(--color-neutral);
+    --tw-prose-lead: var(--color-neutral);
+    --tw-prose-links: var(--color-neutral);
+    --tw-prose-bold: var(--color-neutral);
+    --tw-prose-counters: var(--color-neutral);
+    --tw-prose-bullets: var(--color-neutral);
+    --tw-prose-hr: var(--color-neutral);
+    --tw-prose-quotes: var(--color-neutral);
+    --tw-prose-quote-borders: var(--color-primary);
+    --tw-prose-captions: var(--color-neutral);
+    --tw-prose-code: var(--color-neutral);
+    --tw-prose-pre-code: var(--color-white);
+    --tw-prose-pre-bg: var(--color-neutral);
+    --tw-prose-th-borders: var(--color-neutral);
+    --tw-prose-td-borders: var(--color-neutral);
+}
+
+@utility prose-invert {
+    --tw-prose-invert-body: var(--color-white);
+    --tw-prose-invert-headings: var(--color-white);
+    --tw-prose-invert-lead: var(--color-white);
+    --tw-prose-invert-links: var(--color-white);
+    --tw-prose-invert-bold: var(--color-white);
+    --tw-prose-invert-counters: var(--color-white);
+    --tw-prose-invert-bullets: var(--color-white);
+    --tw-prose-invert-hr: var(--color-white);
+    --tw-prose-invert-quotes: var(--color-white);
+    --tw-prose-invert-quote-borders: var(--color-white);
+    --tw-prose-invert-captions: var(--color-white);
+    --tw-prose-invert-code: var(--color-white);
+    --tw-prose-invert-pre-code: var(--color-white);
+    --tw-prose-invert-pre-bg: var(--color-white);
+    --tw-prose-invert-th-borders: var(--color-white);
+    --tw-prose-invert-td-borders: var(--color-white);
+}
+
+@layer utilities {
+    .prose {
+        line-height: 1.6em;
+
+        ul > li > p,
+        ol > li > p {
+            margin-top: 0em !important;
+            margin-bottom: 0em !important;
+            line-height: 1.5em;
+        }
+
+        :where(.prose > div > :first-child) {
+            margin-top: 0 !important;
+        }
+
+        :where(.prose > div > :last-child) {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .prose-sm,
+    .prose-lg,
+    .prose-xl,
+    .prose-2xl {
+        line-height: 1.5em;
+    }
+}
+
+/* Wordpress alignment */
+@layer utilities {
+	.alignnone,	
+	.aligncenter,
+	.alignwide,
+	.alignfull
+	{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.alignnone {
+		max-width: var(--block-align-none);
+	}
+
+	.aligncenter {
+		max-width: var(--block-align-center);
+	}
+
+	.alignwide {
+		max-width: var(--block-align-wide);
+	}
+}
