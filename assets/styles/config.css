@@ -19,20 +19,10 @@
     --color-neutral-900: var(--color-slate-900);
     --color-neutral-950: var(--color-slate-950);
 
-    --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /* --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
     /* --font-serif: Lavigne, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; */
     /* --font-mono: Anonymous, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
 
-    --font-weight-*: initial;
-    /* --font-weight-hairline: 100; */
-    /* --font-weight-thin: 200; */
-    /* --font-weight-light: 300; */
-    --font-weight-normal: 400;
-    /* --font-weight-medium: 500; */
-    /* --font-weight-semibold: 600; */
-    --font-weight-bold: 700;
-    /* --font-weight-extrabold: 800; */
-    /* --font-weight-black: 900; */
 
 	/* Breakpoints */
 	--breakpoint-sm: 640px;
@@ -43,7 +33,7 @@
 }
 
 @layer base {
-	html {
+	html, * {
         color: var(--color-neutral);
         /* Set sans, serif or mono stack with optional custom font as default. */
         font-family: var(--font-sans);
@@ -139,7 +129,7 @@
 
 @layer utilities {
     .prose {
-        line-height: 2.5em;
+        line-height: 1.6em;
 
         ul > li > p,
         ol > li > p {
