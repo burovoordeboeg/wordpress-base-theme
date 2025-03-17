@@ -9,30 +9,20 @@
 			url: null,
 			target: null,
 		},
-		variantStyle: 'primary',
-		variantSize: 'md',
+		variant: 'primary',
 		icon: null,
 		iconSize: '24',
 		buttonType: 'button',
 		reverse: false,
 	},
 	classes: {
-		root: 'items-center font-bold',
+		root: 'items-center font-bold px-6 py-2 rounded inline-flex',
     	custom: '',
-    	display: 'inline-flex',
-    	rounded: 'rounded-md'
 	},
 	variants: {
-		style: {
-			primary: 'text-white border border-transparent bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
-			secondary: 'text-secondary-900 border border-transparent bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
-			outlined: 'text-gray-900 border border-transparent border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
-		},
-		size: {
-			sm: 'px-2.5 py-1.5 gap-2 text-xs',
-			md: 'px-4 py-2 gap-3 text-base',
-			lg: 'px-8 py-4 gap-4 text-base',
-		}
+		primary: 'text-white border border-transparent bg-primary',
+		secondary: 'text-secondary-900 border border-transparent bg-secondary',
+		outlined: 'text-gray-900 border border-gray-200 bg-transparent',
 	}
 } %}
 
@@ -46,26 +36,14 @@
 {# Set base classes #}
 {% set classes = [props.classes.root] %}
 
-	{% if props.classes.display is not null %}
-{% set classes = classes|merge([props.classes.display]) %}
-{% endif %}
-
-	{% if props.classes.rounded is not null %}
-{% set classes = classes|merge([props.classes.rounded]) %}
-{% endif %}
-
 {# Add variant classes #}
-	{% if props.variants.style[props.data.variantStyle] %}
-{% set classes = classes|merge([props.variants.style[props.data.variantStyle]]) %}
-{% endif %}
-
-	{% if props.variants.size[props.data.variantSize] %}
-{% set classes = classes|merge([props.variants.size[props.data.variantSize]]) %}
+{% if props.variants[props.data.variant] %}
+	{% set classes = classes|merge([props.variants[props.data.variant]]) %}
 {% endif %}
 
 {# Add custom class #}
-	{% if props.classes.custom is not null %}
-{% set classes = classes|merge([props.classes.custom]) %}
+{% if props.classes.custom is not null %}
+	{% set classes = classes|merge([props.classes.custom]) %}
 {% endif %}
 
 {# Merge classes #}
@@ -76,7 +54,9 @@
 	{% set tag = props.data.button.url ? 'a' : 'button' %}
 	{% set attr = props.data.button.url ? 'href=' ~ props.data.button.url : 'type=' ~ props.data.buttonType %}
 
-		<{{tag}} {{ attr }} {{ props.data.button.url and props.data.button.target ? 'target=' ~ props.data.button.target : '' }} class="{{ props.data.name }} {{classes}}"> {% if props.data.icon %}
+		<{{tag}} {{ attr }} {{ props.data.button.url and props.data.button.target ? 'target=' ~ props.data.button.target : '' }} class="{{ props.data.name }} {{classes}}"> 
+		
+		{% if props.data.icon %}
 			{{ icon.icon(props.data.icon, {class: props.data.reverse ? 'order-2' : '', width: props.data.iconSize}) }}
 		{% endif %}
 

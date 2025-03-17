@@ -18,16 +18,26 @@
 			</div>
 		</div>
 
+		<pre class="prose max-w-none">
+			{{ dump(fields) }}
+		</pre>
+
 		<div class="min-w-fit">
-			{{include('elements/button.twig', {
-			data: {
-				button: fields.button.button,
-				variantSize: 'lg',
-				icon: 'arrow-down-circle',
-				reverse: true,
-				iconSize: '20'
-			}
-		}, with_context = false)}}
+			{% for button in fields.buttons %}
+				
+				{{include('elements/button.twig', {
+					data: {
+						button: button.button_button,
+						variant: button.button_variant,
+						icon: 'arrow-down-circle',
+						reverse: true,
+						iconSize: '20'
+					},
+					classes: {
+						custom:'bg-red-500'
+					}
+				}, with_context = false)}}
+			{% endfor %}
 		</div>
 
 	</div>
