@@ -30,6 +30,11 @@
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1280px;
     --breakpoint-2xl: 1536px;
+
+	/* Wp block alignment */
+	--block-align-none: var(--breakpoint-lg);
+	--block-align-center: var(--breakpoint-sm);
+	--block-align-wide: var(--breakpoint-xl);
 }
 
 @layer base {
@@ -153,4 +158,29 @@
     .prose-2xl {
         line-height: 1.5em;
     }
+}
+
+/* Wordpress alignment */
+@layer utilities {
+	.alignnone,	
+	.aligncenter,
+	.alignwide,
+	.alignfull
+	{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.alignnone {
+		max-width: var(--block-align-none);
+	}
+
+	.aligncenter {
+		max-width: var(--block-align-center);
+	}
+
+	.alignwide {
+		max-width: var(--block-align-wide);
+	}
 }

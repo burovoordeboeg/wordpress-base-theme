@@ -2,25 +2,3 @@
 
 /* Load the config file */
 @import './config.css';
-
-.alignnone,	
-.aligncenter,
-.alignwide,
-.alignfull
- {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.alignnone {
-	max-width: var(--block-align-none);
-}
-
-.aligncenter {
-	max-width: var(--block-align-center);
-}
-
-.alignwide {
-	max-width: var(--block-align-wide);
-}

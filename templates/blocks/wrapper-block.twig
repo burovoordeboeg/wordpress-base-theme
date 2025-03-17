@@ -9,6 +9,11 @@
 ] | join(' ') | spaceless %}
 
 
+{# <pre class="prose max-w-none">
+	{{ dump(attributes) }}
+	{{ dump(blockname) }}
+</pre> #}
+
 {# Return HTML #}
 <section data-section="{{ blockname }}" {{attributes.id ? 'data-anchor=' ~ attributes.id}} class="{{merged_class}}">
 	<div class="{{blockalign}}">
