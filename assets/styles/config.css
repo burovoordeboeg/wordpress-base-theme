@@ -1,31 +1,166 @@
-/* We need this to make it work */
-@config "../../tailwind.config.js";
+@source "../../templates/**/*";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
 
 /* https://tailwindcss.com/docs/v4-beta#namespace-reference */
 @theme {
-	--block-align-center: 768px;
-	--block-align-none: var(--wp--style--global--content-size);
-	--block-align-wide: var(--wp--style--global--wide-size);
+	--color-primary: theme(--color-red-500);
 
-	--font-display: 'Times New Roman', sans-serif;
-  
-	--breakpoint-3xl: 1920px;
-	--breakpoint-4xl: 2560px;
-	
-	--color-primary: var(--wp--preset--color--secondary);
-	--color-secondary: var(--wp--preset--color--primary);
+    --color-neutral: var(--color-slate-800);
+    --color-neutral-50: var(--color-slate-50);
+    --color-neutral-100: var(--color-slate-100);
+    --color-neutral-200: var(--color-slate-200);
+    --color-neutral-300: var(--color-slate-300);
+    --color-neutral-400: var(--color-slate-400);
+    --color-neutral-500: var(--color-slate-500);
+    --color-neutral-600: var(--color-slate-600);
+    --color-neutral-700: var(--color-slate-700);
+    --color-neutral-800: var(--color-slate-800);
+    --color-neutral-900: var(--color-slate-900);
+    --color-neutral-950: var(--color-slate-950);
 
-	--color-avocado-100: oklch(0.99 0.02 113.22);
-	--color-avocado-200: oklch(0.98 0.04 113.22);
-	--color-avocado-300: oklch(0.94 0.11 115.03);
-	--color-avocado-400: oklch(0.92 0.19 114.08);
-	--color-avocado-500: oklch(0.84 0.18 117.33);
-	--color-avocado-600: oklch(0.53 0.12 118.34);
-  
-	--ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-	--ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+    --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /* --font-serif: Lavigne, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; */
+    /* --font-mono: Anonymous, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+
+    --font-weight-*: initial;
+    /* --font-weight-hairline: 100; */
+    /* --font-weight-thin: 200; */
+    /* --font-weight-light: 300; */
+    --font-weight-normal: 400;
+    /* --font-weight-medium: 500; */
+    /* --font-weight-semibold: 600; */
+    --font-weight-bold: 700;
+    /* --font-weight-extrabold: 800; */
+    /* --font-weight-black: 900; */
+
+	/* Breakpoints */
+	--breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
 }
 
-* {
-	font-family: var(--font-display);
+@layer base {
+	html {
+        color: var(--color-neutral);
+        /* Set sans, serif or mono stack with optional custom font as default. */
+        font-family: var(--font-sans);
+        /* font-family: var(--font-serif); */
+        /* font-family: var(--font-mono); */
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    :root {
+        /* Safari resize fix. */
+        min-height: 0vw;
+        --focus-outline-width: 2px;
+        --focus-outline-offset: 3px;
+        --focus-outline-color: currentColor;
+        --focus-outline-style: dotted;
+        --focus-form-outline-width: 3px;
+        --focus-form-outline-offset: 0;
+        --focus-form-outline-color: theme(--color-primary / 50%);
+        --focus-form-outline-style: solid;
+    }
+
+    :focus {
+        outline-width: var(--focus-outline-width, 2px);
+        outline-offset: var(--focus-outline-offset, 3px);
+        outline-color: var(--focus-outline-color, currentColor);
+        outline-style: var(--focus-outline-style, dotted);
+    }
+
+    *:focus:not(:focus-visible) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+
+    input:not([type="button"]),
+    textarea,
+    select {
+        &:focus {
+            box-shadow: none;
+            outline-width: var(--focus-form-outline-width, 3px);
+            outline-offset: var(--focus-form-outline-offset, 0);
+            outline-color: var(--focus-form-outline-color, currentColor);
+            outline-style: var(--focus-form-outline-style, solid);
+        }
+    }
+
+    mark {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+}
+
+/* Typography styles */
+@utility prose {
+    --tw-prose-body: var(--color-neutral);
+    --tw-prose-headings: var(--color-neutral);
+    --tw-prose-lead: var(--color-neutral);
+    --tw-prose-links: var(--color-neutral);
+    --tw-prose-bold: var(--color-neutral);
+    --tw-prose-counters: var(--color-neutral);
+    --tw-prose-bullets: var(--color-neutral);
+    --tw-prose-hr: var(--color-neutral);
+    --tw-prose-quotes: var(--color-neutral);
+    --tw-prose-quote-borders: var(--color-primary);
+    --tw-prose-captions: var(--color-neutral);
+    --tw-prose-code: var(--color-neutral);
+    --tw-prose-pre-code: var(--color-white);
+    --tw-prose-pre-bg: var(--color-neutral);
+    --tw-prose-th-borders: var(--color-neutral);
+    --tw-prose-td-borders: var(--color-neutral);
+}
+
+@utility prose-invert {
+    --tw-prose-invert-body: var(--color-white);
+    --tw-prose-invert-headings: var(--color-white);
+    --tw-prose-invert-lead: var(--color-white);
+    --tw-prose-invert-links: var(--color-white);
+    --tw-prose-invert-bold: var(--color-white);
+    --tw-prose-invert-counters: var(--color-white);
+    --tw-prose-invert-bullets: var(--color-white);
+    --tw-prose-invert-hr: var(--color-white);
+    --tw-prose-invert-quotes: var(--color-white);
+    --tw-prose-invert-quote-borders: var(--color-white);
+    --tw-prose-invert-captions: var(--color-white);
+    --tw-prose-invert-code: var(--color-white);
+    --tw-prose-invert-pre-code: var(--color-white);
+    --tw-prose-invert-pre-bg: var(--color-white);
+    --tw-prose-invert-th-borders: var(--color-white);
+    --tw-prose-invert-td-borders: var(--color-white);
+}
+
+@layer utilities {
+    .prose {
+        line-height: 2.5em;
+
+        ul > li > p,
+        ol > li > p {
+            margin-top: 0em !important;
+            margin-bottom: 0em !important;
+            line-height: 1.5em;
+        }
+
+        :where(.prose > div > :first-child) {
+            margin-top: 0 !important;
+        }
+
+        :where(.prose > div > :last-child) {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .prose-sm,
+    .prose-lg,
+    .prose-xl,
+    .prose-2xl {
+        line-height: 1.5em;
+    }
 }

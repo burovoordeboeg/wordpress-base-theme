@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* We need this to make it work */
-@config "../../tailwind.config.js";
-
 /* Load the config file */
 @import './config.css';
 
