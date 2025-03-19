@@ -8,44 +8,31 @@
 	},
 	classes: {
 		root: 'font-bold text-6xl',
-		custom: null,
+		custom: '',
 	},
 	variants: {
-		xs: '',
-		sm: '',
-		md: '',
-		lg: '',
-		xl: '',
-		xxl: '',
+		xs: 'text-xs',
+		sm: 'text-sm',
+		md: 'text-md',
+		lg: 'text-lg',
+		xl: 'text-xl',
+		xxl: 'text-2xl',
 	}
 } %}
 
-{# Set Props #}
+{# Merge Props #}
 {% set props = {
 	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
 	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
 	variants: defaults.variants,
 } %}
 
-{# Set base classes #}
-{% set classes = [props.classes.root] %}
-
-{# Add variant class #}
-{% if props.variants[props.data.variantSize] is not null %}
-	{% set classes = classes|merge([props.variants[props.data.variantSize]]) %}
-{% endif %}
-
-{# Add custom class #}
-{% if props.classes.custom is not null %}
-	{% set classes = classes|merge([props.classes.custom]) %}
-{% endif %}
-
-{# Merge classes #}
-{% set classes = classes|join(' ') %}
+{# Merge classes using Tailwind Merge #}
+{% set classes = ([props.classes.root, props.variants[props.data.variantSize] ?? '', props.classes.custom] | tailwind_merge) %}
 
 {# Return HTML #}
 {% if props.data.text %}
-	<{{props.data.type}} data-component="{{props.data.name}}" class="{{classes}}">
-		{{props.data.text}}
-	</{{props.data.type}}>
+	<{{ props.data.type }} data-component="{{ props.data.name }}" class="{{ classes }}">
+		{{ props.data.text }}
+	</{{ props.data.type }}>
 {% endif %}
