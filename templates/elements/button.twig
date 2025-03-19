@@ -1,23 +1,17 @@
-{# {% import "macros/icons.twig" as icon %} #}
-
 {# Set defaults #}
 {% set defaults = {
 	data: {
-		name: 'inc-button',
-		button: {
-			text: null,
-			url: null,
-			target: null,
-		},
+		text: null,
+		url: null,
+		target: null,
 		variant: 'primary',
 		icon: null,
 		iconSize: '24',
-		buttonType: 'button',
 		reverse: false,
 	},
 	classes: {
-		root: 'items-center font-bold px-6 py-2 rounded inline-flex',
-    	custom: '',
+		root: 'items-center px-6 py-2 rounded inline-flex gap-2',
+		custom: '',
 	},
 	variants: {
 		primary: 'text-white border border-transparent bg-primary',
@@ -28,38 +22,24 @@
 
 {% set props = {
 	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
-  	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
-  	variants: defaults.variants,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+	variants: defaults.variants,
 } %}
 
+{# Set classes in a single line #}
+{% set classes = ([props.classes.root, props.variants[props.data.variant], props.classes.custom]|tailwind_merge) %}
 
-{# Set base classes #}
-{% set classes = [props.classes.root] %}
+{# Return HTML if needed #}
+{% if props.data.text or props.data.icon %}
+	<{{ props.data.url ? 'a' : 'button' }}
+		{{ props.data.url ? 'href=' ~ props.data.url : 'type=button' }}
+		{{ props.data.target ? 'target=' ~ props.data.target : '' }}
+		class="{{ classes }}">
 
-{# Add variant classes #}
-{% if props.variants[props.data.variant] %}
-	{% set classes = classes|merge([props.variants[props.data.variant]]) %}
-{% endif %}
-
-{# Add custom class #}
-{% if props.classes.custom is not null %}
-	{% set classes = classes|merge([props.classes.custom]) %}
-{% endif %}
-
-{# Merge classes #}
-{% set classes = classes|join(' ') %}
-
-{# Return HTML #}
-	{% if props.data.button.title or props.data.icon %}
-	{% set tag = props.data.button.url ? 'a' : 'button' %}
-	{% set attr = props.data.button.url ? 'href=' ~ props.data.button.url : 'type=' ~ props.data.buttonType %}
-
-		<{{tag}} {{ attr }} {{ props.data.button.url and props.data.button.target ? 'target=' ~ props.data.button.target : '' }} class="{{ props.data.name }} {{classes}}"> 
-		
-		{% if props.data.icon %}
-			{{ icon.icon(props.data.icon, {class: props.data.reverse ? 'order-2' : '', width: props.data.iconSize}) }}
+		{% if props.data.icon %}		
+			{% include 'elements/icon.twig' with { name: props.data.icon, settings: { class: props.data.reverse ? 'order-2' : '', width: props.data.iconSize}, title: 'Check icon' } %}
 		{% endif %}
-
-		{{ props.data.button.title ?? null }}
-	</{{tag}}>
+		
+		{{ props.data.text }}
+	</{{ props.data.url ? 'a' : 'button' }}>
 {% endif %}

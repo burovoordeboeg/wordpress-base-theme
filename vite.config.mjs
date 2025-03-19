@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import ViteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
+
 
 // Define entry points for JavaScript and CSS
 const entries = [
@@ -26,6 +28,12 @@ export default defineConfig({
                 },
             ],
         }),
+        ViteSvgSpriteWrapper({
+            icons: 'assets/icons/*.svg',
+            outputDir: 'build/images',
+
+            typeFileName: 'svg-icons',
+          }),
     ],
     resolve: {
         alias: {

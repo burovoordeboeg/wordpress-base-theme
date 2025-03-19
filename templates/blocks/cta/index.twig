@@ -1,26 +1,20 @@
 {% extends "./blocks/wrapper-block.twig" %}
 
-{% set classes = 'hallo' %}
-
 {% block content %}
 
 	<div class="bg-red-100">
 		<div>
 			{{include('elements/heading.twig', { 
-			data: { 
-				text: fields.heading.text, 
-				type: fields.heading.type 
-			},
-		}, with_context = false)}}
+				data: { 
+					text: fields.heading.text, 
+					type: fields.heading.type 
+				},
+			}, with_context = false)}}
 
 			<div class="prose max-w-none">
 				{{fields.copy|raw}}
 			</div>
 		</div>
-
-		<pre class="prose max-w-none">
-			{{ dump(fields) }}
-		</pre>
 
 		<div class="min-w-fit">
 			{% for button in fields.buttons %}
