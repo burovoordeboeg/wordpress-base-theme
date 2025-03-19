@@ -42,7 +42,7 @@
 
 
 	// HMR server URL
-	$hmr_server_url = 'http://localhost:3002';
+	$hmr_server_url = 'http://localhost:3003';
 
 	// Only use HMR on development environment
 	$hmr_enabled = (defined('WP_ENV') && WP_ENV == 'development');
@@ -71,6 +71,8 @@
 			$assets->register('theme', 'script', 'main', $assets->get_file_from_manifest('scripts/main.js'), [], true);
 			$assets->register('theme', 'style', 'styles', $assets->get_file_from_manifest('styles/styles.css'), [], true);
 		}
+
+		$assets->register('theme', 'style', 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 		// Localize scripts
 		$assets->localize('main', 'theme', array(
