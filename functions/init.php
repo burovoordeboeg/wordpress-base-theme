@@ -42,7 +42,7 @@
 
 
 	// HMR server URL
-	$hmr_server_url = 'http://localhost:3003';
+	$hmr_server_url = 'http://localhost:3002';
 
 	// Only use HMR on development environment
 	$hmr_enabled = (defined('WP_ENV') && WP_ENV == 'development');
