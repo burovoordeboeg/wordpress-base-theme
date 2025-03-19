@@ -1,0 +1,16 @@
+{#  
+Use it like this:
+{% include 'elements/icon.twig' with { name: 'check', settings: { width: 32, class: 'custom-class' }, title: 'Check icon' } %}
+#}
+
+{% set url = get_template_directory_uri() ~ '/build/images/sprite.svg#' ~ name %}
+{% set width = settings.width ?? 24 %}
+{% set height = settings.height ?? width %}
+{% set class = settings.class ?? null %}
+
+<svg class="icon icon-{{name}} {% if class %} {{class}} {% endif %}" aria-hidden="true" focusable="false" {%- if width %} width="{{ width }}" height="{{ height }}" {% endif %}>
+	{% if title %}
+		<title id="svg-title_{{name}}">{{ title }}</title>
+	{% endif %}
+	<use xlink:href="{{ url }}"></use>
+</svg>

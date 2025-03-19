@@ -1,85 +1,45 @@
-{# {% import "macros/icons.twig" as icon %} #}
-
 {# Set defaults #}
 {% set defaults = {
 	data: {
-		name: 'inc-button',
-		button: {
-			text: null,
-			url: null,
-			target: null,
-		},
-		variantStyle: 'primary',
-		variantSize: 'md',
+		text: null,
+		url: null,
+		target: null,
+		variant: 'primary',
 		icon: null,
 		iconSize: '24',
-		buttonType: 'button',
 		reverse: false,
 	},
 	classes: {
-		root: 'items-center font-bold',
-    	custom: '',
-    	display: 'inline-flex',
-    	rounded: 'rounded-md'
+		root: 'items-center px-6 py-2 rounded inline-flex gap-2',
+		custom: '',
 	},
 	variants: {
-		style: {
-			primary: 'text-white border border-transparent bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
-			secondary: 'text-secondary-900 border border-transparent bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
-			outlined: 'text-gray-900 border border-transparent border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
-		},
-		size: {
-			sm: 'px-2.5 py-1.5 gap-2 text-xs',
-			md: 'px-4 py-2 gap-3 text-base',
-			lg: 'px-8 py-4 gap-4 text-base',
-		}
+		primary: 'text-white border border-transparent bg-primary',
+		secondary: 'text-secondary-900 border border-transparent bg-secondary',
+		outlined: 'text-gray-900 border border-gray-200 bg-transparent',
 	}
 } %}
 
 {% set props = {
 	data: data is defined and data is iterable ? defaults.data | merge(data) : defaults.data,
-  	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
-  	variants: defaults.variants,
+	classes: classes is defined and classes is iterable ? defaults.classes | merge(classes) : defaults.classes,
+	variants: defaults.variants,
 } %}
 
+{# Set classes in a single line #}
+{% set classes = ([props.classes.root, props.variants[props.data.variant], props.classes.custom]|tailwind_merge) %}
 
-{# Set base classes #}
-{% set classes = [props.classes.root] %}
+{# Return HTML if needed #}
+{% if props.data.text or props.data.icon %}
+	<{{ props.data.url ? 'a' : 'button' }}
+		{{ props.data.url ? 'href=' ~ props.data.url : 'type=button' }}
+		{{ props.data.target ? 'target=' ~ props.data.target : '' }}
+		class="{{ classes }}">
 
-	{% if props.classes.display is not null %}
-{% set classes = classes|merge([props.classes.display]) %}
-{% endif %}
-
-	{% if props.classes.rounded is not null %}
-{% set classes = classes|merge([props.classes.rounded]) %}
-{% endif %}
-
-{# Add variant classes #}
-	{% if props.variants.style[props.data.variantStyle] %}
-{% set classes = classes|merge([props.variants.style[props.data.variantStyle]]) %}
-{% endif %}
-
-	{% if props.variants.size[props.data.variantSize] %}
-{% set classes = classes|merge([props.variants.size[props.data.variantSize]]) %}
-{% endif %}
-
-{# Add custom class #}
-	{% if props.classes.custom is not null %}
-{% set classes = classes|merge([props.classes.custom]) %}
-{% endif %}
-
-{# Merge classes #}
-{% set classes = classes|join(' ') %}
-
-{# Return HTML #}
-	{% if props.data.button.title or props.data.icon %}
-	{% set tag = props.data.button.url ? 'a' : 'button' %}
-	{% set attr = props.data.button.url ? 'href=' ~ props.data.button.url : 'type=' ~ props.data.buttonType %}
-
-		<{{tag}} {{ attr }} {{ props.data.button.url and props.data.button.target ? 'target=' ~ props.data.button.target : '' }} class="{{ props.data.name }} {{classes}}"> {% if props.data.icon %}
-			{{ icon.icon(props.data.icon, {class: props.data.reverse ? 'order-2' : '', width: props.data.iconSize}) }}
+		{% if props.data.icon %}		
+			{% include 'elements/icon.twig' with { name: props.data.icon, settings: { class: props.data.reverse ? 'order-2' : '', width: props.data.iconSize}, title: 'Check icon' } %}
 		{% endif %}
-
-		{{ props.data.button.title ?? null }}
-	</{{tag}}>
+		
+		{{ props.data.text }}
+	</{{ props.data.url ? 'a' : 'button' }}>
 {% endif %}

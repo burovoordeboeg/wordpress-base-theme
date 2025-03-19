@@ -1,17 +1,15 @@
 {% extends "./blocks/wrapper-block.twig" %}
 
-{% set classes = 'hallo' %}
-
 {% block content %}
 
 	<div class="bg-red-100">
 		<div>
 			{{include('elements/heading.twig', { 
-			data: { 
-				text: fields.heading.text, 
-				type: fields.heading.type 
-			},
-		}, with_context = false)}}
+				data: { 
+					text: fields.heading.text, 
+					type: fields.heading.type 
+				},
+			}, with_context = false)}}
 
 			<div class="prose max-w-none">
 				{{fields.copy|raw}}
@@ -19,15 +17,21 @@
 		</div>
 
 		<div class="min-w-fit">
-			{{include('elements/button.twig', {
-			data: {
-				button: fields.button.button,
-				variantSize: 'lg',
-				icon: 'arrow-down-circle',
-				reverse: true,
-				iconSize: '20'
-			}
-		}, with_context = false)}}
+			{% for button in fields.buttons %}
+				
+				{{include('elements/button.twig', {
+					data: {
+						button: button.button_button,
+						variant: button.button_variant,
+						icon: 'arrow-down-circle',
+						reverse: true,
+						iconSize: '20'
+					},
+					classes: {
+						custom:'bg-red-500'
+					}
+				}, with_context = false)}}
+			{% endfor %}
 		</div>
 
 	</div>
