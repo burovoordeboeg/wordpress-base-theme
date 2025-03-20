@@ -97,18 +97,26 @@ commands:
           command: |
             VAR_NAME="SERVER_W${SERVER}"
             echo "🔍 Debug: VAR_NAME is set to '$VAR_NAME'"
+
       - run:
-          name: "Manually get SERVER_IP"
+          name: "Check environment variables using env"
           command: |
-            echo "🔍 Debug: Manually checking SERVER_W${SERVER}"
-            printenv SERVER_W${SERVER}
+            env | grep "^SERVER_W"
+
+      - run:
+          name: "Load environment variables"
+          command: |
+            echo "🔍 Debug: Loading BASH_ENV..."
+            source $BASH_ENV
+            env | grep "^SERVER_W"
+
       - run:
           name: "Determine target server"
           command: |
             VAR_NAME="SERVER_W${SERVER}"
-            echo "🔍 Debug: Looking for variable: $VAR_NAME"
-
             SERVER_IP=$(eval echo \$$VAR_NAME)
+
+            echo "🔍 Debug: SERVER_IP resolved to '$SERVER_IP'"
 
             if [ -z "$SERVER_IP" ]; then
               echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
