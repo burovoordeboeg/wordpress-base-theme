@@ -93,27 +93,11 @@ commands:
     description: "Dynamically set the server IP"
     steps:
       - run:
-          name: "Verify VAR_NAME formatting"
-          command: |
-            VAR_NAME="SERVER_W${SERVER}"
-            echo "🔍 Debug: VAR_NAME is set to '$VAR_NAME'"
-
-      - run:
-          name: "Check environment variables using env"
-          command: |
-            env | grep "^SERVER_W"
-
-      - run:
-          name: "Load environment variables"
-          command: |
-            echo "🔍 Debug: Loading BASH_ENV..."
-            source $BASH_ENV
-            env | grep "^SERVER_W"
-
-      - run:
           name: "Determine target server"
           command: |
             VAR_NAME="SERVER_W${SERVER}"
+            echo "🔍 Debug: Looking for variable: $VAR_NAME"
+
             SERVER_IP=$(eval echo \$$VAR_NAME)
 
             echo "🔍 Debug: SERVER_IP resolved to '$SERVER_IP'"
@@ -124,7 +108,7 @@ commands:
             fi
 
             echo "✅ Using SERVER_IP: $SERVER_IP"
-            echo "export SERVER_IP=${SERVER_IP}" >> $BASH_ENV
+            export SERVER_IP="$SERVER_IP"
 
   # rsync deploy command
   rsync_deploy:
