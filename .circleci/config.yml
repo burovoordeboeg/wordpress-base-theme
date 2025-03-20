@@ -93,14 +93,6 @@ commands:
     description: "Dynamically set the server IP"
     steps:
       - run:
-          name: "Check if SERVER_W**** exists"
-          command: |
-            VAR_NAME="SERVER_W${SERVER}"
-            echo "🔍 Debug: Looking for environment variable: $VAR_NAME"
-            printenv | grep "^SERVER_W"
-            SERVER_IP=$(printenv "$VAR_NAME")
-            echo "🔍 Debug: Retrieved SERVER_IP = '$SERVER_IP'"
-      - run:
           name: "Verify VAR_NAME formatting"
           command: |
             VAR_NAME="SERVER_W${SERVER}"
