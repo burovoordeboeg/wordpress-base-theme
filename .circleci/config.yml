@@ -90,7 +90,7 @@ commands:
       - run:
           name: "Determine target server"
           command: |
-            VAR_NAME="SERVER_W${SERVER}"
+            VAR_NAME="SERVER_${SERVER}"
             echo "🔍 Debug: Looking for environment variable: $VAR_NAME"
 
             SERVER_IP=$(printenv "$VAR_NAME")
