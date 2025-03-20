@@ -93,13 +93,13 @@ commands:
     description: "Dynamically set the server IP"
     steps:
       - run:
-          name: "Check if SERVER is set"
+          name: "Check if SERVER_W**** exists"
           command: |
-            echo "🔍 Debug: SERVER is '$SERVER'"
-            if [ -z "$SERVER" ]; then
-              echo "❌ Error: SERVER variable is missing or empty."
-              exit 1
-            fi
+            VAR_NAME="SERVER_W${SERVER}"
+            echo "🔍 Debug: Looking for environment variable: $VAR_NAME"
+            printenv | grep "^SERVER_W"
+            SERVER_IP=$(printenv "$VAR_NAME")
+            echo "🔍 Debug: Retrieved SERVER_IP = '$SERVER_IP'"
 
       - run:
           name: "Determine target server"
