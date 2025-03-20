@@ -1,17 +1,18 @@
-.*/
-.*
-assets
-browsersync.config.js
-browsersync.config.example
-postcss.config.js
-node_modules
+# Exclude configs
 composer.json
 composer.lock
-gulpfile.js
 package-lock.json
 package.json
 tailwind.config.js
-README.md
 vite.config.mjs
-!build/.vite
-!build/.vite/**
+
+# Exclude local dev-folders
+assets/
+node_modules/
+README.md
+
+# Exclude dotfiles
+.circleci/
+.vscode/
+.gitignore
+.rsyncignore
