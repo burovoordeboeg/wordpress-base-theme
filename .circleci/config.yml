@@ -93,19 +93,22 @@ commands:
     description: "Dynamically set the server IP"
     steps:
       - run:
-          name: "Determine target server"
+          name: "Check if SERVER variable is set"
           command: |
+            echo "🔍 Debug: SERVER = $SERVER"
             if [ -z "$SERVER" ]; then
               echo "❌ Error: SERVER variable is not set."
               exit 1
             fi
 
+      - run:
+          name: "Determine target server"
+          command: |
             VAR_NAME="SERVER_W${SERVER}"
-            SERVER_IP=$(printenv "$VAR_NAME")
+            echo "🔍 Debug: Looking for variable: $VAR_NAME"
 
-            echo "🔍 Debug: SERVER = $SERVER"
-            echo "🔍 Debug: VAR_NAME = $VAR_NAME"
-            echo "🔍 Debug: SERVER_IP = $SERVER_IP"
+            SERVER_IP=$(printenv "$VAR_NAME")
+            echo "🔍 Debug: SERVER_IP found = $SERVER_IP"
 
             if [ -z "$SERVER_IP" ]; then
               echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
