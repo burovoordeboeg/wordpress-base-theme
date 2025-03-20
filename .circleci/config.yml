@@ -75,13 +75,8 @@ references:
       name: Compile vendors from composer packages
       command: composer install -n --ignore-platform-reqs --optimize-autoloader --no-dev
   
-  # Webpack builds
+  # Vite builds
   vite_build_assets: &vite_build_assets
-    run:
-      name: Build assets
-      command: npm run dev # Gebruik dit voor testomgevingen
-
-  vite_build_production_assets: &vite_build_production_assets
     run:
       name: Build assets for production
       command: npm run build # Gebruik dit voor acceptatie- en productieomgevingen
@@ -93,15 +88,17 @@ commands:
     description: "Dynamically set the server IP"
     steps:
       - run:
-          name: "Manually map SERVER to IP"
+          name: "Determine target server"
           command: |
-            case "$SERVER" in
-              W195) SERVER_IP="$SERVER_W195" ;;
-              W205) SERVER_IP="$SERVER_W205" ;;
-              W210) SERVER_IP="$SERVER_W210" ;;
-              *) echo "❌ Error: Unknown SERVER=$SERVER" && exit 1 ;;
-            esac
-            echo "✅ Using SERVER_IP: $SERVER_IP"
+            VAR_NAME="SERVER_W${SERVER}"
+            SERVER_IP=$(printenv "$VAR_NAME")
+
+            if [ -z "$SERVER_IP" ]; then
+              printenv | grep "^SERVER_W"
+              exit 1
+            fi
+            
+            export SERVER_IP="$SERVER_IP"
 
   # rsync deploy command
   rsync_deploy:
@@ -156,7 +153,7 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *vite_build_production_assets
+      - <<: *vite_build_assets
       - <<: *composer_restore_cache
       - <<: *composer_github_oauth
       - <<: *composer_install
@@ -176,7 +173,7 @@ jobs:
       - <<: *npm_restore_cache
       - <<: *npm_install
       - <<: *npm_save_cache
-      - <<: *vite_build_production_assets
+      - <<: *vite_build_assets
       - <<: *composer_restore_cache
       - <<: *composer_github_oauth
       - <<: *composer_install
