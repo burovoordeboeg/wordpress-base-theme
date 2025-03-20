@@ -1,16 +1,14 @@
 # Circleci config based on gitflow
 # 
 # Needs setting of variables:
-# - USER              string  Name of user on server
-# - DOMAIN_TEST       string  Domain to deploy to
-# - DOMAIN_ACCEPTANCE string  Domain to deploy to
-# - DOMAIN_PRODUCTION string  Domain to deploy to
-# - SERVER_PATH       string  Path to testing environment
+# - SERVER            string  Number of the server    (pick: W195, W205, W210)
+# - USER              string  Name of user on server  (example: "buroboeg")
+# - DOMAIN_TEST       string  Domain to deploy to     (example: "example-w205.test.example.com")
+# - DOMAIN_ACCEPTANCE string  Domain to deploy to     (example: "example-w205.accept.example.com")
+# - DOMAIN_PRODUCTION string  Domain to deploy to     (example: "www.example.com")
+# - THEME_DIR         string  Name of the theme dir   (example: "base-theme")
 #
-# Also make sure you know where you want to deploy to:
-# If you want to deploy to S01, you do not need to edit the standard SERVER_W210
-# to SERVER_W195 or SERVER_W205 to deploy to these specific servers
-# Also see the contexts menu within cirlceci
+# Rest of the variables are from the context: buro-voor-de-boeg
 
 version: 2.1
 
@@ -19,7 +17,14 @@ references:
     circleci_ip_ranges: true
     working_directory: ~/theme
     docker:
-      - image: cimg/php:7.4-node
+      - image: cimg/php:8.2-node
+  
+  # Add server key
+  add_serverkey: &add_serverkey
+    run:
+        name: Add SSH keys for server
+        command: |
+          ssh-keyscan "$SERVER_IP" >> ~/.ssh/known_hosts
 
   # Rsync install
   rsync_install: &rsync_install
@@ -83,18 +88,22 @@ references:
 
 # Setup commands
 commands:
-  # SSH Server keys
-  add_serverkey:
-    description: Add SSH keys for server
-    parameters:
-      server_ip: 
-        type: string
-        default: ""
-    steps: 
+  # Dynamically set the server IP
+  set_server_ip:
+    description: "Dynamically set the server IP"
+    steps:
       - run:
-          name: Add server keys
+          name: "Determine target server"
           command: |
-            ssh-keyscan <<parameters.server_ip>> >> ~/.ssh/known_hosts
+            VAR_NAME="SERVER_W${SERVER}"
+            SERVER_IP=$(printenv "$VAR_NAME")
+            if [ -z "$SERVER_IP" ]; then
+              echo "Error: SERVER_IP not found for SERVER=${SERVER}"
+              exit 1
+            fi
+            echo "Using SERVER_IP: $SERVER_IP"
+            export SERVER_IP="$SERVER_IP"
+            echo "export SERVER_IP=${SERVER_IP}" >> $BASH_ENV
 
   # rsync deploy command
   rsync_deploy:
@@ -106,28 +115,25 @@ commands:
       domain: 
         type: string
         default: ""
-      path: 
-        type: string
-        default: ""
-      server_ip: 
+      theme_dir: 
         type: string
         default: ""
     steps:
       - run:
           name: Rsync deploy to <<parameters.jobname>>
           command: |
-            if [ -z <<parameters.domain>> ]
-            then
-                echo "No domain specified to deploy to"
+            if [ -z "<<parameters.domain>>" ]; then
+                echo "Error: No domain specified to deploy to"
                 exit 1
             fi
-            rsync -avz --delete -e "ssh -p $SERVER_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@<<parameters.server_ip>>:/home/$USER/domains/<<parameters.domain>>/<<parameters.path>>
+            rsync -avz --delete -e "ssh -p $SERVER_PORT -o StrictHostKeyChecking=no" --chown=$USER:$USER --exclude-from '.rsyncignore' . $USER@$SERVER_IP:/home/$USER/domains/<<parameters.domain>>/public_html/content/themes/<<parameters.theme_dir>>
 
 jobs:
   "Test":
     <<: *default
     steps:
       - checkout
+      - set_server_ip
       - <<: *rsync_install
       - <<: *npm_restore_cache
       - <<: *npm_install
@@ -137,18 +143,17 @@ jobs:
       - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
-      - add_serverkey:
-          server_ip: $SERVER_W210
+      - <<: *add_serverkey
       - rsync_deploy:
           jobname: "test"
           domain: $DOMAIN_TEST
-          path: $SERVER_PATH
-          server_ip: $SERVER_W210
+          theme_dir: $THEME_DIR
 
   "Acceptance":
     <<: *default
     steps:
       - checkout
+      - set_server_ip
       - <<: *rsync_install
       - <<: *npm_restore_cache
       - <<: *npm_install
@@ -158,18 +163,17 @@ jobs:
       - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
-      - add_serverkey:
-          server_ip: $SERVER_W210
+      - <<: *add_serverkey
       - rsync_deploy:
           jobname: "acceptance"
           domain: $DOMAIN_ACCEPTANCE
-          path: $SERVER_PATH
-          server_ip: $SERVER_W210
+          theme_dir: $THEME_DIR
 
   "Production":
     <<: *default
     steps:
       - checkout
+      - set_server_ip
       - <<: *rsync_install
       - <<: *npm_restore_cache
       - <<: *npm_install
@@ -179,13 +183,11 @@ jobs:
       - <<: *composer_github_oauth
       - <<: *composer_install
       - <<: *composer_save_cache
-      - add_serverkey:
-          server_ip: $SERVER_W210
+      - <<: *add_serverkey
       - rsync_deploy:
           jobname: "production"
           domain: $DOMAIN_PRODUCTION
-          path: $SERVER_PATH
-          server_ip: $SERVER_W210
+          theme_dir: $THEME_DIR
       
 workflows:
   "Feature deployment":
@@ -193,7 +195,7 @@ workflows:
       - "Test": 
           context:
             - buro-voor-de-boeg
-          filters: &filter_develop
+          filters:
             branches:
               only:
                 - develop
@@ -203,7 +205,7 @@ workflows:
       - "Acceptance": 
           context:
             - buro-voor-de-boeg
-          filters: &filter_all_tags
+          filters:
             branches:
               ignore: /.*/
             tags:

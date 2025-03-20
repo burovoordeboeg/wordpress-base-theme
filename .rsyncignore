@@ -13,3 +13,5 @@ package.json
 tailwind.config.js
 README.md
 vite.config.mjs
+!build/.vite
+!build/.vite/**
