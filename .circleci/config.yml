@@ -91,14 +91,21 @@ commands:
           name: "Determine target server"
           command: |
             VAR_NAME="SERVER_W${SERVER}"
+            echo "🔍 Debug: Looking for environment variable: $VAR_NAME"
+
             SERVER_IP=$(printenv "$VAR_NAME")
 
             if [ -z "$SERVER_IP" ]; then
+              echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
+              echo "🔍 Available SERVER_W variables:"
               printenv | grep "^SERVER_W"
               exit 1
             fi
+
+            echo "✅ Using SERVER_IP: $SERVER_IP"
             
-            export SERVER_IP="$SERVER_IP"
+            # Maak SERVER_IP beschikbaar voor de rest van de pipeline
+            echo "export SERVER_IP=${SERVER_IP}" >> $BASH_ENV
 
   # rsync deploy command
   rsync_deploy:
