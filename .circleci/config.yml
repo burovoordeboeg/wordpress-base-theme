@@ -100,14 +100,23 @@ commands:
             printenv | grep "^SERVER_W"
             SERVER_IP=$(printenv "$VAR_NAME")
             echo "🔍 Debug: Retrieved SERVER_IP = '$SERVER_IP'"
-
+      - run:
+          name: "Verify VAR_NAME formatting"
+          command: |
+            VAR_NAME="SERVER_W${SERVER}"
+            echo "🔍 Debug: VAR_NAME is set to '$VAR_NAME'"
+      - run:
+          name: "Manually get SERVER_IP"
+          command: |
+            echo "🔍 Debug: Manually checking SERVER_W${SERVER}"
+            printenv SERVER_W${SERVER}
       - run:
           name: "Determine target server"
           command: |
             VAR_NAME="SERVER_W${SERVER}"
             echo "🔍 Debug: Looking for variable: $VAR_NAME"
 
-            SERVER_IP=$(printenv "$VAR_NAME")
+            SERVER_IP=$(eval echo \$$VAR_NAME)
 
             if [ -z "$SERVER_IP" ]; then
               echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
