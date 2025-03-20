@@ -93,22 +93,15 @@ commands:
     description: "Dynamically set the server IP"
     steps:
       - run:
-          name: "Determine target server"
+          name: "Manually map SERVER to IP"
           command: |
-            VAR_NAME="SERVER_W${SERVER}"
-            echo "🔍 Debug: Looking for variable: $VAR_NAME"
-
-            SERVER_IP=$(eval echo \$$VAR_NAME)
-
-            echo "🔍 Debug: SERVER_IP resolved to '$SERVER_IP'"
-
-            if [ -z "$SERVER_IP" ]; then
-              echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
-              exit 1
-            fi
-
+            case "$SERVER" in
+              W195) SERVER_IP="$SERVER_W195" ;;
+              W205) SERVER_IP="$SERVER_W205" ;;
+              W210) SERVER_IP="$SERVER_W210" ;;
+              *) echo "❌ Error: Unknown SERVER=$SERVER" && exit 1 ;;
+            esac
             echo "✅ Using SERVER_IP: $SERVER_IP"
-            export SERVER_IP="$SERVER_IP"
 
   # rsync deploy command
   rsync_deploy:
