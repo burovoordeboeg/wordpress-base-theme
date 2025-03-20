@@ -95,14 +95,24 @@ commands:
       - run:
           name: "Determine target server"
           command: |
-            VAR_NAME="SERVER_W${SERVER}"
-            SERVER_IP=$(printenv "$VAR_NAME")
-            if [ -z "$SERVER_IP" ]; then
-              echo "Error: SERVER_IP not found for SERVER=${SERVER}"
+            if [ -z "$SERVER" ]; then
+              echo "❌ Error: SERVER variable is not set."
               exit 1
             fi
-            echo "Using SERVER_IP: $SERVER_IP"
-            export SERVER_IP="$SERVER_IP"
+
+            VAR_NAME="SERVER_W${SERVER}"
+            SERVER_IP=$(printenv "$VAR_NAME")
+
+            echo "🔍 Debug: SERVER = $SERVER"
+            echo "🔍 Debug: VAR_NAME = $VAR_NAME"
+            echo "🔍 Debug: SERVER_IP = $SERVER_IP"
+
+            if [ -z "$SERVER_IP" ]; then
+              echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
+              exit 1
+            fi
+
+            echo "✅ Using SERVER_IP: $SERVER_IP"
             echo "export SERVER_IP=${SERVER_IP}" >> $BASH_ENV
 
   # rsync deploy command
