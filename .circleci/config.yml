@@ -94,7 +94,7 @@ commands:
             SERVER_IP=$(printenv "$VAR_NAME")
 
             if [ -z "$SERVER_IP" ]; then
-              echo "❌ Error: SERVER_IP not found for SERVER=${SERVER}"
+              echo "Error: SERVER_IP not found for SERVER=${SERVER}"
               exit 1
             fi
             
