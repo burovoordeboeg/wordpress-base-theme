@@ -55,6 +55,7 @@
 	 */
 	add_action('after_setup_theme', function () use ($assets, $hmr_disabled) {
 		
+		
 		// Set HMR server url
 		$hmr_server_url = 'http://localhost:3002';
 
@@ -80,6 +81,8 @@
 			'nonce'   => wp_create_nonce('ajax-nonce')
 		));
 
+		
+		
 		// Load assets
 		$assets->load_theme_assets();
 
@@ -92,7 +95,9 @@
 	{
 		// Load editor assets
 		$assets->register('editor', 'script', 'bvdb-editor', $assets->get_file_from_manifest('scripts/editor.js'), [], true);
-		$assets->register('editor', 'style', 'bvdb-styles', $assets->get_file_from_manifest('styles/editor-styles.css'), [], true);
+
+		// Add editor styles
+		add_editor_style($assets->get_file_from_manifest('styles/editor-styles.css'));
 
 		// Load assets
 		$assets->load_editor_assets();

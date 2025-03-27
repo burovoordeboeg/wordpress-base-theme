@@ -1,4 +1,12 @@
+/* What files to watch */
+@source "../../templates/**/*";
+
+/* Import default tailwind */
 @import "tailwindcss";
 
 /* Load the config file */
 @import './config.css';
+
+body {
+	background-color: var(--color-white);
+}

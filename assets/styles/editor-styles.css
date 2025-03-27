@@ -1,12 +1,26 @@
-@layer theme, base, components;
-
-/* 
- * Do not use the default tailwind include as the cascading layers 
- * are not specific enough to overrule WordPress styles 
- */
+@layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" ;
+@import "tailwindcss/utilities.css";
 
 @import './config.css';
 
+/* Extending */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin:0;
+  padding:0;
+}
+
+/* Style page header of pages */
+.editor-visual-editor__post-title-wrapper {
+	background-color:#f9f9f9;
+	margin-top:0!important;
+	margin-bottom:2rem;
+	padding:5rem;
+
+}
