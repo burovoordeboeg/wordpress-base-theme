@@ -3,7 +3,7 @@ Use it like this:
 {% include 'elements/icon.twig' with { name: 'check', settings: { width: 32, class: 'custom-class' }, title: 'Check icon' } %}
 #}
 
-{% set url = get_template_directory_uri() ~ '/build/images/sprite.svg#' ~ name %}
+{% set url = get_template_directory_uri() ~ '/build/images/icons/sprite.svg#' ~ name %}
 {% set width = settings.width ?? 24 %}
 {% set height = settings.height ?? width %}
 {% set class = settings.class ?? null %}
