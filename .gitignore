@@ -1,3 +1,4 @@
+.hmr-enabled
 node_modules
 vendor
 build

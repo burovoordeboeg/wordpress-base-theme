@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<div class="bg-red-100">
+	<div class="">
 		<div>
 			{{include('elements/heading.twig', { 
 				data: { 
@@ -11,7 +11,7 @@
 				},
 			}, with_context = false)}}
 
-			<div class="prose max-w-none">
+			<div class="prose max-w-none ">
 				{{fields.copy|raw}}
 			</div>
 		</div>

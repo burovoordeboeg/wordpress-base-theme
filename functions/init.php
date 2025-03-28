@@ -40,9 +40,6 @@
 		'size_h' => 300
 	));
 
-	// Set to true to enable local build testing
-	$hmr_disabled = false;
-
 	// Setup assets loader
 	$assets = $utilities->assets;
 	
@@ -53,12 +50,13 @@
 	 * Autoload all theme files such as scripts/styles needed for the theme
 	 * @see https://developer.wordpress.org/reference/hooks/after_setup_theme/
 	 */
-	add_action('after_setup_theme', function () use ($assets, $hmr_disabled) {
+	add_action('after_setup_theme', function () use ($assets) {
+		
 		
 		// Set HMR server url
 		$hmr_server_url = 'http://localhost:3002';
 
-		if ($hmr_disabled === false && file_exists(get_template_directory() . '/vite.config.mjs')) 
+		if (file_exists(get_template_directory() . '/.hmr-enabled')) 
 		{
 			// When in development mode
 			$assets->enable_hmr($hmr_server_url);
@@ -80,6 +78,8 @@
 			'nonce'   => wp_create_nonce('ajax-nonce')
 		));
 
+		
+		
 		// Load assets
 		$assets->load_theme_assets();
 
@@ -92,7 +92,9 @@
 	{
 		// Load editor assets
 		$assets->register('editor', 'script', 'bvdb-editor', $assets->get_file_from_manifest('scripts/editor.js'), [], true);
-		$assets->register('editor', 'style', 'bvdb-styles', $assets->get_file_from_manifest('styles/editor-styles.css'), [], true);
+
+		// Add editor styles
+		add_editor_style($assets->get_file_from_manifest('styles/editor-styles.css'));
 
 		// Load assets
 		$assets->load_editor_assets();
