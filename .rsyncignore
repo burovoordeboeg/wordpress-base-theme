@@ -14,5 +14,7 @@ README.md
 # Exclude dotfiles
 .circleci/
 .vscode/
+.intelephense/
 .gitignore
 .rsyncignore
+.hmr-enabled
