@@ -5,17 +5,19 @@
   "main": "index.js",
   "dependencies": {
     "@burovoordeboeg/component-downloader": "^1.0.0",
-    "@tailwindcss/vite": "^4.0.0-beta.8",
-    "fs": "^0.0.1-security",
-    "vite-plugin-static-copy": "^2.2.0"
+    "@tailwindcss/vite": "^4.0.0-beta.8"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "dotenv": "^16.4.7",
+    "fs": "^0.0.1-security",
+    "sharp": "^0.33.5",
     "tailwindcss": "^4.0.0-beta.8",
     "vite": "^6.0.7",
-    "vite-svg-sprite-wrapper": "^1.4.1"
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-svg-sprite-wrapper": "^1.4.1",
+    "vite-plugin-static-copy": "^2.2.0"
   },
   "scripts": {
     "require": "component-downloader",
