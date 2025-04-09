@@ -4,6 +4,11 @@
 @import "tailwindcss/utilities.css";
 
 @import './config.css';
+@import './gform.css';
+
+/* If using swiper js */
+/* @import '../../node_modules/swiper/swiper-bundle.css'; */
+
 
 /* Extending */
 h1,

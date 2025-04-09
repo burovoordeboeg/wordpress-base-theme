@@ -25,7 +25,7 @@
 
 
 html {
-    color: var(--color-black);
+    color: var(--color-slate-700);
     /* Set sans, serif or mono stack with optional custom font as default. */
     font-family: var(--font-sans);
     /* font-family: var(--font-serif); */
@@ -81,8 +81,8 @@ mark {
 
 /* Typography styles */
 @utility prose {
-    --tw-prose-body: var(--color-black);
-    --tw-prose-headings: var(--color-red-400);
+    --tw-prose-body: var(--color-slate-700);
+    --tw-prose-headings: var(--color-slate-700);
     --tw-prose-lead: var(--color-black);
     --tw-prose-links: var(--color-black);
     --tw-prose-bold: var(--color-black);

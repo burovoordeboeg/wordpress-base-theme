@@ -6,6 +6,7 @@
 
 /* Load the config file */
 @import './config.css';
+@import './gform.css';
 
 body {
 	background-color: var(--color-white);
