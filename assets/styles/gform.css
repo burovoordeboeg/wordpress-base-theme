@@ -1,0 +1,213 @@
+/* Global Variables for Gravity Forms Styling */
+.gform_wrapper.gravity-theme {
+	--gf-font-family: var(--font-sans);
+	--gf-font-size: 16px;
+	--gf-label-color: var(--color-black);
+	--gf-input-bg: var(--color-support);
+	--gf-input-border: var(--color-neutral);
+	--gf-input-border-radius: 6px;
+	--gf-input-padding: 16px 24px;
+	--gf-input-focus-border: var(--color-accent);
+	--gf-placeholder-color: var(--color-primary);
+	--gf-button-bg: var(--color-primary);
+	--gf-button-color: var(--color-white);
+	--gf-button-hover-bg: var(--color-accent);
+	--gf-button-hover-color: var(--color-white);
+	--gf-error-color: #d9534f;
+	--gf-error-bg: #f2dede;
+	--gf-error-border: #ebccd1;
+}
+
+/* Layout */
+.gform_wrapper.gravity-theme {
+	padding-inline: 24px;
+	max-width: var(--breakpoint-xl);
+	margin-inline: auto;
+	margin-bottom: 40px;
+	display:grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-column-gap: 2rem;
+	grid-row-gap:1.5rem;
+
+	.gform_heading, form {
+		grid-column: 1 / -1;
+	}
+
+	.gform_fields {
+		grid-row-gap: 1.5rem;
+		grid-column-gap: 2rem;
+	}
+
+	@media (min-width: 768px) {
+		
+	}
+
+	@media (min-width: 1024px) {
+		.gform_heading, form {
+			grid-column: 2 / 12;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		margin-bottom: 80px;
+		.gform_heading, form {
+			grid-column: 3 / 11;
+		}
+	}
+}
+
+/* Form title */
+.gform_wrapper.gravity-theme .gform_heading {
+	.gform_title {
+		font-size: var(--text-3xl);
+		color: var(--color-primary);
+		margin-bottom: 0rem;
+		font-weight: bold;
+	}
+}
+
+
+/* Gravity Forms Base Styling */
+.gform_wrapper.gravity-theme {
+	font-family: var(--gf-font-family);
+	font-size: var(--gf-font-size);
+}
+
+/* Labels */
+.gform_wrapper.gravity-theme label {
+	color: var(--gf-label-color);
+	font-weight: bold;
+}
+
+
+/* Inputs & Textareas */
+.gform_wrapper.gravity-theme {
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	textarea,
+	select {
+		width: 100%;
+		padding: var(--gf-input-padding);
+		border: 1px solid var(--gf-input-border);
+		border-radius: var(--gf-input-border-radius);
+		background: var(--gf-input-bg);
+
+		&::placeholder {
+			color: var(--gf-placeholder-color);
+			opacity: 0.5;
+		}
+
+		&:focus {
+			border-color: var(--gf-input-focus-border);
+			outline: none;
+		}
+	}
+}
+
+/* Buttons */
+.gform_wrapper.gravity-theme {
+	.gform-button,
+	.gform_button {
+		background: var(--gf-button-bg);
+		color: var(--gf-button-color);
+		padding: 10px 20px;
+		height: 58px;
+		border: 2px solid var(--gf-button-bg);
+		border-radius: 999px;
+		font-weight:bold;
+		cursor: pointer;
+		transition: all 0.3s ease;
+
+		&:hover {
+			background: var(--gf-button-hover-bg);
+			border: 2px solid var(--gf-button-hover-bg);
+			color: var(--gf-button-hover-color);
+		}
+	}
+}
+
+/* Error Messages */
+  .gform_wrapper.gravity-theme .gfield_error {
+    input,
+	textarea,
+	select {
+		border-color: var(--gf-error-border);
+		background: var(--gf-error-bg);
+	}
+  }
+
+  .gform_wrapper.gravity-theme .gform_validation_errors {
+    color: var(--gf-error-color);
+    background: var(--gf-error-bg);
+    padding: 10px;
+    border: 1px solid var(--gf-error-border);
+    grid-column: 1 / -1;
+
+	& > h2 {
+		.gform-icon {
+			display: none;
+		}
+	}
+  }
+
+/* Success Message */
+.gform_confirmation_message {
+	color: #2d862d;
+	background: #e6f9e6;
+	padding: 10px;
+	border: 1px solid #b2d8b2;
+	border-radius: var(--gf-input-border-radius);
+}
+
+/* Name field */
+.gform_wrapper.gravity-theme .ginput_complex,
+.gform_wrapper.gravity-theme .gfield--input-type-name {
+	legend {
+		display: none;
+	}
+
+	label {
+		font-size: 1rem;
+		margin-bottom: 8px;
+	}
+}
+
+/* Footer */
+.gform_wrapper.gravity-theme .gform_footer {
+	padding: 0;
+	margin: 1rem 0 0;
+}
+
+
+/* Textarea */
+.gform_wrapper.gravity-theme textarea {
+	min-height: 100px;
+	display: block;
+}
+
+
+/* Radio buttons */
+.gform_wrapper.gravity-theme .gfield--input-type-radio {
+	.gfield_radio {
+		display: flex;
+		gap: 8px;
+	}
+	label {
+		font-size: 1rem;
+		font-weight: normal;
+	  }
+
+	  input[type="radio"]:checked {
+		background-color: var(--color-brand-gold);
+	  }
+}
+
+/* gform_required_legend */
+
+.gform_wrapper.gravity-theme .gform_required_legend {
+	color: var(--color-brand-gold);
+	display: none;
+}
+
